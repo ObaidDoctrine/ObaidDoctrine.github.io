@@ -3,7 +3,7 @@ OBAID DOCTRINE — WEBSITE PACKAGE
 Included: English homepage, Urdu homepage, topic/category pages, 30 article starter pages, Articles index, About, Contact, robots.txt, sitemap.xml, bilingual SEO metadata and brand assets.
 
 IMPORTANT BEFORE DEPLOYMENT
-1. Replace https://www.obaiddoctrine.com/ everywhere with your actual domain.
+1. Replace https://obaiddoctrine.github.io/ everywhere with your actual domain.
 2. Replace hello@obaiddoctrine.com with your real email.
 3. Add a real author/about identity and credentials if you intend to publish professional or clinical claims.
 4. Review every article against the latest primary research before publication.

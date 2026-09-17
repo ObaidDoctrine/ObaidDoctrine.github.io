@@ -1,0 +1,8 @@
+Core research/standards used for the editorial architecture:
+- American Psychological Association — Evidence-Based Practice in Psychology: https://www.apa.org/practice/guidelines/evidence-based-statement
+- American Psychological Association — Psychology Topics: https://www.apa.org/topics
+- American Psychological Association — Marriage and Relationships: https://www.apa.org/topics/relationships
+- American Psychological Association — Research and Practice: https://www.apa.org/research-practice
+- World Health Organization — Mental Health: https://www.who.int/health-topics/mental-health
+
+These sources support the site's emphasis on research-informed communication, context, limitations, relationships, mental health and scientific psychology. They do not validate every individual article claim. Each article should be reviewed against the relevant primary literature before publication.
