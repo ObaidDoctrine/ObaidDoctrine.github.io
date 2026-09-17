@@ -1,0 +1,59 @@
+name: Extract Obaid Doctrine Website
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Obaid-Doctrine-Website-Full-SEO-1.zip'
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract website ZIP
+        run: |
+          rm -rf _website_extract
+          mkdir _website_extract
+
+          unzip -q "Obaid-Doctrine-Website-Full-SEO-1.zip" -d _website_extract
+
+          if [ -f "_website_extract/index.html" ]; then
+            SRC="_website_extract"
+          elif [ -f "_website_extract/obaid-doctrine-website/index.html" ]; then
+            SRC="_website_extract/obaid-doctrine-website"
+          else
+            echo "Website index.html not found"
+            find _website_extract -maxdepth 3 -type f | head -100
+            exit 1
+          fi
+
+          cp -a "$SRC"/. .
+
+          rm -rf _website_extract
+
+      - name: Fix GitHub Pages URLs
+        run: |
+          find . -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) \
+            -not -path "./.git/*" \
+            -exec sed -i 's#https://www\.obaiddoctrine\.com#https://obaiddoctrine.github.io#g' {} +
+
+      - name: Restore Google verification
+        run: |
+          if ! grep -q "google-site-verification" index.html; then
+            sed -i 's#</head>#<meta name="google-site-verification" content="VWajpLFq-A3AZbIHOVg5tTK8hSInMVcwKZO0mHusTnU" />\n</head>#' index.html
+          fi
+
+      - name: Commit website
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Deploy complete Obaid Doctrine website" || echo "No changes to commit"
+          git push
