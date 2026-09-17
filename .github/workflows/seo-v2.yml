@@ -27,12 +27,17 @@ jobs:
           BASE='https://obaiddoctrine.github.io'
           now=datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
-          # Remove Urdu hreflang from English pages where the equivalent Urdu page does not exist.
+          # Remove Urdu hreflang from English pages only when the linked Urdu page does not exist.
           for p in ROOT.rglob('*.html'):
               if '.git' in p.parts or p.as_posix() == 'ur/index.html':
                   continue
               t=p.read_text(encoding='utf-8')
-              t=re.sub(r'\s*<link rel="alternate" hreflang="ur" href="https://obaiddoctrine\.github\.io/ur/[^\"]*">','',t)
+              matches=re.findall(r'<link rel="alternate" hreflang="ur" href="([^"]+)">',t)
+              for href in matches:
+                  target=href[len(BASE):] if href.startswith(BASE) else ''
+                  target_path=ROOT/target.lstrip('/')/'index.html' if target.endswith('/') else ROOT/target.lstrip('/')
+                  if target and not target_path.exists():
+                      t=t.replace(f'<link rel="alternate" hreflang="ur" href="{href}">','')
               p.write_text(t,encoding='utf-8')
 
           # Add Article JSON-LD to article pages that do not already have it.
