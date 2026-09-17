@@ -2,9 +2,6 @@ name: Extract Obaid Doctrine Website
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'Obaid-Doctrine-Website-Full-SEO-1.zip'
 
 permissions:
   contents: write
@@ -35,7 +32,6 @@ jobs:
           fi
 
           cp -a "$SRC"/. .
-
           rm -rf _website_extract
 
       - name: Fix GitHub Pages URLs
