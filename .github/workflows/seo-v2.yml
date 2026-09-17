@@ -2,6 +2,9 @@ name: Obaid Doctrine SEO V2
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/seo-v2-trigger'
 
 permissions:
   contents: write
@@ -59,7 +62,7 @@ jobs:
               p.write_text(t,encoding='utf-8')
 
           # Correct Open Graph type for non-article pages.
-          for rel in ['articles/index.html','about/index.html','contact/index.html']:
+          for rel in ['articles/index.html','about/index.html','contact/index.html','psychology/index.html','human-behaviour/index.html','relationships/index.html','marriage-family/index.html','self-improvement/index.html','society-life/index.html','research-insights/index.html']:
               p=ROOT/rel
               if p.exists():
                   t=p.read_text(encoding='utf-8').replace('<meta property="og:type" content="article">','<meta property="og:type" content="website">')
@@ -94,5 +97,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Apply Obaid Doctrine SEO V2" || echo "No changes to commit"
+          git commit -m "Apply Obaid Doctrine SEO V2 category fixes" || echo "No changes to commit"
           git push
