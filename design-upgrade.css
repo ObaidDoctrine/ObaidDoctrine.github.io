@@ -296,3 +296,14 @@ footer a:hover{color:var(--od-lime)}
 @media(max-width:1000px){.discover-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.discover-grid{grid-template-columns:1fr}.discover-card{min-height:270px}}
 body[dir=rtl] .discover-card{text-align:right}
+
+
+/* Discovery cards — knowledge-first content layout */
+.discover-card{min-height:390px}
+.discover-story{font-size:14px;line-height:1.65;color:var(--od-ink);margin:10px 0 12px;font-weight:600}
+.discover-takeaway{margin-top:14px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.58);border:1px solid rgba(36,49,40,.08)}
+.discover-takeaway strong{display:block;font-size:10px;letter-spacing:.12em;color:var(--od-green);margin-bottom:5px}
+.discover-takeaway p{margin:0;font-size:13px;line-height:1.55;color:#425047}
+.discover-source{display:block!important;margin-top:12px!important;padding:0!important;background:transparent!important;color:var(--od-green)!important;font-size:10px!important;text-decoration:underline!important}
+.discover-source:hover{background:transparent!important;color:var(--od-ink)!important}
+@media(max-width:600px){.discover-card{min-height:0}.discover-story{font-size:14px}.discover-takeaway{padding:12px}}
