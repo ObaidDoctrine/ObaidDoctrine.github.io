@@ -9,7 +9,7 @@
 <link rel="alternate" hreflang="ur" href="https://obaiddoctrine.github.io/ur/articles/">
 <link rel="alternate" hreflang="en" href="https://obaiddoctrine.github.io/articles/">
 <link rel="alternate" hreflang="x-default" href="https://obaiddoctrine.github.io/articles/">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/styles.css?v=20260918">
 <style>
 .article-list{display:grid;gap:18px;max-width:900px;margin:28px auto;padding:0 18px}.article-card{display:block;text-decoration:none;color:inherit;border:1px solid #ddd;border-radius:14px;padding:20px;background:#fff}.article-card:hover{border-color:#9acd32}.article-card h2{margin:0 0 8px;font-size:1.25rem}.article-card p{margin:0 0 10px;line-height:1.8}.category{font-size:.82rem;font-weight:700;letter-spacing:.04em;color:#6b8e23}
 </style>
@@ -17,14 +17,14 @@
 <body>
 <header>
 <a href="/ur/">OBAID DOCTRINE</a>
-<nav><a href="/ur/">Home</a> · <a href="/ur/articles/">Articles</a> · <a href="/articles/">English</a></nav>
+<nav><a href="/ur/start-here/">Start Here</a> · <a href="/ur/">Home</a> · <a href="/ur/articles/">Articles</a> · <a href="/articles/">English</a></nav>
 </header>
 <main>
 <section class="hero">
 <h1>اردو Psychology Articles</h1>
 <p>Psychology، انسانی رویّوں، relationships اور society کو آسان اور research-informed انداز میں سمجھنے کے لیے ہمارے اردو مضامین۔</p>
 </section>
-<section class="article-list">
+<section class="site-search" aria-labelledby="article-search-title"><form class="search-box" id="article-search-form"><label id="article-search-title" class="sr-only" for="article-search-input">مضامین تلاش کریں</label><input id="article-search-input" type="search" autocomplete="off" placeholder="Psychology، behaviour، relationships تلاش کریں..." aria-describedby="article-search-status"><button class="btn primary" type="submit">تلاش کریں</button><button class="btn ghost" type="button" id="article-search-clear">صاف کریں</button></form><p class="search-status" id="article-search-status" aria-live="polite"></p><p class="search-empty" id="article-search-empty">کوئی matching مضمون نہیں ملا۔ دوسرا لفظ آزمائیں۔</p></section><section class="article-list">
 <a class="article-card" href="/ur/articles/what-is-psychology/"><span class="category">PSYCHOLOGY</span><h2>Psychology کیا ہے؟</h2><p>ذہن، رویّے اور انسانی تجربے کو سمجھنے کی بنیادی رہنمائی۔</p></a>
 <a class="article-card" href="/ur/articles/emotional-intelligence/"><span class="category">EMOTIONS</span><h2>Emotional Intelligence کیا ہے؟</h2><p>جذبات کو پہچاننے، سمجھنے اور سنبھالنے کے بارے میں بنیادی معلومات۔</p></a>
 <a class="article-card" href="/ur/articles/healthy-communication/"><span class="category">RELATIONSHIPS</span><h2>Healthy Communication</h2><p>رشتوں میں واضح، بااحترام اور مؤثر گفتگو کیسے کی جاتی ہے؟</p></a>
@@ -58,5 +58,5 @@
 </section>
 </main>
 <footer><p>© OBAID DOCTRINE — Better Mind | Better Character | Better Life</p></footer>
-</body>
+<script>(function(){const form=document.getElementById('article-search-form'),input=document.getElementById('article-search-input'),clear=document.getElementById('article-search-clear'),status=document.getElementById('article-search-status'),empty=document.getElementById('article-search-empty'),cards=[...document.querySelectorAll('.article-list > .article-card')];function filter(){const q=input.value.trim().toLocaleLowerCase();let visible=0;cards.forEach(card=>{const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)visible++;});empty.style.display=q&&visible===0?'block':'none';status.textContent=q?visible+' matching مضامین ملے':visible+' مضامین';}form.addEventListener('submit',e=>{e.preventDefault();filter();});input.addEventListener('input',filter);clear.addEventListener('click',()=>{input.value='';input.focus();filter();});filter();})();</script></body>
 </html>
