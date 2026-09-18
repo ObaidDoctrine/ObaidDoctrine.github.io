@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-L4T240RQDK');
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emotional Intelligence Self-Reflection Test | Obaid Doctrine</title>
+<meta name="description" content="Explore four everyday emotional-intelligence dimensions with a short research-informed self-reflection test. Educational only, not a clinical assessment.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://obaiddoctrine.github.io/mind-tests/emotional-intelligence/">
+<link rel="alternate" hreflang="en" href="https://obaiddoctrine.github.io/mind-tests/emotional-intelligence/">
+<link rel="alternate" hreflang="ur" href="https://obaiddoctrine.github.io/ur/mind-tests/emotional-intelligence/">
+<link rel="alternate" hreflang="x-default" href="https://obaiddoctrine.github.io/mind-tests/emotional-intelligence/">
+<meta property="og:type" content="website"><meta property="og:title" content="Emotional Intelligence Self-Reflection Test | Obaid Doctrine"><meta property="og:description" content="A short educational self-reflection test exploring awareness, understanding, regulation and interpersonal use of emotions."><meta property="og:image" content="https://obaiddoctrine.github.io/assets/brand-cover.png"><meta property="og:url" content="https://obaiddoctrine.github.io/mind-tests/emotional-intelligence/">
+<link rel="icon" href="../../assets/brand-profile.png"><link rel="stylesheet" href="../../styles.css?v=20260918"><link rel="stylesheet" href="../../design-upgrade.css?v=20260918">
+<style>
+.ei-page{--ei:#8b5cf6;--ei-soft:#f1e9ff}.ei-page .page-hero{background:linear-gradient(135deg,var(--ei-soft),#fff 65%);border-bottom:1px solid #e8ddff}.ei-badge{display:inline-flex;padding:.45rem .8rem;border-radius:999px;background:var(--ei);color:#fff;font-weight:700}.ei-page .test-option:hover,.ei-page .test-option:focus{border-color:var(--ei);box-shadow:0 8px 22px rgba(139,92,246,.14)}.ei-page .test-progress{color:var(--ei);font-weight:700}.ei-page .mind-result{border-top:5px solid var(--ei)}.ei-icon{font-size:2.4rem;margin-bottom:.5rem}
+</style>
+</head>
+<body class="ei-page">
+<header class="site-header"><a class="brand" href="../../"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="../../">Home</a><a href="../../#mind-tests">Mind Tests</a><a href="../../ur/mind-tests/emotional-intelligence/">اردو</a></nav></header>
+<main>
+<section class="page-hero"><div class="ei-icon">💜</div><span class="ei-badge">EMOTIONAL INTELLIGENCE • SELF-REFLECTION</span><h1>How do you work with emotions?</h1><p class="lead">Answer 12 everyday situations. Choose the response that is most like you. This test explores four broad dimensions: noticing emotions, understanding them, regulating responses and using emotional information in relationships.</p></section>
+<section class="content-wrap"><div id="test"></div><div id="result" class="mind-result" hidden></div></section>
+</main>
+<script>
+const questions=[
+["When I notice a strong emotion in myself, I usually…",["Recognize and name what I am feeling.","Try to understand what triggered it.","Pause before deciding how to respond.","Notice how it may affect my interaction with others."]],
+["When my mood changes unexpectedly, I tend to…",["Notice the change fairly quickly.","Look for a possible reason or pattern.","Give myself time before reacting.","Consider whether the change is affecting people around me."]],
+["If someone becomes unusually quiet during a conversation, I usually…",["Notice the change in their emotional tone.","Consider several possible reasons.","Avoid jumping to a conclusion or reacting impulsively.","Check in respectfully rather than assuming."]],
+["When I feel angry, I am most likely to…",["Recognize the intensity of the anger.","Think about what the anger is communicating.","Create some space before responding.","Consider how my response could affect the relationship."]],
+["When a difficult emotion keeps returning, I usually…",["Can identify when it is happening.","Look for recurring triggers or meanings.","Try a healthier way to respond.","Talk about it or seek support when appropriate."]],
+["When receiving criticism, my first useful step is to…",["Notice my emotional reaction.","Separate the useful message from my assumptions.","Pause so the emotion does not control my response.","Consider the other person's perspective."]],
+["When someone is upset with me, I tend to…",["Notice the emotional cues in the conversation.","Try to understand what may be underneath them.","Manage my defensiveness before replying.","Listen and respond in a way that keeps the conversation constructive."]],
+["When I am under pressure, I usually…",["Notice signs that stress is building.","Think about what is driving the pressure.","Use a strategy that helps me regain balance.","Communicate my needs instead of taking stress out on others."]],
+["When two people have different emotional reactions to the same event, I…",["Notice that their feelings may genuinely differ.","Try to understand each person's interpretation.","Avoid treating my reaction as the only possible one.","Use the difference to improve the conversation."]],
+["Before sending an emotional message, I often…",["Notice how strongly I am feeling.","Consider what I actually want the message to communicate.","Pause and choose my response deliberately.","Think about how the message may be received."]],
+["After an emotional disagreement, I usually…",["Can identify what I was feeling.","Reflect on what the disagreement meant to me.","Think about what I could handle differently next time.","Try to repair the interaction when appropriate."]],
+["One of my strongest emotional habits is…",["Recognizing my feelings.","Making sense of my feelings.","Managing my reactions.","Using emotional awareness to communicate better."]]
+];
+const labels=["Emotional Awareness","Emotional Understanding","Emotional Regulation","Interpersonal Emotional Skill"];
+const desc=[
+"You tend to notice and identify emotional signals in yourself and situations. Greater awareness can create a useful pause between an emotion and a response.",
+"You tend to look for triggers, meanings and context behind emotions rather than treating the first interpretation as the whole story.",
+"You tend to focus on choosing responses deliberately, especially when emotions are intense. Regulation is not the same as suppressing emotions.",
+"You tend to consider how emotions operate between people and use that awareness to support clearer, more constructive interactions."
+];
+let answers=[],i=0;
+function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
+function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
+function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR REFLECTION PROFILE</p><h2>Your strongest area: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/12 responses aligned most closely with this area.</p><p class="test-note"><strong>Research note:</strong> Emotional intelligence has been studied using different models and measurement methods. Self-report ratings and ability-based tests do not measure exactly the same thing. This original tool is an educational self-reflection exercise, not a validated clinical or diagnostic assessment.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`; }
+render();
+</script>
+</body></html>
