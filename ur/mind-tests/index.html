@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-L4T240RQDK');
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ذہنی ٹیسٹ | Obaid Doctrine</title>
+<meta name="description" content="Obaid Doctrine کا Thinking Style Mind Test: روزمرہ فیصلوں، مسائل اور حالات میں اپنے سوچنے کے انداز پر غور کرنے کے لیے 8 سوالات۔ یہ clinical diagnosis نہیں۔">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://obaiddoctrine.github.io/ur/mind-tests/">
+<link rel="alternate" hreflang="en" href="https://obaiddoctrine.github.io/mind-tests/">
+<link rel="alternate" hreflang="ur" href="https://obaiddoctrine.github.io/ur/mind-tests/">
+<link rel="alternate" hreflang="x-default" href="https://obaiddoctrine.github.io/mind-tests/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thinking Style Mind Test | Obaid Doctrine">
+<meta property="og:description" content="8 سوالات پر مشتمل educational self-reflection test۔">
+<meta property="og:image" content="https://obaiddoctrine.github.io/assets/brand-cover.png">
+<meta property="og:url" content="https://obaiddoctrine.github.io/ur/mind-tests/">
+<link rel="icon" href="/assets/brand-profile.png">
+<link rel="stylesheet" href="/styles.css?v=20260918">
+<link rel="stylesheet" href="/design-upgrade.css?v=20260918">
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="/ur/"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a>
+<nav aria-label="Primary navigation"><a href="/ur/">ہوم</a><a href="/ur/#mind-tests">ذہنی ٹیسٹس</a><a href="/ur/articles/">مضامین</a><a href="/mind-tests/">English</a></nav>
+</header>
+<main>
+<section class="page-hero"><p class="eyebrow">MIND TEST • SELF-REFLECTION</p><h1>آپ کا سوچنے کا انداز کیا ہے؟</h1><p class="lead">8 سوالات کے جواب دیں۔ وہ option منتخب کریں جو آپ سے زیادہ مطابقت رکھتا ہو۔ کوئی جواب درست یا غلط نہیں۔</p></section>
+<section class="content-wrap"><div id="test"></div><div id="result" class="mind-result" hidden></div></section>
+</main>
+<script>
+const questions=[
+["مشکل فیصلہ سامنے ہو تو میں عموماً…",["حقائق دیکھ کر options کا موازنہ کرتا ہوں۔","سوچتا ہوں کہ ہر option مجھے کیسا محسوس ہوتا ہے۔","دوسروں سے پوچھتا ہوں کہ وہ کیا سوچتے ہیں۔","جلدی action لیتا ہوں اور بعد میں adjust کرتا ہوں۔"]],
+["کسی مسئلے کو حل کرتے وقت میں ترجیح دیتا ہوں کہ…",["اسے منطقی steps میں تقسیم کروں۔","کئی possibilities پر غور کروں۔","کسی کے ساتھ discuss کروں۔","پہلے practical solution آزماؤں۔"]],
+["جب plans اچانک بدل جائیں تو میں…",["صورتحال کا دوبارہ جائزہ لیتا ہوں۔","سوچتا ہوں کہ اس کا emotional اثر کیا ہوگا۔","دیکھتا ہوں کہ دوسرے لوگ کیسے react کر رہے ہیں۔","خود کو adapt کر کے آگے بڑھتا ہوں۔"]],
+["مجھے نئی idea سب سے بہتر تب سمجھ آتی ہے جب میں…",["evidence یا examples دیکھوں۔","اسے بڑی تصویر سے جوڑوں۔","اس پر بات کروں۔","خود اسے آزما کر دیکھوں۔"]],
+["کسی argument میں میں عموماً…",["ان باتوں پر focus کرتا ہوں جن کی تصدیق ہو سکتی ہے۔","feelings اور meaning پر focus کرتا ہوں۔","دونوں sides کو سمجھنے کی کوشش کرتا ہوں۔","فوری practical solution تک پہنچنے پر focus کرتا ہوں۔"]],
+["کسی اہم کام سے پہلے میں عموماً…",["plan اور evaluate کرتا ہوں۔","مختلف possible outcomes کا تصور کرتا ہوں۔","متعلقہ لوگوں سے بات کرتا ہوں۔","شروع کر دیتا ہوں اور راستے میں سیکھتا ہوں۔"]],
+["جب مجھ سے غلطی ہو جائے تو میرا پہلا ردِعمل ہوتا ہے…",["سمجھنا کہ غلطی کہاں ہوئی۔","سوچنا کہ اس نے مجھے کیوں متاثر کیا۔","غور کرنا کہ اس کا دوسروں پر کیا اثر پڑا۔","practical مسئلہ ٹھیک کرنا۔"]],
+["روزمرہ زندگی میں میری سب سے نمایاں tendency یہ ہے کہ میں…",["تجزیہ کرتا ہوں۔","تصور کرتا ہوں۔","لوگوں اور تعلقات سے connect کرتا ہوں۔","عمل کرتا ہوں۔"]]
+];
+const labels=["تجزیاتی (Analytical)","غور و فکر والا (Reflective)","سماجی (Social)","عملی (Practical)"], desc=[
+"آپ فیصلہ کرنے سے پہلے structure، evidence اور careful comparison کو ترجیح دے سکتے ہیں۔",
+"آپ feelings، meaning اور مختلف interpretations پر توجہ دے سکتے ہیں۔",
+"آپ communication، relationships اور دوسروں کے viewpoints کے ذریعے ideas کو process کر سکتے ہیں۔",
+"آپ action، experimentation اور practical solutions کو ترجیح دے سکتے ہیں۔"
+];
+let answers=[],i=0;
+function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">سوال ${i+1} از ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
+function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
+function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کا نتیجہ</p><h2>آپ کا سوچنے کا انداز: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>اسکور:</strong> ${m}/8 جوابات اس انداز سے match ہوئے۔</p><p class="test-note">یہ ایک educational self-reflection tool ہے، psychological diagnosis یا clinical assessment نہیں۔</p><button class="btn primary" onclick="location.reload()">دوبارہ ٹیسٹ کریں</button>`;}
+render();
+</script>
+</body>
+</html>
