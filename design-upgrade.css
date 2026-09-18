@@ -276,3 +276,23 @@ footer a:hover{color:var(--od-lime)}
   .cta{margin:0 5vw 55px;padding:54px 6vw}
   footer{padding:38px 5vw;grid-template-columns:1fr}
 }
+
+/* Colorful interactive discovery hub */
+.interactive-hub{background:linear-gradient(135deg,#fff 0%,#f7faef 48%,#eef5dc 100%);position:relative;overflow:hidden}
+.discover-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.discover-card{position:relative;overflow:hidden;border-radius:26px;padding:28px;min-height:315px;border:1px solid rgba(36,49,40,.09);box-shadow:0 15px 45px rgba(36,49,40,.08);transition:transform .22s ease,box-shadow .22s ease}
+.discover-card:hover{transform:translateY(-7px);box-shadow:0 25px 60px rgba(36,49,40,.14)}
+.discover-card::after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-55px;bottom:-60px;background:rgba(255,255,255,.34)}
+.ask-card{background:linear-gradient(145deg,#dce8b5,#b7d84b)}
+.quick-card{background:linear-gradient(145deg,#fff,#e8f2c9)}
+.question-card{background:linear-gradient(145deg,#eef5dc,#dce8b5)}
+.research-card{background:linear-gradient(145deg,#dce8b5,#c9df86)}
+.discover-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:#fff;font-size:28px;box-shadow:0 8px 20px rgba(36,49,40,.10);margin-bottom:22px}
+.discover-card>span{font-size:10px;letter-spacing:.14em;font-weight:900;color:var(--od-green)}
+.discover-card h3{font-size:23px;line-height:1.2;color:var(--od-ink);margin:12px 0}
+.discover-card p{font-size:14px;color:#536157;line-height:1.6}
+.discover-card a{display:inline-block;margin-top:12px;padding:9px 14px;border-radius:999px;background:var(--od-green);color:#fff;text-decoration:none;font-size:12px;font-weight:800;position:relative;z-index:2}
+.discover-card a:hover{background:#fff;color:var(--od-green)}
+@media(max-width:1000px){.discover-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.discover-grid{grid-template-columns:1fr}.discover-card{min-height:270px}}
+body[dir=rtl] .discover-card{text-align:right}
