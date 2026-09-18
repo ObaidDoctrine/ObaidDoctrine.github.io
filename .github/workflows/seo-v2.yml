@@ -25,6 +25,26 @@ jobs:
 
           ROOT=Path('.')
           BASE='https://obaiddoctrine.github.io'
+
+          # Install Google Analytics 4 Google tag on every HTML page.
+          GA4_TAG = '''<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
+          <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-L4T240RQDK');
+          </script>
+          '''
+          for p in ROOT.rglob('*.html'):
+              if '.git' in p.parts:
+                  continue
+              t=p.read_text(encoding='utf-8')
+              if 'G-L4T240RQDK' in t or 'googletagmanager.com/gtag/js' in t:
+                  continue
+              t=re.sub(r'(<head\\b[^>]*>)', lambda m: m.group(1)+'\\n'+GA4_TAG, t, count=1, flags=re.I)
+              p.write_text(t,encoding='utf-8')
+
           now=datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
           # Remove Urdu hreflang from English pages only when the linked Urdu page does not exist.
