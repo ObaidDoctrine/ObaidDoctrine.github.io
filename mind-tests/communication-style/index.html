@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Communication Style Self-Reflection Test | Obaid Doctrine</title>
+<meta name="description" content="Explore your everyday communication tendencies with an original, research-informed self-reflection test. Educational only, not a clinical assessment.">
+<link rel="canonical" href="https://obaiddoctrine.github.io/mind-tests/communication-style/"><link rel="alternate" hreflang="en" href="https://obaiddoctrine.github.io/mind-tests/communication-style/"><link rel="alternate" hreflang="ur" href="https://obaiddoctrine.github.io/ur/mind-tests/communication-style/"><link rel="alternate" hreflang="x-default" href="https://obaiddoctrine.github.io/mind-tests/communication-style/">
+<link rel="icon" href="../../assets/brand-profile.png"><link rel="stylesheet" href="../../styles.css?v=20260918"><link rel="stylesheet" href="../../design-upgrade.css?v=20260918">
+<style>.cs-page{--cs:#0f766e;--cs-soft:#dff5f1}.cs-page .page-hero{background:linear-gradient(135deg,var(--cs-soft),#fff 65%);border-bottom:1px solid #c9ebe5}.cs-badge{display:inline-flex;padding:.45rem .8rem;border-radius:999px;background:var(--cs);color:#fff;font-weight:700}.cs-page .test-option:hover,.cs-page .test-option:focus{border-color:var(--cs);box-shadow:0 8px 22px rgba(15,118,110,.14)}.cs-page .test-progress{color:var(--cs);font-weight:700}.cs-page .mind-result{border-top:5px solid var(--cs)}.cs-icon{font-size:2.4rem;margin-bottom:.5rem}</style>
+</head><body class="cs-page">
+<header class="site-header"><a class="brand" href="../../"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="../../">Home</a><a href="../../#mind-tests">Mind Tests</a><a href="../../ur/mind-tests/communication-style/">اردو</a></nav></header>
+<main><section class="page-hero"><div class="cs-icon">💬</div><span class="cs-badge">COMMUNICATION STYLE • SELF-REFLECTION</span><h1>How do you communicate under everyday pressure?</h1><p class="lead">Answer 12 situations. Choose the response most like you. This tool explores four broad tendencies: clarity, listening, assertiveness and collaborative communication.</p></section><section class="content-wrap"><div id="test"></div><div id="result" class="mind-result" hidden></div></section></main>
+<script>
+const questions=[
+["When I need something from another person, I usually…",["State clearly what I need and why.","First make sure I understand their side.","Ask directly while respecting their right to say no.","Look for a solution that works for both of us."]],
+["When someone is explaining something important, I usually…",["Ask focused questions if something is unclear.","Give them space to finish and listen carefully.","Share my view after I understand the main point.","Summarize what I heard so we can check our understanding."]],
+["When I disagree with someone, I tend to…",["Explain my position clearly.","Try to understand how they reached theirs.","Express disagreement without attacking the person.","Look for the part of each viewpoint that can move the conversation forward."]],
+["When a conversation becomes tense, I usually…",["Say what the actual issue is.","Slow down and listen before responding.","State my boundary calmly if needed.","Help shift the discussion toward a workable next step."]],
+["If someone asks me to do something unreasonable, I usually…",["Explain clearly what I can and cannot do.","Ask questions before deciding how to respond.","Say no respectfully when necessary.","Offer an alternative that is realistic for both sides."]],
+["When I realize I may have misunderstood someone, I…",["Ask for clarification instead of guessing.","Listen again to their exact meaning.","Admit the misunderstanding directly.","Restate what I think they mean and invite correction."]],
+["When giving feedback, I usually…",["Describe the specific behavior or issue.","Consider the other person's perspective.","Be honest without using insults or blame.","Discuss a constructive next step."]],
+["When someone criticizes me, I try to…",["Ask what specifically they mean.","Listen for information before defending myself.","Respond to the point without attacking back.","Separate useful feedback from the emotion of the moment."]],
+["During group conversations, I tend to…",["Make my point clearly and briefly.","Notice who has not had a chance to speak.","Speak up without trying to dominate.","Help connect different ideas."]],
+["When I am upset, before sending a message I usually…",["Make sure the main point is clear.","Read it again from the other person's perspective.","Pause if I might say something I will regret.","Think about what outcome I want from the conversation."]],
+["When a conversation ends with no clear agreement, I usually…",["State what remains unresolved.","Ask what the other person understood.","Clearly say what I can or cannot agree to.","Suggest a practical next step."]],
+["My strongest communication tendency is to…",["Be clear and direct.","Listen and understand.","Express my needs respectfully.","Build shared understanding and solutions."]]
+];
+const labels=["Clear Expression","Active Listening","Respectful Assertiveness","Collaborative Communication"];
+const desc=[
+"You tend to value clear, specific expression. A useful strength is making your message understandable without unnecessary ambiguity.",
+"You tend to prioritize listening and understanding before responding. A useful strength is checking meaning rather than relying on assumptions.",
+"You tend to express needs, limits and disagreement while trying to respect the other person. Assertiveness is not the same as aggression.",
+"You tend to connect viewpoints and look for workable shared solutions. This can be especially useful when people have different needs or interpretations."
+];
+let answers=[],i=0;
+function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
+function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
+function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR COMMUNICATION PROFILE</p><h2>Your strongest area: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/12 responses aligned most closely with this area.</p><p class="test-note"><strong>Research note:</strong> Research on interpersonal communication and assertiveness commonly examines areas such as listening, empathy, expressiveness, interaction management and respectful assertion. This original tool is an educational self-reflection exercise, not a validated clinical or diagnostic assessment.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`;}
+render();
+</script></body></html>
