@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mind Test | Obaid Doctrine</title>
+<meta name="description" content="A short educational self-reflection mind test by Obaid Doctrine. Explore your thinking style.">
+<link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="../design-upgrade.css">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="../"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="../">Home</a><a href="../#mind-tests">Mind Tests</a><a href="../ur/">اردو</a></nav></header>
+<main>
+<section class="page-hero"><p class="eyebrow">MIND TEST • SELF-REFLECTION</p><h1>What is your Thinking Style?</h1><p class="lead">Answer 8 questions. Choose the option that feels most like you. There are no right or wrong answers.</p></section>
+<section class="content-wrap"><div id="test"></div><div id="result" class="mind-result" hidden></div></section>
+</main>
+<script>
+const questions=[
+["When facing a difficult decision, I usually…",["Look at facts and compare options.","Think about how each option feels.","Ask others what they think.","Act quickly and adjust later."]],
+["When solving a problem, I prefer to…",["Break it into logical steps.","Explore several possibilities.","Discuss it with someone.","Try a practical solution first."]],
+["When plans suddenly change, I…",["Reassess the situation.","Think about the emotional impact.","Check how others are reacting.","Adapt and move forward."]],
+["I understand a new idea best when I…",["See evidence or examples.","Connect it to a bigger picture.","Talk it through.","Try it myself."]],
+["In an argument, I tend to…",["Focus on what can be verified.","Focus on feelings and meaning.","Focus on both sides.","Focus on reaching an immediate solution."]],
+["Before starting something important, I usually…",["Plan and evaluate.","Imagine different outcomes.","Talk with people involved.","Start and learn along the way."]],
+["When I make a mistake, my first response is to…",["Work out what went wrong.","Think about why it affected me.","Consider how it affected others.","Fix the practical problem."]],
+["My strongest everyday tendency is to…",["Analyze.","Imagine.","Connect.","Act."]]
+];
+const labels=["Analytical","Reflective","Social","Practical"], desc=[
+"You often prefer structure, evidence and careful comparison before deciding.",
+"You often pay attention to feelings, meaning and possible interpretations.",
+"You often process ideas through communication, relationships and other viewpoints.",
+"You often prefer action, experimentation and practical solutions."
+];
+let answers=[],i=0;
+function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
+function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
+function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR RESULT</p><h2>Your thinking style: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Score:</strong> ${m}/8 responses matched this style.</p><p class="test-note">This is an educational self-reflection tool, not a psychological diagnosis or clinical assessment.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`;}
+render();
+</script>
+</body></html>
