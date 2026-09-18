@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personality Traits Self-Reflection Test | Obaid Doctrine</title>
+<meta name="description" content="A short research-informed self-reflection test exploring five broad personality trait dimensions through everyday situations. Educational only, not a clinical assessment.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://obaiddoctrine.github.io/mind-tests/personality-traits/">
+<link rel="alternate" hreflang="en" href="https://obaiddoctrine.github.io/mind-tests/personality-traits/">
+<link rel="alternate" hreflang="ur" href="https://obaiddoctrine.github.io/ur/mind-tests/personality-traits/">
+<link rel="alternate" hreflang="x-default" href="https://obaiddoctrine.github.io/mind-tests/personality-traits/">
+<meta property="og:type" content="website"><meta property="og:title" content="Personality Traits Self-Reflection Test | Obaid Doctrine"><meta property="og:description" content="Explore five broad personality dimensions through everyday situations."><meta property="og:image" content="https://obaiddoctrine.github.io/assets/brand-cover.png"><meta property="og:url" content="https://obaiddoctrine.github.io/mind-tests/personality-traits/">
+<link rel="icon" href="../../assets/brand-profile.png"><link rel="stylesheet" href="../../styles.css?v=20260918"><link rel="stylesheet" href="../../design-upgrade.css?v=20260918">
+<style>
+.pt-page{--pt:#7b61a8;--pt-soft:#f1edfa}.pt-page .page-hero{background:linear-gradient(135deg,var(--pt-soft),#fff 68%);border-bottom:1px solid #ded5ef}.pt-badge{display:inline-flex;padding:.45rem .8rem;border-radius:999px;background:var(--pt);color:#fff;font-weight:700}.pt-page .test-option:hover,.pt-page .test-option:focus{border-color:var(--pt);box-shadow:0 8px 22px rgba(123,97,168,.14)}.pt-page .test-progress{color:var(--pt);font-weight:700}.pt-page .mind-result{border-top:5px solid var(--pt)}.pt-icon{font-size:2.4rem;margin-bottom:.5rem}
+</style>
+</head>
+<body class="pt-page">
+<header class="site-header"><a class="brand" href="../../"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="../../">Home</a><a href="../../#mind-tests">Mind Tests</a><a href="../../ur/mind-tests/personality-traits/">اردو</a></nav></header>
+<main>
+<section class="page-hero"><div class="pt-icon">🧩</div><span class="pt-badge">PERSONALITY TRAITS • SELF-REFLECTION</span><h1>Which personality tendencies show up in your everyday life?</h1><p class="lead">Answer 15 everyday situations. Choose the response that is most like you. This original reflection explores five broad personality dimensions often studied in personality psychology.</p></section>
+<section class="content-wrap"><div id="test"></div><div id="result" class="mind-result" hidden></div></section>
+</main>
+<script>
+const questions=[
+["When I have an unfamiliar opportunity, I usually…",["Feel curious and want to explore it.","Think about how useful or creative it could be.","Prefer a clear plan before committing.","Consider how it may affect the people involved.","Feel comfortable starting a conversation about it."]],
+["When I have an important task, I tend to…",["Explore different ways of approaching it.","Organize the steps and follow through.","Think about what others might need from me.","Enjoy discussing the idea with people.","Prefer familiar methods unless a change seems worthwhile."]],
+["When plans are not clearly defined, I usually…",["Enjoy the freedom to experiment.","Create structure so I know what to do next.","Check how the uncertainty affects others.","Talk with people to compare perspectives.","Wait for more information before changing course."]],
+["At a social gathering, I am more likely to…",["Seek out several conversations.","Make sure I have a comfortable plan for the event.","Notice whether someone is being left out.","Feel energized by meeting and talking with people.","Prefer a smaller or quieter interaction."]],
+["When someone disagrees with me, I usually…",["Become interested in why they see it differently.","Try to keep the discussion organized and respectful.","Consider their feelings as well as their argument.","Enjoy the exchange of ideas.","Prefer to step back if the disagreement becomes intense."]],
+["When I make a commitment, I generally…",["Look for a way to improve the plan as I go.","Take the responsibility seriously and follow through.","Try to be considerate of the other person's needs.","Tell others what I am doing and stay connected.","Prefer commitments that leave some personal flexibility."]],
+["When learning something new, I usually…",["Enjoy unfamiliar ideas and perspectives.","Set a routine that helps me practice.","Learn well when I can discuss it with others.","Like exchanging ideas while I learn.","Prefer a gradual pace with clear expectations."]],
+["When a friend is having a difficult day, I tend to…",["Ask questions to understand what is happening.","Offer practical help and follow up later.","Focus on making them feel understood and supported.","Stay engaged and talk with them about it.","Give them space if they seem to need it."]],
+["When I need to finish a long project, I usually…",["Experiment with new approaches when I get stuck.","Break the work into steps and keep track of progress.","Consider how my work affects people who depend on it.","Talk through ideas when motivation drops.","Work best when I can manage the pace without too much social pressure."]],
+["When I encounter a new viewpoint, I tend to…",["Explore it even when it challenges my assumptions.","Check the evidence before changing my position.","Consider the person's intentions and circumstances.","Enjoy discussing the viewpoint with others.","Take time before deciding how much it changes my view."]],
+["In a group task, I am often the person who…",["Suggests new possibilities.","Keeps track of tasks and deadlines.","Makes sure people are treated fairly.","Keeps communication active.","Works quietly on an assigned part."]],
+["When my routine changes unexpectedly, I usually…",["See whether the change creates an interesting possibility.","Rebuild a workable plan.","Consider who else may be affected.","Talk to others about the change.","Need some time before I feel settled again."]],
+["When I have free time, I often prefer…",["Trying something I have not done before.","Working on something useful or completing a personal task.","Doing something supportive with or for someone else.","Spending time talking or being around people.","Having quiet time on my own."]],
+["When I receive feedback, I usually…",["Become curious about what I could learn from it.","Look for specific changes I can make.","Consider the relationship and tone in which it was given.","Discuss the feedback openly.","Need some time to process it before responding."]],
+["One tendency I recognize most strongly in myself is…",["Exploring possibilities and new experiences.","Being organized, dependable and goal-focused.","Being considerate and cooperative.","Seeking social connection and interaction.","Protecting quiet time and managing my energy carefully."]]
+];
+const labels=["Openness to Experience","Conscientiousness","Agreeableness","Extraversion","Emotional Stability"];
+const desc=[
+"You often show curiosity, flexibility and interest in new ideas, perspectives or experiences.",
+"You often show organization, responsibility, persistence and attention to goals or commitments.",
+"You often pay attention to cooperation, consideration, trust and the interpersonal impact of your choices.",
+"You often gain energy from social interaction, conversation and active engagement with other people.",
+"You often show a preference for emotional steadiness and time to process pressure or uncertainty before responding."
+];
+let answers=[],i=0;
+function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
+function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
+function showResult(){let s=[0,0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR REFLECTION PROFILE</p><h2>Your strongest tendency: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/15 responses aligned most closely with this dimension.</p><p class="test-note"><strong>Research note:</strong> Personality research commonly studies broad trait dimensions including openness, conscientiousness, extraversion, agreeableness and neuroticism/emotional stability. This original tool is a simplified educational reflection and does not reproduce a validated personality inventory. Trait patterns can also vary across situations and over time.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`; }
+render();
+</script>
+</body></html>
