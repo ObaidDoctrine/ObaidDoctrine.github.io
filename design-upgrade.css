@@ -368,3 +368,85 @@ body[dir=rtl] .discover-card{text-align:right}
 .mt-page .mt-grid .mt-card.steel{--accent:#3d6b8a !important;--soft:#e9f1f6 !important}
 .mt-page .mt-grid .mt-card.rose{--accent:#e94e69 !important;--soft:#fdebef !important}
 .mt-page .mt-grid .mt-card.lavender{--accent:#8b5de8 !important;--soft:#f1eafd !important}
+
+
+/* OBAID DOCTRINE — APP ECOSYSTEM SHOWCASE */
+.app-showcase{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:6vw;
+  align-items:center;
+  background:linear-gradient(135deg,#f5f8ed 0%,#fff 58%,#e7f0d2 100%);
+  position:relative;
+  overflow:hidden;
+}
+.app-showcase::before{
+  content:"";
+  position:absolute;
+  width:420px;height:420px;
+  border:1px solid rgba(183,216,75,.28);
+  border-radius:50%;
+  right:-180px;top:-190px;
+}
+.app-copy{position:relative;z-index:1;max-width:760px}
+.app-copy h2{
+  font-size:clamp(38px,5vw,62px);
+  line-height:1.05;
+  letter-spacing:-.045em;
+  margin:0 0 20px;
+  color:var(--od-ink);
+}
+.app-copy>p:not(.eyebrow):not(.app-note){color:#5f6c63;font-size:16px;max-width:700px}
+.app-points{display:flex;flex-wrap:wrap;gap:9px;margin:25px 0}
+.app-points span{
+  padding:8px 12px;border-radius:999px;
+  background:#fff;border:1px solid var(--od-line);
+  color:var(--od-green);font-size:11px;font-weight:800;
+  box-shadow:0 6px 18px rgba(36,49,40,.05);
+}
+.app-note{font-size:12px!important;color:#6a756d!important;margin-top:14px}
+.app-device{display:flex;justify-content:center;position:relative;z-index:1}
+.device-frame{
+  width:min(285px,75vw);
+  aspect-ratio:9/18.5;
+  border:9px solid #1e2821;
+  border-radius:38px;
+  background:#1e2821;
+  padding:5px;
+  box-shadow:0 35px 80px rgba(36,49,40,.24);
+  transform:rotate(2deg);
+}
+.device-notch{
+  position:absolute;
+  width:105px;height:22px;
+  background:#1e2821;
+  border-radius:0 0 15px 15px;
+  left:50%;transform:translateX(-50%);
+  z-index:3;
+}
+.device-screen{
+  height:100%;border-radius:28px;
+  background:linear-gradient(160deg,#fafaf5,#dce8b5);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:25px 18px;gap:12px;
+}
+.device-screen img{
+  width:76px;height:76px;border-radius:20px;
+  box-shadow:0 12px 28px rgba(36,49,40,.16);
+}
+.device-screen strong{font-size:24px;line-height:.95;letter-spacing:.06em;color:var(--od-green)}
+.device-screen small{font-size:8px;line-height:1.5;letter-spacing:.12em;color:#526057}
+.device-screen span{
+  margin-top:14px;padding:9px 12px;border-radius:999px;
+  background:#fff;border:1px solid var(--od-line);
+  font-size:9px;font-weight:800;color:var(--od-green);
+}
+@media(max-width:900px){
+  .app-showcase{grid-template-columns:1fr;gap:35px}
+  .app-device{order:-1}
+}
+@media(max-width:600px){
+  .app-showcase{padding-top:70px;padding-bottom:70px}
+  .app-copy h2{font-size:40px}
+  .device-frame{width:245px}
+}
