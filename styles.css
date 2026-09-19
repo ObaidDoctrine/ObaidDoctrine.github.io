@@ -17,3 +17,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 button{font:inherit;cursor:pointer}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(max-width:600px){.site-header{overflow-x:auto}.site-header nav{flex-shrink:0;white-space:nowrap}}
+
+
+/* Mind Tests — permanent multi-color card styling */
+.mt-page .mt-card{
+  --accent:#b7d84b;
+  --soft:#f1f8d9;
+  position:relative;
+  background:linear-gradient(135deg,#fff 8%,var(--soft) 100%) !important;
+  border:1px solid rgba(40,65,45,.12);
+  overflow:hidden;
+}
+.mt-page .mt-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:7px;
+  background:var(--accent) !important;
+}
+.mt-page .mt-card .mt-icon{
+  background:var(--accent) !important;
+}
+.mt-page .mt-card .mt-num{
+  color:var(--accent) !important;
+}
+.mt-page .mt-card .mt-cta{
+  background:var(--accent) !important;
+}
+.mt-page .mt-card.purple{--accent:#7a4de8;--soft:#f1eafe}
+.mt-page .mt-card.teal{--accent:#0da9b5;--soft:#e5f8f8}
+.mt-page .mt-card.green{--accent:#4c8a58;--soft:#eaf4e9}
+.mt-page .mt-card.orange{--accent:#ef7410;--soft:#fff0e3}
+.mt-page .mt-card.gold{--accent:#e0a900;--soft:#fff7dc}
+.mt-page .mt-card.blue{--accent:#167cc9;--soft:#e8f4fc}
+.mt-page .mt-card.violet{--accent:#7650c9;--soft:#f0eafa}
+.mt-page .mt-card.steel{--accent:#3d6b8a;--soft:#e9f1f6}
+.mt-page .mt-card.rose{--accent:#e94e69;--soft:#fdebef}
+.mt-page .mt-card.lavender{--accent:#8b5de8;--soft:#f1eafd}
