@@ -345,3 +345,26 @@ body[dir=rtl] .discover-card{text-align:right}
  .discover-card h3{font-size:23px}
  .discover-takeaway{margin-top:15px}
 }
+
+
+/* MIND TESTS — FINAL PERMANENT CARD OVERRIDE */
+.mt-page .mt-grid .mt-card{
+  --accent:#b7d84b !important;
+  --soft:#f1f8d9 !important;
+  background:linear-gradient(135deg,#fff 8%,var(--soft) 100%) !important;
+  border-left:7px solid var(--accent) !important;
+}
+.mt-page .mt-grid .mt-card::before{display:none !important}
+.mt-page .mt-grid .mt-card .mt-icon,
+.mt-page .mt-grid .mt-card .mt-cta{background:var(--accent) !important}
+.mt-page .mt-grid .mt-card .mt-num{color:var(--accent) !important}
+.mt-page .mt-grid .mt-card.purple{--accent:#7a4de8 !important;--soft:#f1eafe !important}
+.mt-page .mt-grid .mt-card.teal{--accent:#0da9b5 !important;--soft:#e5f8f8 !important}
+.mt-page .mt-grid .mt-card.green{--accent:#4c8a58 !important;--soft:#eaf4e9 !important}
+.mt-page .mt-grid .mt-card.orange{--accent:#ef7410 !important;--soft:#fff0e3 !important}
+.mt-page .mt-grid .mt-card.gold{--accent:#e0a900 !important;--soft:#fff7dc !important}
+.mt-page .mt-grid .mt-card.blue{--accent:#167cc9 !important;--soft:#e8f4fc !important}
+.mt-page .mt-grid .mt-card.violet{--accent:#7650c9 !important;--soft:#f0eafa !important}
+.mt-page .mt-grid .mt-card.steel{--accent:#3d6b8a !important;--soft:#e9f1f6 !important}
+.mt-page .mt-grid .mt-card.rose{--accent:#e94e69 !important;--soft:#fdebef !important}
+.mt-page .mt-grid .mt-card.lavender{--accent:#8b5de8 !important;--soft:#f1eafd !important}
