@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#31543A">
+<title>OBAID DOCTRINE — بہتر ذہن • بہتر کردار • بہتر زندگی</title>
+<meta name="description" content="OBAID DOCTRINE — نفسیات، تعلیم، تحقیق، انسانی رویوں، معاشرے اور حالاتِ حاضرہ کا عالمی معیار کا پاکستانی علمی پلیٹ فارم۔">
+<style>
+:root{
+  --forest:#31543A;--forest2:#243F2B;--lime:#B7D84B;--sage:#DCE8B5;
+  --ivory:#FAFAF5;--white:#fff;--ink:#172019;--muted:#697269;--line:#E4E8DF;
+  --radius:24px;--shadow:0 18px 55px rgba(36,63,43,.10);
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}
+button,a{font:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,245,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(49,84,58,.09)}
+.nav{min-height:78px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.mark{width:40px;height:40px;border-radius:13px;background:var(--forest);display:grid;place-items:center;color:var(--lime);font-weight:900;letter-spacing:-1px}
+.brand strong{font-size:17px;letter-spacing:.06em}
+.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.13em;margin-top:1px}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font-size:13px;color:#465047;font-weight:650}
+nav a:hover{color:var(--forest)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:13px 19px;font-weight:800;font-size:13px;border:1px solid transparent;transition:.2s ease;cursor:pointer}
+.btn.primary{background:var(--forest);color:#fff}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(49,84,58,.2)}
+.btn.secondary{background:transparent;border-color:#B9C3B8;color:var(--forest)}
+.btn.secondary:hover{background:#fff}
+.menu{display:none;border:0;background:none;font-size:24px;color:var(--forest)}
+.hero{padding:86px 0 72px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}
+.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid #D7DED2;border-radius:999px;font-size:10px;font-weight:850;letter-spacing:.12em;color:var(--forest);background:#fff}
+h1{font-size:clamp(48px,6vw,78px);line-height:.98;letter-spacing:-.055em;margin:23px 0 22px;max-width:720px}
+.hero p{font-size:18px;color:var(--muted);max-width:610px;margin:0 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.visual{min-height:510px;border-radius:34px;background:var(--forest);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.visual:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:var(--lime);right:-100px;top:-80px}
+.visual:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(255,255,255,.16);border-radius:50%;left:-80px;bottom:-80px}
+.orbit{position:absolute;inset:50px;border:1px solid rgba(255,255,255,.18);border-radius:50%;transform:rotate(-18deg)}
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;padding:25px;box-shadow:0 25px 70px rgba(0,0,0,.14)}
+.core b{font-size:28px;line-height:1.05;letter-spacing:-.04em;color:var(--forest)}
+.core span{font-size:10px;color:var(--muted);letter-spacing:.12em;font-weight:800}
+.float-card{position:absolute;background:#fff;border-radius:18px;padding:15px 17px;box-shadow:0 16px 35px rgba(0,0,0,.12);font-size:12px;font-weight:800}
+.fc1{left:24px;top:45px}.fc2{right:22px;bottom:54px}.fc3{left:30px;bottom:90px;background:var(--lime);color:var(--forest)}
+.strip{background:var(--lime);color:var(--forest);padding:22px 0}
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-weight:900;letter-spacing:.08em;font-size:13px;text-align:center}
+section{padding:92px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+.kicker{font-size:10px;font-weight:900;letter-spacing:.14em;color:#73806F;text-transform:uppercase}
+h2{font-size:clamp(34px,4vw,52px);line-height:1.02;letter-spacing:-.045em;margin:8px 0 0;max-width:720px}
+.section-head p{max-width:430px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:27px;min-height:245px;transition:.25s ease}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#CBD5C8}
+.num{color:#8B968A;font-size:12px;font-weight:900;letter-spacing:.1em}
+.card h3{font-size:24px;margin:55px 0 10px;letter-spacing:-.03em}
+.card p{color:var(--muted);font-size:14px;margin:0}
+.dark{background:var(--forest);color:#fff}
+.dark .kicker{color:var(--lime)}.dark h2{color:#fff}.dark .section-head p{color:#C7D0C7}
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.test{border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px;background:rgba(255,255,255,.04);min-height:125px;transition:.2s}
+.test:hover{background:rgba(255,255,255,.09);transform:translateY(-3px)}
+.test b{font-size:17px}.test p{font-size:12px;color:#BFCABF;margin:7px 0 0}
+.editorial{display:grid;grid-template-columns:1.45fr .8fr .8fr;grid-template-rows:1fr 1fr;gap:16px}
+.article{background:#fff;border:1px solid var(--line);border-radius:24px;padding:27px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.article.feature{grid-row:span 2;background:var(--forest);color:#fff;min-height:450px}
+.article.feature:before{content:"";position:absolute;right:-90px;top:-80px;width:250px;height:250px;border-radius:50%;background:var(--lime)}
+.article small{position:relative;font-weight:850;color:#7C877D;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.article.feature small{color:var(--lime)}
+.article h3{position:relative;font-size:25px;line-height:1.12;margin:9px 0 0;letter-spacing:-.035em}
+.article.feature h3{font-size:36px;max-width:520px}
+.app{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:center}
+.phone-wrap{display:flex;justify-content:center}
+.phone{width:280px;height:550px;border:9px solid #172019;border-radius:40px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.2);padding:17px;position:relative}
+.notch{width:85px;height:22px;background:#172019;border-radius:0 0 14px 14px;position:absolute;top:-1px;left:50%;transform:translateX(-50%)}
+.screen{height:100%;border-radius:27px;background:var(--ivory);overflow:hidden;padding:35px 16px 16px}
+.app-logo{font-weight:950;color:var(--forest);font-size:13px;letter-spacing:.08em}
+.app-box{background:var(--forest);color:#fff;border-radius:20px;padding:22px;margin-top:20px;height:160px;display:flex;align-items:end;font-size:22px;font-weight:900;line-height:1.05}
+.app-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.app-mini{height:92px;border-radius:15px;background:#fff;border:1px solid var(--line);padding:12px;font-size:11px;font-weight:800}
+.founder{background:#F1F4EB;border-radius:32px;padding:58px;display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center}
+.avatar{width:210px;height:210px;border-radius:50%;background:var(--sage);display:grid;place-items:center;color:var(--forest);font-size:56px;font-weight:950}
+.founder h2{margin-top:5px}.founder p{color:var(--muted);max-width:650px}
+.cta{text-align:center;background:var(--lime);border-radius:34px;padding:75px 25px;color:var(--forest)}
+.cta h2{margin:0 auto 26px;max-width:760px}.cta .actions{justify-content:center}
+footer{background:var(--forest2);color:#fff;padding:55px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:35px}
+footer h4{font-size:12px;letter-spacing:.08em;margin:0 0 15px;color:var(--lime)}
+footer a,footer p{display:block;color:#C5CEC5;font-size:13px;margin:7px 0}
+.footer-brand strong{font-size:18px;letter-spacing:.06em}.footer-brand p{max-width:300px}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:18px;color:#9EAA9F;font-size:11px}
+
+.hero-note{margin-top:18px;font-size:11px;color:#7A847A;font-weight:750;letter-spacing:.03em}.hero-note span{color:var(--lime);font-size:15px}
+.education-section{background:#fff}
+.edu-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px}
+.edu-card{border:1px solid var(--line);border-radius:24px;padding:27px;min-height:235px;background:var(--ivory);display:flex;flex-direction:column}
+.edu-card.featured{grid-row:span 2;background:var(--forest);color:#fff;min-height:485px}
+.edu-card span,.news-tag{font-size:10px;font-weight:900;letter-spacing:.13em;color:#778278}.edu-card.featured span{color:var(--lime)}
+.edu-card h3{font-size:26px;line-height:1.05;letter-spacing:-.035em;margin:55px 0 10px}.edu-card p{font-size:14px;color:var(--muted);margin:0}.edu-card.featured p{color:#CAD2CA}
+.edu-card a{margin-top:auto;font-size:12px;font-weight:900;color:var(--forest)}.edu-card.featured a{color:var(--lime)}
+.news-section{background:#F1F4EB}
+.news-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
+.news-main{background:var(--forest);color:#fff;border-radius:28px;padding:38px;min-height:390px;display:flex;flex-direction:column;justify-content:flex-end}
+.news-main .news-tag{color:var(--lime)}.news-main h3{font-size:42px;line-height:1.02;letter-spacing:-.045em;max-width:720px;margin:12px 0}.news-main p{color:#C8D1C8;max-width:650px}.news-main a{color:var(--lime);font-weight:900;font-size:13px}
+.news-list{display:grid;gap:12px}.news-list article{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px}.news-list span{font-size:10px;color:var(--forest);font-weight:900;letter-spacing:.12em;text-transform:uppercase}.news-list h3{margin:8px 0 2px;font-size:22px}.news-list p{margin:0;color:var(--muted);font-size:13px}
+.platform{padding-top:10px}.platform-box{background:var(--forest);border-radius:30px;padding:48px;color:#fff;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.platform-box h2{color:#fff}.platform-pills{display:flex;flex-wrap:wrap;gap:9px}.platform-pills span{border:1px solid rgba(255,255,255,.17);border-radius:999px;padding:10px 13px;color:#DCE4DC;font-size:12px;font-weight:750;background:rgba(255,255,255,.035)}
+
+
+/* Category color system: distinct but psychologically calm */
+.category-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.category-chip{border-radius:18px;padding:17px;color:#172019;font-weight:850;font-size:12px;min-height:92px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(23,32,25,.07)}
+.category-chip small{font-size:9px;letter-spacing:.11em;opacity:.68;margin-bottom:5px}
+.c-psych{background:#DCE8B5}.c-behaviour{background:#CFE4D5}.c-rel{background:#E8D7C8}.c-family{background:#D8DDF0}
+.test-banner{display:block;border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:23px;background:rgba(255,255,255,.045);min-height:155px;transition:.25s ease;position:relative;overflow:hidden}
+.test-banner:after{content:"↗";position:absolute;right:18px;top:16px;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--forest);font-weight:900}
+.test-banner:hover{transform:translateY(-5px);background:rgba(255,255,255,.10);box-shadow:0 18px 45px rgba(0,0,0,.12)}
+.test-banner b{display:block;font-size:19px;color:#fff;margin-top:28px}.test-banner p{font-size:12px;color:#C3CEC3;margin:6px 35px 0 0}
+.test-banner.t1{border-top:3px solid #B7D84B}.test-banner.t2{border-top:3px solid #A8D8C2}.test-banner.t3{border-top:3px solid #D7B79C}.test-banner.t4{border-top:3px solid #AAB4DD}.test-banner.t5{border-top:3px solid #D7A9C5}.test-banner.t6{border-top:3px solid #E1C77A}
+.lang-switch{display:flex;gap:8px;align-items:center;margin-top:25px}
+.lang-switch a{padding:9px 14px;border-radius:999px;border:1px solid var(--line);font-size:11px;font-weight:850;background:#fff}
+.lang-switch a.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+.urdu-preview{display:none}
+@media(max-width:950px){.category-colors{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.category-colors{grid-template-columns:1fr 1fr}.test-banner{min-height:135px}}
+
+@media(max-width:950px){
+ nav{display:none}.menu{display:block}
+ .hero-grid,.app,.news-layout,.platform-box{grid-template-columns:1fr}.visual{min-height:430px}
+ .cards{grid-template-columns:1fr 1fr}.editorial{grid-template-columns:1fr 1fr}.edu-grid{grid-template-columns:1fr 1fr}.edu-card.featured{grid-row:auto}.article.feature{grid-row:span 2}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+ .container{width:min(100% - 28px,var(--max))}
+ .nav{min-height:68px}.brand small{display:none}.brand strong{font-size:14px}
+ .hero{padding:55px 0}.hero p{font-size:16px}.visual{min-height:380px;border-radius:26px}
+ .core{width:145px;height:145px}.core b{font-size:21px}.orbit{inset:35px}
+ .strip-grid{grid-template-columns:1fr 1fr;font-size:10px}
+ section{padding:65px 0}.section-head{display:block}.section-head p{margin-top:16px}
+ .cards,.tests,.editorial,.edu-grid{grid-template-columns:1fr}.article.feature{grid-row:auto;min-height:360px}.edu-card.featured{min-height:320px}.article.feature h3{font-size:29px}
+ .founder{padding:32px 24px;grid-template-columns:1fr;text-align:center}.avatar{margin:auto;width:150px;height:150px;font-size:42px}
+ .cta{padding:55px 18px}.footer-grid{grid-template-columns:1fr 1fr}
+ h1{font-size:49px}
+}
+.urdu-page-note{font-size:11px;color:var(--muted)}
+body{font-family:Tahoma,"Noto Sans Arabic","Noto Sans",Arial,sans-serif;overflow-x:hidden}
+.nav{direction:rtl}.brand{margin-left:auto;margin-right:0}
+nav{direction:rtl}.section-head,.hero-grid,.app,.founder,.news-layout,.platform-box{direction:rtl}
+.eyebrow{letter-spacing:0;line-height:1.55}.category-chip,.test-banner{text-align:right}
+.footer-grid{direction:rtl}
+.hero-grid>*{min-width:0}.app>*{min-width:0}.founder>*{min-width:0}.news-layout>*{min-width:0}
+h1,h2,h3,p,a,span,strong,small{overflow-wrap:anywhere}
+.btn{white-space:normal;text-align:center}
+.test-banner{display:block;color:#fff}
+@media(max-width:950px){
+  .container{width:min(100% - 32px,var(--max))}
+  .nav{gap:14px}
+  .brand{min-width:0}
+  .brand strong{white-space:nowrap}
+  .hero-grid,.app,.founder,.news-layout,.platform-box{grid-template-columns:1fr}
+  .visual{width:100%;min-width:0}
+  .platform-box{gap:25px}
+  .footer-grid{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:650px){
+  .container{width:calc(100% - 24px);max-width:none}
+  .nav{min-height:66px;padding:0}
+  .brand{gap:8px;max-width:calc(100% - 45px)}
+  .mark{width:36px;height:36px;min-width:36px;border-radius:11px}
+  .brand strong{font-size:12px;letter-spacing:.035em}
+  .brand small{display:none}
+  .menu{display:block;min-width:34px;padding:0}
+  .hero{padding:45px 0 52px}
+  .eyebrow{font-size:9px;padding:7px 10px;display:inline-block;max-width:100%}
+  h1{font-size:clamp(40px,12vw,52px);line-height:1.02;word-break:normal}
+  .hero p{font-size:15px;line-height:1.75}
+  .actions{width:100%;flex-direction:column;align-items:stretch}
+  .actions .btn{width:100%}
+  .visual{min-height:350px;border-radius:24px;margin-top:8px}
+  .orbit{inset:30px}
+  .core{width:140px;height:140px;padding:18px}
+  .core b{font-size:20px}
+  .float-card{font-size:9px;padding:10px 11px}
+  .fc1{left:15px;top:30px}.fc2{right:15px;bottom:38px}.fc3{left:18px;bottom:75px}
+  .strip{padding:17px 0}
+  .strip-grid{grid-template-columns:1fr 1fr;gap:10px;font-size:9px;line-height:1.35}
+  section{padding:58px 0}
+  .section-head{margin-bottom:25px}
+  h2{font-size:34px;line-height:1.08}
+  .section-head p{font-size:14px;line-height:1.7}
+  .cards,.tests,.editorial,.edu-grid{grid-template-columns:1fr}
+  .card{min-height:205px;padding:22px}
+  .card h3{margin-top:38px;font-size:22px}
+  .category-colors{grid-template-columns:1fr 1fr;gap:9px}
+  .category-chip{min-height:82px;padding:14px;font-size:11px}
+  .category-chip small{font-size:8px}
+  .test-banner{min-height:135px;padding:20px}
+  .test-banner b{font-size:18px;margin-top:25px}
+  .test-banner p{font-size:11px;line-height:1.55}
+  .editorial .article,.article.feature{min-height:260px}
+  .article.feature h3{font-size:28px}
+  .news-main{min-height:330px;padding:27px;border-radius:24px}
+  .news-main h3{font-size:31px}
+  .news-list article{padding:19px}
+  .platform-box{padding:30px 22px;border-radius:25px}
+  .platform-pills{gap:7px}
+  .platform-pills span{font-size:10px;padding:8px 10px}
+  .phone{width:245px;height:485px;border-width:8px}
+  .founder{padding:30px 20px;border-radius:25px;text-align:right}
+  .avatar{width:135px;height:135px;font-size:38px;margin:0 auto}
+  .founder p{font-size:14px;line-height:1.8}
+  .cta{padding:45px 18px;border-radius:25px}
+  .footer-grid{grid-template-columns:1fr 1fr !important;gap:25px}
+  footer{padding:45px 0 22px}
+}
+@media(max-width:390px){
+  .container{width:calc(100% - 18px)}
+  .brand strong{font-size:11px}
+  h1{font-size:38px}
+  h2{font-size:30px}
+  .category-colors{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr !important}
+  .phone{width:225px;height:455px}
+} 
+nav.mobile-open{display:flex;position:absolute;top:66px;right:12px;left:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:5px;direction:rtl}
+@media(max-width:650px){nav.mobile-open a{padding:10px 8px;border-bottom:1px solid #eef1eb}nav.mobile-open .btn{margin-top:5px}}
+</style>
+</head>
+<!-- Urdu version should mirror this structure, with RTL direction and translated UI/content. -->
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <span class="mark">OD</span>
+      <span><strong>OBAID DOCTRINE</strong><small>بہتر ذہن • بہتر کردار • بہتر زندگی</small></span>
+    </a>
+    <nav>
+      <a href="#start">شروع کریں</a><a href="#topics">موضوعات</a><a href="#insights">مضامین</a><a href="#news">خبریں اور تجزیہ</a><a href="#tests">ذہنی ٹیسٹس</a><a href="#app">ایپ</a><a href="#about">تعارف</a><a href="#">اردو</a>
+      <a class="btn primary" href="#topics">دریافت کریں</a>
+    </nav>
+    <button class="menu" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main id="start">
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <span class="eyebrow">پاکستان • عالمی معیار کا علم • تحقیق • تعلیم</span>
+   <h1>ذہن کو سمجھیں۔<br><span style="color:var(--forest)">زندگی کو سمجھیں۔</span></h1>
+   <p>تحقیق سے رہنمائی یافتہ خیالات جو رویوں، تعلقات، جذبات اور روزمرہ زندگی کو تشکیل دینے والے patterns کو سمجھنے میں مدد دیتے ہیں۔</p>
+   <div class="actions"><a class="btn primary" href="#insights">دریافت کریں مضامین →</a><a class="btn secondary" href="#app">Download ایپ</a></div><div class="hero-note"><span>●</span> Research-informed • Educational • Independent knowledge</div>
+  </div>
+  <div class="visual" aria-label="Abstract knowledge visual">
+    <div class="orbit"></div><div class="core"><div><span>KNOWLEDGE</span><br><b>Think<br>deeper.</b></div></div>
+    <div class="float-card fc1">PSYCHOLOGY</div><div class="float-card fc2">HUMAN BEHAVIOUR</div><div class="float-card fc3">RESEARCH × LIFE</div>
+  </div>
+ </div>
+</section>
+
+<div class="strip"><div class="container strip-grid"><span>گہرا سوچیں</span><span>لوگوں کو سمجھیں</span><span>کردار بنائیں</span><span>بہتر زندگی گزاریں</span></div></div>
+
+<section id="topics">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">علم کا مرکز</div><h2>لوگوں کو — اور خود کو — سمجھنے کے لیے خیالات۔</h2></div><p>دریافت کریں clear, thoughtful content across the questions that shape how we think, connect and live.</p></div>
+  <div class="cards">
+   <article class="card"><div class="num">01</div><h3>نفسیات</h3><p>Mind, personality, emotions, cognition and psychological science.</p></article>
+   <article class="card"><div class="num">02</div><h3>انسانی رویے</h3><p>Why people think, react, communicate and repeat patterns.</p></article>
+   <article class="card"><div class="num">03</div><h3>تعلقات</h3><p>Communication, attachment, boundaries, trust and healthy connection.</p></article>
+   <article class="card"><div class="num">04</div><h3>خاندان اور معاشرہ</h3><p>Family dynamics, social behaviour, culture and everyday life.</p></article>
+  </div>
+  <div class="category-colors" aria-label="Content category colors">
+   <div class="category-chip c-psych"><small>PSYCHOLOGY</small>Mind & Emotions</div>
+   <div class="category-chip c-behaviour"><small>BEHAVIOUR</small>Human Patterns</div>
+   <div class="category-chip c-rel"><small>RELATIONSHIPS</small>Connection & Trust</div>
+   <div class="category-chip c-family"><small>FAMILY & SOCIETY</small>People & Culture</div>
+  </div>
+ </div>
+</section>
+
+<section class="dark" id="tests">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">انٹرایکٹو</div><h2>اپنے اندازِ فکر کو دریافت کریں۔</h2></div><p>Modern self-reflection tools designed to help you explore patterns in how you think, communicate and respond.</p></div>
+  <div class="tests">
+   <a class="test-banner t1" href="tests/thinking-style.html"><b>اندازِ فکر</b><p>دریافت کریں how you approach information and decisions.</p></a>
+   <a class="test-banner t2" href="tests/emotional-intelligence.html"><b>جذباتی ذہانت</b><p>Reflect on emotional awareness and regulation.</p></a>
+   <a class="test-banner t3" href="tests/communication-style.html"><b>ابلاغ کا انداز</b><p>Understand your everyday communication patterns.</p></a>
+   <a class="test-banner t4" href="tests/self-awareness.html"><b>خود آگاہی</b><p>Look more closely at your thoughts and habits.</p></a>
+   <a class="test-banner t5" href="tests/conflict-style.html"><b>اختلاف کا انداز</b><p>دریافت کریں how you respond when perspectives differ.</p></a>
+   <a class="test-banner t6" href="tests/motivation-goals.html"><b>ترغیب اور اہداف</b><p>Reflect on what moves you toward meaningful goals.</p></a>
+  </div>
+ </div>
+</section>
+
+<section id="insights">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">Research-Informed مضامین</div><h2>ایسے سوالات جن پر غور کرنا چاہیے۔</h2></div><p>Editorial-style ideas designed to turn complex human behaviour into useful, readable knowledge.</p></div>
+  <div class="editorial">
+   <article class="article feature"><small>Featured Insight</small><h3>Why do we repeat patterns we already know are not helping us?</h3></article>
+   <article class="article"><small>تعلقات</small><h3>What makes communication feel safe?</h3></article>
+   <article class="article"><small>Perspective</small><h3>Why can two people see the same situation differently?</h3></article>
+   <article class="article"><small>انسانی رویے</small><h3>What shapes the choices we make every day?</h3></article>
+   <article class="article"><small>خود آگاہی</small><h3>When does reflection become useful?</h3></article>
+  </div>
+ </div>
+</section>
+
+
+<section id="education" class="education-section">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">تعلیم اور علم</div><h2>کلاس روم سے آگے سیکھیں۔</h2></div><p>Build a deeper understanding of people, society, ideas and the world through structured educational content.</p></div>
+  <div class="edu-grid">
+   <article class="edu-card featured"><span>01 / LEARN</span><h3>نفسیات Academy</h3><p>Foundational concepts, practical explanations and research-informed lessons for curious learners.</p><a href="#">Start Learning →</a></article>
+   <article class="edu-card"><span>02 / EXPLORE</span><h3>انسانی رویے</h3><p>Understand habits, decisions, social influence and everyday behaviour.</p><a href="#">دریافت کریں →</a></article>
+   <article class="edu-card"><span>03 / RESEARCH</span><h3>تحقیقی لائبریری</h3><p>Accessible summaries of studies, theories and evidence across human sciences.</p><a href="#">Browse Research →</a></article>
+   <article class="edu-card"><span>04 / THINK</span><h3>تنقیدی سوچ</h3><p>Tools for questioning assumptions, evaluating information and thinking clearly.</p><a href="#">Think Better →</a></article>
+  </div>
+ </div>
+</section>
+
+<section id="news" class="news-section">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">حالاتِ حاضرہ • خبریں • تجزیہ</div><h2>پاکستان — پس منظر اور تناظر کے ساتھ۔</h2></div><p>Move beyond headlines with concise explainers, background, evidence and human impact.</p></div>
+  <div class="news-layout">
+   <article class="news-main"><div class="news-tag">TOP STORY / ANALYSIS</div><h3>What happened, why it matters, and what to understand next.</h3><p>OBAID DOCTRINE can connect current events with education, society, psychology and everyday life — without turning the homepage into a conventional news portal.</p><a href="#">Read Analysis →</a></article>
+   <div class="news-list">
+    <article><span>Pakistan</span><h3>News Briefing</h3><p>Key developments, explained clearly.</p></article>
+    <article><span>World</span><h3>Global Perspective</h3><p>International events and their wider context.</p></article>
+    <article><span>Society</span><h3>People & Society</h3><p>Stories about how change affects everyday life.</p></article>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="platform">
+ <div class="container">
+  <div class="platform-box">
+   <div><div class="kicker">ایک پلیٹ فارم۔ سیکھنے کے کئی راستے۔</div><h2>From psychology to current affairs — built for curious minds.</h2></div>
+   <div class="platform-pills"><span>Education</span><span>Research</span><span>نفسیات</span><span>Society</span><span>خبریں اور تجزیہ</span><span>انسانی رویے</span><span>تعلقات</span><span>Knowledge</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="app">
+ <div class="container app">
+  <div><div class="kicker">OBAID DOCTRINE Android ایپ</div><h2>Your knowledge hub, in your pocket.</h2><p style="color:var(--muted);font-size:17px;max-width:560px">Read insights, explore psychology topics and keep learning wherever you are.</p><a class="btn primary" href="#">Download Android ایپ →</a></div>
+  <div class="phone-wrap"><div class="phone"><div class="notch"></div><div class="screen"><div class="app-logo">OBAID DOCTRINE</div><div class="app-box">Understand<br>the mind.<br>Understand life.</div><div class="app-row"><div class="app-mini">نفسیات<br><span style="color:#697269">دریافت کریں</span></div><div class="app-mini">تعلقات<br><span style="color:#697269">دریافت کریں</span></div></div><div class="app-row"><div class="app-mini">ذہنی ٹیسٹس<br><span style="color:#697269">Reflect</span></div><div class="app-mini">مضامین<br><span style="color:#697269">Read</span></div></div></div></div></div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="founder">
+   <div class="avatar">OM</div>
+   <div><div class="kicker">تعارف OBAID DOCTRINE</div><h2>علم زندگی کو زیادہ واضح بنانا چاہیے۔</h2><p><strong>OBAID MUSHTAQ</strong><br>بانی — OBAID DOCTRINE</p><p>OBAID DOCTRINE is built as an educational knowledge platform exploring psychology, human behaviour, relationships, family, society and research-informed ideas in a clear and accessible way.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container"><div class="cta"><h2>خود کو سمجھیں۔<br>دوسروں کو سمجھیں۔<br>بہتر زندگی بنائیں۔</h2><div class="actions"><a class="btn primary" href="#insights">دریافت کریں مضامین</a><a class="btn secondary" href="#app">Download ایپ</a></div></div></div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid" style="grid-template-columns:1.35fr repeat(4,1fr);">
+   <div class="footer-brand"><strong>OBAID DOCTRINE</strong><p>بہتر ذہن • بہتر کردار • بہتر زندگی</p></div>
+   <div><h4>دریافت کریں</h4><a href="#topics">نفسیات</a><a href="#topics">انسانی رویے</a><a href="#topics">تعلقات</a><a href="#topics">خاندان اور معاشرہ</a></div>
+   <div><h4>Learn</h4><a href="#education">Education</a><a href="#insights">Research</a><a href="#tests">ذہنی ٹیسٹس</a><a href="#app">Android ایپ</a></div>
+   <div><h4>News</h4><a href="#news">Pakistan</a><a href="#news">World</a><a href="#news">خبریں اور تجزیہ</a></div><div><h4>Connect</h4><a href="#">Facebook</a><a href="mailto:hello@obaiddoctrine.com">Contact</a><a href="#">اردو</a></div>
+  </div>
+  <div class="lang-switch"><a class="active" href="index.html">English</a><a href="ur/index.html">اردو</a></div>
+  <div class="copy">© 2026 OBAID DOCTRINE. Educational knowledge platform.</div>
+ </div>
+</footer>
+<script>
+const menu=document.querySelector('.menu'), nav=document.querySelector('nav');
+if(menu&&nav){
+  menu.setAttribute('aria-expanded','false');
+  menu.addEventListener('click',()=>{
+    const open=nav.classList.toggle('mobile-open');
+    menu.setAttribute('aria-expanded',String(open));
+  });
+}
+</script>
+</body>
+</html>
