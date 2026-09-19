@@ -192,7 +192,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "anxiety"
+    "keyword": "anxiety",
+    "priority": 1,
+    "research_note": "Keyword-estimate + established psychology search demand; verify current country trend before publication."
   },
   {
     "slug": "anxiety-vs-stress",
@@ -200,7 +202,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "anxiety;stress management"
+    "keyword": "anxiety;stress management",
+    "priority": 2,
+    "research_note": "High-intent question cluster; verify current country trend before publication."
   },
   {
     "slug": "why-feel-anxious-for-no-reason",
@@ -208,7 +212,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "anxiety"
+    "keyword": "anxiety",
+    "priority": 11,
+    "research_note": "High-intent symptom-style query; include professional-help boundary."
   },
   {
     "slug": "what-is-depression",
@@ -216,7 +222,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "depression"
+    "keyword": "depression",
+    "priority": 12,
+    "research_note": "High-interest health topic; use authoritative sources and non-diagnostic framing."
   },
   {
     "slug": "what-is-adhd",
@@ -224,7 +232,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "ADHD"
+    "keyword": "ADHD",
+    "priority": 7,
+    "research_note": "High-interest topic; medical/health claims require authoritative sourcing and careful scope."
   },
   {
     "slug": "empathy-meaning",
@@ -232,7 +242,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "empathy"
+    "keyword": "empathy",
+    "priority": 8,
+    "research_note": "Keyword-estimate + broad educational intent."
   },
   {
     "slug": "four-attachment-styles",
@@ -240,7 +252,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "attachment styles"
+    "keyword": "attachment styles",
+    "priority": 3,
+    "research_note": "Keyword-estimate + established relationship-search topic; use evidence-based framing, avoid deterministic labels."
   },
   {
     "slug": "anxious-attachment",
@@ -248,7 +262,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "attachment styles"
+    "keyword": "attachment styles",
+    "priority": 4,
+    "research_note": "High-intent relationship query; avoid diagnosis-style claims."
   },
   {
     "slug": "avoidant-attachment",
@@ -256,7 +272,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "attachment styles"
+    "keyword": "attachment styles",
+    "priority": 14,
+    "research_note": "High-intent relationship query; avoid labeling individuals."
   },
   {
     "slug": "can-attachment-style-change",
@@ -264,7 +282,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "attachment styles"
+    "keyword": "attachment styles",
+    "priority": 13,
+    "research_note": "High-intent relationship query; evidence-based framing."
   },
   {
     "slug": "emotional-intelligence-signs",
@@ -272,7 +292,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "emotional intelligence"
+    "keyword": "emotional intelligence",
+    "priority": 5,
+    "research_note": "Keyword-estimate + strong educational intent."
   },
   {
     "slug": "emotional-intelligence-vs-iq",
@@ -280,7 +302,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "emotional intelligence"
+    "keyword": "emotional intelligence",
+    "priority": 21,
+    "research_note": "High-intent comparison query within emotional-intelligence cluster."
   },
   {
     "slug": "cognitive-dissonance",
@@ -288,7 +312,9 @@
     "category": "Human Behaviour",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "cognitive dissonance"
+    "keyword": "cognitive dissonance",
+    "priority": 6,
+    "research_note": "Keyword-estimate + durable psychology concept."
   },
   {
     "slug": "confirmation-bias",
@@ -296,7 +322,9 @@
     "category": "Human Behaviour",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "cognitive bias"
+    "keyword": "cognitive bias",
+    "priority": 20,
+    "research_note": "High-intent educational query within cognitive-bias cluster."
   },
   {
     "slug": "memory-reliability",
@@ -304,7 +332,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "memory"
+    "keyword": "memory",
+    "priority": 19,
+    "research_note": "Keyword-estimate + durable psychology concept."
   },
   {
     "slug": "big-five-personality",
@@ -312,7 +342,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "big five personality traits"
+    "keyword": "big five personality traits",
+    "priority": 10,
+    "research_note": "Keyword-estimate + durable psychology concept."
   },
   {
     "slug": "personality-tests",
@@ -320,7 +352,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "personality tests"
+    "keyword": "personality tests",
+    "priority": 9,
+    "research_note": "Keyword-estimate + strong search intent; explain test limitations."
   },
   {
     "slug": "why-we-seek-validation",
@@ -328,7 +362,9 @@
     "category": "Human Behaviour",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "human behaviour"
+    "keyword": "human behaviour",
+    "priority": 24,
+    "research_note": "High-intent human-behaviour question."
   },
   {
     "slug": "why-we-fear-rejection",
@@ -336,7 +372,9 @@
     "category": "Human Behaviour",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "human behaviour"
+    "keyword": "human behaviour",
+    "priority": 25,
+    "research_note": "High-intent human-behaviour question."
   },
   {
     "slug": "why-people-pull-away",
@@ -344,7 +382,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "attachment;relationships"
+    "keyword": "attachment;relationships",
+    "priority": 22,
+    "research_note": "High-intent relationship query; avoid universal explanations."
   },
   {
     "slug": "why-couples-keep-misunderstanding",
@@ -352,7 +392,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "relationships"
+    "keyword": "relationships",
+    "priority": 29,
+    "research_note": "High-intent relationship query; overlaps existing content and should be differentiated."
   },
   {
     "slug": "what-makes-relationship-unhealthy",
@@ -360,7 +402,9 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "toxic relationships"
+    "keyword": "toxic relationships",
+    "priority": 23,
+    "research_note": "Keyword-estimate + relationship intent; distinguish unhealthy dynamics from clinical diagnoses."
   },
   {
     "slug": "stress-and-thinking",
@@ -368,7 +412,9 @@
     "category": "Psychology",
     "status": "research-priority",
     "evidence": "high_intent",
-    "keyword": "stress management"
+    "keyword": "stress management",
+    "priority": 18,
+    "research_note": "Established psychology topic; verify current country trend before publication."
   },
   {
     "slug": "how-to-digital-detox",
@@ -376,7 +422,9 @@
     "category": "Society & Life",
     "status": "research-priority",
     "evidence": "current_google_trend",
-    "keyword": "digital detox"
+    "keyword": "digital detox",
+    "priority": 16,
+    "research_note": "Google reported +110% U.S. search growth since start of 2026."
   },
   {
     "slug": "why-hard-to-stop-scrolling",
@@ -384,7 +432,9 @@
     "category": "Society & Life",
     "status": "research-priority",
     "evidence": "current_google_trend",
-    "keyword": "digital detox;social media"
+    "keyword": "digital detox;social media",
+    "priority": 15,
+    "research_note": "Google 2026 digital-wellbeing trend evidence."
   },
   {
     "slug": "why-keep-checking-phone",
@@ -392,7 +442,9 @@
     "category": "Society & Life",
     "status": "research-priority",
     "evidence": "current_google_trend",
-    "keyword": "digital behaviour"
+    "keyword": "digital behaviour",
+    "priority": 17,
+    "research_note": "Digital-wellbeing trend supported by Google research; verify exact current query trend before publication."
   },
   {
     "slug": "social-media-self-comparison",
@@ -400,7 +452,9 @@
     "category": "Society & Life",
     "status": "research-priority",
     "evidence": "current_trend",
-    "keyword": "social comparison"
+    "keyword": "social comparison",
+    "priority": 27,
+    "research_note": "Digital/social comparison cluster; current trend signal plus existing site relevance."
   },
   {
     "slug": "touch-grass-psychology",
@@ -408,7 +462,9 @@
     "category": "Society & Life",
     "status": "research-priority",
     "evidence": "current_google_trend",
-    "keyword": "touch grass"
+    "keyword": "touch grass",
+    "priority": 28,
+    "research_note": "Google reported breakout search in July 2026; trend-sensitive topic."
   },
   {
     "slug": "conflict-resolution-relationships",
@@ -416,6 +472,8 @@
     "category": "Relationships",
     "status": "research-priority",
     "evidence": "high_estimated_global_demand",
-    "keyword": "conflict resolution"
+    "keyword": "conflict resolution",
+    "priority": 26,
+    "research_note": "Keyword-estimate + practical relationship intent."
   }
 ]
