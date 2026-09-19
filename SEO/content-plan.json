@@ -1,32 +1,189 @@
 [
-  {"slug":"what-is-psychology","title":"What Is Psychology? A Simple Guide to How the Mind and Behaviour Work","category":"Psychology","status":"published"},
-  {"slug":"why-people-behave-differently","title":"Why Do People Behave Differently in the Same Situation?","category":"Human Behaviour","status":"published"},
-  {"slug":"emotional-intelligence","title":"What Is Emotional Intelligence?","category":"Psychology","status":"published"},
-  {"slug":"cognitive-biases-everyday-decisions","title":"How Cognitive Biases Affect Everyday Decisions","category":"Human Behaviour","status":"published"},
-  {"slug":"why-we-procrastinate","title":"Why Do We Procrastinate? The Psychology of Delay","category":"Self-Improvement","status":"published"},
-  {"slug":"how-habits-form","title":"How Habits Form and Why They Are Hard to Change","category":"Self-Improvement","status":"published"},
-  {"slug":"attachment-in-relationships","title":"What Is Attachment in Relationships?","category":"Relationships","status":"published"},
-  {"slug":"healthy-communication","title":"Healthy Communication in Relationships: What It Looks Like","category":"Relationships","status":"published"},
-  {"slug":"why-couples-misunderstand","title":"Why Do Couples Misunderstand Each Other?","category":"Relationships","status":"published"},
-  {"slug":"boundaries-in-relationships","title":"Boundaries in Relationships: Meaning, Examples and Misconceptions","category":"Relationships","status":"published"},
-  {"slug":"conflict-in-relationships","title":"Conflict in Relationships: What Research Can and Cannot Tell Us","category":"Relationships","status":"published"},
-  {"slug":"listening-changes-conversation","title":"How Listening Changes a Conversation","category":"Relationships","status":"published"},
-  {"slug":"loneliness-social-connection","title":"Loneliness and Social Connection: What Psychology Says","category":"Society & Life","status":"published"},
-  {"slug":"social-comparison-wellbeing","title":"Why Social Comparison Can Affect Well-Being","category":"Society & Life","status":"published"},
-  {"slug":"social-media-psychology","title":"Social Media and Psychology: How Online Environments Shape Behaviour","category":"Society & Life","status":"published"},
-  {"slug":"existing-views-beliefs","title":"Why People Believe Things That Fit Their Existing Views","category":"Human Behaviour","status":"published"},
-  {"slug":"stress-and-coping","title":"Stress and Everyday Coping: A Psychology Overview","category":"Psychology","status":"published"},
-  {"slug":"resilience","title":"What Is Resilience?","category":"Self-Improvement","status":"published"},
-  {"slug":"self-awareness","title":"Self-Awareness: What It Means and Why It Matters","category":"Self-Improvement","status":"published"},
-  {"slug":"self-compassion-vs-self-criticism","title":"Self-Compassion vs Self-Criticism","category":"Self-Improvement","status":"published"},
-  {"slug":"sleep-and-wellbeing","title":"How Sleep and Mental Well-Being Are Connected","category":"Psychology","status":"published"},
-  {"slug":"parenting-child-development","title":"Parenting and Child Development: Why Context Matters","category":"Marriage & Family","status":"published"},
-  {"slug":"family-communication-patterns","title":"Family Communication: Common Patterns to Understand","category":"Marriage & Family","status":"published"},
-  {"slug":"parents-children-differences","title":"Intergenerational Differences: Why Parents and Children See Life Differently","category":"Marriage & Family","status":"published"},
-  {"slug":"social-pressure-decisions","title":"Social Pressure and Personal Decisions","category":"Society & Life","status":"published"},
-  {"slug":"perception-shapes-interpretation","title":"How Perception Shapes Our Interpretation of People","category":"Human Behaviour","status":"published"},
-  {"slug":"forgiveness-and-relationships","title":"What Research Says About Forgiveness and Relationships","category":"Relationships","status":"published"},
-  {"slug":"when-to-talk-to-professional","title":"When Should Psychological Information Be Discussed With a Professional?","category":"Research Insights","status":"published"},
-  {"slug":"read-psychology-claim-online","title":"How to Read a Psychology Claim Online Without Being Misled","category":"Research Insights","status":"published"},
-  {"slug":"research-vs-viral-psychology","title":"Research vs Viral Psychology: How to Check a Claim","category":"Research Insights","status":"published"}
+  {
+    "slug": "what-is-psychology",
+    "title": "What Is Psychology? A Simple Guide to How the Mind and Behaviour Work",
+    "category": "Psychology",
+    "status": "published"
+  },
+  {
+    "slug": "why-people-behave-differently",
+    "title": "Why Do People Behave Differently in the Same Situation?",
+    "category": "Human Behaviour",
+    "status": "published"
+  },
+  {
+    "slug": "emotional-intelligence",
+    "title": "What Is Emotional Intelligence?",
+    "category": "Psychology",
+    "status": "published"
+  },
+  {
+    "slug": "cognitive-biases-everyday-decisions",
+    "title": "How Cognitive Biases Affect Everyday Decisions",
+    "category": "Human Behaviour",
+    "status": "published"
+  },
+  {
+    "slug": "why-we-procrastinate",
+    "title": "Why Do We Procrastinate? The Psychology of Delay",
+    "category": "Self-Improvement",
+    "status": "published"
+  },
+  {
+    "slug": "how-habits-form",
+    "title": "How Habits Form and Why They Are Hard to Change",
+    "category": "Self-Improvement",
+    "status": "published"
+  },
+  {
+    "slug": "attachment-in-relationships",
+    "title": "What Is Attachment in Relationships?",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "healthy-communication",
+    "title": "Healthy Communication in Relationships: What It Looks Like",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "why-couples-misunderstand",
+    "title": "Why Do Couples Misunderstand Each Other?",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "boundaries-in-relationships",
+    "title": "Boundaries in Relationships: Meaning, Examples and Misconceptions",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "conflict-in-relationships",
+    "title": "Conflict in Relationships: What Research Can and Cannot Tell Us",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "listening-changes-conversation",
+    "title": "How Listening Changes a Conversation",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "loneliness-social-connection",
+    "title": "Loneliness and Social Connection: What Psychology Says",
+    "category": "Society & Life",
+    "status": "published"
+  },
+  {
+    "slug": "social-comparison-wellbeing",
+    "title": "Why Social Comparison Can Affect Well-Being",
+    "category": "Society & Life",
+    "status": "published"
+  },
+  {
+    "slug": "social-media-psychology",
+    "title": "Social Media and Psychology: How Online Environments Shape Behaviour",
+    "category": "Society & Life",
+    "status": "published"
+  },
+  {
+    "slug": "existing-views-beliefs",
+    "title": "Why People Believe Things That Fit Their Existing Views",
+    "category": "Human Behaviour",
+    "status": "published"
+  },
+  {
+    "slug": "stress-and-coping",
+    "title": "Stress and Everyday Coping: A Psychology Overview",
+    "category": "Psychology",
+    "status": "published"
+  },
+  {
+    "slug": "resilience",
+    "title": "What Is Resilience?",
+    "category": "Self-Improvement",
+    "status": "published"
+  },
+  {
+    "slug": "self-awareness",
+    "title": "Self-Awareness: What It Means and Why It Matters",
+    "category": "Self-Improvement",
+    "status": "published"
+  },
+  {
+    "slug": "self-compassion-vs-self-criticism",
+    "title": "Self-Compassion vs Self-Criticism",
+    "category": "Self-Improvement",
+    "status": "published"
+  },
+  {
+    "slug": "sleep-and-wellbeing",
+    "title": "How Sleep and Mental Well-Being Are Connected",
+    "category": "Psychology",
+    "status": "published"
+  },
+  {
+    "slug": "parenting-child-development",
+    "title": "Parenting and Child Development: Why Context Matters",
+    "category": "Marriage & Family",
+    "status": "published"
+  },
+  {
+    "slug": "family-communication-patterns",
+    "title": "Family Communication: Common Patterns to Understand",
+    "category": "Marriage & Family",
+    "status": "published"
+  },
+  {
+    "slug": "parents-children-differences",
+    "title": "Intergenerational Differences: Why Parents and Children See Life Differently",
+    "category": "Marriage & Family",
+    "status": "published"
+  },
+  {
+    "slug": "social-pressure-decisions",
+    "title": "Social Pressure and Personal Decisions",
+    "category": "Society & Life",
+    "status": "published"
+  },
+  {
+    "slug": "perception-shapes-interpretation",
+    "title": "How Perception Shapes Our Interpretation of People",
+    "category": "Human Behaviour",
+    "status": "published"
+  },
+  {
+    "slug": "forgiveness-and-relationships",
+    "title": "What Research Says About Forgiveness and Relationships",
+    "category": "Relationships",
+    "status": "published"
+  },
+  {
+    "slug": "when-to-talk-to-professional",
+    "title": "When Should Psychological Information Be Discussed With a Professional?",
+    "category": "Research Insights",
+    "status": "published"
+  },
+  {
+    "slug": "read-psychology-claim-online",
+    "title": "How to Read a Psychology Claim Online Without Being Misled",
+    "category": "Research Insights",
+    "status": "published"
+  },
+  {
+    "slug": "research-vs-viral-psychology",
+    "title": "Research vs Viral Psychology: How to Check a Claim",
+    "category": "Research Insights",
+    "status": "published"
+  },
+  {
+    "slug": "why-do-we-overthink",
+    "title": "Why Do We Overthink? The Psychology of Repetitive Thinking",
+    "category": "Psychology",
+    "status": "published",
+    "urdu_title": "ہم زیادہ سوچتے کیوں ہیں؟ بار بار آنے والے خیالات کی نفسیات"
+  }
 ]
