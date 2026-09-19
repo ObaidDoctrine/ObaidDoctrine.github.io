@@ -185,5 +185,237 @@
     "category": "Psychology",
     "status": "published",
     "urdu_title": "ہم زیادہ سوچتے کیوں ہیں؟ بار بار آنے والے خیالات کی نفسیات"
+  },
+  {
+    "slug": "what-is-anxiety",
+    "title": "What Is Anxiety? A Psychology-Based Guide",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "anxiety"
+  },
+  {
+    "slug": "anxiety-vs-stress",
+    "title": "Anxiety vs Stress: What Is the Difference?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "anxiety;stress management"
+  },
+  {
+    "slug": "why-feel-anxious-for-no-reason",
+    "title": "Why Do I Feel Anxious for No Clear Reason?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "anxiety"
+  },
+  {
+    "slug": "what-is-depression",
+    "title": "What Is Depression? Understanding the Difference Between Sadness and Depression",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "depression"
+  },
+  {
+    "slug": "what-is-adhd",
+    "title": "What Is ADHD? A Psychology-Based Guide",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "ADHD"
+  },
+  {
+    "slug": "empathy-meaning",
+    "title": "What Is Empathy and Why Does It Matter?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "empathy"
+  },
+  {
+    "slug": "four-attachment-styles",
+    "title": "The 4 Attachment Styles Explained",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "attachment styles"
+  },
+  {
+    "slug": "anxious-attachment",
+    "title": "What Is Anxious Attachment?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "attachment styles"
+  },
+  {
+    "slug": "avoidant-attachment",
+    "title": "What Is Avoidant Attachment?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "attachment styles"
+  },
+  {
+    "slug": "can-attachment-style-change",
+    "title": "Can Your Attachment Style Change?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "attachment styles"
+  },
+  {
+    "slug": "emotional-intelligence-signs",
+    "title": "Signs of Strong Emotional Intelligence",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "emotional intelligence"
+  },
+  {
+    "slug": "emotional-intelligence-vs-iq",
+    "title": "Emotional Intelligence vs IQ: What Is the Difference?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "emotional intelligence"
+  },
+  {
+    "slug": "cognitive-dissonance",
+    "title": "What Is Cognitive Dissonance? Why Beliefs and Actions Can Clash",
+    "category": "Human Behaviour",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "cognitive dissonance"
+  },
+  {
+    "slug": "confirmation-bias",
+    "title": "What Is Confirmation Bias? How It Shapes What We Notice",
+    "category": "Human Behaviour",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "cognitive bias"
+  },
+  {
+    "slug": "memory-reliability",
+    "title": "Why Is Human Memory Not Always Reliable?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "memory"
+  },
+  {
+    "slug": "big-five-personality",
+    "title": "What Are the Big Five Personality Traits?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "big five personality traits"
+  },
+  {
+    "slug": "personality-tests",
+    "title": "How Accurate Are Personality Tests?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "personality tests"
+  },
+  {
+    "slug": "why-we-seek-validation",
+    "title": "Why Do People Seek Validation From Others?",
+    "category": "Human Behaviour",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "human behaviour"
+  },
+  {
+    "slug": "why-we-fear-rejection",
+    "title": "Why Does Rejection Feel So Powerful?",
+    "category": "Human Behaviour",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "human behaviour"
+  },
+  {
+    "slug": "why-people-pull-away",
+    "title": "Why Do People Pull Away When Relationships Get Close?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "attachment;relationships"
+  },
+  {
+    "slug": "why-couples-keep-misunderstanding",
+    "title": "Why Do Couples Keep Misunderstanding Each Other?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "relationships"
+  },
+  {
+    "slug": "what-makes-relationship-unhealthy",
+    "title": "What Makes a Relationship Unhealthy?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "toxic relationships"
+  },
+  {
+    "slug": "stress-and-thinking",
+    "title": "How Does Stress Affect the Way We Think?",
+    "category": "Psychology",
+    "status": "research-priority",
+    "evidence": "high_intent",
+    "keyword": "stress management"
+  },
+  {
+    "slug": "how-to-digital-detox",
+    "title": "What Is Digital Detox and Does It Actually Help?",
+    "category": "Society & Life",
+    "status": "research-priority",
+    "evidence": "current_google_trend",
+    "keyword": "digital detox"
+  },
+  {
+    "slug": "why-hard-to-stop-scrolling",
+    "title": "Why Is It So Hard to Stop Scrolling? The Psychology of Digital Habits",
+    "category": "Society & Life",
+    "status": "research-priority",
+    "evidence": "current_google_trend",
+    "keyword": "digital detox;social media"
+  },
+  {
+    "slug": "why-keep-checking-phone",
+    "title": "Why Do We Keep Checking Our Phones?",
+    "category": "Society & Life",
+    "status": "research-priority",
+    "evidence": "current_google_trend",
+    "keyword": "digital behaviour"
+  },
+  {
+    "slug": "social-media-self-comparison",
+    "title": "Why Does Social Media Make Comparison So Easy?",
+    "category": "Society & Life",
+    "status": "research-priority",
+    "evidence": "current_trend",
+    "keyword": "social comparison"
+  },
+  {
+    "slug": "touch-grass-psychology",
+    "title": "What Does “Touch Grass” Mean? The Psychology Behind the Trend",
+    "category": "Society & Life",
+    "status": "research-priority",
+    "evidence": "current_google_trend",
+    "keyword": "touch grass"
+  },
+  {
+    "slug": "conflict-resolution-relationships",
+    "title": "Conflict Resolution in Relationships: What Helps?",
+    "category": "Relationships",
+    "status": "research-priority",
+    "evidence": "high_estimated_global_demand",
+    "keyword": "conflict resolution"
   }
 ]
