@@ -190,11 +190,13 @@
     "slug": "what-is-anxiety",
     "title": "What Is Anxiety? A Psychology-Based Guide",
     "category": "Psychology",
-    "status": "research-priority",
+    "status": "published",
     "evidence": "high_estimated_global_demand",
     "keyword": "anxiety",
     "priority": 1,
-    "research_note": "Keyword-estimate + established psychology search demand; verify current country trend before publication."
+    "research_note": "Keyword-estimate + established psychology search demand; verify current country trend before publication.",
+    "urdu_title": "اضطراب کیا ہے؟ نفسیات کی روشنی میں ایک واضح رہنمائی",
+    "published_date": "2026-09-20"
   },
   {
     "slug": "anxiety-vs-stress",
