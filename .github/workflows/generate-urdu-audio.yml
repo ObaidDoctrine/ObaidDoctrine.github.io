@@ -3,7 +3,7 @@ name: Generate Verified Urdu Article Audio
 on:
   push:
     paths:
-      - "ur/articles/what-is-psychology/index.html"
+      - "ur/articles/**"
       - "scripts/generate_urdu_audio.py"
       - ".github/workflows/generate-urdu-audio.yml"
   workflow_dispatch:
@@ -31,39 +31,43 @@ jobs:
           curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx"
           curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx.json "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx.json"
 
-      - name: Extract only the actual article text
+      - name: Extract exact text from every Urdu article
         run: python scripts/generate_urdu_audio.py
 
-      - name: Synthesize Urdu male audio
+      - name: Synthesize clean Urdu male audio for every article
         run: |
           mkdir -p audio/ur
-          piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file audio/ur/what-is-psychology.wav < audio/ur/what-is-psychology.txt
+          for txt in audio/ur/*.txt; do
+            slug="$(basename "$txt" .txt)"
+            piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file "audio/ur/$slug.wav" < "$txt"
+          done
 
       - name: Install MP3 encoder
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
 
-      - name: Convert to broadly supported MP3
-        run: ffmpeg -y -i audio/ur/what-is-psychology.wav -codec:a libmp3lame -b:a 96k audio/ur/what-is-psychology.mp3
-
-      - name: Verify audio files
+      - name: Convert every article audio to MP3
         run: |
-          test -s audio/ur/what-is-psychology.wav
-          test -s audio/ur/what-is-psychology.mp3
-          file audio/ur/what-is-psychology.wav
-          file audio/ur/what-is-psychology.mp3
-          python - <<'PY'
-          import wave
-          p="audio/ur/what-is-psychology.wav"
-          with wave.open(p,"rb") as w:
-              print("channels=",w.getnchannels(),"rate=",w.getframerate(),"frames=",w.getnframes())
-          PY
+          for wav in audio/ur/*.wav; do
+            slug="$(basename "$wav" .wav)"
+            ffmpeg -y -i "$wav" -codec:a libmp3lame -b:a 96k "audio/ur/$slug.mp3"
+          done
+
+      - name: Verify every generated audio file
+        run: |
+          count=0
+          for txt in audio/ur/*.txt; do
+            slug="$(basename "$txt" .txt)"
+            test -s "audio/ur/$slug.wav"
+            test -s "audio/ur/$slug.mp3"
+            count=$((count+1))
+          done
+          echo "Verified $count Urdu article audio pairs."
+          test "$count" -gt 0
 
       - name: Commit verified audio
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audio/ur/what-is-psychology.wav audio/ur/what-is-psychology.mp3
-          git commit -m "Add verified Urdu male WAV and MP3 audio" || exit 0
+          git add audio/ur
+          git commit -m "Add verified Urdu male MP3 audio for all articles" || exit 0
           git push
-
-# Trigger verified generation workflow
