@@ -39,6 +39,9 @@ jobs:
           mkdir -p audio/ur
           piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file audio/ur/what-is-psychology.wav < audio/ur/what-is-psychology.txt
 
+      - name: Install MP3 encoder
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+
       - name: Convert to broadly supported MP3
         run: ffmpeg -y -i audio/ur/what-is-psychology.wav -codec:a libmp3lame -b:a 96k audio/ur/what-is-psychology.mp3
 
