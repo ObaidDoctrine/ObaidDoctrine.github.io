@@ -17,7 +17,7 @@ fi
 ACCOUNTS_RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
   --get \
   --data-urlencode "fields=id,name,access_token" \
-  --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
+  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
   "https://graph.facebook.com/$FB_GRAPH_VERSION/me/accounts")
 
 ACCOUNTS_STATUS=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed -n 's/^HTTP_STATUS://p' | tail -n 1)
