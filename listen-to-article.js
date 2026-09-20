@@ -56,23 +56,13 @@ function init(){
         chunks=splitText(getArticle()||"");
         setStatus("براؤزر کی اردو آواز استعمال ہو رہی ہے…");
         speakUrduFallback();
-      }else{index=0;chunks=splitText(getArticle()||"");speakUrduGoogle();}
+      }else{active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;}
     }
   }
   function pickVoice(lang){
     const voices=synth?synth.getVoices():[];
     const base=lang.toLowerCase().split("-")[0];
     return voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(base+"-"))||voices.find(v=>v.lang.toLowerCase()===base)||voices.find(v=>v.default);
-  }
-  function speakUrduGoogle(){
-    if(!active||index>=chunks.length){active=false;setStatus("");play.disabled=false;return;}
-    const text=encodeURIComponent(chunks[index++]);
-    audio=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ur&q="+text);
-    audio.playbackRate=parseFloat(speed.value);
-    audio.onended=()=>speakUrduGoogle();
-    audio.onerror=()=>{index=0;chunks=splitText(getArticle()||"");speakUrduFallback();};
-    play.disabled=true;setStatus("اردو آواز چل رہی ہے…");
-    audio.play().catch(()=>{index=0;chunks=splitText(getArticle()||"");speakUrduFallback();});
   }
   function speakUrduFallback(){
     if(!synth){active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;return;}
