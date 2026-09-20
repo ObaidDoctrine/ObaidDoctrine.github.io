@@ -35,7 +35,7 @@ function init(){
   function setStatus(t){status.textContent=t;}
   function splitText(t){return t.match(/[^.!?۔！？]+[.!?۔！？]*/g)||[t];}
   function getUrduAudioUrl(){
-    const match=location.pathname.match(/^\\/ur\\/articles\\/([^/]+)\\/?$/);
+    const match=location.pathname.match(/^\/ur\/articles\/([^/]+)\/?$/);
     return match ? "/audio/ur/"+match[1]+".wav" : null;
   }
   async function speakUrdu(){
