@@ -35,7 +35,7 @@ while IFS= read -r FILE; do
   [[ "$FILE" == articles/*/index.html ]] || continue
 
   TITLE=$(sed -n 's:.*<title>\([^<]*\)</title>.*:\1:p' "$FILE" | head -n 1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-  URL=$(sed -n 's:.*<link[^>]*rel=["'\''"]canonical["'\''"][^>]*href=["'\''"]\([^"'\''"]*\)["'\''"].*:\1:p' "$FILE" | head -n 1)
+  URL=$(grep -i '<link' "$FILE" | grep -i 'rel="canonical"' | sed -n 's/.*href="\([^"]*\)".*/\1/p' | head -n 1)
 
   if [[ -z "$TITLE" || -z "$URL" ]]; then
     echo "::error::Could not extract title or canonical URL from $FILE"
