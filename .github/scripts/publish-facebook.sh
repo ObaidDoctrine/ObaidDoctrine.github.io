@@ -14,6 +14,15 @@ if [[ -z "$AFTER" ]]; then
   exit 1
 fi
 
+TOKEN_CHECK=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
+  --get \
+  --data-urlencode "fields=id,name" \
+  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+  "https://graph.facebook.com/$FB_GRAPH_VERSION/me")
+
+echo "Facebook token identity check:"
+echo "$TOKEN_CHECK"
+
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
   echo "Manual run: validation only; no Facebook post will be created."
   exit 0
