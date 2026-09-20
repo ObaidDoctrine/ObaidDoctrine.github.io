@@ -38,7 +38,9 @@ function init(){
     const mod=await piper();
     if(!mod||!active){if(active)setStatus("آواز دستیاب نہیں");return;}
     try{
-      setStatus("آواز تیار ہو رہی ہے…");
+      setStatus("اردو آواز کا ماڈل تیار ہو رہا ہے…");
+      if (typeof mod.download === "function") await mod.download(neuralUrdu, ()=>{});
+      setStatus("اردو آواز تیار ہو رہی ہے…");
       const wav=await mod.predict({text:chunks[index++],voiceId:neuralUrdu});
       if(!active)return;
       audio=new Audio(URL.createObjectURL(wav));
@@ -48,12 +50,29 @@ function init(){
       play.disabled=true;
       setStatus("چل رہا ہے…");
       await audio.play();
-    }catch(e){active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;}
+    }catch(e){
+      if(synth){
+        index=0;
+        chunks=splitText(getArticle()||"");
+        setStatus("براؤزر کی اردو آواز استعمال ہو رہی ہے…");
+        speakUrduFallback();
+      }else{active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;}
+    }
   }
   function pickVoice(lang){
     const voices=synth?synth.getVoices():[];
     const base=lang.toLowerCase().split("-")[0];
     return voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(base+"-"))||voices.find(v=>v.lang.toLowerCase()===base)||voices.find(v=>v.default);
+  }
+  function speakUrduFallback(){
+    if(!synth){active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;return;}
+    if(!active||index>=chunks.length){active=false;setStatus("");play.disabled=false;return;}
+    const u=new SpeechSynthesisUtterance(chunks[index++]);u.lang="ur-PK";u.rate=parseFloat(speed.value);u.pitch=1;u.volume=1;
+    const v=pickVoice("ur-PK");if(v)u.voice=v;
+    u.onstart=()=>{play.disabled=true;setStatus("چل رہا ہے…");};
+    u.onend=()=>speakUrduFallback();
+    u.onerror=()=>{active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;};
+    synth.speak(u);
   }
   function speakEnglish(){
     if(!synth){setStatus("Voice unavailable");return;}
