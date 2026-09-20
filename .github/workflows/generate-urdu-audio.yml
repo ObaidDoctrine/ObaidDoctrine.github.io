@@ -39,10 +39,15 @@ jobs:
           mkdir -p audio/ur
           piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file audio/ur/what-is-psychology.wav < audio/ur/what-is-psychology.txt
 
-      - name: Verify audio file
+      - name: Convert to broadly supported MP3
+        run: ffmpeg -y -i audio/ur/what-is-psychology.wav -codec:a libmp3lame -b:a 96k audio/ur/what-is-psychology.mp3
+
+      - name: Verify audio files
         run: |
           test -s audio/ur/what-is-psychology.wav
+          test -s audio/ur/what-is-psychology.mp3
           file audio/ur/what-is-psychology.wav
+          file audio/ur/what-is-psychology.mp3
           python - <<'PY'
           import wave
           p="audio/ur/what-is-psychology.wav"
@@ -54,8 +59,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audio/ur/what-is-psychology.wav
-          git commit -m "Add verified Urdu male audio for psychology article" || exit 0
+          git add audio/ur/what-is-psychology.wav audio/ur/what-is-psychology.mp3
+          git commit -m "Add verified Urdu male WAV and MP3 audio" || exit 0
           git push
 
 # Trigger verified generation workflow
