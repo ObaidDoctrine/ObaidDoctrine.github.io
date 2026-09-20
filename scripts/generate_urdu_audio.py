@@ -2,9 +2,9 @@ from bs4 import BeautifulSoup
 from pathlib import Path
 import re
 
-articles = sorted(Path("ur/articles").glob("*/index.html"))
+articles = [(p, "ur") for p in sorted(Path("ur/articles").glob("*/index.html"))] + [(p, "en") for p in sorted(Path("articles").glob("*/index.html"))]
 
-for path in articles:
+for path, lang in articles:
     slug = path.parent.name
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
     article = soup.select_one("main article") or soup.select_one("main.article-wrap")
@@ -25,7 +25,7 @@ for path in articles:
         text = re.sub(r"\s+", " ", text).strip()
         parts.append(text)
 
-    out = Path("audio/ur") / f"{slug}.txt"
+    out = Path("audio") / lang / f"{slug}.txt"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(parts) + "\n", encoding="utf-8")
     print(f"{slug}: {len(parts)} blocks, {sum(map(len, parts))} characters")
