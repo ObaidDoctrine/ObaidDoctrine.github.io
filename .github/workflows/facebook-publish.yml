@@ -23,7 +23,7 @@ jobs:
       - name: Publish newly added articles
         env:
           FB_PAGE_ID: "1021253154403079"
-          FB_GRAPH_VERSION: "v26.0"
+          FB_GRAPH_VERSION: "v25.0"
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
         shell: bash
         run: bash .github/scripts/publish-facebook.sh
