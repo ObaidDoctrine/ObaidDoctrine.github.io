@@ -41,6 +41,14 @@ PERMISSIONS_RESPONSE=$(curl --silent --show-error --get \
 echo "Meta user token permission check:"
 echo "$PERMISSIONS_RESPONSE"
 
+TOKEN_DEBUG=$(curl --silent --show-error --get \
+  --data-urlencode "input_token=$PAGE_ACCESS_TOKEN" \
+  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+  "https://graph.facebook.com/$FB_GRAPH_VERSION/debug_token")
+
+echo "Derived Page token debug:"
+printf '%s' "$TOKEN_DEBUG" | jq '{is_valid:.data.is_valid,type:.data.type,scopes:.data.scopes,granular_scopes:.data.granular_scopes}'
+
 echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
