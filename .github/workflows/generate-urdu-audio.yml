@@ -57,3 +57,5 @@ jobs:
           git add audio/ur/what-is-psychology.wav
           git commit -m "Add verified Urdu male audio for psychology article" || exit 0
           git push
+
+# Trigger verified generation workflow
