@@ -450,3 +450,179 @@ body[dir=rtl] .discover-card{text-align:right}
   .app-copy h2{font-size:40px}
   .device-frame{width:245px}
 }
+
+
+/* OBAID DOCTRINE — MASTER LUXURY HOMEPAGE SYSTEM 2026 */
+:root{
+  --od-lux-ivory:#fafaf5;
+  --od-lux-paper:#ffffff;
+  --od-lux-forest:#31543a;
+  --od-lux-lime:#b7d84b;
+  --od-lux-sage:#dce8b5;
+  --od-lux-blue:#8fc3e8;
+  --od-lux-amber:#f2c36b;
+  --od-lux-rose:#efadbb;
+  --od-lux-teal:#88d2d0;
+  --od-lux-plum:#c3a8df;
+  --od-lux-line:rgba(49,84,58,.12);
+}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(183,216,75,.08),transparent 25%),
+    var(--od-lux-ivory);
+  -webkit-font-smoothing:antialiased;
+}
+main{overflow:hidden}
+.site-header{
+  position:sticky;top:0;z-index:100;
+  min-height:78px;height:auto;
+  padding:10px 6vw;
+  border-bottom:1px solid var(--od-lux-line);
+}
+.brand{min-width:0}
+.brand strong{letter-spacing:.055em}
+.od-language-switch{box-shadow:0 8px 24px rgba(49,84,58,.08)}
+.psychology-nav-strip{position:relative}
+.psychology-nav-strip:before{
+  content:"";display:block;height:2px;
+  background:linear-gradient(90deg,var(--od-lux-lime),var(--od-lux-blue),var(--od-lux-amber),var(--od-lux-rose),var(--od-lux-teal),var(--od-lux-plum));
+}
+.hero{
+  min-height:650px;
+  border-radius:0 0 38px 38px;
+  box-shadow:0 22px 70px rgba(49,84,58,.07);
+}
+.hero-copy{max-width:720px}
+.hero h1{max-width:760px}
+.hero .lead{font-size:clamp(16px,1.5vw,19px);line-height:1.7}
+.hero .actions{display:flex;flex-wrap:wrap;gap:11px}
+.hero .btn{
+  min-height:46px;padding:12px 17px;border-radius:999px;
+  box-shadow:0 8px 22px rgba(49,84,58,.07);
+}
+.cover-strip{position:relative;margin-top:0}
+.cover-strip:before{
+  content:"FEATURED BRAND";
+  display:block;width:max-content;margin:0 auto 12px;
+  padding:6px 11px;border-radius:999px;
+  background:var(--od-lime);color:var(--od-forest);
+  font-size:9px;font-weight:900;letter-spacing:.14em;
+}
+.cover-strip img{display:block;width:100%;max-height:330px;object-fit:cover}
+.master-section,.section{scroll-margin-top:100px}
+.master-head,.section-head{position:relative}
+.master-head .eyebrow,.section-head .eyebrow{font-weight:900}
+.recent-published,.today-psychology,.daily-insight,.app-launcher{
+  position:relative;
+}
+.recent-published:before,.today-psychology:before,.daily-insight:before,.app-launcher:before{
+  content:"";position:absolute;top:18px;left:7vw;width:46px;height:4px;
+  border-radius:99px;background:var(--od-lime);
+}
+.recent-head,.today-head,.daily-head{
+  align-items:end;
+  gap:28px;
+}
+.recent-view-all{
+  border:1px solid var(--od-lux-line);
+  background:#fff;padding:10px 15px;border-radius:999px;
+  box-shadow:0 6px 18px rgba(49,84,58,.05);
+}
+.recent-card,.today-feature,.daily-card,.quick-read-card{
+  border:1px solid var(--od-lux-line);
+  box-shadow:0 18px 55px rgba(49,84,58,.08);
+  border-radius:28px;
+}
+.recent-card:hover,.today-feature:hover,.daily-card:hover,.quick-read-card:hover{
+  box-shadow:0 25px 70px rgba(49,84,58,.12);
+}
+.recent-accent,.today-number,.daily-mark,.quick-read-mark{
+  color:var(--od-forest);
+}
+.today-badge,.daily-badge,.today-label,.daily-label,.quick-read-label{
+  border-radius:999px;
+}
+.app-launcher{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(183,216,75,.16),transparent 35%),
+    linear-gradient(180deg,#fff 0%,#f5f8ed 100%);
+  border-top:1px solid rgba(49,84,58,.06);
+  border-bottom:1px solid rgba(49,84,58,.06);
+}
+.app-launcher-head h2{letter-spacing:-.045em}
+.app-launcher-head p{max-width:620px;margin-left:auto;margin-right:auto}
+.app-icon-grid{
+  max-width:1040px!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:38px 54px!important;
+}
+.app-icon-item{
+  min-width:0;
+  padding:10px 6px 12px!important;
+  border-radius:24px;
+  text-align:center;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.app-icon-item:hover{
+  background:rgba(255,255,255,.78);
+  box-shadow:0 16px 34px rgba(49,84,58,.08);
+  transform:translateY(-5px);
+}
+.app-icon-circle{
+  width:92px!important;height:92px!important;
+  margin-bottom:12px;
+  border-width:5px!important;
+  box-shadow:0 14px 32px rgba(49,84,58,.13),inset 0 0 0 1px rgba(255,255,255,.5);
+}
+.app-icon-item>span:last-child{
+  display:block;
+  min-height:30px;
+  font-size:13px!important;
+  line-height:1.25;
+  letter-spacing:.01em;
+}
+.quick-read-card{background:#fff}
+.start-card,.knowledge-card,.tool-card,.path-card,.myth-card{
+  box-shadow:0 12px 35px rgba(49,84,58,.065);
+}
+.feature-hub{
+  box-shadow:0 24px 70px rgba(49,84,58,.15);
+}
+.app-showcase{border-radius:32px}
+.device-frame{
+  border-color:var(--od-forest);
+  background:var(--od-forest);
+}
+.device-notch{background:var(--od-forest)}
+footer{margin-top:0}
+footer a{transition:color .18s ease,transform .18s ease}
+footer a:hover{transform:translateX(2px)}
+@media(max-width:1000px){
+  .app-icon-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:32px 30px!important}
+}
+@media(max-width:900px){
+  .site-header{padding:9px 4vw}
+  .hero{border-radius:0 0 28px 28px}
+  .recent-published:before,.today-psychology:before,.daily-insight:before,.app-launcher:before{left:5vw}
+}
+@media(max-width:600px){
+  .site-header{min-height:68px}
+  .psychology-nav-strip:before{height:2px}
+  .hero{border-radius:0 0 24px 24px}
+  .hero .actions{align-items:stretch}
+  .hero .btn{width:100%;justify-content:center}
+  .cover-strip:before{font-size:8px}
+  .recent-published:before,.today-psychology:before,.daily-insight:before,.app-launcher:before{top:13px;left:5vw;width:34px;height:3px}
+  .app-icon-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:22px 9px!important;
+  }
+  .app-icon-item{padding:8px 2px 10px!important;border-radius:18px}
+  .app-icon-circle{
+    width:70px!important;height:70px!important;
+    margin-bottom:9px;
+  }
+  .app-icon-item>span:last-child{font-size:10.5px!important;min-height:28px}
+  .app-showcase{border-radius:24px}
+}
