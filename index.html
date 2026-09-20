@@ -100,7 +100,7 @@ body{background:var(--od-ivory);color:var(--od-forest)}
 .ur-psychology-strip .psychology-nav-item{font-family:"Noto Naskh Arabic",Arial,sans-serif;font-size:13px}
 .ur-psychology-strip .psychology-nav-kicker{font-family:Inter,Arial,sans-serif}
 @media(max-width:900px){.psychology-nav-links{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:600px){.psychology-nav-inner{padding:10px 5vw 12px}.psychology-nav-heading{margin-bottom:8px}.psychology-nav-heading strong{font-size:11px}.psychology-nav-links{display:flex;overflow-x:auto;gap:8px;padding-bottom:3px;scrollbar-width:none}.psychology-nav-links::-webkit-scrollbar{display:none}.psychology-nav-item{flex:0 0 auto;min-width:108px;min-height:44px;padding:6px 9px}.psychology-nav-item span:last-child{white-space:nowrap}.psychology-nav-icon{width:26px;height:26px;flex-basis:26px}}
+@media(max-width:600px){.psychology-nav-inner{padding:10px 4vw 12px}.psychology-nav-heading{margin-bottom:9px}.psychology-nav-heading strong{font-size:11px}.psychology-nav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;overflow:visible;padding:0}.psychology-nav-item{min-width:0;min-height:46px;padding:6px 5px;gap:5px;flex-direction:column;border-radius:12px}.psychology-nav-item span:last-child{white-space:normal;text-align:center;font-size:10px;line-height:1.1}.psychology-nav-icon{width:25px;height:25px;flex-basis:25px;font-size:13px}}
 </style>
 
 <style id="language-switcher-mobile-fix-2026">
@@ -129,6 +129,26 @@ html,body{max-width:100%;overflow-x:hidden}
   .psychology-nav-links{overflow-x:hidden!important}
   .psychology-nav-item{min-width:0!important;flex:1 1 0!important}
   .psychology-nav-item span:last-child{white-space:normal;text-align:center}
+}
+</style>
+
+<style id="homepage-final-polish-2026">
+/* Final homepage UX polish: hierarchy, touch targets, mobile breathing room */
+.psychology-nav-item,.app-icon-item,.btn,.recent-view-all{ -webkit-tap-highlight-color:transparent }
+.psychology-nav-item:focus-visible,.app-icon-item:focus-visible,.btn:focus-visible{outline:3px solid #B7D84B;outline-offset:3px}
+@media(max-width:600px){
+  .psychology-nav-strip{box-shadow:0 5px 16px rgba(49,84,58,.06)}
+  .psychology-nav-heading{padding:0 1px}
+  .hero{min-height:0;padding-top:38px;padding-bottom:48px}
+  .hero-copy{text-align:left}
+  .hero h1{font-size:clamp(43px,12vw,55px);line-height:1.02}
+  .hero .actions{gap:9px;margin-top:22px}
+  .hero .btn{min-height:44px;padding:11px 15px}
+  .hero-art{margin-bottom:8px}
+  .hero-art img{width:min(82vw,330px)}
+  .cover-strip{padding-top:4px}
+  .master-head{padding:0 4vw}
+  .recent-head,.today-head,.daily-head{gap:14px}
 }
 </style>
 </head>
