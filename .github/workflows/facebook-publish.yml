@@ -63,31 +63,8 @@ jobs:
               continue
             fi
 
-            TITLE=$(python - "$FILE" <<'PY'
-import html
-import re
-import sys
-
-path = sys.argv[1]
-text = open(path, encoding="utf-8").read()
-m = re.search(r'<title>\s*(.*?)\s*</title>', text, re.I | re.S)
-title = html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip() if m else ""
-print(title)
-PY
-)
-
-            URL=$(python - "$FILE" <<'PY'
-import re
-import sys
-
-path = sys.argv[1]
-text = open(path, encoding="utf-8").read()
-m = re.search(r'<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']', text, re.I)
-if not m:
-    raise SystemExit("Canonical URL not found in " + path)
-print(m.group(1).strip())
-PY
-)
+            TITLE=$(grep -oP '(?i)(?<=<title>)[^<]+' "$FILE" | head -n 1 | sed 's/^ *//;s/ *$//')
+            URL=$(grep -oP '(?i)(?<=<link rel="canonical" href=")[^"]+' "$FILE" | head -n 1)
 
             if [ -z "$TITLE" ] || [ -z "$URL" ]; then
               echo "::error::Could not extract title or canonical URL from $FILE"
