@@ -34,6 +34,13 @@ if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
   exit 1
 fi
 
+PERMISSIONS_RESPONSE=$(curl --silent --show-error --get \
+  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+  "https://graph.facebook.com/$FB_GRAPH_VERSION/me/permissions")
+
+echo "Meta user token permission check:"
+echo "$PERMISSIONS_RESPONSE"
+
 echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
