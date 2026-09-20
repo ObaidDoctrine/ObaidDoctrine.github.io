@@ -1,0 +1,59 @@
+name: Generate Verified Urdu Article Audio
+
+on:
+  push:
+    paths:
+      - "ur/articles/what-is-psychology/index.html"
+      - "scripts/generate_urdu_audio.py"
+      - ".github/workflows/generate-urdu-audio.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install exact Piper engine
+        run: pip install piper-tts==1.8.0 beautifulsoup4
+
+      - name: Download verified Urdu male model
+        run: |
+          curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx"
+          curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx.json "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx.json"
+
+      - name: Extract only the actual article text
+        run: python scripts/generate_urdu_audio.py
+
+      - name: Synthesize Urdu male audio
+        run: |
+          mkdir -p audio/ur
+          piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file audio/ur/what-is-psychology.wav < audio/ur/what-is-psychology.txt
+
+      - name: Verify audio file
+        run: |
+          test -s audio/ur/what-is-psychology.wav
+          file audio/ur/what-is-psychology.wav
+          python - <<'PY'
+          import wave
+          p="audio/ur/what-is-psychology.wav"
+          with wave.open(p,"rb") as w:
+              print("channels=",w.getnchannels(),"rate=",w.getframerate(),"frames=",w.getnframes())
+          PY
+
+      - name: Commit verified audio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/ur/what-is-psychology.wav
+          git commit -m "Add verified Urdu male audio for psychology article" || exit 0
+          git push
