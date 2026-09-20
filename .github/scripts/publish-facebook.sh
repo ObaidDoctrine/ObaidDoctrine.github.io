@@ -60,6 +60,13 @@ PAGE_CHECK=$(curl --silent --show-error --get \
 echo "Facebook Page access check:"
 echo "$PAGE_CHECK"
 
+SUBSCRIBED_APPS=$(curl --silent --show-error --get \
+  --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
+  "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/subscribed_apps")
+
+echo "Facebook Page app subscription check:"
+echo "$SUBSCRIBED_APPS"
+
 echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
