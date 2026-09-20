@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "obaid-doctrines-tts",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-19",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://obaiddoctrine.github.io"
+  },
+  "secrets": {
+    "required": ["ELEVENLABS_API_KEY", "ELEVENLABS_VOICE_ID"]
+  }
+}
