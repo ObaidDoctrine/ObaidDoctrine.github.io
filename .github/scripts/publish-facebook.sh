@@ -27,6 +27,9 @@ if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
   exit 1
 fi
 
+echo "Managed Page access details:"
+printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq '{data:[.data[] | {id,name,tasks}]}'
+
 PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
 
 if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
