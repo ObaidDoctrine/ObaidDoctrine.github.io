@@ -22,9 +22,12 @@ jobs:
               if not base.exists(): continue
               for p in base.glob("*/index.html"):
                   s=p.read_text(encoding="utf-8")
-                  tag='<script src="/listen-to-article.js" defer></script>'
-                  if tag not in s and "</body>" in s:
-                      s=s.replace("</body>", tag+"</body>", 1)
+                  tag='<script src="/listen-to-article.js?v=20260920-2" defer></script>'
+                  if "</body>" in s:
+                      import re
+                      s=re.sub(r'<script src="/listen-to-article\\.js(?:\\?[^"]*)?" defer></script>', tag, s, count=1)
+                      if tag not in s:
+                          s=s.replace("</body>", tag+"</body>", 1)
                       p.write_text(s, encoding="utf-8")
                       changed.append(str(p))
           print("Updated", len(changed), "article pages")
