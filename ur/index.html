@@ -68,9 +68,37 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .hero-art,html[dir="rtl"] .urdu-maste
 @media(max-width:600px){.psychology-nav-inner{padding:10px 5vw 12px}.psychology-nav-heading{margin-bottom:8px}.psychology-nav-heading strong{font-size:11px}.psychology-nav-links{display:flex;overflow-x:auto;gap:8px;padding-bottom:3px;scrollbar-width:none}.psychology-nav-links::-webkit-scrollbar{display:none}.psychology-nav-item{flex:0 0 auto;min-width:108px;min-height:44px;padding:6px 9px}.psychology-nav-item span:last-child{white-space:nowrap}.psychology-nav-icon{width:26px;height:26px;flex-basis:26px}}
 </style>
 
+<style id="language-switcher-mobile-fix-2026">
+/* Always-visible bilingual switcher + mobile header stability */
+html,body{max-width:100%;overflow-x:hidden}
+.site-header{gap:14px}
+.od-language-switch{display:inline-flex;align-items:center;gap:3px;padding:4px;background:#fff;border:1px solid rgba(49,84,58,.14);border-radius:999px;box-shadow:0 5px 16px rgba(49,84,58,.07);flex:0 0 auto;white-space:nowrap}
+.od-language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:62px;min-height:34px;padding:6px 11px;border-radius:999px;text-decoration:none!important;font:800 12px/1 Arial,sans-serif!important;color:#31543A!important}
+.od-language-switch a.active{background:#B7D84B;color:#31543A!important}
+.od-language-switch a:not(.active):hover{background:#F2F5E8}
+@media(max-width:900px){
+  .site-header{height:auto;min-height:68px;padding:9px 4vw;flex-wrap:wrap;align-content:center}
+  .site-header .brand{flex:1 1 auto;min-width:0}
+  .site-header .brand strong{font-size:13px}
+  .site-header .brand small{font-size:7px}
+  .od-language-switch{order:2}
+  .site-header nav{order:3;width:100%;display:flex;gap:14px;overflow-x:auto;padding:4px 0 2px;scrollbar-width:none;white-space:nowrap}
+  .site-header nav::-webkit-scrollbar{display:none}
+  .site-header nav a{flex:0 0 auto}
+}
+@media(max-width:600px){
+  .site-header{padding:8px 4vw;gap:8px}
+  .brand{gap:8px}
+  .brand-mark{width:34px;height:34px}
+  .od-language-switch a{min-width:58px;min-height:32px;padding:6px 9px}
+  .psychology-nav-links{overflow-x:hidden!important}
+  .psychology-nav-item{min-width:0!important;flex:1 1 0!important}
+  .psychology-nav-item span:last-child{white-space:normal;text-align:center}
+}
+</style>
 </head>
 <body dir="rtl">
-<header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="/ur/start-here/">یہاں سے شروع کریں</a><a href="#topics">موضوعات</a><a href="#mind-tests">ذہنی ٹیسٹس</a><a href="/ur/articles/">مضامین</a><a href="#about">تعارف</a><a href="../">English</a></nav></header>
+<header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><div class="od-language-switch" aria-label="زبان منتخب کریں"><a href="../">English</a><a class="active" href="./" aria-current="page">اردو</a></div><nav aria-label="بنیادی نیویگیشن"><a href="/ur/start-here/">یہاں سے شروع کریں</a><a href="#topics">موضوعات</a><a href="#mind-tests">ذہنی ٹیسٹس</a><a href="/ur/articles/">مضامین</a><a href="#about">تعارف</a></nav></header>
 
 <section class="psychology-nav-strip ur-psychology-strip" aria-label="نفسیات کے فوری روابط">
   <div class="psychology-nav-inner">
