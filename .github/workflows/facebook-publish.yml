@@ -70,7 +70,7 @@ import sys
 
 path = sys.argv[1]
 text = open(path, encoding="utf-8").read()
-m = re.search(r'<title>\\s*(.*?)\\s*</title>', text, re.I | re.S)
+m = re.search(r'<title>\s*(.*?)\s*</title>', text, re.I | re.S)
 title = html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip() if m else ""
 print(title)
 PY
@@ -82,7 +82,7 @@ import sys
 
 path = sys.argv[1]
 text = open(path, encoding="utf-8").read()
-m = re.search(r'<link\\s+rel=["']canonical["']\\s+href=["']([^"']+)["']', text, re.I)
+m = re.search(r'<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']', text, re.I)
 if not m:
     raise SystemExit("Canonical URL not found in " + path)
 print(m.group(1).strip())
