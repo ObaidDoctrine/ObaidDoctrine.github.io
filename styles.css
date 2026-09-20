@@ -63,3 +63,30 @@ button{font:inherit;cursor:pointer}
 .listen-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}.listen-controls button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 13px;font-weight:800;font-size:12px}.listen-controls .listen-play{background:var(--lime);border-color:var(--lime)}.listen-controls button:disabled{opacity:.55}.listen-speed{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:11px;font-weight:800;color:var(--muted)}.listen-speed select{border:1px solid var(--line);border-radius:999px;padding:8px 10px;background:#fff;color:var(--ink);font:inherit}
 @media(max-width:600px){.listen-to-article{padding:16px;margin-bottom:24px}.listen-controls{gap:7px}.listen-controls button{padding:8px 11px}.listen-speed{margin-left:0;width:100%;justify-content:space-between}.listen-speed select{flex:1;max-width:120px}}
 body[dir="rtl"] .listen-title,html[dir="rtl"] .listen-title{font-family:"Noto Naskh Arabic",Arial,sans-serif}body[dir="rtl"] .listen-controls,html[dir="rtl"] .listen-controls{direction:rtl}
+
+/* Recently Published — premium editorial feature */
+.recent-published{position:relative}
+.recent-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:30px}
+.recent-head>div{max-width:760px}
+.recent-head h2{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-.035em;margin:.15em 0 .35em}
+.recent-head>div>p:last-child{color:var(--muted);max-width:680px;margin:0}
+.recent-view-all{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;padding:12px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-size:12px;font-weight:800;box-shadow:0 8px 22px rgba(49,84,58,.05)}
+.recent-view-all:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(49,84,58,.09)}
+.recent-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.recent-card{position:relative;display:grid;grid-template-columns:86px minmax(0,1fr);overflow:hidden;background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:26px;box-shadow:0 14px 38px rgba(49,84,58,.07);min-height:230px;transition:transform .2s ease,box-shadow .2s ease}
+.recent-card:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(49,84,58,.11)}
+.recent-accent{background:linear-gradient(180deg,var(--od-lime),#dce8b5);display:flex;align-items:flex-start;justify-content:center;padding-top:28px;color:var(--od-forest);font-size:13px;font-weight:900;letter-spacing:.08em}
+.recent-card-body{padding:28px 30px}
+.recent-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--muted)}
+.recent-topic{color:var(--od-forest);background:var(--od-sage);padding:6px 9px;border-radius:999px}
+.recent-meta time{font-variant-numeric:tabular-nums}
+.recent-card h3{font-size:clamp(24px,3vw,34px);line-height:1.15;margin:14px 0 9px;letter-spacing:-.025em}
+.recent-card h3 a{color:var(--od-forest);text-decoration:none}
+.recent-card h3 a:hover{text-decoration:underline;text-underline-offset:4px}
+.recent-card p{max-width:850px;margin:0;color:var(--muted);font-size:15px}
+.recent-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px;padding-top:17px;border-top:1px solid var(--line);font-size:11px;font-weight:800}
+.recent-footer>span{color:var(--muted)}
+.recent-footer a{color:var(--od-forest);text-decoration:none}
+.recent-trust{margin:14px 4px 0;color:var(--muted);font-size:11px}
+.recent-trust span{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:5px;border-radius:50%;background:var(--od-lime);color:var(--od-forest);font-weight:900}
+@media(max-width:700px){.recent-head{align-items:flex-start;flex-direction:column;gap:18px}.recent-card{grid-template-columns:54px 1fr;border-radius:22px}.recent-card-body{padding:22px 20px}.recent-accent{padding-top:22px}.recent-card p{font-size:14px}.recent-footer{align-items:flex-start;flex-direction:column;gap:10px}}
