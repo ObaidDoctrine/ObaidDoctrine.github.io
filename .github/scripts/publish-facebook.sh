@@ -27,6 +27,13 @@ if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
   exit 1
 fi
 
+PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
+
+if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
+  echo "::error::The stored Meta token cannot provide a Page access token for Obaid Doctrine."
+  exit 1
+fi
+
 echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
@@ -65,7 +72,7 @@ $URL
 — Obaid Doctrine"
 
   echo "Publishing: $TITLE"
-  RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}"     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
+  RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}"     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
 
   echo "Facebook API response:"
   echo "$RESPONSE"
