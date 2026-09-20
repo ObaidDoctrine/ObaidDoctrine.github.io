@@ -50,9 +50,15 @@ $URL
 — Obaid Doctrine"
 
   echo "Publishing: $TITLE"
-  RESPONSE=$(curl --fail-with-body --silent --show-error     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
+  RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}"     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
 
-  echo "Facebook API response received."
+  echo "Facebook API response:"
   echo "$RESPONSE"
+
+  if [[ "$RESPONSE" != *"HTTP_STATUS:200"* ]]; then
+    echo "::error::Facebook API did not return HTTP 200."
+    exit 1
+  fi
+
   echo "Published successfully: $URL"
 done <<< "$FILES"
