@@ -7,12 +7,12 @@ articles = sorted(Path("ur/articles").glob("*/index.html"))
 for path in articles:
     slug = path.parent.name
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
-    article = soup.select_one("main article")
+    article = soup.select_one("main article") or soup.select_one("main.article-wrap")
     if not article:
         print(f"SKIP {slug}: article container not found")
         continue
 
-    for node in article.select(".source-box, nav, script, style, .listen-to-article"):
+    for node in article.select(".source-box, .sources, nav, script, style, .listen-to-article"):
         node.decompose()
 
     parts = []
