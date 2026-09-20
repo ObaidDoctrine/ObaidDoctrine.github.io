@@ -1,0 +1,23 @@
+مختصر جواب: کسی psychology claim کو صرف اس لیے درست نہ سمجھیں کہ وہ scientific زبان میں لکھا ہے یا کسی study کا حوالہ دیا گیا ہے۔ پہلے یہ دیکھیں کہ اصل study کیا تھی، کس لوگوں پر ہوئی، کیا measure کیا گیا اور headline نے اصل finding کو کتنا بڑھا دیا ہے۔
+1. اصل source تلاش کریں
+اگر پوسٹ کسی research study کا حوالہ دیتی ہے تو ممکن ہو تو original paper یا معتبر academic source تک جائیں۔ صرف screenshot، influencer کی explanation یا headline پر فیصلہ نہ کریں۔
+2. Study میں کن لوگوں کو شامل کیا گیا؟
+Population اہم ہے۔ کسی مخصوص عمر، ملک، setting یا sample میں حاصل ہونے والی finding کو دنیا کے ہر انسان پر خودکار طور پر لاگو نہیں کیا جا سکتا۔
+3. Research design کیا تھا؟
+Correlation، experiment، longitudinal study اور دیگر designs مختلف سوالوں کے جواب دیتے ہیں۔ خاص طور پر correlation کو causation سمجھنا عام غلطی ہے۔ اگر دو variables ساتھ بدلتے ہیں تو اس سے لازماً یہ ثابت نہیں ہوتا کہ ایک نے دوسرے کو پیدا کیا۔
+4. Effect size اور uncertainty دیکھیں
+صرف یہ جاننا کافی نہیں کہ result statistically significant تھا یا نہیں۔ اثر کتنا بڑا تھا، uncertainty کتنی تھی اور practical meaning کیا بنتی ہے—یہ سوال بھی اہم ہیں۔
+5. Limitations کہاں لکھی ہیں؟
+اچھی research اپنی حدود بیان کرتی ہے۔ Sample size، measurement، possible confounding، generalizability اور study context جیسے عوامل interpretation بدل سکتے ہیں۔
+6. Headline اور اصل finding کو الگ رکھیں
+مثلاً “Researchers prove that X causes Y” اور “Study found an association between X and Y” ایک ہی بات نہیں۔ headline اگر certainty بڑھا رہی ہو تو اصل abstract یا paper کی language دیکھیں۔
+پاکستانی social media میں ایک عملی مثال
+اگر کوئی پوسٹ کہے کہ “جو لوگ فلاں کام کرتے ہیں ان کی personality لازماً ایسی ہوتی ہے”، تو فوراً label نہ لگائیں۔ پوچھیں: evidence کہاں ہے؟ sample کون تھا؟ finding association تھی یا causation؟ کیا دوسری studies بھی یہی نتیجہ دیتی ہیں؟
+پانچ سوالوں کا فوری checklist
+اصل source کیا ہے؟
+Sample کون تھا؟
+Study design کیا تھا؟
+Effect کتنا بڑا تھا؟
+Researchers نے کون سی limitations بیان کیں؟
+اصل سبق
+Research literacy کا مطلب ہر claim پر شک کرنا نہیں؛ اس کا مطلب claim کی strength کو evidence کی strength کے مطابق سمجھنا ہے۔ Psychology میں پیچیدہ انسانی رویّے کو ایک مختصر viral rule میں بدل دینا اکثر اصل context چھپا دیتا ہے۔
