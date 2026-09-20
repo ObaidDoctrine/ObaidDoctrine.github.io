@@ -34,21 +34,22 @@ function init(){
   let chunks=[],index=0,active=false,audio=null,usingPiper=false;
   function setStatus(t){status.textContent=t;}
   function splitText(t){return t.match(/[^.!?۔！？]+[.!?۔！？]*/g)||[t];}
-  function getUrduAudioUrl(){
-    const match=location.pathname.match(/^\/ur\/articles\/([^/]+)\/?$/);
-    return match ? "/audio/ur/"+match[1]+".mp3" : null;
+  function getAudioUrl(){
+    const match=location.pathname.match(/^\/(ur\/)?articles\/([^/]+)\/?$/);
+    if(!match) return null;
+    return "/audio/"+(match[1]?"ur/":"en/")+match[2]+".mp3";
   }
-  async function speakUrdu(){
-    const src=getUrduAudioUrl();
-    if(!src||!active){if(active)setStatus("آڈیو دستیاب نہیں");return;}
+  async function speakAudio(){
+    const src=getAudioUrl();
+    if(!src||!active){if(active)setStatus(rtl?"آڈیو دستیاب نہیں":"Audio unavailable");return;}
     try{
       if(audio){audio.pause();audio.src="";}
       audio=new Audio(src);
       audio.preload="auto";
       audio.playbackRate=parseFloat(speed.value);
-      audio.onloadeddata=()=>setStatus("چل رہا ہے…");
+      audio.onloadeddata=()=>setStatus(rtl?"چل رہا ہے…":"Playing…");
       audio.onended=()=>{active=false;setStatus("");play.disabled=false;};
-      audio.onerror=()=>{active=false;setStatus("آڈیو دستیاب نہیں");play.disabled=false;};
+      audio.onerror=()=>{active=false;setStatus(rtl?"آڈیو دستیاب نہیں":"Audio unavailable");play.disabled=false;};
       play.disabled=true;
       await audio.play();
     }catch(e){
@@ -61,7 +62,6 @@ function init(){
     if(!synth){setStatus("Voice unavailable");return;}
     if(!active||index>=chunks.length){active=false;setStatus("");play.disabled=false;return;}
     const u=new SpeechSynthesisUtterance(chunks[index++]);u.lang="en-US";u.rate=parseFloat(speed.value);u.pitch=1;u.volume=1;
-    const v=pickVoice("en-US");if(v)u.voice=v;
     u.onstart=()=>{play.disabled=true;setStatus("Playing…");};
     u.onend=()=>speakEnglish();
     u.onerror=()=>{active=false;setStatus("Voice unavailable");play.disabled=false;};
@@ -71,7 +71,7 @@ function init(){
     const t=getArticle()||"";if(!t)return;
     if(synth)synth.cancel();if(audio){audio.pause();audio.src="";}
     chunks=splitText(t);index=0;active=true;usingPiper=rtl;
-    if(rtl)speakUrdu();else speakEnglish();
+    speakAudio();
   });
   pause.addEventListener("click",()=>{
     if(usingPiper&&audio){if(audio.paused)audio.play();else audio.pause();}
