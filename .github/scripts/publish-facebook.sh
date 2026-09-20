@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -z "${FB_PAGE_ACCESS_TOKEN:-}" ]]; then
+  echo "::error::FB_PAGE_ACCESS_TOKEN repository secret is not configured."
+  exit 1
+fi
+
+BEFORE="${GITHUB_EVENT_BEFORE:-}"
+AFTER="${GITHUB_SHA:-}"
+
+if [[ -z "$AFTER" ]]; then
+  echo "::error::GITHUB_SHA is missing."
+  exit 1
+fi
+
+if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
+  echo "Manual run: validation only; no Facebook post will be created."
+  exit 0
+fi
+
+if [[ -z "$BEFORE" || "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+  FILES=$(git diff-tree --no-commit-id --name-status -r "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
+else
+  FILES=$(git diff --name-status "$BEFORE" "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
+fi
+
+if [[ -z "$FILES" ]]; then
+  echo "No newly added article files found. Nothing to publish."
+  exit 0
+fi
+
+while IFS= read -r FILE; do
+  [[ -z "$FILE" ]] && continue
+  [[ "$FILE" == articles/*/index.html ]] || continue
+
+  TITLE=$(sed -n 's:.*<title>\([^<]*\)</title>.*:\1:p' "$FILE" | head -n 1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  URL=$(sed -n 's:.*<link[^>]*rel=["'\''"]canonical["'\''"][^>]*href=["'\''"]\([^"'\''"]*\)["'\''"].*:\1:p' "$FILE" | head -n 1)
+
+  if [[ -z "$TITLE" || -z "$URL" ]]; then
+    echo "::error::Could not extract title or canonical URL from $FILE"
+    exit 1
+  fi
+
+  MESSAGE="$TITLE
+
+Read the full article:
+$URL
+
+— Obaid Doctrine"
+
+  echo "Publishing: $TITLE"
+  RESPONSE=$(curl --fail-with-body --silent --show-error     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
+
+  echo "Facebook API response received."
+  echo "$RESPONSE"
+  echo "Published successfully: $URL"
+done <<< "$FILES"
