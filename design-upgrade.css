@@ -783,3 +783,87 @@ footer{
 html[dir="rtl"] .section .section-head:after,
 html[dir="rtl"] .master-head:after{margin-right:0;margin-left:auto}
 html[dir="rtl"] .hero:after{left:7%;right:auto}
+
+
+/* =========================================================
+   OBAID DOCTRINE — FINAL UX / ACCESSIBILITY / TYPE POLISH
+   ========================================================= */
+:root{
+  --od-max:1240px;
+  --od-reading:720px;
+}
+body{
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{
+  max-width:100%;
+  height:auto;
+}
+a,button,[role="button"],input,select,textarea{
+  -webkit-tap-highlight-color:transparent;
+}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--od-lime);
+  outline-offset:3px;
+}
+.btn,nav a,.od-language-switch a,.psychology-nav-strip a{
+  min-height:44px;
+}
+nav a{
+  display:inline-flex;
+  align-items:center;
+}
+.section p{
+  line-height:1.72;
+}
+.section h2,.section h3{
+  text-wrap:balance;
+}
+.hero h1{
+  text-wrap:balance;
+  max-width:820px;
+  letter-spacing:-.035em;
+}
+.hero p{
+  max-width:680px;
+}
+.psychology-nav-strip{
+  position:relative;
+  isolation:isolate;
+}
+.psychology-nav-strip a{
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.psychology-nav-strip a:hover{
+  transform:translateY(-3px);
+}
+.cover-strip img{
+  display:block;
+  width:100%;
+}
+.section-head{
+  max-width:var(--od-reading);
+}
+@media(max-width:900px){
+  .hero h1{letter-spacing:-.025em}
+  nav a{min-height:42px}
+}
+@media(max-width:600px){
+  .section{scroll-margin-top:84px}
+  .hero h1{font-size:clamp(2.05rem,9vw,3.15rem)}
+  .hero p{font-size:1rem;line-height:1.68}
+  .btn,.od-language-switch a{min-height:46px}
+  .psychology-nav-strip a{min-height:68px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
