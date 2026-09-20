@@ -33,8 +33,22 @@ body{background:var(--od-ivory);color:var(--od-forest)}.site-header{background:r
 .u-feature-hub{background:linear-gradient(135deg,#31543A,#3E6848);color:#fff;border-radius:30px;padding:42px}.u-feature-hub p{color:#E8F0E3}.u-feature-hub .btn{display:inline-flex;margin-top:10px}
 @media(max-width:900px){.urdu-grid4{grid-template-columns:repeat(2,1fr)}.u-knowledge{grid-template-columns:1fr 1fr}.u-tools{grid-template-columns:repeat(3,1fr)}.u-paths{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.urdu-grid4,.u-knowledge,.u-tools,.u-paths,.u-myths{grid-template-columns:1fr}.urdu-master{padding:42px 0}.u-feature-hub{padding:28px;border-radius:22px}.hero{border-radius:0 0 24px 24px}}
+
+/* RTL mobile stability — keep the Urdu homepage inside the viewport */
+html[dir="rtl"],html[dir="rtl"] body{width:100%;max-width:100%;overflow-x:hidden}
+html[dir="rtl"] *,html[dir="rtl"] *::before,html[dir="rtl"] *::after{box-sizing:border-box;min-width:0}
+html[dir="rtl"] img{max-width:100%;height:auto}
+html[dir="rtl"] .site-header{width:100%;max-width:100%;overflow-x:auto}
+html[dir="rtl"] .hero-copy,html[dir="rtl"] .hero-art,html[dir="rtl"] .urdu-master,html[dir="rtl"] .section,html[dir="rtl"] .cover-strip{min-width:0;max-width:100%}
+@media(max-width:600px){
+  html[dir="rtl"] .hero{width:100%;padding-left:5vw;padding-right:5vw}
+  html[dir="rtl"] .hero-copy{overflow-wrap:anywhere}
+  html[dir="rtl"] .lead,html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] p{max-width:100%;overflow-wrap:anywhere}
+  html[dir="rtl"] .cover-strip img{width:100%;display:block}
+  html[dir="rtl"] .actions{max-width:100%}
+}
 </style></head>
-<body>
+<body dir="rtl">
 <header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark">OD</span><span><strong>OBAID DOCTRINE</strong><small>BETTER MIND • BETTER CHARACTER • BETTER LIFE</small></span></a><nav><a href="/ur/start-here/">یہاں سے شروع کریں</a><a href="#topics">موضوعات</a><a href="#mind-tests">ذہنی ٹیسٹس</a><a href="/ur/articles/">مضامین</a><a href="#about">تعارف</a><a href="../">English</a></nav></header>
 <main>
 <section class="hero"><div class="hero-copy"><p class="eyebrow">نفسیات • انسانی رویّے • تعلقات • معاشرہ</p><h1><span class="hero-title-block hero-title-block-1"><span class="hero-title-tag">MIND • PSYCHOLOGY</span><span class="hero-title-text">ذہن کو سمجھیں۔</span></span><span class="hero-title-block hero-title-block-2"><span class="hero-title-tag">LIFE • HUMAN BEHAVIOUR</span><span class="hero-title-text">زندگی کو سمجھیں۔</span></span></h1><p class="lead">Obaid Doctrine نفسیات، انسانی رویّوں اور تعلقات کے پیچیدہ موضوعات کو آسان، واضح اور تحقیق پر مبنی انداز میں سمجھنے میں مدد دیتا ہے۔</p><div class="actions"><a class="btn primary" href="/ur/articles/">اردو مضامین دیکھیں</a><a class="btn ghost" href="#about">Obaid Doctrine کے بارے میں</a></div></div><div class="hero-art"><img src="../assets/file_0000000078948208b532eacd24f12ce9.png" alt="Obaid Mushtaq، Founder and Content Creator of Obaid Doctrine"></div></section>
