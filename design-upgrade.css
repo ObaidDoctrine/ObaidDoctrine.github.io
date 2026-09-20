@@ -882,3 +882,46 @@ html[dir="rtl"] .hero-title-block{align-items:flex-start}
 html[dir="rtl"] .hero-title-tag{font-family:Inter,Arial,sans-serif;letter-spacing:.08em}
 html[dir="rtl"] .hero-title-text{font-family:"Noto Naskh Arabic",Arial,sans-serif;line-height:1.3;padding:5px 16px 9px}
 @media(max-width:600px){.hero-banner-title,body[dir="rtl"] .hero h1{gap:7px}.hero-title-tag{font-size:8px;min-height:22px;padding:5px 9px}.hero-title-text{padding:7px 12px 9px}html[dir="rtl"] .hero-title-text{padding:4px 12px 8px}}
+
+/* HERO BANNER HARD FIX — LIFE TOP / MIND BOTTOM */
+.hero h1.hero-banner-title,
+.hero .hero-banner-title{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:10px!important;
+  max-width:100%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.hero h1.hero-banner-title > .hero-title-block,
+.hero .hero-title-block{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  width:max-content!important;
+  max-width:100%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:0!important;
+}
+.hero .hero-title-tag{
+  background:var(--od-lime)!important;
+  color:var(--od-forest)!important;
+  padding:6px 11px!important;
+  box-shadow:none!important;
+}
+.hero .hero-title-text{
+  padding:9px 16px 11px!important;
+  box-shadow:0 8px 20px rgba(49,84,58,.12)!important;
+}
+.hero .hero-title-block-life .hero-title-tag,
+.hero .hero-title-block-life .hero-title-text{background:#B7D84B!important}
+.hero .hero-title-block-mind .hero-title-tag,
+.hero .hero-title-block-mind .hero-title-text{background:#88D2D0!important}
+html[dir="rtl"] .hero h1.hero-banner-title,
+html[dir="rtl"] .hero .hero-banner-title{align-items:flex-start!important;text-align:right!important}
+@media(max-width:600px){
+  .hero h1.hero-banner-title{gap:7px!important}
+  .hero .hero-title-text{padding:8px 13px 10px!important}
+}
