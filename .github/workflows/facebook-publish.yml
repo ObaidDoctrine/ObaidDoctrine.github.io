@@ -14,8 +14,69 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      FB_PAGE_ID: "1021253154403079"
+      FB_GRAPH_VERSION: "v26.0"
     steps:
-      - name: Validate workflow
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Publish newly added articles
+        shell: bash
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
         run: |
-          echo "Facebook publishing workflow is valid and running."
-          echo "Commit: ${{ github.sha }}"
+          set -euo pipefail
+
+          if [ -z "${FB_PAGE_ACCESS_TOKEN:-}" ]; then
+            echo "::error::FB_PAGE_ACCESS_TOKEN repository secret is not configured."
+            exit 1
+          fi
+
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run: validation only; no Facebook post will be created."
+            exit 0
+          fi
+
+          FILES=$(git diff --name-status "$BEFORE" "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
+
+          if [ -z "$FILES" ]; then
+            echo "No newly added article files found. Nothing to publish."
+            exit 0
+          fi
+
+          while IFS= read -r FILE; do
+            [ -z "$FILE" ] && continue
+
+            if [[ "$FILE" != articles/*/index.html ]]; then
+              echo "Skipping non-article file: $FILE"
+              continue
+            fi
+
+            TITLE=$(grep -oiE '<title>[^<]+' "$FILE" | head -n 1 | sed -E 's/<title>//I; s/^[[:space:]]+//; s/[[:space:]]+$//')
+            URL=$(grep -oiE '<link[[:space:]]+rel=["'"'"']canonical["'"'"'][^>]*href=["'"'"'][^"'"'"']+' "$FILE" | head -n 1 | sed -E 's/.*href=["'"'"']//I')
+
+            if [ -z "$TITLE" ] || [ -z "$URL" ]; then
+              echo "::error::Could not extract title or canonical URL from $FILE"
+              exit 1
+            fi
+
+            MESSAGE="$TITLE
+
+Read the full article:
+$URL
+
+— Obaid Doctrine"
+
+            echo "Publishing: $TITLE"
+            RESPONSE=$(curl --fail-with-body --silent --show-error               --request POST               --data-urlencode "message=$MESSAGE"               --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN"               "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
+
+            echo "Facebook API response received."
+            echo "$RESPONSE"
+            echo "Published successfully: $URL"
+          done <<< "$FILES"
