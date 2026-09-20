@@ -34,32 +34,28 @@ function init(){
   let chunks=[],index=0,active=false,audio=null,usingPiper=false;
   function setStatus(t){status.textContent=t;}
   function splitText(t){return t.match(/[^.!?۔！？]+[.!?۔！？]*/g)||[t];}
+  function getUrduAudioUrl(){
+    const match=location.pathname.match(/^\\/ur\\/articles\\/([^/]+)\\/?$/);
+    return match ? "/audio/ur/"+match[1]+".wav" : null;
+  }
   async function speakUrdu(){
-    const mod=await piper();
-    if(!mod||!active){if(active)setStatus("آواز دستیاب نہیں");return;}
+    const src=getUrduAudioUrl();
+    if(!src||!active){if(active)setStatus("آڈیو دستیاب نہیں");return;}
     try{
-      setStatus("اردو آواز کا ماڈل تیار ہو رہا ہے…");
-      if (typeof mod.download === "function") await mod.download(neuralUrdu, ()=>{});
-      setStatus("اردو آواز تیار ہو رہی ہے…");
-      const wav=await mod.predict({text:chunks[index++],voiceId:neuralUrdu});
-      if(!active)return;
-      audio=new Audio(URL.createObjectURL(wav));
+      if(audio){audio.pause();audio.src="";}
+      audio=new Audio(src);
+      audio.preload="auto";
       audio.playbackRate=parseFloat(speed.value);
-      audio.onended=()=>{if(active&&index<chunks.length)speakUrdu();else{active=false;setStatus("");play.disabled=false;}};
-      audio.onerror=()=>{active=false;setStatus("آواز دستیاب نہیں");play.disabled=false;};
+      audio.onloadeddata=()=>setStatus("چل رہا ہے…");
+      audio.onended=()=>{active=false;setStatus("");play.disabled=false;};
+      audio.onerror=()=>{active=false;setStatus("آڈیو دستیاب نہیں");play.disabled=false;};
       play.disabled=true;
-      setStatus("چل رہا ہے…");
       await audio.play();
     }catch(e){
       active=false;
-      setStatus("اردو آواز دستیاب نہیں");
+      setStatus("آڈیو دستیاب نہیں");
       play.disabled=false;
     }
-  }
-  function pickVoice(lang){
-    const voices=synth?synth.getVoices():[];
-    const base=lang.toLowerCase().split("-")[0];
-    return voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(base+"-"))||voices.find(v=>v.lang.toLowerCase()===base)||voices.find(v=>v.default);
   }
   function speakEnglish(){
     if(!synth){setStatus("Voice unavailable");return;}
