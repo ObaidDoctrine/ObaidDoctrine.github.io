@@ -85,6 +85,24 @@ body{background:var(--od-ivory);color:var(--od-forest)}
 @media(max-width:900px){.start-grid{grid-template-columns:repeat(2,1fr)}.knowledge-grid{grid-template-columns:1fr 1fr}.tool-grid{grid-template-columns:repeat(3,1fr)}.path-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.start-grid,.knowledge-grid,.tool-grid,.path-grid,.myth-wrap{grid-template-columns:1fr}.master-section{padding:42px 0}.feature-hub{padding:28px;border-radius:22px}.hero{border-radius:0 0 24px 24px}}
 </style>
+
+<style id="psychology-nav-strip-2026">
+.psychology-nav-strip{background:#fff;border-bottom:1px solid rgba(49,84,58,.10);box-shadow:0 7px 22px rgba(49,84,58,.05);position:relative;z-index:10}
+.psychology-nav-inner{max-width:1240px;margin:auto;padding:13px 5vw 15px}
+.psychology-nav-heading{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.psychology-nav-kicker{display:inline-flex;align-items:center;background:#B7D84B;color:#31543A;border-radius:999px;padding:5px 10px;font:800 10px/1 Inter,Arial,sans-serif;letter-spacing:.13em}
+.psychology-nav-heading strong{font:800 12px/1.2 Inter,Arial,sans-serif;color:#31543A;letter-spacing:.04em}
+.psychology-nav-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.psychology-nav-item{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:7px 10px;border:1px solid rgba(49,84,58,.10);border-radius:14px;background:#FAFAF5;color:#31543A;text-decoration:none;font:700 12px/1.2 Inter,Arial,sans-serif;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.psychology-nav-item:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(49,84,58,.08);border-color:rgba(49,84,58,.20)}
+.psychology-nav-icon{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-weight:900;font-size:14px;flex:0 0 28px}
+.nav-lime .psychology-nav-icon{background:#B7D84B}.nav-blue .psychology-nav-icon{background:#8FC3E8}.nav-amber .psychology-nav-icon{background:#F2C36B}.nav-rose .psychology-nav-icon{background:#EFADBB}.nav-teal .psychology-nav-icon{background:#88D2D0}.nav-plum .psychology-nav-icon{background:#C3A8DF}
+.ur-psychology-strip .psychology-nav-item{font-family:"Noto Naskh Arabic",Arial,sans-serif;font-size:13px}
+.ur-psychology-strip .psychology-nav-kicker{font-family:Inter,Arial,sans-serif}
+@media(max-width:900px){.psychology-nav-links{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.psychology-nav-inner{padding:10px 5vw 12px}.psychology-nav-heading{margin-bottom:8px}.psychology-nav-heading strong{font-size:11px}.psychology-nav-links{display:flex;overflow-x:auto;gap:8px;padding-bottom:3px;scrollbar-width:none}.psychology-nav-links::-webkit-scrollbar{display:none}.psychology-nav-item{flex:0 0 auto;min-width:108px;min-height:44px;padding:6px 9px}.psychology-nav-item span:last-child{white-space:nowrap}.psychology-nav-icon{width:26px;height:26px;flex-basis:26px}}
+</style>
+
 </head>
 <body>
 <header class="site-header">
@@ -96,6 +114,23 @@ body{background:var(--od-ivory);color:var(--od-forest)}
     <a href="/start-here/">Start Here</a><a href="#topics">Topics</a><a href="#insights">Insights</a><a href="#mind-tests">Mind Tests</a><a href="#app">App</a><a href="#about">About</a><a href="ur/">اردو</a>
   </nav>
 </header>
+
+<section class="psychology-nav-strip" aria-label="Psychology quick navigation">
+  <div class="psychology-nav-inner">
+    <div class="psychology-nav-heading">
+      <span class="psychology-nav-kicker">PSYCHOLOGY</span>
+      <strong>Explore OBAID DOCTRINE</strong>
+    </div>
+    <div class="psychology-nav-links">
+      <a href="/start-here/" class="psychology-nav-item nav-lime"><span class="psychology-nav-icon" aria-hidden="true">⌂</span><span>Start Here</span></a>
+      <a href="/mind-tests/" class="psychology-nav-item nav-blue"><span class="psychology-nav-icon" aria-hidden="true">◈</span><span>Start Test</span></a>
+      <a href="/research-insights/" class="psychology-nav-item nav-amber"><span class="psychology-nav-icon" aria-hidden="true">⌁</span><span>Research</span></a>
+      <a href="/marriage-family/" class="psychology-nav-item nav-rose"><span class="psychology-nav-icon" aria-hidden="true">♡</span><span>Relationships</span></a>
+      <a href="/human-behaviour/" class="psychology-nav-item nav-teal"><span class="psychology-nav-icon" aria-hidden="true">◉</span><span>Human Behaviour</span></a>
+      <a href="ur/" class="psychology-nav-item nav-plum"><span class="psychology-nav-icon" aria-hidden="true">اُ</span><span>اردو</span></a>
+    </div>
+  </div>
+</section>
 
 <main>
 <section class="hero">
