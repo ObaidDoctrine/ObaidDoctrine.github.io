@@ -127,3 +127,9 @@ body[dir="rtl"] .listen-title,html[dir="rtl"] .listen-title{font-family:"Noto Na
 .quick-read-link{display:inline-block;margin-top:20px;color:var(--ink);font-size:12px;font-weight:900;text-decoration:none}
 .quick-read-link:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:600px){.app-icon-grid{gap:25px 12px}.app-icon-circle{width:76px;height:76px;font-size:29px}.app-icon-item{font-size:11px}.quick-read-card{grid-template-columns:54px 1fr;border-radius:22px}.quick-read-mark{padding-top:22px}.quick-read-body{padding:22px 20px}.quick-read-body>p{font-size:14px}}
+
+/* App launcher vector icon polish */
+.app-icon-circle svg{width:40px;height:40px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.app-icon-item{color:var(--od-forest)}
+.app-icon-lime .app-icon-circle{color:#31543a}.app-icon-blue .app-icon-circle{color:#31543a}.app-icon-amber .app-icon-circle{color:#31543a}.app-icon-plum .app-icon-circle{color:#31543a}.app-icon-rose .app-icon-circle{color:#31543a}.app-icon-teal .app-icon-circle{color:#31543a}.app-icon-green .app-icon-circle{color:#31543a}.app-icon-violet .app-icon-circle{color:#31543a}.app-icon-orange .app-icon-circle{color:#31543a}.app-icon-sage .app-icon-circle{color:#31543a}.app-icon-gold .app-icon-circle{color:#31543a}.app-icon-forest .app-icon-circle{color:#31543a}
+@media(max-width:600px){.app-icon-circle svg{width:34px;height:34px}}
