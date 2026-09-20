@@ -1,9 +1,10 @@
-name: Generate Verified Urdu Article Audio
+name: Generate Verified Urdu and English Article Audio
 
 on:
   push:
     paths:
       - "ur/articles/**"
+      - "articles/**"
       - "scripts/generate_urdu_audio.py"
       - ".github/workflows/generate-urdu-audio.yml"
   workflow_dispatch:
@@ -30,6 +31,8 @@ jobs:
         run: |
           curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx"
           curl -L --fail --retry 3 -o ur_PK-fasih-medium.onnx.json "https://huggingface.co/rhasspy/piper-voices/resolve/main/ur/ur_PK/fasih/medium/ur_PK-fasih-medium.onnx.json"
+          curl -L --fail --retry 3 -o en_US-joe-medium.onnx "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/joe/medium/en_US-joe-medium.onnx"
+          curl -L --fail --retry 3 -o en_US-joe-medium.onnx.json "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/joe/medium/en_US-joe-medium.onnx.json"
 
       - name: Extract exact text from every Urdu article
         run: python scripts/generate_urdu_audio.py
@@ -37,9 +40,14 @@ jobs:
       - name: Synthesize clean Urdu male audio for every article
         run: |
           mkdir -p audio/ur
+          mkdir -p audio/en
           for txt in audio/ur/*.txt; do
             slug="$(basename "$txt" .txt)"
             piper --model ur_PK-fasih-medium.onnx --config ur_PK-fasih-medium.onnx.json --output_file "audio/ur/$slug.wav" < "$txt"
+          done
+          for txt in audio/en/*.txt; do
+            slug="$(basename "$txt" .txt)"
+            piper --model en_US-joe-medium.onnx --config en_US-joe-medium.onnx.json --output_file "audio/en/$slug.wav" < "$txt"
           done
 
       - name: Install MP3 encoder
@@ -47,27 +55,31 @@ jobs:
 
       - name: Convert every article audio to MP3
         run: |
-          for wav in audio/ur/*.wav; do
-            slug="$(basename "$wav" .wav)"
-            ffmpeg -y -i "$wav" -codec:a libmp3lame -b:a 96k "audio/ur/$slug.mp3"
+          for lang in ur en; do
+            for wav in audio/$lang/*.wav; do
+              slug="$(basename "$wav" .wav)"
+              ffmpeg -y -i "$wav" -codec:a libmp3lame -b:a 96k "audio/$lang/$slug.mp3"
+            done
           done
 
       - name: Verify every generated audio file
         run: |
-          count=0
-          for txt in audio/ur/*.txt; do
-            slug="$(basename "$txt" .txt)"
-            test -s "audio/ur/$slug.wav"
-            test -s "audio/ur/$slug.mp3"
-            count=$((count+1))
+          for lang in ur en; do
+            count=0
+            for txt in audio/$lang/*.txt; do
+              slug="$(basename "$txt" .txt)"
+              test -s "audio/$lang/$slug.wav"
+              test -s "audio/$lang/$slug.mp3"
+              count=$((count+1))
+            done
+            echo "Verified $count $lang article audio pairs."
+            test "$count" -gt 0
           done
-          echo "Verified $count Urdu article audio pairs."
-          test "$count" -gt 0
 
       - name: Commit verified audio
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audio/ur
-          git commit -m "Add verified Urdu male MP3 audio for all articles" || exit 0
+          git add audio/ur audio/en
+          git commit -m "Add verified Urdu and English male MP3 audio for all articles" || exit 0
           git push
