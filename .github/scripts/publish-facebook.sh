@@ -27,46 +27,6 @@ if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
   exit 1
 fi
 
-echo "Managed Page access details:"
-printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq '{data:[.data[] | {id,name,tasks}]}'
-
-PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
-
-if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
-  echo "::error::The stored Meta token cannot provide a Page access token for Obaid Doctrine."
-  exit 1
-fi
-
-PERMISSIONS_RESPONSE=$(curl --silent --show-error --get \
-  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/me/permissions")
-
-echo "Meta user token permission check:"
-echo "$PERMISSIONS_RESPONSE"
-
-TOKEN_DEBUG=$(curl --silent --show-error --get \
-  --data-urlencode "input_token=$PAGE_ACCESS_TOKEN" \
-  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/debug_token")
-
-echo "Derived Page token debug:"
-printf '%s' "$TOKEN_DEBUG" | jq '{is_valid:.data.is_valid,type:.data.type,scopes:.data.scopes,granular_scopes:.data.granular_scopes}'
-
-PAGE_CHECK=$(curl --silent --show-error --get \
-  --data-urlencode "fields=id,name,tasks" \
-  --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID")
-
-echo "Facebook Page access check:"
-echo "$PAGE_CHECK"
-
-SUBSCRIBED_APPS=$(curl --silent --show-error --get \
-  --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/subscribed_apps")
-
-echo "Facebook Page app subscription check:"
-echo "$SUBSCRIBED_APPS"
-
 echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
