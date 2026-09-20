@@ -925,3 +925,54 @@ html[dir="rtl"] .hero .hero-banner-title{align-items:flex-start!important;text-a
   .hero h1.hero-banner-title{gap:7px!important}
   .hero .hero-title-text{padding:8px 13px 10px!important}
 }
+
+/* MOBILE REFLOW HARDENING — ENGLISH HOMEPAGE */
+@media (max-width: 600px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+  *,*::before,*::after{box-sizing:border-box}
+  .site-header,.hero,.section,.cover-strip,.app-showcase,.app-launcher,.footer{
+    max-width:100%!important;
+    overflow-x:clip;
+  }
+  .hero-copy,.hero-art,.section-head,.section-inner,.container,.app-copy{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  .hero h1,.hero h1.hero-banner-title{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow-wrap:anywhere;
+  }
+  .hero-title-block{
+    width:auto!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  .hero-title-text,.hero-title-tag{
+    max-width:100%!important;
+    overflow-wrap:anywhere;
+  }
+  .hero-art img,.cover-strip img,.about-image img,.app-showcase img{
+    display:block;
+    width:100%;
+    max-width:100%!important;
+    height:auto;
+  }
+  .section-head h2,.section-head p,
+  .interactive-hub .section-head h2,
+  .discover-card,.card,.feature-card{
+    max-width:100%!important;
+    min-width:0!important;
+    overflow-wrap:anywhere;
+  }
+  .app-launcher,.app-grid,.discover-grid,.feature-grid{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  .app-item,.app-card,.discover-card,.feature-card{
+    min-width:0!important;
+  }
+}
