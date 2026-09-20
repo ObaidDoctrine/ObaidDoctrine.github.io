@@ -1,0 +1,113 @@
+name: Publish New Articles to Facebook
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      FB_PAGE_ID: "1021253154403079"
+      FB_GRAPH_VERSION: "v26.0"
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Publish newly added articles
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${FB_PAGE_ACCESS_TOKEN:-}" ]; then
+            echo "::error::FB_PAGE_ACCESS_TOKEN repository secret is not configured."
+            exit 1
+          fi
+
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run: no article will be published automatically."
+            echo "Use a normal article commit to trigger publishing."
+            exit 0
+          fi
+
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            FILES=$(git diff-tree --no-commit-id --name-status -r "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
+          else
+            FILES=$(git diff --name-status "$BEFORE" "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
+          fi
+
+          if [ -z "$FILES" ]; then
+            echo "No newly added article files found. Nothing to publish."
+            exit 0
+          fi
+
+          while IFS= read -r FILE; do
+            [ -z "$FILE" ] && continue
+
+            if [[ "$FILE" != articles/*/index.html ]]; then
+              echo "Skipping non-article file: $FILE"
+              continue
+            fi
+
+            TITLE=$(python - "$FILE" <<'PY'
+import html
+import re
+import sys
+
+path = sys.argv[1]
+text = open(path, encoding="utf-8").read()
+m = re.search(r'<title>\\s*(.*?)\\s*</title>', text, re.I | re.S)
+title = html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip() if m else ""
+print(title)
+PY
+)
+
+            URL=$(python - "$FILE" <<'PY'
+import re
+import sys
+
+path = sys.argv[1]
+text = open(path, encoding="utf-8").read()
+m = re.search(r'<link\\s+rel=["']canonical["']\\s+href=["']([^"']+)["']', text, re.I)
+if not m:
+    raise SystemExit("Canonical URL not found in " + path)
+print(m.group(1).strip())
+PY
+)
+
+            if [ -z "$TITLE" ] || [ -z "$URL" ]; then
+              echo "::error::Could not extract title or canonical URL from $FILE"
+              exit 1
+            fi
+
+            MESSAGE="${TITLE}
+
+Read the full article:
+${URL}
+
+— Obaid Doctrine"
+
+            echo "Publishing: $TITLE"
+            curl --fail-with-body --silent --show-error \
+              --request POST \
+              --data-urlencode "message=$MESSAGE" \
+              --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+              "https://graph.facebook.com/${FB_GRAPH_VERSION}/${FB_PAGE_ID}/feed"
+
+            echo
+            echo "Published successfully: $URL"
+          done <<< "$FILES"
