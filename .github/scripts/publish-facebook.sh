@@ -14,14 +14,27 @@ if [[ -z "$AFTER" ]]; then
   exit 1
 fi
 
-TOKEN_CHECK=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
+ACCOUNTS_RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
   --get \
-  --data-urlencode "fields=id,name" \
-  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/me")
+  --data-urlencode "fields=id,name,access_token" \
+  --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
+  "https://graph.facebook.com/$FB_GRAPH_VERSION/me/accounts")
 
-echo "Facebook token identity check:"
-echo "$TOKEN_CHECK"
+ACCOUNTS_STATUS=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed -n 's/^HTTP_STATUS://p' | tail -n 1)
+if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
+  echo "::error::Could not retrieve Page access token from the stored Meta user token."
+  echo "$ACCOUNTS_RESPONSE"
+  exit 1
+fi
+
+PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
+
+if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
+  echo "::error::The stored Meta token cannot provide a Page access token for Obaid Doctrine."
+  exit 1
+fi
+
+echo "Meta token is valid and a Page access token was obtained for the configured Page."
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
   echo "Manual run: validation only; no Facebook post will be created."
