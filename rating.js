@@ -60,8 +60,8 @@
   const refresh = async () => {
     try {
       const rows = await apiGet();
-      if (rows.length) {
-        summary.textContent = Number(rows[0].average_rating).toFixed(1) + " / 5 · " + Number(rows[0].rating_count) + " ratings";
+      if (rows && rows.average_rating !== null && rows.average_rating !== undefined) {
+        summary.textContent = Number(rows.average_rating).toFixed(1) + " / 5 · " + Number(rows.rating_count) + " ratings";
       } else {
         summary.textContent = "No ratings yet — be the first.";
       }
