@@ -1,6 +1,6 @@
 /* OBAID DOCTRINE — lightweight 1–5 star rating system */
 (() => {
-  const API = "https://ep-raspy-haze-b4bugly0.apirest.c-6.us-east-2.aws.neon.tech/neondb/rest/v1";
+  const API = "https://br-quiet-queen-b4u40hk4-ratings.compute.c-6.us-east-2.aws.neon.tech";
   const path = window.location.pathname.replace(/index\\.html$/, "") || "/";
   const key = "od_rating_" + path;
   const visitorKey = "od_rating_visitor_id";
@@ -51,7 +51,7 @@
   const saved = localStorage.getItem(key);
 
   const apiGet = async () => {
-    const u = API + "/rating_summaries?page_path=eq." + encodeURIComponent(path) + "&select=average_rating,rating_count";
+    const u = API + "/?page_path=" + encodeURIComponent(path);
     const res = await fetch(u, {headers:{Accept:"application/json"}});
     if (!res.ok) throw new Error("summary " + res.status);
     return res.json();
@@ -81,9 +81,9 @@
       const rating = Number(star.dataset.rating);
       stars.forEach(s => s.disabled = true);
       try {
-        const res = await fetch(API + "/article_ratings", {
+        const res = await fetch(API, {
           method:"POST",
-          headers:{"Content-Type":"application/json","Prefer":"return=minimal"},
+          headers:{"Content-Type":"application/json"},
           body:JSON.stringify({page_path:path,rating,visitor_id:visitorId})
         });
         if (!res.ok) throw new Error("rating " + res.status);
