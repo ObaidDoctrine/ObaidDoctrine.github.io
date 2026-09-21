@@ -4,7 +4,7 @@
   const path = window.location.pathname.replace(/index\\.html$/, "") || "/";
   const key = "od_rating_" + path;
   const visitorKey = "od_rating_visitor_id";
-  const isArticle = path === "/" || path.includes("/articles/");
+  const isArticle = path === "/" || (path.includes("/articles/") && !!document.querySelector(".article-body"));
   if (!isArticle || document.querySelector("[data-od-rating]")) return;
 
   const css = document.createElement("style");
