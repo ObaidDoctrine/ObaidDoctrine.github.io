@@ -1,7 +1,7 @@
 /* OBAID DOCTRINE — lightweight 1–5 star rating system */
 (() => {
-  const API = "https://br-quiet-queen-b4u40hk4-ratings.compute.c-6.us-east-2.aws.neon.tech";
-  const path = window.location.pathname.replace(/index\\.html$/, "") || "/";
+  const API = "https://ep-raspy-haze-b4bugly0.apirest.c-6.us-east-2.aws.neon.tech/neondb/rest/v1";
+  const path = window.location.pathname.replace(/index\.html$/, "") || "/";
   const key = "od_rating_" + path;
   const visitorKey = "od_rating_visitor_id";
   const isArticle = path === "/" || path === "/ur/" || ((path.startsWith("/articles/") || path.startsWith("/ur/articles/")) && path !== "/articles/" && path !== "/ur/articles/" && !!document.querySelector("main article"));
@@ -17,7 +17,6 @@
     .od-star:hover,.od-star:focus-visible{transform:scale(1.12);outline:none}
     .od-star[aria-pressed="false"]{opacity:.34}
     .od-summary{font:800 12px/1.4 Arial,sans-serif;color:#31543A}
-    .od-thanks{color:#31543A!important;font-weight:800!important}
     @media(max-width:600px){.od-rating{padding:20px 14px;border-radius:18px}.od-rating h3{font-size:19px}.od-star{font-size:29px}}
   `;
   document.head.appendChild(css);
@@ -51,17 +50,20 @@
   const saved = localStorage.getItem(key);
 
   const apiGet = async () => {
-    const u = API + "/?page_path=" + encodeURIComponent(path);
-    const res = await fetch(u, {headers:{Accept:"application/json"}});
+    const u = API + "/article_rating_summary?select=average_rating,rating_count&page_path=eq." + encodeURIComponent(path);
+    const res = await fetch(u, {
+      headers: {"Accept":"application/json","Accept-Profile":"public"}
+    });
     if (!res.ok) throw new Error("summary " + res.status);
-    return res.json();
+    const rows = await res.json();
+    return rows[0] || null;
   };
 
   const refresh = async () => {
     try {
-      const rows = await apiGet();
-      if (rows && rows.average_rating !== null && rows.average_rating !== undefined) {
-        summary.textContent = Number(rows.average_rating).toFixed(1) + " / 5 · " + Number(rows.rating_count) + " ratings";
+      const row = await apiGet();
+      if (row && row.average_rating !== null && row.average_rating !== undefined) {
+        summary.textContent = Number(row.average_rating).toFixed(1) + " / 5 · " + Number(row.rating_count) + " ratings";
       } else {
         summary.textContent = "No ratings yet — be the first.";
       }
@@ -81,12 +83,20 @@
       const rating = Number(star.dataset.rating);
       stars.forEach(s => s.disabled = true);
       try {
-        const res = await fetch(API, {
+        const res = await fetch(API + "/article_ratings", {
           method:"POST",
-          headers:{"Content-Type":"application/json"},
+          headers:{
+            "Content-Type":"application/json",
+            "Accept":"application/json",
+            "Content-Profile":"public",
+            "Prefer":"return=minimal"
+          },
           body:JSON.stringify({page_path:path,rating,visitor_id:visitorId})
         });
-        if (!res.ok) throw new Error("rating " + res.status);
+        if (!res.ok) {
+          const detail = await res.text().catch(() => "");
+          throw new Error("rating " + res.status + " " + detail);
+        }
         localStorage.setItem(key, String(rating));
         setSelected(rating);
         summary.textContent = "Thank you — your " + rating + "/5 rating was recorded.";
