@@ -976,3 +976,29 @@ html[dir="rtl"] .hero .hero-banner-title{align-items:flex-start!important;text-a
     min-width:0!important;
   }
 }
+
+
+/* APP VISIBILITY FIX — keep Mobile App in the first feature position */
+.app-icon-item.app-icon-gold{
+  order:-1;
+  background:rgba(183,216,75,.12);
+  border:2px solid rgba(183,216,75,.55);
+  box-shadow:0 14px 34px rgba(49,84,58,.10);
+}
+.app-icon-item.app-icon-gold .app-icon-circle{
+  width:98px!important;
+  height:98px!important;
+  background:#B7D84B!important;
+  border:6px solid #FAFAF5!important;
+  box-shadow:0 16px 34px rgba(49,84,58,.18),0 0 0 2px rgba(49,84,58,.10)!important;
+}
+.app-icon-item.app-icon-gold>span:last-child{
+  font-size:14px!important;
+  font-weight:900;
+  color:#31543A;
+}
+@media(max-width:600px){
+  .app-icon-item.app-icon-gold{padding:10px 4px 12px!important}
+  .app-icon-item.app-icon-gold .app-icon-circle{width:76px!important;height:76px!important}
+  .app-icon-item.app-icon-gold>span:last-child{font-size:11px!important}
+}
