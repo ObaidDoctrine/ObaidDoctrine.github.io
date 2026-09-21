@@ -4,7 +4,7 @@
   const path = window.location.pathname.replace(/index\\.html$/, "") || "/";
   const key = "od_rating_" + path;
   const visitorKey = "od_rating_visitor_id";
-  const isArticle = path === "/" || path === "/ur/" || ((path.includes("/articles/") || path.includes("/ur/articles/")) && !!document.querySelector(".article-body"));
+  const isArticle = path === "/" || path === "/ur/" || ((path.startsWith("/articles/") || path.startsWith("/ur/articles/")) && path !== "/articles/" && path !== "/ur/articles/" && !!document.querySelector("main article"));
   if (!isArticle || document.querySelector("[data-od-rating]")) return;
 
   const css = document.createElement("style");
