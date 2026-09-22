@@ -22,11 +22,29 @@
   document.head.appendChild(css);
 
   let visitorId = localStorage.getItem(visitorKey);
-  if (!visitorId && crypto.randomUUID) {
-    visitorId = crypto.randomUUID();
-    localStorage.setItem(visitorKey, visitorId);
+
+  // Keep the rating system compatible with older mobile browsers that do not
+  // expose crypto.randomUUID(), while still using cryptographically random
+  // values when getRandomValues() is available.
+  const makeVisitorId = () => {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+    if (window.crypto && typeof window.crypto.getRandomValues === "function") {
+      const bytes = new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      bytes[6] = (bytes[6] & 0x0f) | 0x40;
+      bytes[8] = (bytes[8] & 0x3f) | 0x80;
+      const hex = [...bytes].map(b => b.toString(16).padStart(2, "0")).join("");
+      return hex.slice(0,8) + "-" + hex.slice(8,12) + "-" + hex.slice(12,16) + "-" + hex.slice(16,20) + "-" + hex.slice(20);
+    }
+    return "od-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2) + "-" + Math.random().toString(36).slice(2);
+  };
+
+  if (!visitorId) {
+    visitorId = makeVisitorId();
+    try { localStorage.setItem(visitorKey, visitorId); } catch {}
   }
-  if (!visitorId) return;
 
   const box = document.createElement("section");
   box.className = "od-rating";
@@ -52,6 +70,7 @@
   const apiGet = async () => {
     const u = API + "/article_rating_summary?select=average_rating,rating_count&page_path=eq." + encodeURIComponent(path);
     const res = await fetch(u, {
+      method: "GET",
       headers: {"Accept":"application/json","Accept-Profile":"public"}
     });
     if (!res.ok) throw new Error("summary " + res.status);
@@ -89,15 +108,20 @@
             "Content-Type":"application/json",
             "Accept":"application/json",
             "Content-Profile":"public",
+            "Accept-Profile":"public",
             "Prefer":"return=minimal"
           },
           body:JSON.stringify({page_path:path,rating,visitor_id:visitorId})
         });
-        if (!res.ok) {
+        if (!res.ok && res.status !== 409) {
           const detail = await res.text().catch(() => "");
+          console.error("[OBAID DOCTRINE rating] POST failed:", res.status, detail);
           throw new Error("rating " + res.status + " " + detail);
         }
-        localStorage.setItem(key, String(rating));
+
+        // A 409 means this browser/visitor already has a rating for this page.
+        // Treat it as an already-recorded rating instead of showing a failure.
+        try { localStorage.setItem(key, String(rating)); } catch {}
         setSelected(rating);
         summary.textContent = "Thank you — your " + rating + "/5 rating was recorded.";
         if (typeof window.gtag === "function") window.gtag("event","content_rating",{page_path:path,rating:rating});
