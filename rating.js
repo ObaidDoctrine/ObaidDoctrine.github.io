@@ -23,6 +23,11 @@
 
   let visitorId = localStorage.getItem(visitorKey);
 
+  // Neon stores visitor_id as UUID. If an older/invalid value is already
+  // cached in this browser, discard it and create a fresh valid UUID.
+  const isValidUuid = value => typeof value === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
+  if (!isValidUuid(visitorId)) visitorId = null;
+
   // Keep the rating system compatible with older mobile browsers that do not
   // expose crypto.randomUUID(), while still using cryptographically random
   // values when getRandomValues() is available.
@@ -43,6 +48,16 @@
 
   if (!visitorId) {
     visitorId = makeVisitorId();
+    // makeVisitorId normally returns a UUID; if a legacy browser reaches the
+    // final fallback, retry with crypto before allowing an invalid value.
+    if (!isValidUuid(visitorId) && window.crypto && typeof window.crypto.getRandomValues === "function") {
+      const bytes = new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      bytes[6] = (bytes[6] & 0x0f) | 0x40;
+      bytes[8] = (bytes[8] & 0x3f) | 0x80;
+      const h = [...bytes].map(b => b.toString(16).padStart(2, "0")).join("");
+      visitorId = h.slice(0,8) + "-" + h.slice(8,12) + "-" + h.slice(12,16) + "-" + h.slice(16,20) + "-" + h.slice(20);
+    }
     try { localStorage.setItem(visitorKey, visitorId); } catch {}
   }
 
