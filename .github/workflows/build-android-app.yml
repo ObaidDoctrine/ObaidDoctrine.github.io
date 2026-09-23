@@ -2,6 +2,11 @@ name: Build Obaid Doctrine Android App
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "Obaid_Doctrine__v1.0.2.APK"
 
 permissions:
   contents: write
