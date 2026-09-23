@@ -48,4 +48,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Obaid_Doctrine__v1.0.2.APK
           git commit -m "Build Obaid Doctrine Android app v1.0.2" || echo "No APK commit needed"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
