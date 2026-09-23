@@ -41,9 +41,26 @@ jobs:
       - name: Build release APK
         run: gradle --no-daemon -p android-app :app:assembleRelease
 
+      - name: Locate release APK
+        run: |
+          APK_PATH="$(find android-app/app/build/outputs -type f -name '*.apk' | head -n 1)"
+          if [ -z "$APK_PATH" ]; then
+            echo "Release APK not found."
+            find android-app/app/build/outputs -maxdepth 6 -type f -print || true
+            exit 1
+          fi
+          echo "Found APK: $APK_PATH"
+          cp "$APK_PATH" Obaid_Doctrine__v1.0.2.APK
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Obaid-Doctrine-Android-v1.0.2
+          path: Obaid_Doctrine__v1.0.2.APK
+          if-no-files-found: error
+
       - name: Publish APK into repository
         run: |
-          cp android-app/app/build/outputs/apk/release/app-release.apk Obaid_Doctrine__v1.0.2.APK
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Obaid_Doctrine__v1.0.2.APK
