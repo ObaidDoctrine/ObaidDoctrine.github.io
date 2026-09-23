@@ -36,6 +36,10 @@ gtag('config', 'G-L4T240RQDK');
   </script>
 <meta name="author" content="Obaid Mushtaq">
 <meta name="theme-color" content="#B7D84B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="/manifest.json">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:site_name" content="OBAID DOCTRINE">
 <meta property="og:locale" content="en_GB">
@@ -444,5 +448,12 @@ html,body{max-width:100%;overflow-x:hidden}
 </main>
 
 <footer><div><strong>OBAID DOCTRINE</strong><p>Psychology • Human Behaviour • Relationships • Society</p></div><div><a href="/start-here/">Start Here</a><a href="#topics">Topics</a><a href="#mind-tests">Mind Tests</a><a href="#about">About</a><a href="ur/">اردو</a><a href="privacy-policy/">Privacy Policy</a></div><p class="copyright">© 2026 Obaid Doctrine. Educational content; not a substitute for professional care.</p></footer>
-<script src="/rating.js?v=20260921-1" defer></script></body>
+<script src="/rating.js?v=20260921-1" defer></script><script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function () {});
+  });
+}
+</script>
+</body>
 </html>
