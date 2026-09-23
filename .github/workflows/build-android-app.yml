@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - "Obaid_Doctrine__v1.0.2.APK"
+      - "Obaid_Doctrine__v1.0.3.APK"
 
 permissions:
   contents: write
@@ -50,20 +50,22 @@ jobs:
             exit 1
           fi
           echo "Found APK: $APK_PATH"
-          cp "$APK_PATH" Obaid_Doctrine__v1.0.2.APK
+          cp "$APK_PATH" Obaid_Doctrine__v1.0.3.APK
+          ls -lh Obaid_Doctrine__v1.0.3.APK
+          file Obaid_Doctrine__v1.0.3.APK
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Obaid-Doctrine-Android-v1.0.2
-          path: Obaid_Doctrine__v1.0.2.APK
+          name: Obaid-Doctrine-Android-v1.0.3
+          path: Obaid_Doctrine__v1.0.3.APK
           if-no-files-found: error
 
       - name: Publish APK into repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Obaid_Doctrine__v1.0.2.APK
-          git commit -m "Build Obaid Doctrine Android app v1.0.2" || echo "No APK commit needed"
+          git add Obaid_Doctrine__v1.0.3.APK
+          git commit -m "Build Obaid Doctrine Android app v1.0.3" || echo "No APK commit needed"
           git pull --rebase origin main
           git push origin HEAD:main
