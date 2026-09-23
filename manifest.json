@@ -1,0 +1,24 @@
+{
+  "name": "OBAID DOCTRINE",
+  "short_name": "Obaid Doctrine",
+  "description": "Psychology, human behaviour, relationships and society.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#FAFAF5",
+  "theme_color": "#B7D84B",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/brand-profile.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "prefer_related_applications": false
+}
