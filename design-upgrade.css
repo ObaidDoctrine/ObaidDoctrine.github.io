@@ -460,3 +460,41 @@ main{isolation:isolate}
  .recent-card p,.today-content p,.daily-body p,.quick-read-body p{font-size:14px;line-height:1.65;}
  .recent-meta,.recent-footer,.daily-footer{align-items:flex-start;}
 }
+
+
+/* MASTER LEARNING + TOOLS + APP SYSTEM 2026 */
+.start-grid,.knowledge-grid,.path-grid,.tool-grid{align-items:stretch;}
+.start-card,.knowledge-card,.path-card,.tool-card{min-width:0;display:flex;flex-direction:column;}
+.start-card h3,.knowledge-card h3,.path-card h3,.tool-card h3{overflow-wrap:anywhere;}
+.start-card p,.knowledge-card p,.path-card p,.tool-card p{overflow-wrap:anywhere;}
+.start-card a,.knowledge-card a,.path-card a,.tool-card a{margin-top:auto;align-self:flex-start;}
+.start-card,.knowledge-card,.path-card{padding:28px;border-radius:26px;}
+.tool-card{padding:22px;border-radius:22px;}
+.knowledge-card.feature{min-height:300px;}
+.start-card{min-height:310px;}
+.path-card{min-height:280px;}
+.tool-card{min-height:190px;}
+.tool-card .tool-icon{flex:0 0 auto;}
+.myth-wrap{align-items:stretch;}
+.myth-card{min-width:0;display:flex;flex-direction:column;}
+.myth-card h3,.myth-card p{overflow-wrap:anywhere;}
+.myth-card p{margin-top:auto;}
+.app-showcase{overflow:hidden;}
+.app-copy,.app-device{min-width:0;}
+.app-copy h2,.app-copy p{overflow-wrap:anywhere;}
+.app-points{display:flex;flex-wrap:wrap;gap:8px;}
+.app-points span{min-width:0;max-width:100%;}
+@media(max-width:900px){
+ .start-grid,.knowledge-grid,.path-grid,.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .start-card,.knowledge-card,.path-card{min-height:0;}
+ .tool-card{min-height:180px;}
+}
+@media(max-width:600px){
+ .start-grid,.knowledge-grid,.path-grid,.tool-grid{grid-template-columns:1fr!important;}
+ .start-card,.knowledge-card,.path-card{padding:22px;border-radius:22px;}
+ .tool-card{min-height:0;padding:20px;border-radius:20px;}
+ .knowledge-card.feature{min-height:0;}
+ .myth-wrap{grid-template-columns:1fr!important;}
+ .app-points{display:grid;grid-template-columns:1fr;}
+ .app-points span{font-size:12px;}
+}
