@@ -352,3 +352,46 @@ main{isolation:isolate}
  .start-card,.knowledge-card,.tool-card,.path-card,.myth-card{border-radius:19px}
  .start-card .start-icon{width:48px;height:48px;border-radius:15px;font-size:24px}
 }
+
+
+/* MASTER HEADER + ABOVE-FOLD HIERARCHY 2026 */
+.site-header{gap:16px;}
+.site-header .brand{min-width:0;flex:0 1 auto;}
+.site-header nav{min-width:0;flex:1 1 auto;justify-content:flex-end;}
+.site-header nav a{white-space:nowrap;}
+.od-language-switch{box-shadow:0 7px 20px rgba(49,84,58,.09)!important;}
+.psychology-nav-strip{border-bottom:1px solid rgba(49,84,58,.08);}
+.psychology-nav-inner{min-width:0;}
+.psychology-nav-heading{min-width:0;}
+.psychology-nav-links{min-width:0;}
+.psychology-nav-item{min-height:46px;}
+.women-feature-entry{position:relative;}
+.women-feature-card{min-width:0;}
+@media(max-width:900px){
+ .site-header{height:auto;min-height:68px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px;}
+ .site-header .brand{order:1;max-width:calc(100% - 150px);}
+ .site-header .od-language-switch{order:2;margin-left:auto;}
+ .site-header nav{order:3;flex:1 0 100%;justify-content:flex-start;overflow-x:auto;padding:3px 0 2px;scrollbar-width:none;}
+ .site-header nav::-webkit-scrollbar{display:none;}
+ .site-header nav a{display:inline-flex!important;}
+ .site-header nav a:nth-child(-n+2){display:inline-flex!important;}
+ .site-header nav{gap:10px;}
+ .site-header nav a{padding:7px 10px;border:1px solid rgba(49,84,58,.10);border-radius:999px;background:#fff;font-size:11px;}
+ .psychology-nav-links{overflow-x:auto;scrollbar-width:none;}
+ .psychology-nav-links::-webkit-scrollbar{display:none;}
+ .psychology-nav-item{flex:0 0 auto;}
+}
+@media(max-width:600px){
+ .site-header{padding:8px 4vw 7px;gap:8px;}
+ .site-header .brand{max-width:calc(100% - 124px);}
+ .brand-mark{width:34px;height:34px;}
+ .brand strong{font-size:12px;letter-spacing:.055em;}
+ .od-language-switch a{min-width:54px;min-height:30px;padding:5px 8px;font-size:11px!important;}
+ .site-header nav{gap:7px;padding-top:5px;}
+ .site-header nav a{font-size:10.5px;padding:6px 9px;}
+ .psychology-nav-inner{padding-left:4vw;padding-right:4vw;}
+ .psychology-nav-links{gap:8px;}
+ .psychology-nav-item{min-height:42px;padding:7px 10px;}
+ .women-feature-entry{padding-top:10px;}
+ .women-feature-card{align-items:center;}
+}
