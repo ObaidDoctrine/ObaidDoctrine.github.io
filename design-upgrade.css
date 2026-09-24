@@ -330,3 +330,25 @@ main{isolation:isolate}
   .daily-badge{display:inline-flex;margin-top:12px;}
 }
 @media(prefers-reduced-motion:reduce){.app-icon-item{animation:none!important;transition:none!important}.app-icon-item:hover .app-icon-circle{transform:none!important}.hero-art img{transition:none!important}.hero-art:hover img{transform:none!important;}}
+
+
+/* MASTER HOMEPAGE ICON + CARD REFINEMENT 2026
+   Keep every feature tile visually equal; improve hierarchy without changing destinations. */
+.app-icon-grid{align-items:stretch}
+.app-icon-item:nth-child(1){grid-column:auto!important}
+.app-icon-item{justify-content:flex-start;padding-top:20px}
+.app-icon-circle{flex:0 0 auto}
+.app-icon-item>span:last-child{min-height:2.6em;display:flex;align-items:center;justify-content:center}
+.start-card,.knowledge-card,.tool-card,.path-card,.myth-card{position:relative}
+.start-card .start-icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:var(--od-sage,#DCE8B5);border:1px solid rgba(49,84,58,.10);box-shadow:0 8px 18px rgba(49,84,58,.08);font-size:27px}
+.start-card:first-child .start-icon{background:#EAF1D4}
+.start-card:nth-child(2) .start-icon{background:#E7F1F8}
+.start-card:nth-child(3) .start-icon{background:#F8E9ED}
+.start-card:nth-child(4) .start-icon{background:#EEE8F5}
+.tool-card .tool-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:#F1F5E7;border:1px solid rgba(49,84,58,.08);margin-bottom:8px}
+@media(max-width:600px){
+ .app-icon-item{padding-top:12px}
+ .app-icon-item>span:last-child{min-height:2.7em;font-size:10.5px}
+ .start-card,.knowledge-card,.tool-card,.path-card,.myth-card{border-radius:19px}
+ .start-card .start-icon{width:48px;height:48px;border-radius:15px;font-size:24px}
+}
