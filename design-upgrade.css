@@ -3,7 +3,6 @@
   --od-xp-forest:#31543A;
   --od-xp-lime:#B7D84B;
   --od-xp-ivory:#FAFAF5;
-  --od-xp-sage:#DCE8B5;
 }
 body{background:var(--od-xp-ivory)}
 main{isolation:isolate}
