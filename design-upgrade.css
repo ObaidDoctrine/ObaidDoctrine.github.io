@@ -498,3 +498,13 @@ main{isolation:isolate}
  .app-points{display:grid;grid-template-columns:1fr;}
  .app-points span{font-size:12px;}
 }
+
+
+/* MASTER MIND-TEST EXPERIENCE 2026 */
+.mind-test-copy{min-width:0;}
+.mind-test-copy h3,.mind-test-copy p{overflow-wrap:anywhere;}
+.mind-test-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.mind-test-actions .btn{margin:0;}
+.mind-test-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.mind-test-links a{display:inline-flex;align-items:center;min-width:0;max-width:100%;padding:8px 11px;border:1px solid rgba(49,84,58,.10);border-radius:999px;background:#fff;overflow-wrap:anywhere;}
+@media(max-width:600px){.mind-test-actions{display:grid;grid-template-columns:1fr;}.mind-test-actions .btn{width:100%;}.mind-test-links{display:grid;grid-template-columns:1fr;}.mind-test-links a{justify-content:flex-start;}}
