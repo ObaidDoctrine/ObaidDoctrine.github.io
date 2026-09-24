@@ -1,11 +1,5 @@
 (function(){
 "use strict";
-const neuralUrdu="ur_PK-fasih-medium";
-let piperPromise=null;
-async function piper(){
-  if(!piperPromise) piperPromise=import("https://esm.sh/@the-vedantic-coder/piper-tts-web@1.0.10").then(m=>m).catch(()=>null);
-  return piperPromise;
-}
 function getArticle(){
   const a=document.querySelector("article.article-body")||document.querySelector("main article");
   if(!a) return null;
@@ -31,7 +25,7 @@ function init(){
   const anchor=article.querySelector(".notice")||article.querySelector(".article-meta")||article.firstElementChild;
   (anchor?anchor.before.bind(anchor):article.prepend.bind(article))(box);
   const play=box.querySelector(".listen-play"),pause=box.querySelector(".listen-pause"),stop=box.querySelector(".listen-stop"),speed=box.querySelector("select"),status=box.querySelector(".listen-status");
-  let chunks=[],index=0,active=false,audio=null,usingPiper=false;
+  let chunks=[],index=0,active=false,audio=null;
   function setStatus(t){status.textContent=t;}
   function splitText(t){return t.match(/[^.!?۔！？]+[.!?۔！？]*/g)||[t];}
   function getAudioUrl(){
@@ -70,11 +64,11 @@ function init(){
   play.addEventListener("click",()=>{
     const t=getArticle()||"";if(!t)return;
     if(synth)synth.cancel();if(audio){audio.pause();audio.src="";}
-    chunks=splitText(t);index=0;active=true;usingPiper=rtl;
+    chunks=splitText(t);index=0;active=true;
     speakAudio();
   });
   pause.addEventListener("click",()=>{
-    if(usingPiper&&audio){if(audio.paused)audio.play();else audio.pause();}
+    if(audio){if(audio.paused)audio.play();else audio.pause();}
     else if(synth&&synth.speaking){if(synth.paused)synth.resume();else synth.pause();}
   });
   stop.addEventListener("click",()=>{
