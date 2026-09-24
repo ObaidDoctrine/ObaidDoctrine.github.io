@@ -180,6 +180,42 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:600px){.app-icon-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.app-icon-item{min-height:126px;padding:12px 6px;border-radius:19px;gap:9px;box-shadow:0 7px 18px rgba(49,84,58,.06)}.app-icon-circle{width:62px;height:62px;border-width:4px;border-radius:19px}.app-icon-circle:after{inset:-5px;border-radius:24px}.app-icon-circle svg{width:32px;height:32px}.app-icon-item>span:last-child{font-size:10.5px}}
 @media(prefers-reduced-motion:reduce){.app-icon-item,.app-icon-circle{transition:none}.app-icon-item:hover{transform:none}.app-icon-item:hover .app-icon-circle{transform:none}}
 </style>
+
+<style id="ultra-pro-homepage-composition-2026">
+/* Ultra-Pro editorial composition */
+.site-header{box-shadow:0 8px 28px rgba(49,84,58,.055);position:sticky;top:0;z-index:50}
+.hero{min-height:560px;display:grid;align-items:center;background:radial-gradient(circle at 78% 18%,rgba(183,216,75,.24),transparent 28%),linear-gradient(135deg,#FAFAF5 0%,#F4F7EA 55%,#E7F0D1 100%);border-radius:0 0 44px 44px;box-shadow:0 18px 55px rgba(49,84,58,.08)}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(49,84,58,.10);border-radius:50%;right:-210px;bottom:-250px;box-shadow:0 0 0 32px rgba(183,216,75,.055),0 0 0 66px rgba(49,84,58,.035);pointer-events:none}
+.hero-copy{max-width:720px}
+.hero .eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(49,84,58,.11);box-shadow:0 7px 20px rgba(49,84,58,.05);font-weight:900}
+.hero h1{max-width:780px;font-size:clamp(46px,7vw,82px);line-height:.96;letter-spacing:-.055em;margin:18px 0 20px}
+.hero h1 span{display:block}
+.hero-art{filter:drop-shadow(0 22px 30px rgba(49,84,58,.13))}
+.hero-art img{border-radius:34px}
+.psychology-nav-strip{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);box-shadow:0 12px 30px rgba(49,84,58,.07);border-top:1px solid rgba(49,84,58,.06)}
+.psychology-nav-item{background:linear-gradient(180deg,#FFFFFF,#F7F9F0);border-color:rgba(49,84,58,.12);border-radius:17px;min-height:54px}
+.psychology-nav-icon{box-shadow:inset 0 0 0 3px rgba(255,255,255,.48),0 5px 12px rgba(49,84,58,.10)}
+.master-head .eyebrow{color:#6F756F;font-weight:900}
+.master-head h2{letter-spacing:-.035em}
+.app-launcher{border-radius:34px;margin-top:10px;padding-top:74px!important;padding-bottom:82px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.app-launcher-head h2{font-size:clamp(34px,5vw,58px)}
+.app-icon-grid{max-width:1040px;gap:18px}
+.app-icon-item{min-height:170px;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(247,250,239,.78));box-shadow:0 12px 30px rgba(49,84,58,.075),inset 0 1px 0 rgba(255,255,255,.9)}
+.app-icon-item:nth-child(1){grid-column:span 2;background:linear-gradient(135deg,#F7FBEA,#FFFFFF);border-color:rgba(183,216,75,.48)}
+.app-icon-item:nth-child(1) .app-icon-circle{width:88px;height:88px;border-radius:28px}
+.app-icon-item:nth-child(10){border-color:rgba(128,100,162,.22)}
+.app-icon-item:nth-child(11){background:linear-gradient(135deg,#31543A,#3E6848);color:#fff;border-color:#31543A}
+.app-icon-item:nth-child(11) .app-icon-circle{border-color:rgba(255,255,255,.88);box-shadow:0 12px 28px rgba(0,0,0,.10)}
+.app-icon-item:nth-child(11)>span:last-child{color:#fff}
+.app-icon-brand{padding:0;overflow:hidden;background:#FAFAF5!important}
+.app-icon-brand img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+.feature-hub{box-shadow:0 22px 50px rgba(49,84,58,.14);border:1px solid rgba(255,255,255,.16)}
+.btn{transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.btn.primary{box-shadow:0 10px 22px rgba(183,216,75,.25)}
+.btn.primary:hover{box-shadow:0 14px 28px rgba(183,216,75,.32)}
+@media(max-width:900px){.hero{min-height:0}.app-icon-item:nth-child(1){grid-column:span 1}}
+@media(max-width:600px){.hero{border-radius:0 0 28px 28px}.hero h1{font-size:clamp(43px,12vw,57px);line-height:.98}.hero-art img{border-radius:25px}.app-launcher{border-radius:25px;padding-top:52px!important;padding-bottom:58px!important}.app-icon-grid{gap:10px}.app-icon-item{min-height:132px;border-radius:20px}.app-icon-item:nth-child(1) .app-icon-circle{width:62px;height:62px;border-radius:19px}}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -325,7 +361,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <a class="app-icon-item app-icon-violet" href="/mind-tests/"><span class="app-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 8h8v8H8Z"/><path d="M5 12h3m8 0h3M12 5v3m0 8v3"/><path d="m9 9 6 6m0-6-6 6"/></svg></span><span>Mind & Brain</span></a>
     <a class="app-icon-item app-icon-orange" href="/research-insights/"><span class="app-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 17V7m0 10h16"/><path d="m7 14 3-4 3 2 4-6"/></svg></span><span>Research Spotlight</span></a>
     <a class="app-icon-item app-icon-sage" href="/reflection-tool.html"><span class="app-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 5h14v10H9l-4 4Z"/><path d="M8 9h8m-8 3h5"/></svg></span><span>Reflection</span></a>
-    <a class="app-icon-item app-icon-gold" href="#app"><span class="app-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M10 18h4"/></svg></span><span>Mobile App</span></a>
+    <a class="app-icon-item app-icon-gold" href="#app"><span class="app-icon-circle app-icon-brand" aria-hidden="true"><img src="assets/brand-profile.png" alt="" /></span><span>Mobile App</span></a>
     <a class="app-icon-item app-icon-forest" href="/articles/"><span class="app-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h14v16H5Z"/><path d="M8 8h8m-8 4h8m-8 4h5"/></svg></span><span>Deep Reading</span></a>
   </div>
 </section>
