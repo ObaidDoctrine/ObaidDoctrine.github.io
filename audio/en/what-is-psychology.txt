@@ -1,18 +1,36 @@
 The short answer
-Psychology is a scientific discipline that studies behaviour and mental processes. This guide explains the field in clear language and separates established ideas from popular myths.
-Two people can receive the same message and interpret it differently. Before deciding what a reaction “means,” ask what was actually observed, what was assumed, and what context may be missing.
-Why the simple explanation is not enough
-Human behaviour is shaped by multiple interacting factors. Psychological research often examines patterns across groups and situations rather than providing a single rule that explains every individual. That is why responsible psychology communication should describe the evidence, its limits and the context in which it applies.
-What to look at in real life
-Consider the situation and the person’s broader context rather than one isolated behaviour.
-Separate an observation from an interpretation of why it happened.
-Look for patterns over time instead of treating one event as proof of a trait.
-Be cautious with viral labels and absolute claims such as “always” or “never.”
-Where distress or impairment is persistent, consider seeking help from an appropriately qualified professional.
-What research does not automatically prove
-A correlation does not by itself establish causation, and findings from one population or study do not necessarily apply identically to everyone. Evidence should be interpreted with attention to study design, population, effect size, limitations and the wider body of research.
-PRACTICAL TAKEAWAY
-Ask better questions before making a psychological judgment.
-Look at the behaviour, the situation, the person’s broader context and the evidence before turning one event into a conclusion about personality.
+Psychology studies behaviour and mental processes. The field includes basic research that asks how people think, learn, remember, develop and interact, as well as applied work that uses psychological knowledge in areas such as health, education, organizations and communities. APA describes psychology as a diverse discipline grounded in science with broad everyday applications.
+Why psychology is a science
+Psychological scientists do not simply collect interesting stories about people. They formulate questions, define what they want to measure, select appropriate research designs, collect and analyse data, consider alternative explanations and communicate limitations. Different questions require different methods, including experiments, observational studies, surveys, longitudinal designs, qualitative methods and other approaches.
+Replication is also important. A finding from one study is not automatically a universal psychological law; repeating research and examining evidence across studies helps researchers judge how robust and generalisable a result may be.
+What does psychology actually study?
+Thinking: attention, memory, reasoning, decision-making and problem solving.
+Emotion: emotional experiences, regulation and links between emotion, thought and behaviour.
+Learning: how experience and environments influence behaviour and knowledge.
+Development: changes across childhood, adolescence, adulthood and later life.
+Social behaviour: relationships, groups, norms, communication and social influence.
+Individual differences: patterns in personality, abilities and behaviour, while recognising that people are not reducible to one label.
+Health and wellbeing: psychological factors connected with health, coping and functioning.
+Major areas of psychology
+Psychology is not one narrow subject. Cognitive, developmental, social, personality, health, clinical, educational, organizational, biological and other areas ask different questions and use overlapping but sometimes different methods. The field also connects with neuroscience, medicine, education, sociology and other disciplines.
+Research question → method → evidence
+A useful way to understand psychological science is to start with the question. If researchers want to estimate how common an experience is, a well-designed survey may be useful. If they want to test whether an intervention causes a change, an experimental or controlled design may be more informative. If they want to understand lived experience in depth, qualitative methods may be appropriate. No single method answers every psychological question.
+What psychology can—and cannot—tell you
+Psychology can identify patterns and test explanations, but evidence is always tied to its population, measurement, design and context. A statistically significant result is not automatically a large or practically important effect. A correlation does not by itself prove causation, and a finding in one sample may not generalise perfectly to every culture or individual.
+APA's evidence-based practice framework emphasises the best available research evidence together with relevant expertise and the characteristics and context of the people involved.
+Psychology is not mind-reading
+A psychologist cannot reliably determine a stranger's personality or motives from one facial expression, social-media post or isolated behaviour. Psychological explanations require evidence and context. This is why labels such as “narcissist,” “toxic,” “introvert” or “trauma response” should not be treated as automatic diagnoses simply because a behaviour appears to fit a popular description.
+Real-life example
+Two people receive the same message and react differently. Psychology would not need to assume that one person is simply “good” and the other “bad.” Researchers might examine prior experience, expectations, attention, emotion, social context, individual differences and the wording or timing of the message. Several explanations can be possible, and evidence is needed to distinguish them.
+A Psychology Evidence Check
+What exactly is the psychological claim?
+What behaviour or mental process was actually measured?
+Who was studied, and does that population match the situation being discussed?
+What research design was used?
+Does the evidence show association, prediction or a plausible causal effect?
+Has the finding been replicated or supported by a wider body of research?
+What limitations or alternative explanations remain?
 Why context matters
-Culture, relationships, environment, development and personal circumstances can change how a psychological pattern appears. Evidence-based psychological practice also emphasizes integrating research with individual characteristics, context and professional expertise when providing care.
+Culture, development, relationships, environment, resources and personal circumstances can change how a psychological pattern appears. Psychological science therefore aims to identify useful patterns without pretending that every person will respond identically.
+The key idea
+Psychology is both a science and a broad field of application. Its value comes from asking testable questions about behaviour and mental processes, using methods suited to those questions, evaluating evidence carefully and applying conclusions with attention to context. Good psychology does not promise a simple explanation for every person; it improves the quality of the questions and evidence we use to understand people.

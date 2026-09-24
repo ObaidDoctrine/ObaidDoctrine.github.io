@@ -1,14 +1,27 @@
 The short answer
-Prior beliefs can influence how people notice, interpret and evaluate information. This does not mean people always reject contradictory evidence.
-Why the simple explanation is not enough
-Human behaviour is shaped by multiple interacting factors. Psychological research often examines patterns across groups and situations rather than providing a single rule that explains every individual. That is why responsible psychology communication should describe the evidence, its limits and the context in which it applies.
-What to look at in real life
-Consider the situation and the person’s broader context rather than one isolated behaviour.
-Separate an observation from an interpretation of why it happened.
-Look for patterns over time instead of treating one event as proof of a trait.
-Be cautious with viral labels and absolute claims such as “always” or “never.”
-Where distress or impairment is persistent, consider seeking help from an appropriately qualified professional.
+People do not approach information with an empty mind. Prior knowledge, expectations, goals and beliefs can influence what they notice and how they interpret new information. Research on perception and cognition shows that preexisting beliefs can shape attention and interpretation, while also showing that these influences are not absolute.
+Belief, interpretation and evidence are different things
+A belief is something a person accepts as true or likely. An interpretation is the meaning they assign to an event or piece of information. Evidence is information that can support or challenge a claim. Keeping these three separate makes it easier to examine a belief without treating the person who holds it as the problem.
+How existing views can influence information processing
+Attention: prior expectations can influence what information receives attention.
+Interpretation: the same event can be given different meanings depending on what a person already expects.
+Evaluation: people may judge information partly through the standards or assumptions they already use.
+Memory and recall: what people remember can be influenced by how an experience was understood and encoded.
+APA's discussion of perception notes that people bring goals, fears, desires and beliefs to the process of making sense of what they encounter. That helps explain why two people can observe the same situation and reach different interpretations without either person necessarily inventing the event.
+Confirmation bias: useful concept, often oversimplified
+Confirmation bias describes a tendency to favor information that fits an existing belief or expectation. But it is too strong to say that people always reject contradictory evidence. The strength of the effect can depend on the person, the task, the information available and how the evidence is presented. APA has described confirmation bias as one reason existing beliefs can affect how people evaluate information.
+Why changing a belief can be difficult
+Some beliefs are connected to a person's identity, relationships, experiences or sense of safety. A challenge to the belief can therefore feel like a challenge to something larger than a single fact. Cognitive approaches also distinguish between surface-level thoughts and deeper assumptions or schemas that can shape how experiences are interpreted.
+A practical evidence-checking framework
+State the claim clearly: What exactly are you being asked to believe?
+Separate fact from interpretation: What is directly observed, and what meaning has been added?
+Ask what would change your mind: Identify evidence that could genuinely count against the belief.
+Search for disconfirming information: Do not look only for material that supports your existing view.
+Check source quality: Consider whether the evidence is primary, relevant, current and methodologically sound.
+Update proportionally: New evidence does not always require abandoning a belief completely; sometimes it should simply make confidence higher or lower.
+Example: the same event, different conclusions
+Imagine two students receive brief feedback from a teacher. One interprets it as evidence that the teacher thinks they are incapable. Another interprets it as ordinary guidance about a specific assignment. The observable event may be similar, but their prior expectations can influence what each notices and what meaning they assign to it. The useful question is not “Who is irrational?” but “What evidence supports each interpretation, and what additional information would clarify the situation?”
 What research does not automatically prove
-A correlation does not by itself establish causation, and findings from one population or study do not necessarily apply identically to everyone. Evidence should be interpreted with attention to study design, population, effect size, limitations and the wider body of research.
-Why context matters
-Culture, relationships, environment, development and personal circumstances can change how a psychological pattern appears. Evidence-based psychological practice also emphasizes integrating research with individual characteristics, context and professional expertise when providing care.
+Finding that beliefs influence interpretation does not mean perception is simply subjective or that facts do not matter. Nor does it mean every disagreement is caused by bias. People can hold different views because they have different information, experiences, values, definitions or assumptions. Evidence about cognition must therefore be interpreted within the design and context of each study.
+The key idea
+Existing beliefs can act like a lens: they can influence what stands out, what seems plausible and how new information is interpreted. But a lens is not a prison. Deliberately separating claims from interpretations, seeking evidence that could challenge your view, and updating confidence when the evidence changes can make reasoning more accurate.

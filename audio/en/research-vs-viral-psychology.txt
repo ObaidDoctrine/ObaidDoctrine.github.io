@@ -1,14 +1,45 @@
 The short answer
-Viral psychology often compresses complex findings into simple rules. A better approach is to check the source, methods, context and limits of the evidence.
-Why the simple explanation is not enough
-Human behaviour is shaped by multiple interacting factors. Psychological research often examines patterns across groups and situations rather than providing a single rule that explains every individual. That is why responsible psychology communication should describe the evidence, its limits and the context in which it applies.
-What to look at in real life
-Consider the situation and the person’s broader context rather than one isolated behaviour.
-Separate an observation from an interpretation of why it happened.
-Look for patterns over time instead of treating one event as proof of a trait.
-Be cautious with viral labels and absolute claims such as “always” or “never.”
-Where distress or impairment is persistent, consider seeking help from an appropriately qualified professional.
-What research does not automatically prove
-A correlation does not by itself establish causation, and findings from one population or study do not necessarily apply identically to everyone. Evidence should be interpreted with attention to study design, population, effect size, limitations and the wider body of research.
-Why context matters
-Culture, relationships, environment, development and personal circumstances can change how a psychological pattern appears. Evidence-based psychological practice also emphasizes integrating research with individual characteristics, context and professional expertise when providing care.
+Research and viral psychology are not automatically opposites. The important difference is whether a claim preserves the evidence, methods, context and limitations of the research behind it.
+Why psychology goes viral so easily
+Human behaviour is complicated, while social media rewards short, memorable explanations. A nuanced finding can become a simple rule when it is turned into a headline, graphic or short video. The result may sound psychologically plausible while leaving out the conditions under which the original finding was observed.
+Research is a process, not a single fact
+A scientific finding normally sits inside a larger process: researchers define a question, collect data, analyze it, report uncertainty and limitations, and other researchers may test related questions. A single study can be informative without being the final word.
+The 2026 APA consensus statement on misinformation notes that the evidence base itself contains important unanswered questions and disagreements, which is one reason strong claims should be matched to the strength of the available evidence. PubMed: APA consensus statement
+What viral psychology often changes
+Association becomes causation: “X is linked with Y” becomes “X causes Y.”
+A specific sample becomes everyone: a finding from one population is presented as universal.
+A modest effect becomes a dramatic effect: statistical significance is treated as proof of a major real-world change.
+One study becomes “science says”: a single result is presented without the wider evidence.
+A qualified conclusion becomes an absolute rule: words such as “may,” “on average,” or “under these conditions” disappear.
+Five questions that expose the difference
+What exactly was studied? Identify the variables, outcome and research question.
+Who was studied? Check the sample, age, setting and recruitment method.
+How was it studied? A correlation, experiment, longitudinal study and systematic review answer different questions.
+How large and reliable was the finding? Look beyond a headline about statistical significance.
+What did the researchers say they could not conclude? Limitations often matter as much as the main result.
+Correlation is not causation
+If two variables are associated, several explanations may remain possible. One variable could influence the other, both could be influenced by another factor, or the relationship could be more complicated. A causal conclusion requires a design and analysis capable of supporting it.
+Look at the whole evidence base
+When a claim matters, look for systematic reviews, meta-analyses, replications and converging evidence rather than relying on one viral study. This does not mean a review is automatically correct; its conclusions still depend on the quality, relevance and methods of the studies it includes.
+Popularity is not evidence
+Likes, shares, followers, attractive graphics and confident delivery tell you something about attention—not whether the underlying psychology claim is accurate. APA's misinformation research reports that repetition can increase belief in information, including false information, which makes repeated viral claims worth checking rather than accepting through familiarity. APA: Using psychological science to understand and fight health misinformation
+But “viral” does not automatically mean false
+A popular psychology claim can be accurate. The problem is treating popularity as the test of accuracy. A useful approach is to trace the claim backward: post or video → article or report → original study → methods and results → wider evidence.
+A practical research-vs-viral checklist
+Find the original source.
+Read the actual research question, not only the headline.
+Check who participated.
+Identify the study design.
+Check what was measured and how.
+Look for effect size and uncertainty where reported.
+Read the limitations.
+Check whether other credible research agrees, qualifies or contradicts the finding.
+Rewrite the claim in narrower language if the evidence does not support the dramatic version.
+Example: “This habit changes your brain”
+A viral post may use that sentence to describe a study that found a small association between a behaviour and a brain measure. A careful reader would ask: Was the study experimental? Was the brain measure actually linked to the claimed outcome? Who was studied? How large was the difference? Could other factors explain it? Does the evidence show a lasting change, or only a measurement difference under particular conditions?
+The better mindset
+Scientific thinking is not about believing every study or rejecting every viral claim. It is about matching confidence to evidence. When evidence is strong, explain it clearly. When evidence is limited or mixed, say so. When a viral summary removes important qualifications, restore them.
+How to Read a Psychology Claim Online Without Being Misled
+How Cognitive Biases Affect Everyday Decisions
+Why People Believe Things That Fit Their Existing Views
+How Perception Shapes Interpretation
