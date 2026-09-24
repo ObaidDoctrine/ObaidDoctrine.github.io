@@ -216,6 +216,35 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:900px){.hero{min-height:0}.app-icon-item:nth-child(1){grid-column:span 1}}
 @media(max-width:600px){.hero{border-radius:0 0 28px 28px}.hero h1{font-size:clamp(43px,12vw,57px);line-height:.98}.hero-art img{border-radius:25px}.app-launcher{border-radius:25px;padding-top:52px!important;padding-bottom:58px!important}.app-icon-grid{gap:10px}.app-icon-item{min-height:132px;border-radius:20px}.app-icon-item:nth-child(1) .app-icon-circle{width:62px;height:62px;border-radius:19px}}
 </style>
+
+<style id="master-visual-stability-2026">
+/* Master visual stability: prevent clipping, overlap and mobile overflow */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-width:0;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%}
+img{height:auto}
+section[id]{scroll-margin-top:110px}
+:is(h1,h2,h3,h4,h5,h6,p,a,button,span,strong){overflow-wrap:anywhere}
+:is(.start-card,.knowledge-card,.tool-card,.path-card,.myth-card,.feature-hub,.recent-card,.today-feature,.today-mini,.daily-card,.quick-read-card,.app-icon-item){min-width:0}
+:is(.start-grid,.knowledge-grid,.tool-grid,.path-grid,.myth-wrap,.app-icon-grid,.today-grid,.recent-grid){min-width:0}
+:is(.hero,.master-section,.app-launcher,.feature-hub){overflow:hidden}
+:is(.hero-copy,.hero-art,.master-head,.app-launcher-head,.recent-card-body,.today-content,.daily-body,.quick-read-body){min-width:0}
+:is(.hero h1,.master-head h2,.app-launcher-head h2,.recent-card h3,.today-content h3,.daily-body h3,.quick-read-body h3){overflow-wrap:anywhere;word-break:normal}
+.btn,.recent-view-all{max-width:100%;white-space:normal;text-align:center}
+.psychology-nav-item{min-width:0;overflow-wrap:anywhere}
+.app-icon-item>span:last-child{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:600px){
+  .hero h1{line-height:1.05;letter-spacing:-.035em}
+  html[dir="rtl"] .hero h1{line-height:1.2;letter-spacing:0}
+  .master-head h2,.app-launcher-head h2{line-height:1.12}
+  .master-head p,.recent-card p,.today-content>p,.daily-body>p,.quick-read-body>p{line-height:1.65}
+  .app-icon-item{overflow:visible}
+  .app-icon-item>span:last-child{line-height:1.35}
+  .psychology-nav-item span:last-child{overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 <header class="site-header">
