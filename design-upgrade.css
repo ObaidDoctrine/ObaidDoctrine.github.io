@@ -295,3 +295,38 @@ main{isolation:isolate}
   .app-showcase{margin-left:2.5vw;margin-right:2.5vw;border-radius:28px!important}
   .cta{margin-left:2.5vw;margin-right:2.5vw;border-radius:28px}
 }
+
+
+/* MASTER HOMEPAGE — VISUAL STABILITY & PREMIUM RESPONSIVE LAYER 2026 */
+.hero-art{position:relative;min-width:0;}
+.hero-art:after{pointer-events:none;}
+.cta{position:relative;overflow:hidden;isolation:isolate;}
+.cta>*{position:relative;z-index:1;}
+.cta:after{pointer-events:none;z-index:0;}
+.hero-copy,.hero-art,.master-head,.recent-head,.daily-head,.app-launcher-head,.daily-body,.quick-read-body{min-width:0;}
+.hero h1,.master-head h2,.recent-head h2,.daily-head h2,.cta h2{overflow-wrap:anywhere;word-break:normal;}
+.hero-art img,.cover-strip img{max-width:100%;height:auto;}
+.app-icon-grid{align-items:stretch;}
+.app-icon-item{position:relative;min-width:0;min-height:0!important;overflow:hidden;}
+.app-icon-item>span:last-child{max-width:100%;overflow-wrap:anywhere;line-height:1.35;}
+.insight{min-height:0;}
+.start-card,.knowledge-card,.tool-card,.path-card,.myth-card{min-width:0;}
+.start-card p,.knowledge-card p,.tool-card p,.path-card p,.myth-card p{overflow-wrap:anywhere;}
+@media(max-width:900px){
+  .hero{gap:28px;}
+  .hero-art{width:min(100%,560px);margin-inline:auto;}
+  .app-icon-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+}
+@media(max-width:600px){
+  .hero{gap:22px;}
+  .hero-art img{border-width:7px;}
+  .app-launcher{padding-top:34px!important;padding-bottom:34px!important;}
+  .app-icon-grid{gap:22px 8px!important;margin-top:28px!important;}
+  .app-icon-item{min-height:126px!important;padding:8px 2px 11px!important;}
+  .app-icon-circle,.app-icon-item:nth-child(1) .app-icon-circle,.app-icon-item.app-icon-gold .app-icon-circle{width:66px!important;height:66px!important;}
+  .app-icon-circle:before{inset:-6px;}
+  .app-icon-item>span:last-child{font-size:10.5px!important;}
+  .daily-head,.recent-head{display:block;}
+  .daily-badge{display:inline-flex;margin-top:12px;}
+}
+@media(prefers-reduced-motion:reduce){.app-icon-item{animation:none!important;transition:none!important}.app-icon-item:hover .app-icon-circle{transform:none!important}.hero-art img{transition:none!important}.hero-art:hover img{transform:none!important;}}
