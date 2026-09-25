@@ -53,7 +53,7 @@ a{color:inherit}
 .master-hero-visual:before{width:290px;height:290px}
 .master-hero-visual:after{width:180px;height:180px}
 .master-hero-visual .mind-orbit{width:112px;height:112px;border-radius:35% 65% 55% 45%;background:var(--od-master-lime);transform:rotate(-18deg);box-shadow:0 24px 55px rgba(32,37,31,.12);display:grid;place-items:center;z-index:2}
-.master-hero-visual .mind-orbit span{font-size:48px;transform:rotate(18deg)}
+.master-hero-visual .mind-orbit svg{width:64px;height:64px;fill:none;stroke:var(--od-master-ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transform:rotate(18deg)}
 .master-hero-label{position:absolute;bottom:24px;left:24px;right:24px;z-index:3;display:flex;justify-content:space-between;gap:10px;align-items:end}
 .master-hero-label strong{font-size:14px;letter-spacing:.08em}.master-hero-label small{color:var(--od-master-muted)}
 .master-prompt-section{max-width:1240px;margin:0 auto;padding:clamp(60px,8vw,100px) clamp(20px,5vw,48px)}
