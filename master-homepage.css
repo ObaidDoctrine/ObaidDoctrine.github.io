@@ -47,7 +47,7 @@ a{color:inherit}
 .master-prompt-hero .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
 .master-hero-visual{
   position:relative;min-height:390px;border:1px solid var(--od-master-line);border-radius:36px;
-  background:linear-gradient(135deg,#fff 0%,#f7f9f3 100%);display:grid;place-items:center;overflow:hidden
+  background:#f7f9f3;display:grid;place-items:center;overflow:hidden
 }
 .master-hero-visual:before,.master-hero-visual:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(183,216,75,.55)}
 .master-hero-visual:before{width:290px;height:290px}
@@ -91,3 +91,9 @@ a{color:inherit}
   .master-prompt-section{padding-top:55px;padding-bottom:55px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.master-category-card{transition:none}}
+
+/* Keep the existing quick-navigation system within the master visual language. */
+.psychology-nav-strip{background:#fff!important;border-color:var(--od-master-line)!important}
+.psychology-nav-item{background:#fff!important;color:var(--od-master-ink)!important;border-color:var(--od-master-line)!important}
+.psychology-nav-item:hover{background:var(--od-master-soft)!important;border-color:var(--od-master-lime)!important}
+.psychology-nav-item .psychology-nav-icon{color:var(--od-master-ink)!important}
