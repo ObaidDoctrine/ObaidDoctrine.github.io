@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">What Is Motivation in Psychology?</title>
+<desc id="desc">A clean educational graphic showing motivation as direction, effort and persistence toward goals.</desc>
+<rect width="1200" height="675" fill="#ffffff"/>
+<rect x="72" y="72" width="10" height="531" fill="#b7ff00"/>
+<text x="125" y="170" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" letter-spacing="5" fill="#151515">OBAID DOCTRINE</text>
+<text x="125" y="285" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="800" fill="#111111">MOTIVATION</text>
+<text x="125" y="350" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="500" fill="#333333">Direction • Effort • Persistence</text>
+<path d="M130 475 H870" stroke="#111111" stroke-width="4"/>
+<circle cx="205" cy="475" r="18" fill="#b7ff00" stroke="#111111" stroke-width="4"/>
+<circle cx="500" cy="475" r="18" fill="#b7ff00" stroke="#111111" stroke-width="4"/>
+<circle cx="795" cy="475" r="18" fill="#b7ff00" stroke="#111111" stroke-width="4"/>
+<path d="M865 475 l-34 -22 v44 z" fill="#111111"/>
+<text x="160" y="535" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#333333">Goal</text>
+<text x="445" y="535" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#333333">Action</text>
+<text x="735" y="535" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#333333">Persistence</text>
+<text x="900" y="585" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#666666">Psychology • Human Behaviour</text>
+</svg>
