@@ -64,7 +64,7 @@ a{color:inherit}
 .master-category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px}
 .master-category-card{display:flex;flex-direction:column;min-height:255px;padding:24px;border:1px solid var(--od-master-line);border-radius:var(--od-master-radius);background:#fff;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .master-category-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(32,37,31,.09);border-color:var(--od-master-lime)}
-.master-category-icon{width:50px;height:50px;border-radius:15px;background:var(--od-master-lime);display:grid;place-items:center;font-size:24px;margin-bottom:24px}
+.master-category-icon{width:50px;height:50px;border-radius:15px;background:var(--od-master-lime);display:grid;place-items:center;font-size:24px;margin-bottom:24px}\n.master-category-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .master-category-card h3{font-size:21px;margin:0 0 9px}.master-category-card p{font-size:14px;line-height:1.65;color:#697169;margin:0}.master-category-card .cta-line{margin-top:auto;padding-top:18px;font-weight:800;font-size:13px}
 .real-life-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:34px}
 .real-life-intro{padding:clamp(26px,4vw,46px);border-radius:30px;background:var(--od-master-ink);color:#fff}
