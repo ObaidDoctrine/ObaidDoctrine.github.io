@@ -68,3 +68,5 @@ jobs:
           git diff --cached --check
           git commit -m "Optimize founder image delivery for homepage LCP"
           git push
+
+# Verified workflow trigger after initial creation.
