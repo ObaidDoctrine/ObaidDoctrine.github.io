@@ -66,11 +66,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Remove the old tracked APK before syncing main.
-          # This prevents binary APK merge/rebase conflicts when a previous
-          # workflow run has already published an APK.
-          git rm -f Obaid_Doctrine__v1.0.3.APK || true
-          git pull --rebase origin main
+          # Sync the checkout to the current remote main without leaving
+          # the deleted APK in the index.
+          git fetch origin main
+          git reset --hard origin/main
 
           # Copy the freshly built APK after the repository is up to date.
           APK_PATH="$(find android-app/app/build/outputs -type f -name '*.apk' | head -n 1)"
@@ -81,5 +80,9 @@ jobs:
           cp "$APK_PATH" Obaid_Doctrine__v1.0.3.APK
 
           git add Obaid_Doctrine__v1.0.3.APK
-          git commit -m "Build Obaid Doctrine Android app v1.0.3" || echo "No APK commit needed"
-          git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "APK is already up to date."
+          else
+            git commit -m "Build Obaid Doctrine Android app v1.0.3"
+            git push origin HEAD:main
+          fi
