@@ -110,3 +110,59 @@ a{color:inherit}
   .site-header nav a{min-height:46px;display:flex;align-items:center}
   .recent-grid,.cards,.insight-grid{grid-template-columns:1fr!important}
 }
+
+
+/* Final RTL QA — Urdu homepage */
+html[lang="ur"],html[lang="ur"] body{direction:rtl}
+html[lang="ur"] .site-header{direction:rtl}
+html[lang="ur"] .site-header .brand{direction:rtl}
+html[lang="ur"] .site-header nav{direction:rtl}
+html[lang="ur"] .od-language-switch{direction:ltr}
+html[lang="ur"] .master-prompt-hero{direction:rtl}
+html[lang="ur"] .master-prompt-hero .actions{direction:rtl}
+html[lang="ur"] .master-prompt-section,
+html[lang="ur"] .master-prompt-section .inner,
+html[lang="ur"] .master-category-grid,
+html[lang="ur"] .real-life-grid,
+html[lang="ur"] .question-grid{direction:rtl}
+html[lang="ur"] .master-prompt-section .section-lead,
+html[lang="ur"] .master-category-card,
+html[lang="ur"] .question-card-master,
+html[lang="ur"] .real-life-intro{text-align:right}
+html[lang="ur"] .master-category-card .cta-line{text-align:right}
+html[lang="ur"] .question-card-master:before{margin-right:0;margin-left:9px}
+html[lang="ur"] .master-hero-label{left:24px;right:24px;direction:rtl}
+html[lang="ur"] .master-hero-label small{text-align:left}
+html[lang="ur"] .psychology-nav-inner,
+html[lang="ur"] .psychology-nav-heading,
+html[lang="ur"] .psychology-nav-links{direction:rtl}
+html[lang="ur"] .psychology-nav-heading{justify-content:flex-start}
+html[lang="ur"] .psychology-nav-item{direction:rtl}
+html[lang="ur"] .recent-published,
+html[lang="ur"] .today-psychology,
+html[lang="ur"] .daily-insight,
+html[lang="ur"] .app-launcher,
+html[lang="ur"] .master-section{direction:rtl}
+html[lang="ur"] .recent-head,
+html[lang="ur"] .daily-head,
+html[lang="ur"] .app-launcher-head,
+html[lang="ur"] .master-head{text-align:right}
+html[lang="ur"] .master-head{margin-left:0;margin-right:0}
+html[lang="ur"] .master-head p,
+html[lang="ur"] .recent-head p{line-height:1.85}
+@media(max-width:760px){
+  html[lang="ur"] .site-header nav{text-align:right}
+  html[lang="ur"] .site-header nav a{justify-content:flex-start;text-align:right}
+  html[lang="ur"] .master-prompt-hero .actions{grid-template-columns:1fr}
+  html[lang="ur"] .master-head,
+  html[lang="ur"] .recent-head,
+  html[lang="ur"] .daily-head{text-align:right}
+  html[lang="ur"] .master-category-card .cta-line{text-align:right}
+}
+@media(max-width:560px){
+  html[lang="ur"] .master-prompt-hero{padding-left:16px;padding-right:16px}
+  html[lang="ur"] .master-prompt-hero h1{line-height:1.25;letter-spacing:0}
+  html[lang="ur"] .master-prompt-section h2{line-height:1.25}
+  html[lang="ur"] .master-category-card,
+  html[lang="ur"] .question-card-master{padding:20px}
+}
