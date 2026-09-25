@@ -97,3 +97,16 @@ a{color:inherit}
 .psychology-nav-item{background:#fff!important;color:var(--od-master-ink)!important;border-color:var(--od-master-line)!important}
 .psychology-nav-item:hover{background:var(--od-master-soft)!important;border-color:var(--od-master-lime)!important}
 .psychology-nav-item .psychology-nav-icon{color:var(--od-master-ink)!important}
+
+/* Master prompt visual QA: normalize legacy homepage sections without removing their content. */
+.recent-published,.section-head,.cards,.insight-grid,.about,.cta,footer{max-width:1240px;margin-left:auto;margin-right:auto}
+.recent-published,.about,.cta{border-radius:28px}
+.section.dark{background:#f5f7f2!important;color:var(--od-master-ink)!important}
+.section.dark .section-head h2,.section.dark .insight h3,.section.dark .insight h3 a{color:var(--od-master-ink)!important}
+.section.dark .insight p,.section.dark .insight span{color:#5f685f!important}
+.cards article,.insight-grid .insight{border:1px solid var(--od-master-line)!important;border-radius:22px!important;background:#fff!important}
+@media(max-width:760px){
+  .site-header nav{max-height:calc(100svh - 80px);overflow:auto}
+  .site-header nav a{min-height:46px;display:flex;align-items:center}
+  .recent-grid,.cards,.insight-grid{grid-template-columns:1fr!important}
+}
