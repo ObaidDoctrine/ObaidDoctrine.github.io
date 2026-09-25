@@ -166,3 +166,13 @@ html[lang="ur"] .recent-head p{line-height:1.85}
   html[lang="ur"] .master-category-card,
   html[lang="ur"] .question-card-master{padding:20px}
 }
+
+/* Ultra-small mobile header fit */
+@media(max-width:360px){
+  .site-header{padding-left:12px;padding-right:12px;gap:5px}
+  .site-header .brand{gap:6px}
+  .site-header .brand-mark{width:36px;height:36px;border-radius:11px}
+  .site-header .brand strong{font-size:12px;letter-spacing:.08em}
+  .od-language-switch a{min-width:50px;padding:6px 7px;font-size:10px}
+  .od-mobile-menu{width:40px;height:40px;margin-left:4px;font-size:18px}
+}
