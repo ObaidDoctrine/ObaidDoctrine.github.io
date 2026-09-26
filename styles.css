@@ -32,3 +32,16 @@ html[dir=rtl] body{font-family:"Noto Naskh Arabic",Arial,sans-serif}html[dir=rtl
 .home-page .cat:nth-child(2):before{background:#8FAF86}.home-page .cat:nth-child(3):before{background:var(--l)}.home-page .cat:nth-child(4):before{background:#9BB68E}.home-page .cat:nth-child(5):before{background:#C7DCA8}.home-page .cat:nth-child(6):before{background:var(--f)}
 .home-page .woman-icon{background:var(--l)}.home-page .woman-kicker{color:var(--f)}
 .home-page .path:nth-child(2):before{background:#8FAF86}.home-page .path:nth-child(3):before{background:#C7DCA8}
+
+/* Premium footer social integration */
+.footer-social{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(220,232,181,.18)}
+.footer-social h2{margin:0 0 13px;color:#F2F6EF;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.footer-social-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.footer-social-link{width:38px;height:38px;display:inline-grid;place-items:center;border:1px solid rgba(220,232,181,.28);border-radius:11px;background:rgba(255,255,255,.04);color:#F2F6EF;text-decoration:none;transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}
+.footer-social-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footer-social-link:first-child svg,.footer-social-link:nth-child(2) svg,.footer-social-link:nth-child(5) svg{fill:currentColor;stroke:none}
+.footer-social-link:hover{background:var(--s);border-color:var(--s);color:var(--f);transform:translateY(-1px)}
+.footer-social-link:focus-visible{outline:3px solid var(--l);outline-offset:3px;background:var(--s);color:var(--f)}
+.footer-social-placeholder{opacity:.58;cursor:default}
+.footer-social-placeholder:hover{background:rgba(255,255,255,.04);border-color:rgba(220,232,181,.28);color:#F2F6EF;transform:none}
+@media(max-width:700px){.footer-social-links{gap:9px}.footer-social-link{width:40px;height:40px}.footer-social{padding-top:20px}}
