@@ -11,7 +11,8 @@
       s.textContent = ".od-article-share{margin:1.25rem 0;padding:1rem 1.1rem;border:1px solid #dce8b5;border-radius:16px;background:#fafaf5}.od-share-heading{font-weight:700;margin-bottom:.7rem}.od-share-actions{display:flex;flex-wrap:wrap;gap:.55rem}.od-share-actions a,.od-share-actions button{font:inherit;text-decoration:none;cursor:pointer;border:1px solid #31543a;border-radius:999px;padding:.55rem .8rem;background:#fff;color:#31543a}.od-share-actions a:hover,.od-share-actions button:hover{background:#dce8b5}.od-share-status{display:block;margin-top:.55rem;font-size:.9rem;color:#6f756f}";
       document.head.appendChild(s);
     }
-    if (!document.querySelector(".article-body") || document.querySelector("[data-od-article-share]")) return;
+    const article = document.querySelector(".article-body, article.content-wrap");
+    if (!article || document.querySelector("[data-od-article-share]")) return;
     const title = (document.querySelector("h1") || document.querySelector("title"))?.textContent?.trim() || document.title;
     const url = window.location.href.split("#")[0];
     const encodedUrl = encodeURIComponent(url);
@@ -34,7 +35,6 @@
       '<a target="_blank" rel="noopener noreferrer" data-share="x" href="https://x.com/intent/post?text=' + encodedTitle + '&url=' + encodedUrl + '">' + t.x + '</a>' +
       '<button type="button" data-share="copy">' + t.copy + '</button>' +
       '</div><span class="od-share-status" role="status" aria-live="polite"></span>';
-    const article = document.querySelector(".article-body");
     article.parentNode.insertBefore(wrap, article);
     const native = wrap.querySelector('[data-share="native"]');
     const status = wrap.querySelector(".od-share-status");
