@@ -47,3 +47,208 @@ html[dir=rtl] body{font-family:"Noto Naskh Arabic",Arial,sans-serif}html[dir=rtl
 @media(max-width:700px){.footer-social-links{gap:9px}.footer-social-link{width:40px;height:40px}.footer-social{padding-top:20px}}
 
 .section-head{max-width:800px;margin:0 auto 30px}.section-head h2{margin:0 0 10px;color:var(--f);font-size:clamp(30px,4.5vw,52px);line-height:1.08;letter-spacing:-.035em}.section-head p:last-child{margin:0;color:var(--m)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.cards article{min-width:0;padding:25px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 12px 32px rgba(49,84,58,.06)}.cards article h3{margin:0 0 8px;color:var(--f);font-size:22px;line-height:1.2}.cards article p{margin:0;color:var(--m);font-size:14px}@media(max-width:700px){.cards{grid-template-columns:1fr}}
+
+
+/* OBAID DOCTRINE — 2026 RESPONSIVE DESIGN SYSTEM */
+/*
+  Structural responsive pass. This layer intentionally uses normal document flow,
+  CSS Grid/Flexbox and logical properties. It does not hide layout defects with
+  transforms, negative margins, fixed widths or overflow clipping.
+*/
+:root{
+  --od-forest:#31543A;
+  --od-lime:#B7D84B;
+  --od-ivory:#FAFAF5;
+  --od-soft:#DCE8B5;
+  --od-muted:#667067;
+  --od-line:#DDE5D8;
+  --od-surface:#FFFFFF;
+  --od-surface-soft:#F1F5E8;
+  --od-radius-sm:12px;
+  --od-radius-md:18px;
+  --od-radius-lg:24px;
+  --od-content:1240px;
+  --od-reading:72ch;
+}
+
+html,body{max-width:100%;}
+body{background:var(--od-ivory);color:#243128;overflow-x:clip;}
+
+/* ---------- Global type & flow ---------- */
+.wrap{width:min(var(--od-content),calc(100% - 40px));}
+.content-wrap{width:min(1080px,calc(100% - 40px));}
+main,section,article,aside,header,footer,nav{min-width:0;}
+h1,h2,h3,h4,p,li,a,button,label{overflow-wrap:anywhere;}
+img,svg,video,iframe{max-width:100%;}
+
+/* ---------- Unified header ---------- */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  min-height:72px;
+  padding:10px clamp(14px,4vw,64px);
+  background:rgba(250,250,245,.97);
+  border-bottom:1px solid var(--od-line);
+  box-shadow:0 8px 26px rgba(49,84,58,.06);
+  backdrop-filter:blur(14px);
+}
+.site-header .brand{min-width:0;max-width:100%;display:flex;align-items:center;gap:10px;}
+.site-header .brand > span:last-child{min-width:0;}
+.site-header .brand strong,.site-header .brand small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;}
+.site-header .brand strong{color:var(--od-forest);white-space:nowrap;}
+.site-header .brand small{white-space:nowrap;}
+.site-header > nav,
+.site-header .nav{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:4px;
+  margin:0;
+  padding:0;
+}
+.site-header > nav a,
+.site-header .nav a,
+.site-header .lang a,
+.site-header .od-language-switch a{
+  min-height:40px;
+  padding:9px 10px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+  white-space:nowrap;
+}
+.site-header > nav a:hover,
+.site-header .nav a:hover{background:var(--od-surface-soft);}
+.site-header > nav a:focus-visible,
+.site-header .nav a:focus-visible,
+.site-header .lang a:focus-visible,
+.site-header .od-language-switch a:focus-visible{background:var(--od-soft);}
+.site-header .lang,
+.site-header .od-language-switch{display:flex;align-items:center;gap:4px;min-width:max-content;}
+.site-header .lang a,
+.site-header .od-language-switch a{min-width:42px;border:1px solid var(--od-line);background:var(--od-surface);}
+.site-header .lang .active,
+.site-header .od-language-switch .active{background:var(--od-lime);color:var(--od-forest);border-color:var(--od-lime);}
+
+/* Existing homepage hamburger remains the interactive mobile pattern. */
+.site-header > .mobile{display:none;margin:0;}
+.site-header > .mobile summary{cursor:pointer;}
+
+/* ---------- Reading experience ---------- */
+.article-body{width:min(100%,var(--od-reading));max-width:var(--od-reading);margin-inline:auto;}
+.article-body p,.article-body li{font-size:clamp(16px,1.15rem,18px);line-height:1.82;}
+.article-body h2{font-size:clamp(25px,3vw,36px);line-height:1.2;}
+.article-body h3{font-size:clamp(21px,2.2vw,28px);line-height:1.28;}
+.article-body blockquote{margin-inline:0;padding:18px 22px;border-inline-start:4px solid var(--od-lime);border-left:0;background:var(--od-surface-soft);}
+.article-body img{display:block;width:auto;height:auto;margin-inline:auto;border-radius:var(--od-radius-md);}
+
+/* ---------- Forms & touch targets ---------- */
+button,.btn,.form input,.form textarea,.form select{font:inherit;}
+button,.btn,.site-header a,.form input,.form textarea,.form select{touch-action:manipulation;}
+.form input,.form textarea,.form select{min-height:48px;}
+.form textarea{min-height:160px;resize:vertical;}
+
+/* ---------- Image stability ---------- */
+img[width][height]{height:auto;}
+.hero-photo img,.founder img,.article-body img{height:auto;}
+
+/* ---------- Remove off-brand accent drift from shared components ---------- */
+.cat:nth-child(2):before,.cat:nth-child(3):before,.cat:nth-child(4):before,.cat:nth-child(5):before,.cat:nth-child(6):before{background:var(--od-lime);}
+.path:nth-child(2):before,.path:nth-child(3):before{background:var(--od-lime);}
+
+/* ---------- Mind-test cards: keep the brand system coherent ---------- */
+.mt-card.orange,.mt-card.gold,.mt-card.blue,.mt-card.violet,.mt-card.rose,.mt-card.lavender,.mt-card.steel{background:var(--od-surface);border-color:var(--od-line);}
+.mt-card.orange .mt-icon,.mt-card.gold .mt-icon,.mt-card.blue .mt-icon,.mt-card.violet .mt-icon,.mt-card.rose .mt-icon,.mt-card.lavender .mt-icon,.mt-card.steel .mt-icon{background:var(--od-soft);color:var(--od-forest);}
+
+/* ---------- Tablet: intentional second-row navigation ---------- */
+@media (max-width:1100px){
+  .site-header{grid-template-columns:auto minmax(0,1fr) auto;}
+  .site-header > nav,.site-header .nav{grid-column:1/-1;grid-row:2;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;padding-block:4px 2px;scrollbar-width:thin;}
+  .site-header > nav a,.site-header .nav a{flex:0 0 auto;}
+  .site-header > .mobile{display:none;}
+}
+
+/* ---------- Mobile: no collisions, no random wrapping ---------- */
+@media (max-width:760px){
+  .wrap{width:calc(100% - 28px);}
+  .content-wrap{width:calc(100% - 28px);}
+  .site-header{grid-template-columns:minmax(0,1fr) auto;gap:8px;min-height:64px;padding:8px 14px;}
+  .site-header .brand-mark{width:38px;height:38px;flex-basis:38px;}
+  .site-header .brand strong{font-size:12px;letter-spacing:.07em;}
+  .site-header .brand small{font-size:6px;letter-spacing:.08em;}
+
+  /* Pages with a real <details class="mobile"> keep their hamburger and hide desktop nav. */
+  .site-header > .mobile{display:block;grid-column:2;grid-row:1;}
+  .site-header > .mobile + *{min-width:0;}
+  .site-header > .nav + .lang{grid-column:1/-1;grid-row:3;}
+
+  /* Legacy/shared headers without the mobile control become a deliberate compact menu panel. */
+  .site-header > nav:not(.nav){grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;overflow:visible;padding:8px 0 0;border-top:1px solid var(--od-line);}
+  .site-header > nav:not(.nav) a{min-width:0;min-height:46px;padding:10px 8px;white-space:normal;background:var(--od-surface);border:1px solid var(--od-line);border-radius:12px;}
+  .site-header > nav:not(.nav) a:hover{background:var(--od-surface-soft);}
+
+  /* Classed .nav headers use the same compact panel when no hamburger is present. */
+  .site-header > .nav:not(.mobile-panel){grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;overflow:visible;padding:8px 0 0;border-top:1px solid var(--od-line);}
+  .site-header > .nav:not(.mobile-panel) a{min-width:0;min-height:46px;padding:10px 8px;white-space:normal;background:var(--od-surface);border:1px solid var(--od-line);border-radius:12px;}
+
+  /* Homepage mobile details menu. */
+  .site-header > .mobile .mobile-panel{position:absolute;inset-inline:14px;top:58px;max-height:calc(100svh - 74px);overflow:auto;}
+  .site-header > .mobile-panel a{min-height:46px;display:flex;align-items:center;}
+
+  .section{padding-block:52px;}
+  .page-hero{padding-block:50px 40px;}
+  .article-body{max-width:none;}
+  .article-body p,.article-body li{font-size:16px;line-height:1.85;}
+  .article-body h2{margin-top:36px;}
+  .article-body h3{margin-top:26px;}
+  .article-body blockquote{padding:16px 18px;}
+  .topic-grid,.grid3,.paths,.research-grid,.founder,.myth{grid-template-columns:1fr;}
+}
+
+@media (max-width:480px){
+  .site-header{padding-inline:10px;}
+  .site-header .brand{gap:7px;}
+  .site-header .brand-mark{width:36px;height:36px;flex-basis:36px;border-radius:11px;}
+  .site-header .brand strong{font-size:11px;letter-spacing:.055em;}
+  .site-header .brand small{display:none;}
+  .site-header > nav:not(.nav),.site-header > .nav:not(.mobile-panel){grid-template-columns:1fr;}
+  .hero h1{font-size:clamp(38px,12vw,54px);}
+  .tools{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+@media (max-width:360px){
+  .site-header{gap:6px;padding-inline:8px;}
+  .site-header .brand strong{font-size:10.5px;}
+  .site-header > nav:not(.nav) a,.site-header > .nav:not(.mobile-panel) a{min-height:44px;font-size:11px;}
+}
+
+/* ---------- RTL: let document direction control flow ---------- */
+html[dir="rtl"] body{font-family:"Noto Naskh Arabic",Arial,sans-serif;}
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .site-header > nav,
+html[dir="rtl"] .site-header .nav{direction:rtl;}
+html[dir="rtl"] .site-header .brand{direction:rtl;}
+html[dir="rtl"] .site-header > nav a,
+html[dir="rtl"] .site-header .nav a{direction:rtl;text-align:center;}
+html[dir="rtl"] .site-header .lang,
+html[dir="rtl"] .site-header .od-language-switch{direction:ltr;}
+html[dir="rtl"] .article-body{text-align:start;}
+html[dir="rtl"] .article-body blockquote{border-inline-start:4px solid var(--od-lime);border-left:0;}
+html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline-start:2rem;padding-inline-end:0;}
+
+/* ---------- Motion & hover remain restrained ---------- */
+@media (prefers-reduced-motion:reduce){
+  .btn:hover,.footer-social-link:hover{transform:none;}
+}
+
+/* End 2026 responsive design system */
