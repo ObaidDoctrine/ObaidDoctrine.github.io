@@ -17,14 +17,14 @@
     wrap.setAttribute("data-od-article-share", "true");
     wrap.setAttribute("aria-label", "Share this article");
     wrap.innerHTML =
-      '<div class="od-share-heading">Share this article</div>' +
+      '<div class="od-share-heading">${t.heading}</div>' +
       '<div class="od-share-actions">' +
-      '<button type="button" data-share="native" hidden>Share</button>' +
-      '<a target="_blank" rel="noopener noreferrer" data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '">Facebook</a>' +
-      '<a target="_blank" rel="noopener noreferrer" data-share="whatsapp" href="https://api.whatsapp.com/send?text=' + encodedTitle + '%20' + encodedUrl + '">WhatsApp</a>' +
-      '<a target="_blank" rel="noopener noreferrer" data-share="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl + '">LinkedIn</a>' +
-      '<a target="_blank" rel="noopener noreferrer" data-share="x" href="https://x.com/intent/post?text=' + encodedTitle + '&url=' + encodedUrl + '">X</a>' +
-      '<button type="button" data-share="copy">Copy Link</button>' +
+      '<button type="button" data-share="native" hidden>${t.share}</button>' +
+      '<a target="_blank" rel="noopener noreferrer" data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '">${t.facebook}</a>' +
+      '<a target="_blank" rel="noopener noreferrer" data-share="whatsapp" href="https://api.whatsapp.com/send?text=' + encodedTitle + '%20' + encodedUrl + '">${t.whatsapp}</a>' +
+      '<a target="_blank" rel="noopener noreferrer" data-share="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl + '">${t.linkedin}</a>' +
+      '<a target="_blank" rel="noopener noreferrer" data-share="x" href="https://x.com/intent/post?text=' + encodedTitle + '&url=' + encodedUrl + '">${t.x}</a>' +
+      '<button type="button" data-share="copy">${t.copy}</button>' +
       '</div><span class="od-share-status" role="status" aria-live="polite"></span>';
     const article = document.querySelector(".article-body");
     article.parentNode.insertBefore(wrap, article);
@@ -34,7 +34,7 @@
       native.hidden = false;
       native.addEventListener("click", async function () {
         try { await navigator.share({ title, text: title, url }); }
-        catch (e) { if (e && e.name !== "AbortError") status.textContent = "Share was not completed."; }
+        catch (e) { if (e && e.name !== "AbortError") status.textContent = t.shareFail; }
       });
     }
     wrap.querySelector('[data-share="copy"]').addEventListener("click", async function () {
@@ -47,8 +47,8 @@
           document.body.appendChild(ta); ta.select();
           document.execCommand("copy"); ta.remove();
         }
-        status.textContent = "Link copied.";
-      } catch (e) { status.textContent = "Copy failed. Please copy the URL from your browser."; }
+        status.textContent = t.copied;
+      } catch (e) { status.textContent = t.copyFail; }
     });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
