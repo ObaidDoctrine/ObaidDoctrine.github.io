@@ -76,7 +76,7 @@
   async function init() {
     const article = document.querySelector(".article-body, article.content-wrap");
     const test = document.querySelector("#test, .mind-test, [data-mind-test]");
-    const target = article || test;
+    const target = article || (test && test.closest(".content-wrap")) || test;
     if (!target || document.querySelector(".od-rating-box")) return;
 
     const box = addBox(target);
