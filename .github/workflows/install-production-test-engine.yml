@@ -1,0 +1,50 @@
+name: "OBAID DOCTRINE — Install Production Test Engine"
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install-test-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Inject shared production test engine
+        shell: python
+        run: |
+          from pathlib import Path
+
+          marker = '<script src="/mind-tests/test-engine.js?v=20260927" defer></script>'
+          changed = []
+
+          for root in (Path("mind-tests"), Path("ur/mind-tests")):
+              for path in root.glob("*/index.html"):
+                  text = path.read_text(encoding="utf-8")
+                  if marker not in text:
+                      if "</body>" not in text:
+                          raise SystemExit(f"Missing </body> in {path}")
+                      text = text.replace("</body>", f"{marker}</body>", 1)
+                      path.write_text(text, encoding="utf-8")
+                      changed.append(str(path))
+
+          print("Updated:", *changed, sep="\n- ")
+          print("Total:", len(changed))
+
+      - name: Commit generated test-page updates
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No test pages needed changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mind-tests ur/mind-tests
+          git commit -m "Install production test engine [skip ci]"
+          git push
