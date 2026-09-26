@@ -281,4 +281,13 @@
 
   injectStyles();
   render();
+
+(function loadObaidRating(){
+  if (document.querySelector('script[data-od-rating-loader]')) return;
+  var s = document.createElement("script");
+  s.src = "/rating.js?v=20260927";
+  s.defer = true;
+  s.setAttribute("data-od-rating-loader", "true");
+  document.head.appendChild(s);
+})();
 })();
