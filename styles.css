@@ -267,3 +267,11 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
   .site-header > nav{min-width:0;}
   .site-header > nav a{flex:0 1 auto;}
 }
+
+
+/* Mind-test brand token normalization */
+.mt-card.purple,.mt-card.teal,.mt-card.green,.mt-card.orange,.mt-card.gold,.mt-card.blue,.mt-card.violet,.mt-card.steel,.mt-card.rose,.mt-card.lavender{--accent:var(--od-lime);--soft:var(--od-surface-soft);background:var(--od-surface);}
+.mt-card:before{background:var(--od-lime);}
+.mt-card:after{background:var(--od-surface-soft);}
+.mt-icon{background:var(--od-lime);color:var(--od-forest);}
+.mt-cta{background:var(--od-lime);color:var(--od-forest);}
