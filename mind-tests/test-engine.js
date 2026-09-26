@@ -12,10 +12,10 @@
     return;
   }
 
-  var dimensions = typeof dimensions !== "undefined" ? dimensions :
+  var dimensionData = typeof dimensions !== "undefined" ? dimensions :
                    (typeof D !== "undefined" ? D : null);
-  var labels = typeof labels !== "undefined" ? labels : null;
-  var descriptions = typeof desc !== "undefined" ? desc : null;
+  var labelData = typeof labels !== "undefined" ? labels : null;
+  var descriptionData = typeof desc !== "undefined" ? desc : null;
 
   var items = source.slice(0, 10);
   var isRTL = document.documentElement.dir === "rtl";
@@ -58,8 +58,8 @@
   }
 
   function scoreAnswers() {
-    var count = dimensions && dimensions.length ? dimensions.length :
-                labels && labels.length ? labels.length : 5;
+    var count = dimensionData && dimensionData.length ? dimensionData.length :
+                labelData && labelData.length ? labelData.length : 5;
     var scores = Array(count).fill(0);
     state.answers.forEach(function (answer, index) {
       var q = getQuestion(items[index]);
@@ -72,14 +72,14 @@
   }
 
   function labelAt(index) {
-    if (dimensions && dimensions[index]) return dimensions[index][0];
-    if (labels && labels[index]) return labels[index];
+    if (dimensionData && dimensionData[index]) return dimensionData[index][0];
+    if (labelData && labelData[index]) return labelData[index];
     return isRTL ? "نمایاں رجحان" : "Strongest tendency";
   }
 
   function descAt(index) {
-    if (dimensions && dimensions[index]) return dimensions[index][1];
-    if (descriptions && descriptions[index]) return descriptions[index];
+    if (dimensionData && dimensionData[index]) return dimensionData[index][1];
+    if (descriptionData && descriptionData[index]) return descriptionData[index];
     return isRTL
       ? "یہ نتیجہ اس مختصر تعلیمی خود شناسی ٹول میں آپ کے جوابات کے ایک نمایاں رجحان کو بیان کرتا ہے۔"
       : "This result describes a response tendency within this short educational self-reflection tool.";
