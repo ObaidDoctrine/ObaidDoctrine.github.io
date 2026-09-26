@@ -56,4 +56,4 @@ function choose(j){answers.push(j);i++;if(i<questions.length)render();else showR
 function showResult(){let s=[0,0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR REFLECTION PROFILE</p><h2>Your strongest tendency: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/15 responses aligned most closely with this dimension.</p><p class="test-note"><strong>Research note:</strong> Personality research commonly studies broad trait dimensions including openness, conscientiousness, extraversion, agreeableness and neuroticism/emotional stability. This original tool is a simplified educational reflection and does not reproduce a validated personality inventory. Trait patterns can also vary across situations and over time.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`; }
 render();
 </script>
-</body></html>
+<script src="/mind-tests/test-engine.js?v=20260927" defer></script></body></html>
