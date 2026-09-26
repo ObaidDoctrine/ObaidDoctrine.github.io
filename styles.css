@@ -45,3 +45,5 @@ html[dir=rtl] body{font-family:"Noto Naskh Arabic",Arial,sans-serif}html[dir=rtl
 .footer-social-placeholder{opacity:.58;cursor:default}
 .footer-social-placeholder:hover{background:rgba(255,255,255,.04);border-color:rgba(220,232,181,.28);color:#F2F6EF;transform:none}
 @media(max-width:700px){.footer-social-links{gap:9px}.footer-social-link{width:40px;height:40px}.footer-social{padding-top:20px}}
+
+.section-head{max-width:800px;margin:0 auto 30px}.section-head h2{margin:0 0 10px;color:var(--f);font-size:clamp(30px,4.5vw,52px);line-height:1.08;letter-spacing:-.035em}.section-head p:last-child{margin:0;color:var(--m)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.cards article{min-width:0;padding:25px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 12px 32px rgba(49,84,58,.06)}.cards article h3{margin:0 0 8px;color:var(--f);font-size:22px;line-height:1.2}.cards article p{margin:0;color:var(--m);font-size:14px}@media(max-width:700px){.cards{grid-template-columns:1fr}}
