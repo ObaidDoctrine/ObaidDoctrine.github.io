@@ -55,4 +55,4 @@ function choose(j){answers.push(j);i++;if(i<questions.length)render();else showR
 function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کی خود شناسی کا نتیجہ</p><h2>آپ کا نمایاں پہلو: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>رجحانی اسکور:</strong> ${m}/12 جوابات اس پہلو سے سب سے زیادہ مطابقت رکھتے ہیں۔</p><p class="test-note"><strong>تحقیقی نوٹ:</strong> تعلقات میں گفتگو کے بارے میں تحقیق میں تعمیری گفتگو، جواب دہی، سننے اور مسئلہ حل کرنے جیسے پہلو زیرِ مطالعہ رہے ہیں، لیکن ان کا اثر صورتِ حال اور افراد کے مطابق بدل سکتا ہے۔ یہ اصل اور تعلیمی خود شناسی کا ذریعہ ہے، تعلقات کے معیار یا کسی طبی حالت کی باقاعدہ تشخیص نہیں۔</p><button class="btn primary" onclick="location.reload()">ٹیسٹ دوبارہ دیں</button>`;}
 render();
 </script>
-<script src="/mind-tests/test-engine.js?v=20260927" defer></script></body></html>
+<script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
