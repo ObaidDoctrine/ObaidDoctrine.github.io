@@ -29,7 +29,13 @@
     const summary = details.querySelector(":scope > summary");
     if (!summary) return;
 
+    // Never allow a server-rendered/open <details> menu to cover the page on mobile.
+    if (isMobile() && details.open) {
+      details.removeAttribute("open");
+    }
     summary.setAttribute("aria-expanded", details.open ? "true" : "false");
+    setBodyLock(false);
+
     summary.addEventListener("click", () => {
       requestAnimationFrame(() => {
         summary.setAttribute("aria-expanded", details.open ? "true" : "false");
