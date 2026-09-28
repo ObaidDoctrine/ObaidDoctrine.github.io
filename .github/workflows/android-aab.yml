@@ -31,6 +31,12 @@ jobs:
         run: |
           printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/obaid-doctrine-upload.jks"
 
+      - name: Verify release keystore
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          keytool -list -keystore "$RUNNER_TEMP/obaid-doctrine-upload.jks" -storepass "$ANDROID_KEYSTORE_PASSWORD" >/dev/null
+
       - name: Build signed release AAB
         working-directory: android-app
         env:
