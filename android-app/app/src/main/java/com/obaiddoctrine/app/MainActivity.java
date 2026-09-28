@@ -12,7 +12,7 @@ import android.webkit.WebViewClient;
 import android.graphics.Color;
 
 public class MainActivity extends Activity {
-    private static final String HOME_URL = "https://obaiddoctrine.github.io/";
+    private static final String HOME_URL = "https://obaiddoctrine.com/";
 
     private WebView webView;
 
