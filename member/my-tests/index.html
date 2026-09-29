@@ -6,43 +6,69 @@
 <title>My Tests | Obaid Doctrine</title>
 <meta name="description" content="Your private Obaid Doctrine self-reflection test history.">
 <link rel="canonical" href="https://www.obaiddoctrine.com/member/my-tests/">
-<link rel="stylesheet" href="../../styles.css?v=20260929">
 <style>
-:root{--od-green:#31543a;--od-lime:#b7d84b;--od-ivory:#fafaf5;--od-muted:#6f756f}
-body{background:var(--od-ivory);color:var(--od-green)}.mt-wrap{max-width:980px;margin:auto;padding:32px 18px 70px}
-.mt-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:28px}.mt-brand{font-weight:800;letter-spacing:.04em}.mt-back{color:var(--od-green);font-weight:700}
-.mt-card{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin:14px 0;box-shadow:0 8px 28px rgba(49,84,58,.06)}
-.mt-card h2{margin:.1rem 0 .5rem;font-size:1.2rem}.meta{color:var(--od-muted);font-size:.92rem}.score{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:#dce8b5;color:var(--od-green);font-weight:800}
-.state{text-align:center;padding:52px 22px}.btn{display:inline-block;border:0;border-radius:12px;padding:11px 16px;background:var(--od-green);color:#fff;text-decoration:none;font-weight:700;margin-top:12px}
-@media(max-width:600px){.mt-top{align-items:flex-start}.mt-card{padding:18px}}
+:root{--green:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--green);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.brand{font-weight:900;letter-spacing:.04em}.top a{color:var(--green);font-weight:800;text-decoration:none}
+.hero,.test{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin:14px 0;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+h1{margin:.1rem 0 .5rem;font-size:clamp(1.8rem,4vw,2.4rem)}h2{margin:.1rem 0 .5rem;font-size:1.2rem}.meta{color:var(--muted);font-size:.9rem}.notice{margin-top:14px;padding:12px 14px;background:var(--soft);border-radius:12px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--soft);font-weight:800;font-size:.85rem}.score{font-size:1.35rem;font-weight:900;margin:12px 0}.dims{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:12px}.dim{border:1px solid var(--soft);border-radius:12px;padding:10px}.dim strong{display:block}.dim span{color:var(--muted);font-size:.88rem}
+.btn{display:inline-block;margin-top:12px;padding:11px 15px;border-radius:11px;background:var(--green);color:#fff;text-decoration:none;font-weight:800}.state{text-align:center;padding:48px 20px}
+@media(max-width:600px){.top{align-items:flex-start;flex-direction:column}.hero,.test{padding:19px}.dims{grid-template-columns:1fr}}
 </style>
 </head>
-<body><header class="top" style="max-width:980px;margin:24px auto 0;padding:0 18px;display:flex;align-items:center;min-height:40px"><strong>OBAID DOCTRINE</strong></header>
-<main class="mt-wrap">
-<header class="mt-top"><div class="mt-brand">OBAID DOCTRINE</div><a class="mt-back" href="/mind-tests/">Mind Tests</a></header>
-<section id="app" class="mt-card state"><h1>My Tests</h1><p>Loading your private test history…</p></section>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><nav><a href="/member/dashboard/">Dashboard</a> &nbsp; <a href="/mind-tests/">Mind Tests</a></nav></header>
+<section id="app" class="hero state"><h1>My Tests</h1><p class="meta">Loading your private test history…</p></section>
 </main>
+<script src="/member/member-auth.js?v=20260929"></script>
 <script>
 (function(){
 "use strict";
-const URL="https://nrckrzgxpxfwuyodbylg.supabase.co";
-const KEY="sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw";
 const app=document.getElementById("app");
-function esc(v){return String(v??"").replace(/[&<>"']/g,function(c){return({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]})}
-function title(id){return ({'emotional-intelligence':'Emotional Intelligence','communication-style':'Communication Style','self-awareness':'Self-Awareness','conflict-style':'Conflict Style','motivation-goals':'Motivation & Goal Pursuit','stress-response':'Stress Response Style','resilience-adaptability':'Resilience & Adaptability','decision-making-style':'Decision-Making Style','relationship-communication':'Relationship Communication','personality-traits':'Personality Traits'})[id]||id}
-function load(){return new Promise((resolve,reject)=>{const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)})}
-async function run(){
- try{
-  const sdk=await load();const db=sdk.createClient(URL,KEY);
-  const {data:{session}}=await db.auth.getSession();
-  if(!session){app.innerHTML='<h1>My Tests</h1><p>Please log in to view your private test history.</p><a class="btn" href="/account/login/">Log In</a>';return}
-  const {data,error}=await db.from("test_results").select("test_id,test_version,language,question_count,strongest_label,strongest_description,score,completed_at").order("completed_at",{ascending:false});
-  if(error)throw error;
-  if(!data.length){app.innerHTML='<h1>My Tests</h1><p>You have not saved a test result yet. Complete a Mind Test while logged in and it will appear here.</p><a class="btn" href="/mind-tests/">Explore Mind Tests</a>';return}
-  app.className="";app.innerHTML='<h1>My Tests</h1><p class="meta">Your saved self-reflection history. These results are educational and are not clinical diagnoses.</p>'+data.map(x=>'<article class="mt-card"><h2>'+esc(title(x.test_id))+'</h2><div class="meta">'+esc(new Date(x.completed_at).toLocaleString())+' · '+esc(x.language==="ur"?"اردو":"English")+'</div><div class="score">Pattern score: '+esc(x.score)+' / '+esc(x.question_count)+'</div><p><strong>'+esc(x.strongest_label||"Reflection result")+'</strong></p><p>'+esc(x.strongest_description||"")+'</p></article>').join("");
- }catch(e){console.warn(e);app.innerHTML='<h1>My Tests</h1><p>We could not load your history right now. Please try again.</p><a class="btn" href="/mind-tests/">Back to Mind Tests</a>'}
+const names={"emotional-intelligence":"Emotional Intelligence","communication-style":"Communication Style","self-awareness":"Self-Awareness","conflict-style":"Conflict Style","motivation-goals":"Motivation & Goal Pursuit","stress-response":"Stress Response Style","resilience-adaptability":"Resilience & Adaptability","decision-making-style":"Decision-Making Style","relationship-communication":"Relationship Communication","personality-traits":"Personality Traits"};
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function renderDims(value){
+ if(!value||typeof value!=="object")return "";
+ const entries=Object.entries(value).filter(([k,v])=>v!==null&&v!==undefined&&v!=="");
+ if(!entries.length)return "";
+ return '<div class="dims">'+entries.map(([k,v])=>'<div class="dim"><strong>'+esc(k.replace(/[_-]+/g," ").replace(/\b\w/g,m=>m.toUpperCase()))+'</strong><span>'+esc(v)+'</span></div>').join("")+'</div>';
 }
-run();
+(async()=>{
+ try{
+  const session=await ODMember.requireSession(); if(!session)return;
+  const db=await ODMember.client();
+  const userResult=await db.auth.getUser();
+  if(userResult.error||!userResult.data.user)throw(userResult.error||new Error("User verification failed."));
+  const uid=userResult.data.user.id;
+  const {data,error}=await db.from("test_results")
+   .select("test_id,test_version,language,question_count,strongest_dimension,strongest_label,strongest_description,score,dimension_scores,completed_at")
+   .eq("user_id",uid).order("completed_at",{ascending:false}).limit(50);
+  if(error)throw error;
+  if(!data||!data.length){
+   app.className="hero state";
+   app.innerHTML='<h1>My Tests</h1><p>You have not saved a test result yet. Complete a Mind Test while logged in and it will appear here.</p><a class="btn" href="/mind-tests/">Explore Mind Tests</a>';
+   return;
+  }
+  app.className="";
+  const head=document.createElement("section");head.className="hero";
+  head.innerHTML='<h1>My Tests</h1><p class="meta">Your saved self-reflection history. These tools are educational and are not clinical diagnoses.</p><div class="notice">Results are personal reflection records. They should not be used to diagnose a mental-health condition or replace professional assessment.</div>';
+  app.appendChild(head);
+  data.forEach(x=>{
+   const card=document.createElement("article");card.className="test";
+   const label=names[x.test_id]||x.test_id||"Mind Test";
+   const lang=x.language==="ur"?"اردو":"English";
+   const date=x.completed_at?new Date(x.completed_at).toLocaleString():"Date unavailable";
+   card.innerHTML='<h2>'+esc(label)+'</h2><div class="meta">'+esc(date)+' · '+esc(lang)+(x.test_version?" · Version "+esc(x.test_version):"")+'</div><div class="score">Score: '+esc(x.score??"—')+' / 50</div><div class="badges"><span class="badge">'+esc(x.strongest_label||"Reflection result")+'</span></div>'+(x.strongest_description?'<p>'+esc(x.strongest_description)+'</p>':"")+renderDims(x.dimension_scores);
+   app.appendChild(card);
+  });
+ }catch(e){
+  console.warn(e);
+  app.className="hero state";
+  app.innerHTML='<h1>My Tests</h1><p>We could not load your history right now. Please try again.</p><a class="btn" href="/member/dashboard/">Back to Dashboard</a>';
+ }
 })();
 </script>
-<script src="/member/member-nav.js?v=20260929"></script></body></html>
+<script src="/member/member-nav.js?v=20260929"></script>
+</body></html>
