@@ -1,1 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Learning Paths | Obaid Doctrine</title><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}.top{margin-bottom:25px}.brand{font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #dce8b5;border-radius:20px;padding:22px}.tag{display:inline-block;background:#dce8b5;border-radius:99px;padding:5px 9px;font-size:.8rem;font-weight:700}.btn{display:inline-block;margin-top:14px;background:#31543a;color:#fff;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:800}.step{padding:13px 0;border-bottom:1px solid #dce8b5}.muted{color:#6f756f}.notice{margin:18px 0;padding:12px;background:#dce8b5;border-radius:12px}@media(max-width:750px){.grid{grid-template-columns:1fr}}a{color:#31543a}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div></header><section id="app"></section></main><script src="/member/analytics.js?v=20260929"></script><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script src="/member/progress/progress-tracker.js?v=20260929"></script><script src="/member/learning-paths/learning-path.js?v=20260929"></script><script>(async()=>{if(!await ODMember.requireSession())return;const paths={self:{title:"Understanding Yourself",desc:"Build practical self-awareness through observation, reflection and educational psychology concepts.",steps:["Notice patterns in attention, habits and reactions.","Use a Mind Test as a reflection prompt, not a diagnosis.","Write one observation in your private journal.","Review what you learned and choose one small practice." ]},communication:{title:"Better Communication",desc:"Explore listening, clarity, boundaries and respectful responses in everyday relationships.",steps:["Identify the difference between listening and preparing a reply.","Practice one clear, respectful request.","Reflect on a recent conversation without blaming yourself or others.","Choose one communication habit to practice this week."]},decisions:{title:"Better Decisions",desc:"Learn a simple educational framework for clearer choices, trade-offs and reflection.",steps:["Define the decision and what matters.","Separate facts, assumptions and unknowns.","Compare options and likely trade-offs.","Record the outcome and what you learned."]}};const key=new URLSearchParams(location.search).get("path");const p=paths[key];const app=document.getElementById("app");if(!p){app.innerHTML='<h1>Learning Paths</h1><p class="muted">Structured educational journeys for knowledge, reflection and practice.</p><div class="grid">'+Object.entries(paths).map(([k,v])=>'<article class="card"><span class="tag">Educational path</span><h2>'+v.title+'</h2><p class="muted">'+v.desc+'</p><a class="btn" href="?path='+k+'">Open Path</a></article>').join("")+'</div>';return}app.innerHTML='<article class="card"><span class="tag">Learning Path</span><h1>'+p.title+'</h1><p class="muted">'+p.desc+'</p><div class="notice">This path supports learning activity and reflection. It does not assess your psychological health or diagnose conditions.</div><div>'+p.steps.map((s,i)=>'<div class="step"><strong>Step '+(i+1)+'</strong><div>'+s+'</div></div>').join("")+'</div><button id="start" class="btn" type="button">Start / Save Progress</button> <button id="done" class="btn" type="button">Mark Path Complete</button><p id="msg" class="muted"></p><p><a href="/member/learning-paths/">← All Learning Paths</a></p></article>';document.getElementById("start").onclick=async()=>{document.getElementById("msg").textContent=await ODLearningPath.start("/member/learning-paths/?path="+key)?"Progress started.":"Could not save progress."};document.getElementById("done").onclick=async()=>{document.getElementById("msg").textContent=await ODLearningPath.complete("/member/learning-paths/?path="+key)?"Path completed.":"Could not save completion."}})()</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/learning-paths/">
+<title>Learning Paths | Obaid Doctrine</title>
+<style>
+:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--forest);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1080px;margin:auto;padding:28px 18px 72px}.top{margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--soft)}.brand{font-weight:900;letter-spacing:.08em}
+.hero{max-width:780px;margin-bottom:28px}.eyebrow,.tag{display:inline-block;border-radius:999px;background:var(--soft);padding:6px 10px;font-size:.78rem;font-weight:800}.eyebrow{margin-bottom:10px}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;margin:0 0 12px}h2{margin:0 0 9px}.muted{color:var(--muted);line-height:1.65}
+.notice{margin-top:16px;padding:14px 16px;background:var(--soft);border-radius:16px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--white);border:1px solid var(--soft);border-radius:20px;padding:22px;box-shadow:0 8px 24px rgba(49,84,58,.06)}
+.path-card{display:flex;flex-direction:column}.path-card p{flex:1}.btn{display:inline-block;margin-top:14px;background:var(--forest);color:#fff;text-decoration:none;border:0;padding:11px 15px;border-radius:11px;font-weight:800;cursor:pointer}.btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.steps{margin-top:18px}.step{padding:15px 0;border-bottom:1px solid var(--soft)}.step:last-child{border-bottom:0}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.actions .btn{margin-top:0}.back{margin-top:20px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}.wrap{padding-top:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div></header>
+<section id="app"></section>
+</main>
+<script src="/member/analytics.js?v=20260929"></script>
+<script src="/member/member-auth.js?v=20260929"></script>
+<script src="/member/member-nav.js?v=20260929"></script>
+<script src="/member/progress/progress-tracker.js?v=20260929"></script>
+<script src="/member/learning-paths/learning-path.js?v=20260929"></script>
+<script>
+(async()=>{
+ const app=document.getElementById("app");
+ const make=(tag,textValue,attrs={})=>{const el=document.createElement(tag);el.textContent=textValue;for(const[k,v]of Object.entries(attrs))el.setAttribute(k,v);return el};
+ try{
+  const auth=await (await ODMember.client()).auth.getUser();
+  if(auth.error||!auth.data||!auth.data.user){location.href="/account/login/";return}
+  const paths={
+   self:{title:"Understanding Yourself",desc:"Build practical self-awareness through observation, reflection and educational psychology concepts.",steps:["Notice patterns in attention, habits and reactions.","Use a Mind Test as a reflection prompt, not a diagnosis.","Write one observation in your private journal.","Review what you learned and choose one small practice."]},
+   communication:{title:"Better Communication",desc:"Explore listening, clarity, boundaries and respectful responses in everyday relationships.",steps:["Identify the difference between listening and preparing a reply.","Practice one clear, respectful request.","Reflect on a recent conversation without blaming yourself or others.","Choose one communication habit to practice this week."]},
+   decisions:{title:"Better Decisions",desc:"Learn a simple educational framework for clearer choices, trade-offs and reflection.",steps:["Define the decision and what matters.","Separate facts, assumptions and unknowns.","Compare options and likely trade-offs.","Record the outcome and what you learned."]}
+  };
+  const key=new URLSearchParams(location.search).get("path"),p=paths[key];
+  app.replaceChildren();
+  if(!p){
+   const hero=document.createElement("section");hero.className="hero";
+   hero.append(make("div","MEMBER LEARNING",{class:"eyebrow"}),make("h1","Learning Paths"),make("p","Structured educational journeys for knowledge, reflection and practice.",{class:"muted"}));
+   hero.append(make("div","These paths support learning and self-reflection. They do not assess psychological health or diagnose conditions.",{class:"notice muted"}));
+   app.append(hero);
+   const grid=document.createElement("div");grid.className="grid";
+   Object.entries(paths).forEach(([k,v])=>{
+    const card=document.createElement("article");card.className="card path-card";
+    card.append(make("span","Educational path",{class:"tag"}),make("h2",v.title),make("p",v.desc,{class:"muted"}),make("a","Open Path",{class:"btn",href:"?path="+encodeURIComponent(k)}));grid.append(card);
+   });app.append(grid);return;
+  }
+  const card=document.createElement("article");card.className="card";
+  card.append(make("span","Learning Path",{class:"tag"}),make("h1",p.title),make("p",p.desc,{class:"muted"}),make("div","This path supports learning activity and reflection. It does not assess your psychological health or diagnose conditions.",{class:"notice muted"}));
+  const steps=document.createElement("div");steps.className="steps";
+  p.steps.forEach((step,i)=>{const row=document.createElement("div");row.className="step";row.append(make("strong","Step "+(i+1)),make("div",step));steps.append(row)});card.append(steps);
+  const actions=document.createElement("div");actions.className="actions";
+  actions.append(make("button","Start / Save Progress",{class:"btn",type:"button",id:"start"}),make("button","Mark Path Complete",{class:"btn",type:"button",id:"done"}));card.append(actions);
+  const msg=make("p","",{class:"muted"});msg.id="msg";msg.setAttribute("aria-live","polite");card.append(msg);
+  const back=make("a","← All Learning Paths",{class:"back",href:"/member/learning-paths/"});card.append(back);app.append(card);
+  document.getElementById("start").onclick=async()=>{const b=document.getElementById("start");b.disabled=true;msg.textContent=await ODLearningPath.start("/member/learning-paths/?path="+key)?"Progress started.":"Could not save progress.";b.disabled=false};
+  document.getElementById("done").onclick=async()=>{const b=document.getElementById("done");b.disabled=true;msg.textContent=await ODLearningPath.complete("/member/learning-paths/?path="+key)?"Path completed.":"Could not save completion.";b.disabled=false};
+ }catch(e){console.warn(e);app.replaceChildren(make("h1","Learning Paths unavailable"),make("p","We could not load the learning paths right now.",{class:"muted"}),make("a","Back to Dashboard",{class:"btn",href:"/member/dashboard/"}))}
+})();
+</script>
+</body>
+</html>
