@@ -11,7 +11,7 @@ async function db(){const sdk=await load();return sdk.createClient(SUPABASE_URL,
 window.ODProgress={
  async complete(type,path){
   try{
-   if(!["article","test","learning_path"].includes(type)||typeof path!=="string"||!path.startsWith("/")||path.startsWith("//"))return {saved:false,reason:"invalid"};
+   if(!["article","test","learning_path","member_content"].includes(type)||typeof path!=="string"||!path.startsWith("/")||path.startsWith("//"))return {saved:false,reason:"invalid"};
    const supabase=await db();const s=(await supabase.auth.getSession()).data.session;
    if(!s||!s.user)return {saved:false,reason:"visitor"};
    const now=new Date().toISOString();
