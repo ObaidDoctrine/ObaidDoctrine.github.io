@@ -1,1 +1,58 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Privacy & Data | Obaid Doctrine</title><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:760px;margin:auto;padding:30px 18px 70px}.top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:24px}.brand{font-weight:800}.card{background:#fff;border:1px solid #dce8b5;border-radius:22px;padding:24px;line-height:1.75;box-shadow:0 8px 28px rgba(49,84,58,.06)}a{color:#31543a;font-weight:700}@media(max-width:700px){.card{padding:19px}}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div><a href="/member/dashboard/">Dashboard</a></header><article class="card"><h1>Privacy & Data</h1><p>Your member area is designed around minimum necessary data. Your profile, saved articles, test history, learning progress and reflection journal entries are used to provide the member features you request. Private journal entries and test history are not published or intentionally exposed to other members. We do not use private journal content for advertising personalization.</p><h2>Your controls</h2><p>You can update your profile information and language in Settings. Account deletion requires a secure server-side deletion flow; it will not be implemented as an unsafe client-only operation.</p><p><a href="/member/settings/">Settings</a></p></article></main><script src="/account/auth.js?v=20260929"></script><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>document.getElementById("deleteAccount").onclick=async()=>{if(!confirm("Are you sure you want to permanently delete your account?"))return;const msg=document.getElementById("msg");msg.textContent="Deleting account…";const s=await ODAuth.session();if(!s){location.href="/account/login/";return}const base="https://nrckrzgxpxfwuyodbylg.supabase.co";const res=await fetch(base+"/functions/v1/delete-my-account",{method:"POST",headers:{Authorization:"Bearer "+s.access_token,apikey:""+window.__OD_SUPABASE_KEY}});if(!res.ok){msg.textContent="The account could not be deleted.";return}await ODAuth.logout();location.href="/account/login/";};</script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/privacy/">
+<title>Privacy & Data | Obaid Doctrine</title>
+<style>
+:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--forest);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:820px;margin:auto;padding:28px 18px 72px}.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--soft)}
+.brand{font-weight:900;letter-spacing:.08em}a{color:var(--forest);font-weight:750}.back{display:inline-block;text-decoration:none}
+.card{background:var(--white);border:1px solid var(--soft);border-radius:22px;padding:26px;line-height:1.75;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+.eyebrow{display:inline-block;background:var(--soft);border-radius:999px;padding:6px 10px;font-size:.78rem;font-weight:800;margin-bottom:10px}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:0 0 12px}h2{margin-top:28px;font-size:1.25rem}.muted{color:var(--muted)}
+.notice{background:var(--soft);padding:14px 16px;border-radius:15px;margin:18px 0}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.link-btn{display:inline-block;padding:11px 15px;border-radius:11px;background:var(--forest);color:#fff;text-decoration:none}
+@media(max-width:600px){.card{padding:20px}.wrap{padding-top:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><a class="back" href="/member/dashboard/">Dashboard</a></header>
+<article class="card">
+<div class="eyebrow">MEMBER PRIVACY</div>
+<h1>Privacy & Data</h1>
+<p class="muted">This page explains how data used by your private member area is handled. It is a member-facing summary; the full site policy contains the broader privacy terms.</p>
+
+<div class="notice"><strong>Your member data is private.</strong> Your profile, saved articles, test history, learning progress and reflection journal entries are intended to provide the member features you request. These records are protected by account-based access controls.</div>
+
+<h2>What member data may be stored</h2>
+<p>Depending on the features you use, your account may contain your email address, profile information, preferred language, test results, saved articles, learning progress, member-content completion records and private reflection journal entries.</p>
+
+<h2>How it is used</h2>
+<p>This information is used to provide account access, save your learning activity, show your own results and saved content, maintain your progress, and provide member features you choose to use. Private journal entries and personal test history are not intended to be published to other members.</p>
+
+<h2>Personalized recommendations</h2>
+<p>Member recommendations use your activity on this platform—such as completed tests, saved articles and learning paths—to suggest educational activities. Recommendations do not infer or assign psychological traits, and they are not psychological assessments.</p>
+
+<h2>Advertising</h2>
+<p>Private member activity is not used for advertising personalization by the member features described here. Google AdSense is not currently enabled on Obaid Doctrine. Any future advertising technologies will be handled according to the site's privacy policy and applicable consent requirements.</p>
+
+<h2>Your controls</h2>
+<p>You can update available profile and language settings from Account Settings. You can also request permanent account deletion through the secure account-deletion option provided in Settings. Deletion is handled through a server-side process rather than by trusting a client-side database operation.</p>
+
+<div class="links">
+<a class="link-btn" href="/member/settings/">Account Settings</a>
+<a class="link-btn" href="/privacy-policy/">Full Privacy Policy</a>
+</div>
+
+<h2>Questions</h2>
+<p class="muted">For privacy questions or requests, use the site's Contact page.</p>
+<p><a href="/contact/">Contact Obaid Doctrine</a></p>
+</article>
+</main>
+</body>
+</html>
