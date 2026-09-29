@@ -111,6 +111,20 @@
     document.head.appendChild(style);
   }
 
+
+  function analyticsLoad(){
+    if(window.ODAnalytics)return;
+    if(document.querySelector('script[data-od-analytics-loader]'))return;
+    var s=document.createElement("script");s.src="/member/analytics.js?v=20260929";s.async=true;s.setAttribute("data-od-analytics-loader","true");document.head.appendChild(s);
+  }
+  function analyticsTrack(name){
+    var testId=pathKey.replace(/^\/|\/$/g,"").split("/").pop()||"mind-test";
+    var language=isRTL?"ur":"en";
+    var payload={test_id:testId,language:language,question_count:source.length};
+    if(window.ODAnalytics)ODAnalytics.track(name,payload);
+    else window.setTimeout(function(){if(window.ODAnalytics)ODAnalytics.track(name,payload)},300);
+  }
+
   function render() {
     var host = document.getElementById("test");
     if (!host) return;
@@ -280,7 +294,17 @@
   }
 
   injectStyles();
+  analyticsLoad();
   render();
+  analyticsTrack("test_start");
+  (function watchCompletion(){
+    var result=document.getElementById("result");
+    if(!result||typeof MutationObserver==="undefined")return;
+    var sent=false;
+    function check(){if(!sent&&!result.hidden&&result.textContent.trim()){sent=true;analyticsTrack("test_complete");}}
+    check();
+    new MutationObserver(check).observe(result,{attributes:true,attributeFilter:["hidden"],childList:true,subtree:true,characterData:true});
+  })();
 
 (function loadObaidRating(){
   if (document.querySelector('script[data-od-rating-loader]')) return;
