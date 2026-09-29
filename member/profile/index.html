@@ -1,1 +1,57 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>My Profile | Obaid Doctrine</title><link rel="canonical" href="https://www.obaiddoctrine.com/member/profile/"><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:720px;margin:auto;padding:30px 18px 70px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}.brand{font-weight:800;letter-spacing:.04em}a{color:#31543a;font-weight:700}.card{background:#fff;border:1px solid #dce8b5;border-radius:22px;padding:24px;box-shadow:0 8px 28px rgba(49,84,58,.06)}label{display:block;font-weight:700;margin:16px 0 6px}input,select{width:100%;box-sizing:border-box;padding:13px;border:1px solid #cfd8cc;border-radius:10px;font:inherit}input[readonly]{background:#f3f4ee}button{width:100%;margin-top:20px;padding:13px;border:0;border-radius:11px;background:#31543a;color:#fff;font-weight:800;font:inherit}.msg{margin-top:14px;padding:10px;border-radius:10px;background:#dce8b5}.muted{color:#6f756f}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div><a href="/member/dashboard/">Dashboard</a></header><section class="card"><h1>My Profile</h1><p class="muted">Manage the basic information used for your member account.</p><form id="f"><label>Display Name</label><input id="name" maxlength="80" required><label>Email</label><input id="email" type="email" readonly><label>Preferred Language</label><select id="language"><option value="en">English</option><option value="ur">اردو</option></select><label>Account Created</label><input id="created" readonly><button>Save Profile</button></form><div id="msg" class="msg" hidden></div><p><a href="/member/logout/">Log Out</a></p></section></main><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>(async()=>{const m=document.getElementById("msg");try{const session=await ODMember.requireSession();if(!session)return;const db=await ODMember.client();const u=session.user;document.getElementById("email").value=u.email||"";document.getElementById("created").value=new Date(u.created_at).toLocaleString();const r=await db.from("profiles").select("display_name,preferred_language,created_at").eq("id",u.id).maybeSingle();if(r.error)throw r.error;document.getElementById("name").value=(r.data&&r.data.display_name)||u.user_metadata?.display_name||"";document.getElementById("language").value=(r.data&&r.data.preferred_language)||u.user_metadata?.preferred_language||"en";document.getElementById("f").onsubmit=async e=>{e.preventDefault();m.hidden=true;const x=await db.from("profiles").upsert({id:u.id,display_name:document.getElementById("name").value.trim(),preferred_language:document.getElementById("language").value,updated_at:new Date().toISOString()},{onConflict:"id"});if(x.error){m.textContent="We could not save your profile. Please try again.";m.hidden=false;return}m.textContent="Profile saved.";m.hidden=false}}catch(e){console.warn(e);m.textContent="We could not load your profile right now.";m.hidden=false}})()</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>My Profile | Obaid Doctrine</title>
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/profile/">
+<style>
+:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--forest);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:980px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-weight:900;letter-spacing:.05em}.top a,.link{color:var(--forest);font-weight:800;text-decoration:none}.hero{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:stretch;margin-bottom:18px}.card{background:var(--white);border:1px solid var(--soft);border-radius:22px;padding:22px;box-shadow:0 8px 28px rgba(49,84,58,.06)}.identity{text-align:center}.avatar{width:112px;height:112px;border-radius:50%;object-fit:cover;border:5px solid var(--soft);background:var(--ivory);display:block;margin:2px auto 14px}.avatar-fallback{display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:var(--forest)}h1,h2{margin:0 0 8px}.muted{color:var(--muted)}.eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.stat{background:var(--ivory);border:1px solid var(--soft);border-radius:16px;padding:14px;text-align:center}.stat b{display:block;font-size:1.45rem}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{display:block;font-weight:800;margin:15px 0 6px}input,select{width:100%;padding:12px;border:1px solid #cfd8cc;border-radius:11px;font:inherit;background:#fff;color:var(--forest)}input[readonly]{background:#f3f4ee}.button{display:inline-block;margin-top:18px;padding:12px 16px;border:0;border-radius:11px;background:var(--forest);color:#fff;font-weight:900;font:inherit;cursor:pointer}.msg{margin-top:14px;padding:11px;border-radius:11px;background:var(--soft);font-weight:700}.actions{display:grid;gap:10px}.action{display:block;padding:14px;border:1px solid var(--soft);border-radius:14px;text-decoration:none;color:var(--forest);font-weight:800;background:var(--ivory)}.danger{background:#fff}.small{font-size:.9rem}@media(max-width:760px){.hero,.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><a href="/member/dashboard/">Dashboard</a></header>
+<section class="hero">
+<div class="card identity"><div id="avatar" class="avatar avatar-fallback">OD</div><h2 id="displayName">Member</h2><p id="email" class="muted small"></p><p id="memberSince" class="muted small"></p></div>
+<div class="card"><p class="eyebrow">Member Profile</p><h1>Your Profile</h1><p class="muted">Manage your account details and see your personal learning activity.</p>
+<div class="stats"><div class="stat"><b id="tests">0</b><span class="small">Tests</span></div><div class="stat"><b id="saved">0</b><span class="small">Saved</span></div><div class="stat"><b id="progress">0</b><span class="small">Learning</span></div><div class="stat"><b id="journal">0</b><span class="small">Journal</span></div></div></div>
+</section>
+<section class="grid">
+<div class="card"><h2>Profile Details</h2><p class="muted">Your profile information is private to your member account.</p>
+<form id="f"><div class="row"><div><label for="name">Display Name</label><input id="name" maxlength="80" required></div><div><label for="language">Preferred Language</label><select id="language"><option value="en">English</option><option value="ur">اردو</option></select></div></div>
+<label for="avatarUrl">Profile Photo URL</label><input id="avatarUrl" type="url" maxlength="500" placeholder="https://...">
+<label>Email</label><input id="emailInput" type="email" readonly>
+<label>Account Created</label><input id="created" readonly>
+<button class="button" type="submit">Save Profile</button></form><div id="msg" class="msg" hidden></div></div>
+<div class="card"><h2>Member Area</h2><p class="muted">Continue your private Obaid Doctrine experience.</p><div class="actions">
+<a class="action" href="/member/knowledge/">Knowledge →</a><a class="action" href="/member/my-tests/">My Tests →</a><a class="action" href="/member/dashboard/">Dashboard →</a><a class="action" href="/member/journal/">Reflection Journal →</a><a class="action" href="/member/settings/">Account Settings →</a><a class="action danger" href="/member/logout/">Log Out →</a>
+</div></div>
+</section>
+</main>
+<script src="/member/member-auth.js?v=20260930"></script>
+<script src="/member/member-nav.js?v=20260929"></script>
+<script>
+(async()=>{const m=document.getElementById("msg");const setText=(id,v)=>document.getElementById(id).textContent=v;
+try{
+ const db=await ODMember.client();
+ const ur=await db.auth.getUser(); if(ur.error||!ur.data.user){location.href="/account/login/";return}
+ const u=ur.data.user;
+ setText("email",u.email||""); setText("emailInput",u.email||""); document.getElementById("created").value=new Date(u.created_at).toLocaleString(); setText("memberSince","Member since "+new Date(u.created_at).toLocaleDateString());
+ const r=await db.from("profiles").select("display_name,avatar_url,preferred_language,created_at").eq("id",u.id).maybeSingle(); if(r.error)throw r.error;
+ const p=r.data||{}; document.getElementById("name").value=p.display_name||u.user_metadata?.display_name||""; document.getElementById("language").value=p.preferred_language||u.user_metadata?.preferred_language||"en"; document.getElementById("avatarUrl").value=p.avatar_url||"";
+ const name=p.display_name||u.user_metadata?.display_name||"Member"; setText("displayName",name);
+ const av=document.getElementById("avatar"); if(p.avatar_url){av.classList.remove("avatar-fallback");av.textContent="";av.innerHTML='<img src="'+String(p.avatar_url).replace(/"/g,"&quot;")+'" alt="Profile photo" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.remove();document.getElementById(\'avatar\').textContent=\'OD\';document.getElementById(\'avatar\').classList.add(\'avatar-fallback\')">'}
+ const counts=await Promise.all([
+  db.from("test_results").select("id",{count:"exact",head:true}).eq("user_id",u.id),
+  db.from("saved_articles").select("id",{count:"exact",head:true}).eq("user_id",u.id),
+  db.from("learning_progress").select("id",{count:"exact",head:true}).eq("user_id",u.id),
+  db.from("reflection_journal_entries").select("id",{count:"exact",head:true}).eq("user_id",u.id)
+ ]); if(counts.some(x=>x.error))throw (counts.find(x=>x.error)||{}).error;
+ setText("tests",counts[0].count||0);setText("saved",counts[1].count||0);setText("progress",counts[2].count||0);setText("journal",counts[3].count||0);
+ document.getElementById("f").onsubmit=async e=>{e.preventDefault();m.hidden=true;const x=await db.from("profiles").upsert({id:u.id,display_name:document.getElementById("name").value.trim(),avatar_url:document.getElementById("avatarUrl").value.trim()||null,preferred_language:document.getElementById("language").value,updated_at:new Date().toISOString()},{onConflict:"id"});if(x.error){m.textContent="We could not save your profile. Please try again.";m.hidden=false;return}setText("displayName",document.getElementById("name").value.trim()||"Member");m.textContent="Profile saved.";m.hidden=false}
+}catch(e){console.warn(e);m.textContent="We could not load your profile right now.";m.hidden=false}})();
+</script>
+</body>
+</html>
