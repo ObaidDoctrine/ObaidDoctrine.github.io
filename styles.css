@@ -458,3 +458,10 @@ html[dir="rtl"] .home-page .footer-links{
 .od-test-visual figcaption{padding:10px 16px 12px;color:var(--od-muted,var(--m));font-size:.82rem;line-height:1.5;background:var(--od-surface,#fff)}
 html[dir="rtl"] .od-test-visual{text-align:right}
 @media(max-width:680px){.od-test-visual{margin-bottom:22px;border-radius:18px}.od-test-visual figcaption{font-size:.78rem;padding:9px 12px 11px}}
+
+/* ---------- OBAID DOCTRINE visual system: Article featured artwork ---------- */
+.article-featured-image{width:min(100%,1050px);margin:0 auto 28px;padding:0 20px}
+.article-featured-image img{display:block;width:100%;height:auto;aspect-ratio:1200/675;object-fit:cover;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 14px 38px rgba(49,84,58,.08)}
+.article-featured-image figcaption{margin-top:9px;padding:0 4px;color:var(--m);font-size:.82rem;line-height:1.5}
+html[dir="rtl"] .article-featured-image{text-align:right}
+@media(max-width:700px){.article-featured-image{margin-bottom:22px;padding:0 14px}.article-featured-image img{border-radius:18px}.article-featured-image figcaption{font-size:.78rem}}
