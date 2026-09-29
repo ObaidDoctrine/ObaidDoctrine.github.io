@@ -12,10 +12,12 @@ window.ODProgress={
  async complete(type,path){
   try{
    if(!["article","test","learning_path","member_content"].includes(type)||typeof path!=="string"||!path.startsWith("/")||path.startsWith("//"))return {saved:false,reason:"invalid"};
-   const supabase=await db();const s=(await supabase.auth.getSession()).data.session;
-   if(!s||!s.user)return {saved:false,reason:"visitor"};
+   const supabase=await db();
+   const auth=await supabase.auth.getUser();
+   const user=auth.data&&auth.data.user;
+   if(auth.error||!user)return {saved:false,reason:"visitor"};
    const now=new Date().toISOString();
-   const r=await supabase.from("learning_progress").upsert({user_id:s.user.id,resource_type:type,resource_path:path,status:"completed",completed_at:now,updated_at:now},{onConflict:"user_id,resource_type,resource_path"}).select("id").single();
+   const r=await supabase.from("learning_progress").upsert({user_id:user.id,resource_type:type,resource_path:path,status:"completed",completed_at:now,updated_at:now},{onConflict:"user_id,resource_type,resource_path"}).select("id").single();
    if(r.error){console.warn("[Obaid Doctrine] Progress not saved:",r.error.message);return {saved:false,reason:"database_error"}}
    if(window.ODAnalytics){ODAnalytics.track("content_complete",{resource_type:type})}
    return {saved:true,id:r.data&&r.data.id};
