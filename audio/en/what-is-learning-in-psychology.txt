@@ -1,0 +1,42 @@
+The short answer
+In psychology, learning is commonly defined as a relatively permanent change in behaviour or knowledge that results from experience. The word “relatively” matters: learning does not mean a change can never be lost or modified. It means the change is more durable than a momentary state. OpenStax uses this experience-based definition as a foundation for the psychological study of learning. citeturn0search0turn0search14
+Learning is not the same as every change
+Behaviour can change for many reasons. Growth and maturation can produce new abilities without being learned. Fatigue, medication, illness or temporary changes in arousal can alter performance without necessarily producing learning. Psychologists therefore ask whether experience produced a relatively lasting change rather than simply observing that performance changed.
+How psychologists study learning
+Learning is not one single mechanism. Different research traditions examine different processes, including associative learning, learning through consequences, observational learning and cognitive learning . Each addresses a different way experience can change behaviour or knowledge.
+Classical conditioning: learning associations
+Classical conditioning involves learning relationships between events. When a previously neutral cue repeatedly predicts another event, the cue can acquire the ability to elicit a learned response. Pavlovian conditioning is the classic laboratory example. The important psychological idea is prediction through experience, not simply “training the brain.”
+Operant conditioning: learning from consequences
+Operant conditioning concerns changes in behaviour associated with its consequences. Behaviours followed by reinforcing outcomes can become more likely under appropriate conditions, while behaviour followed by punishment can become less likely. The effects depend on the schedule, context, person and consequence; reinforcement and punishment are not interchangeable terms.
+Observational learning: learning by watching
+People can learn by observing other people. Observational learning can involve attention to a model, remembering what was observed, producing the behaviour and having sufficient motivation or opportunity to perform it. Direct personal trial-and-error is therefore not required for every kind of learning.
+Cognitive learning: more than visible behaviour
+Learning can involve changes in knowledge, expectations, strategies and mental representations even when an immediate behavioural change is not obvious. Cognitive approaches helped broaden psychology's study of learning beyond directly observable stimulus-response patterns.
+Practice can change performance—but performance is not the whole story
+Practice can strengthen skills and make some actions more efficient. But a single successful performance does not prove that durable learning has occurred. Conversely, someone may have learned something without demonstrating it immediately because attention, motivation, retrieval conditions or other factors affect performance.
+Learning, memory and attention are connected
+Learning and memory overlap but are not identical. Learning describes changes produced by experience; memory concerns the processes involved in retaining and retrieving information. Attention helps determine what information receives processing in the first place. See How Does Memory Work in Psychology? and What Is Attention in Psychology? for those related processes.
+Learning and motivation are connected—but different
+Motivation can influence whether a person approaches a task, persists and uses available opportunities to learn. But motivation itself is not the definition of learning. Our article What Is Motivation in Psychology? examines why behaviour is energized and directed toward goals.
+Can learned behaviour change again?
+Yes. “Relatively permanent” does not mean irreversible. New experience can modify, compete with or replace previously learned responses. This is especially important when understanding habits, conditioning and skill development: learning can remain stable while still being updated by later experience.
+What research does not prove
+Learning is not limited to school or deliberate study.
+Every behavioural change is not automatically learning.
+Practice does not guarantee identical results for every person or task.
+One learning mechanism cannot explain every form of human learning.
+Knowing something and successfully performing it at one moment are not always the same thing.
+A simple learning framework
+Experience: What happened or what was observed?
+Processing: What information, association or strategy was formed?
+Practice or feedback: What reinforced, corrected or refined the change?
+Retention: Does the change persist beyond the immediate situation?
+Transfer: Can what was learned be used when the context changes?
+OBAID DOCTRINE FRAMEWORK
+Experience → Process → Practice → Retain → Transfer
+Learning becomes clearer when we separate the experience itself from the psychological processes that turn experience into a relatively lasting change.
+How Does Memory Work in Psychology?
+What Is Attention in Psychology?
+What Is Motivation in Psychology?
+What Is Self-Regulation in Psychology?
+How Habits Form

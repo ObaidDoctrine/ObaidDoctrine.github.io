@@ -18,3 +18,6 @@ Notice → Identify → Adjust → Recheck
 اگر آپ notice کریں کہ ایک خاص app پڑھائی یا sleep کے دوران بار بار attention لے رہی ہے، تو پہلے ایک چھوٹی boundary آزما سکتے ہیں، مثلاً notifications کم کرنا یا focused activity کے دوران app کو دور رکھنا۔ پھر دیکھیں کہ واقعی فرق پڑا یا نہیں۔
 اہم نتیجہ
 Social media کو سمجھنے کے لیے platform، content، behaviour، person اور context کو ایک ساتھ دیکھنا زیادہ مفید ہے۔ کم استعمال ہمیشہ بہتر اور زیادہ استعمال ہمیشہ خراب جیسا universal formula research سے اخذ نہیں کیا جا سکتا۔
+تحقیق اور ماخذ
+سوشل میڈیا اور نفسیات کے تعلق کے بنیادی پس منظر کے لیے American Psychological Association کا resource۔
+American Psychological Association

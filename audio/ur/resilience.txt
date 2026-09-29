@@ -24,6 +24,11 @@ Research کی حدود
 Resilience studies میں مختلف definitions، populations اور outcomes استعمال ہوتے ہیں۔ اس لیے ایک study کو universal recipe یا individual prediction نہ سمجھیں۔
 اہم نتیجہ
 Resilience کا مطلب تکلیف سے بے اثر ہونا نہیں؛ یہ انسان اور environment کے درمیان adaptation کو سمجھنے کا ایک طریقہ ہے۔
+تحقیق اور ماخذ
+اس مضمون کی بنیادی وضاحت اور resilience کی dynamic nature کو درج ذیل معتبر ماخذوں سے cross-check کیا گیا ہے۔ مختلف مطالعات میں resilience کی تعریف اور measurement مختلف ہو سکتی ہے، اس لیے ان ماخذوں کو universal formula کے طور پر نہیں پڑھنا چاہیے۔
+American Psychological Association — Resilience
+Psychological resilience: an update on definitions, a critical appraisal, and research recommendations
+Operationalising resilience in longitudinal studies: a systematic review
 تناؤ اور اس سے نمٹنے کے طریقے
 خود آگاہی
 خود ہمدردی اور خود تنقیدی

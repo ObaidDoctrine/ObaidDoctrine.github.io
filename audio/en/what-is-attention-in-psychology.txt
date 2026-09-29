@@ -1,0 +1,36 @@
+The short answer
+In psychology, attention refers to processes that focus or prioritize limited cognitive resources on particular information, locations, thoughts or tasks. The American Psychological Association describes attention as cognitive resources focused on some aspects of the environment rather than others.
+Why do we need attention?
+The environment contains far more information than a person can fully process at one time. Attention helps prioritize information relevant to current goals while reducing the processing priority of competing information.
+Selective attention
+Selective attention involves prioritizing one source, feature or stream of information over competing information. Reading while background conversations are present is one everyday example. Selection can be guided by goals, but salient events can also capture attention.
+Sustained attention
+Sustained attention concerns maintaining attention over time, especially during monitoring tasks. Long tasks can show a vigilance decrement, in which detection performance declines over time.
+Divided attention and multitasking
+Divided attention involves attempting to process or respond to more than one task or information source. Performance is often constrained because tasks compete for limited processing and response-selection capacity. Everyday multitasking can also involve rapid task switching, which is not identical to genuinely processing two tasks simultaneously.
+What guides attention?
+Attention can be influenced by current goals, physical salience and learned value. A notification, unusual movement or emotionally meaningful cue can compete with an intended task. This does not mean the cue automatically controls behaviour; it becomes one competitor for limited processing resources.
+Attention and perception are connected—but not identical
+Attention helps determine what receives priority; perception concerns how sensory information becomes meaningful. Our article How Perception Shapes Our Interpretation of People examines how attention, expectations and context can influence interpretation.
+Attention and memory are connected—but not identical
+Attention interacts closely with memory. What receives attention may receive deeper processing, but attention is not another word for memory. This distinction will matter for OBAID DOCTRINE's future Memory pillar.
+Why attention sometimes fails
+Attention can fail when a target is unexpected, competing information is strong, the task is demanding, or goals and available capacity do not match the environment. Inattentional blindness is one example: people can fail to notice an unexpected stimulus when attention is engaged elsewhere.
+Attention and digital environments
+Digital environments can repeatedly present notifications, recommendations and new content that compete for attention. Our Social Media and Psychology article examines this within the wider context of social comparison, identity, feedback and connection. Digital Detox examines targeted changes to digital behaviour.
+What research does not prove
+Attention is a broad field with multiple theories and measures. A finding about visual selective attention should not automatically be generalized to every form of attention in everyday life. Claims such as “humans can only focus for exactly X minutes” require evidence for the specific task and population.
+A simple way to examine your attention
+Define the target: What exactly should receive attention?
+Identify competitors: What cues or tasks are competing with it?
+Reduce unnecessary competition: Can the environment be changed?
+Choose the relevant mode: Do you need selective focus, sustained monitoring or task switching?
+Recheck: Did the change improve the actual task?
+OBAID DOCTRINE FRAMEWORK
+Select → Sustain → Shift
+What deserves priority? How long must that priority be maintained? When should attention shift?
+How Perception Shapes Our Interpretation of People
+Social Media and Psychology
+Digital Detox
+Why Do We Procrastinate?
+What Is Self-Regulation in Psychology?
