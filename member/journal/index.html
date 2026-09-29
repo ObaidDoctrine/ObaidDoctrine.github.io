@@ -1,1 +1,93 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Reflection Journal | Obaid Doctrine</title><link rel="canonical" href="https://www.obaiddoctrine.com/member/journal/"><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:900px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#31543a;font-weight:700}.hero,.card{background:#fff;border:1px solid #dce8b5;border-radius:20px;padding:22px;margin-top:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin:12px 0}label{display:block;font-weight:700;margin-bottom:6px}input,textarea{width:100%;box-sizing:border-box;border:1px solid #cbd7c2;border-radius:12px;padding:12px;font:inherit;color:#31543a;background:#fff}textarea{min-height:150px;resize:vertical}.btn{border:0;border-radius:11px;padding:11px 15px;background:#31543a;color:#fff;font-weight:800;cursor:pointer}.secondary{background:#dce8b5;color:#31543a}.entry{border-top:1px solid #dce8b5;padding:16px 0}.entry:first-child{border-top:0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.muted{color:#6f756f}.status{margin-top:14px;padding:11px;border-radius:10px;background:#dce8b5}@media(max-width:650px){.grid{grid-template-columns:1fr}}</style></head><body><main class="wrap"><header class="top"><strong>OBAID DOCTRINE</strong><nav class="nav"><a href="/member/dashboard/">Dashboard</a><a href="/member/progress/">Progress</a><a href="/member/library/">My Library</a><a href="/member/logout/">Log Out</a></nav></header><section class="hero"><h1>Reflection Journal</h1><p class="muted">A private space to record an event, thought, response, or lesson. Your entries are not public and are not used to infer psychological conditions.</p><div class="grid"><div><div class="field"><label for="title">Title</label><input id="title" maxlength="160"></div><div class="field"><label for="prompt">Reflection prompt (optional)</label><input id="prompt" maxlength="300" placeholder="What happened, and what did you learn?"></div><div class="field"><label for="body">Your reflection</label><textarea id="body" maxlength="12000"></textarea></div><button id="save" class="btn">Save Entry</button><button id="cancel" class="btn secondary" type="button" hidden>Cancel Edit</button><div id="status" class="status">Loading…</div></div><div><h2>Helpful prompts</h2><p class="muted">What happened?</p><p class="muted">What did I notice in my thoughts or response?</p><p class="muted">What would I like to handle differently next time?</p><p class="muted">What did I learn?</p><p class="muted">These prompts are for reflection, not diagnosis or clinical assessment.</p></div></div></section><section class="card"><h2>My Entries</h2><div id="entries" class="muted">Loading…</div></section></main><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>(async()=>{const status=document.getElementById("status"),entries=document.getElementById("entries"),title=document.getElementById("title"),prompt=document.getElementById("prompt"),body=document.getElementById("body"),save=document.getElementById("save"),cancel=document.getElementById("cancel");let db,session,editing=null;const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));const load=async()=>{const r=await db.from("reflection_journal_entries").select("id,title,body,prompt,created_at,updated_at").order("updated_at",{ascending:false});if(r.error)throw r.error;entries.innerHTML=r.data?.length?r.data.map(x=>'<article class="entry"><h3>'+esc(x.title||"Untitled reflection")+'</h3><p class="muted">'+esc(x.body).replace(/\n/g,"<br>")+'</p>'+(x.prompt?'<p class="muted"><strong>Prompt:</strong> '+esc(x.prompt)+'</p>':"")+'<small class="muted">'+new Date(x.updated_at).toLocaleString()+'</small><div class="actions"><button class="btn secondary" data-edit="'+x.id+'">Edit</button><button class="btn" data-delete="'+x.id+'">Delete</button></div></article>').join(""):"No journal entries yet. Start with a short reflection.";};entries.addEventListener("click",async e=>{const ed=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");if(ed){const id=Number(ed.dataset.edit),r=await db.from("reflection_journal_entries").select("*").eq("id",id).single();if(r.error)return status.textContent="Could not open that entry.";editing=id;title.value=r.data.title;prompt.value=r.data.prompt||"";body.value=r.data.body;save.textContent="Update Entry";cancel.hidden=false;window.scrollTo({top:0,behavior:"smooth"})}if(del){const id=Number(del.dataset.delete);if(!confirm("Delete this private journal entry?"))return;const r=await db.from("reflection_journal_entries").delete().eq("id",id);if(r.error)return status.textContent="Could not delete that entry.";await load();status.textContent="Entry deleted."}});cancel.onclick=()=>{editing=null;title.value=prompt.value=body.value="";save.textContent="Save Entry";cancel.hidden=true};save.onclick=async()=>{if(!body.value.trim()){status.textContent="Please write a reflection before saving.";return}save.disabled=true;const v={title:title.value.trim(),prompt:prompt.value.trim()||null,body:body.value.trim(),language:"en",updated_at:new Date().toISOString()};let r=editing?await db.from("reflection_journal_entries").update(v).eq("id",editing):await db.from("reflection_journal_entries").insert({...v,user_id:session.user.id});save.disabled=false;if(r.error){status.textContent="Could not save your entry right now.";return}cancel.onclick();await load();status.textContent=editing?"Entry updated.":"Entry saved.";};try{session=await ODMember.requireSession();if(!session)return;db=await ODMember.client();await load();status.textContent="Your journal is private and protected by account-level access rules."}catch(e){console.warn(e);status.textContent="We could not load your journal right now."}})()</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Reflection Journal | Obaid Doctrine</title>
+<meta name="description" content="Private reflection journal for Obaid Doctrine members.">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/journal/">
+<style>
+:root{--green:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--green);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1000px;margin:auto;padding:28px 18px 70px}
+.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-weight:900;letter-spacing:.04em}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:var(--green);font-weight:800;text-decoration:none}
+.hero,.card{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin-top:18px;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,1fr);gap:22px}.field{margin:14px 0}label{display:block;font-weight:800;margin-bottom:7px}
+input,textarea{width:100%;border:1px solid #cbd7c2;border-radius:12px;padding:12px;font:inherit;color:var(--green);background:#fff}textarea{min-height:180px;resize:vertical}
+.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--green);color:#fff;font-weight:800;cursor:pointer}.secondary{background:var(--soft);color:var(--green)}.btn:disabled{opacity:.6;cursor:wait}
+.status,.promptbox{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--soft)}.muted{color:var(--muted)}.count{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--soft);font-weight:800}
+.entry{border-top:1px solid var(--soft);padding:18px 0}.entry:first-child{border-top:0}.entry-body{white-space:pre-wrap;line-height:1.65}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.empty{text-align:center;padding:35px 15px}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:.1rem 0 .5rem}h2{margin-top:0}h3{margin:.2rem 0 .4rem}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><nav class="nav"><a href="/member/dashboard/">Dashboard</a><a href="/member/progress/">Progress</a><a href="/member/library/">My Library</a><a href="/member/profile/">Profile</a><a href="/member/logout/">Log Out</a></nav></header>
+<section class="hero">
+<h1>Reflection Journal</h1><p class="muted">A private space to record a thought, experience, response, or lesson. Your entries are personal and are not a diagnostic or clinical assessment.</p>
+<div class="grid">
+<div>
+<div class="field"><label for="title">Title</label><input id="title" maxlength="160" placeholder="Give your reflection a short title"></div>
+<div class="field"><label for="prompt">Reflection prompt <span class="muted">(optional)</span></label><input id="prompt" maxlength="300" placeholder="What happened, and what did you learn?"></div>
+<div class="field"><label for="body">Your reflection</label><textarea id="body" maxlength="12000" placeholder="Write your thoughts here…"></textarea></div>
+<button id="save" class="btn" type="button">Save Entry</button> <button id="cancel" class="btn secondary" type="button" hidden>Cancel Edit</button>
+<div id="status" class="status">Checking your private journal…</div>
+</div>
+<aside class="promptbox"><h2>Helpful prompts</h2><p class="muted">What happened?</p><p class="muted">What did I notice in my thoughts or response?</p><p class="muted">What would I like to handle differently next time?</p><p class="muted">What did I learn?</p><p class="muted">Use these prompts for reflection, not diagnosis.</p></aside>
+</div>
+</section>
+<section class="card"><h2>My Entries</h2><div id="count" class="count">0 entries</div><div id="entries" class="muted" style="margin-top:12px">Loading…</div></section>
+</main>
+<script src="/member/member-auth.js?v=20260929"></script>
+<script>
+(async()=>{
+"use strict";
+const status=document.getElementById("status"),entries=document.getElementById("entries"),count=document.getElementById("count"),title=document.getElementById("title"),prompt=document.getElementById("prompt"),body=document.getElementById("body"),save=document.getElementById("save"),cancel=document.getElementById("cancel");
+let db,uid,editing=null;
+const clearForm=()=>{editing=null;title.value="";prompt.value="";body.value="";save.textContent="Save Entry";cancel.hidden=true};
+const makeText=(tag,textValue,cls)=>{const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=textValue??"";return el};
+const load=async()=>{
+ const r=await db.from("reflection_journal_entries").select("id,title,body,prompt,created_at,updated_at").eq("user_id",uid).order("updated_at",{ascending:false}).limit(100);
+ if(r.error)throw r.error;
+ entries.replaceChildren();const rows=r.data||[];count.textContent=rows.length+" "+(rows.length===1?"entry":"entries");
+ if(!rows.length){const box=makeText("div","No journal entries yet. Start with a short reflection.","empty");entries.appendChild(box);return}
+ rows.forEach(x=>{
+  const article=document.createElement("article");article.className="entry";
+  article.appendChild(makeText("h3",x.title||"Untitled reflection"));
+  article.appendChild(makeText("div",x.body||"","entry-body"));
+  if(x.prompt){const p=makeText("p","Prompt: "+x.prompt,"muted");article.appendChild(p)}
+  const updated=x.updated_at?new Date(x.updated_at).toLocaleString():"Date unavailable";article.appendChild(makeText("small","Updated "+updated,"muted"));
+  const actions=document.createElement("div");actions.className="actions";
+  const edit=document.createElement("button");edit.className="btn secondary";edit.type="button";edit.textContent="Edit";edit.dataset.edit=x.id;
+  const del=document.createElement("button");del.className="btn";del.type="button";del.textContent="Delete";del.dataset.delete=x.id;
+  actions.append(edit,del);article.appendChild(actions);entries.appendChild(article);
+ });
+};
+entries.addEventListener("click",async e=>{
+ const edit=e.target.closest("button[data-edit]"),del=e.target.closest("button[data-delete]");
+ if(edit){const id=Number(edit.dataset.edit);const r=await db.from("reflection_journal_entries").select("id,title,body,prompt").eq("id",id).eq("user_id",uid).single();if(r.error){status.textContent="Could not open that entry.";return}editing=id;title.value=r.data.title||"";prompt.value=r.data.prompt||"";body.value=r.data.body||"";save.textContent="Update Entry";cancel.hidden=false;window.scrollTo({top:0,behavior:"smooth"});status.textContent="Editing your private entry."}
+ if(del){const id=Number(del.dataset.delete);if(!confirm("Delete this private journal entry?"))return;del.disabled=true;const r=await db.from("reflection_journal_entries").delete().eq("id",id).eq("user_id",uid);if(r.error){del.disabled=false;status.textContent="Could not delete that entry.";return}await load();status.textContent="Entry deleted."}
+});
+cancel.onclick=()=>{clearForm();status.textContent="Ready for a new reflection."};
+save.onclick=async()=>{
+ if(!body.value.trim()){status.textContent="Please write a reflection before saving.";return}
+ save.disabled=true;
+ const v={title:title.value.trim()||"Untitled reflection",prompt:prompt.value.trim()||null,body:body.value.trim(),language:"en",updated_at:new Date().toISOString()};
+ try{
+  const r=editing?await db.from("reflection_journal_entries").update(v).eq("id",editing).eq("user_id",uid):await db.from("reflection_journal_entries").insert({...v,user_id:uid});
+  if(r.error)throw r.error;
+  const wasEditing=!!editing;clearForm();await load();status.textContent=wasEditing?"Entry updated.":"Entry saved.";
+ }catch(e){console.warn(e);status.textContent="Could not save your entry right now."}
+ finally{save.disabled=false}
+};
+try{
+ const session=await ODMember.requireSession();if(!session)return;
+ db=await ODMember.client();
+ const auth=await db.auth.getUser();if(auth.error||!auth.data.user)throw(auth.error||new Error("User verification failed."));
+ uid=auth.data.user.id;
+ await load();status.textContent="Your journal is private and protected by account-level access rules.";
+}catch(e){console.warn(e);status.textContent="We could not load your journal right now. Please try again."}
+})();
+</script>
+<script src="/member/member-nav.js?v=20260929"></script>
+</body></html>
