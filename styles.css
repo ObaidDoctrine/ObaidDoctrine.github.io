@@ -450,3 +450,11 @@ html[dir="rtl"] .home-page .footer-links{
     align-items:stretch;
   }
 }
+
+
+/* ---------- OBAID DOCTRINE visual system: Mind Test featured artwork ---------- */
+.od-test-visual{width:min(100%,860px);margin:0 auto 28px;border:1px solid var(--od-line,var(--line));border-radius:24px;overflow:hidden;background:var(--od-surface,#fff);box-shadow:0 12px 30px rgba(49,84,58,.06)}
+.od-test-visual img{display:block;width:100%;height:auto;aspect-ratio:1200/675;object-fit:cover}
+.od-test-visual figcaption{padding:10px 16px 12px;color:var(--od-muted,var(--m));font-size:.82rem;line-height:1.5;background:var(--od-surface,#fff)}
+html[dir="rtl"] .od-test-visual{text-align:right}
+@media(max-width:680px){.od-test-visual{margin-bottom:22px;border-radius:18px}.od-test-visual figcaption{font-size:.78rem;padding:9px 12px 11px}}
