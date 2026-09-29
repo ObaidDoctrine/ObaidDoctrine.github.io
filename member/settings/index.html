@@ -1,1 +1,88 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Settings | Obaid Doctrine</title><meta name="description" content="Manage your member profile, language, password and privacy preferences."><link rel="canonical" href="https://www.obaiddoctrine.com/member/settings/"><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:720px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:24px}.brand{font-weight:800}.card{background:#fff;border:1px solid #dce8b5;border-radius:22px;padding:24px;box-shadow:0 8px 28px rgba(49,84,58,.06);margin-bottom:16px}a{color:#31543a;font-weight:700}label{display:block;font-weight:700;margin:15px 0 6px}input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #cfd8cc;border-radius:10px;font:inherit}button{width:100%;margin-top:18px;padding:13px;border:0;border-radius:12px;background:#31543a;color:#fff;font-weight:800;font:inherit}#msg{margin-top:14px;color:#31543a;font-weight:700}@media(max-width:700px){.top{align-items:flex-start}.card{padding:19px}}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div><a href="/member/dashboard/">Dashboard</a></header><section class="card"><h1>Settings</h1><p>Manage your member profile, language, password and privacy preferences.</p><p><a href="/member/profile/">Profile</a> · <a href="/member/privacy/">Privacy & Data</a></p><form id="settings"><label>Preferred Language</label><select id="language" style="width:100%;padding:12px;border:1px solid #cfd8cc;border-radius:10px;font:inherit"><option value="en">English</option><option value="ur">اردو</option></select><button type="submit">Save Settings</button></form><hr style="border:0;border-top:1px solid #dce8b5;margin:26px 0"><h2>Change Password</h2><p>Leave password fields empty if you do not want to change it.</p><label>New Password</label><input id="pw" type="password" autocomplete="new-password"><label>Confirm New Password</label><input id="pw2" type="password" autocomplete="new-password"><button id="change" type="button">Change Password</button><div id="msg" role="status" aria-live="polite"></div><hr style="border:0;border-top:1px solid #dce8b5;margin:26px 0"><h2>Delete Account</h2><p>This action is permanent. It will request secure deletion of your member profile and related personal member data.</p><button id="deleteAccount" type="button" style="background:#31543a">Delete My Account</button></section></main><script src="/account/auth.js?v=20260929"></script><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>(async()=>{const s=await ODAuth.session();if(!s){location.href="/account/login/?next="+encodeURIComponent(location.pathname);return}const db=await ODAuth.client();const {data}=await db.from("profiles").select("preferred_language").eq("id",s.user.id).maybeSingle();document.getElementById("language").value=(data&&data.preferred_language)||s.user.user_metadata?.preferred_language||"en";document.getElementById("settings").onsubmit=async e=>{e.preventDefault();const lang=document.getElementById("language").value;const r=await db.from("profiles").upsert({id:s.user.id,preferred_language:lang,updated_at:new Date().toISOString()},{onConflict:"id"});document.getElementById("msg").textContent=r.error?"We could not save your settings right now.":"Settings saved."};document.getElementById("change").onclick=async()=>{const a=document.getElementById("pw").value,b=document.getElementById("pw2").value;if(!a&&!b){document.getElementById("msg").textContent="Leave password fields empty if you do not want to change it.";return}if(a!==b){document.getElementById("msg").textContent="Passwords do not match.";return}if(a.length<8){document.getElementById("msg").textContent="Password must be at least 8 characters.";return}const r=await db.auth.updateUser({password:a});document.getElementById("msg").textContent=r.error?r.error.message:"Password updated. Please use your new password next time you log in."};})();</script><script>document.getElementById("deleteAccount").onclick=async()=>{if(!confirm("Are you sure you want to permanently delete your account?"))return;const msg=document.getElementById("msg");msg.textContent="Deleting account…";const s=await ODAuth.session();if(!s){location.href="/account/login/";return}const base="https://nrckrzgxpxfwuyodbylg.supabase.co";const res=await fetch(base+"/functions/v1/delete-my-account",{method:"POST",headers:{Authorization:"Bearer "+s.access_token,apikey:"sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw}});if(!res.ok){msg.textContent="The account could not be deleted.";return}await ODAuth.logout();location.href="/account/login/";};</script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Account Settings | Obaid Doctrine</title>
+<meta name="description" content="Manage your private Obaid Doctrine member account, language, password and account deletion.">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/settings/">
+<style>
+:root{--green:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--green);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:820px;margin:auto;padding:28px 18px 70px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}.brand{font-weight:900;letter-spacing:.04em}.top a{color:var(--green);font-weight:800;text-decoration:none}
+.card{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin-bottom:16px;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:.1rem 0 .5rem}h2{margin-top:0}label{display:block;font-weight:800;margin:16px 0 7px}
+input,select{width:100%;padding:12px;border:1px solid #cbd7c2;border-radius:11px;background:#fff;color:var(--green);font:inherit}
+button{width:100%;margin-top:16px;padding:12px;border:0;border-radius:11px;background:var(--green);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.6;cursor:wait}
+.status{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--soft);font-weight:700}.muted{color:var(--muted)}.links{display:flex;gap:14px;flex-wrap:wrap}.links a{color:var(--green);font-weight:800}
+hr{border:0;border-top:1px solid var(--soft);margin:28px 0}
+.danger-note{padding:13px 14px;border-radius:12px;background:#f4f6ed;color:var(--green)}
+@media(max-width:600px){.card{padding:19px}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><nav class="links"><a href="/member/dashboard/">Dashboard</a><a href="/member/profile/">Profile</a><a href="/member/privacy/">Privacy & Data</a><a href="/member/logout/">Log Out</a></nav></header>
+<section class="card">
+<h1>Account Settings</h1><p class="muted">Manage your private member preferences and account security.</p>
+<form id="settings">
+<label for="language">Preferred Language</label>
+<select id="language"><option value="en">English</option><option value="ur">اردو</option></select>
+<button id="saveSettings" type="submit">Save Settings</button>
+</form>
+<div id="status" class="status" role="status" aria-live="polite">Checking your account…</div>
+</section>
+<section class="card">
+<h2>Change Password</h2><p class="muted">Use at least 8 characters. You can leave these fields empty if you do not want to change your password.</p>
+<label for="pw">New Password</label><input id="pw" type="password" autocomplete="new-password" minlength="8">
+<label for="pw2">Confirm New Password</label><input id="pw2" type="password" autocomplete="new-password" minlength="8">
+<button id="change" type="button">Change Password</button>
+</section>
+<section class="card">
+<h2>Delete Account</h2>
+<div class="danger-note">Account deletion is permanent. It requests secure deletion of your member account and related personal member data.</div>
+<button id="deleteAccount" type="button">Delete My Account</button>
+</section>
+</main>
+<script src="/member/member-auth.js?v=20260929"></script>
+<script>
+(async()=>{
+"use strict";
+const status=document.getElementById("status"),settings=document.getElementById("settings"),lang=document.getElementById("language"),save=document.getElementById("saveSettings"),pw=document.getElementById("pw"),pw2=document.getElementById("pw2"),change=document.getElementById("change"),del=document.getElementById("deleteAccount");
+let db,uid;
+const setStatus=t=>status.textContent=t;
+try{
+ const session=await ODMember.requireSession();if(!session)return;
+ db=await ODMember.client();
+ const auth=await db.auth.getUser();if(auth.error||!auth.data.user)throw(auth.error||new Error("User verification failed."));
+ uid=auth.data.user.id;
+ const r=await db.from("profiles").select("preferred_language").eq("id",uid).maybeSingle();if(r.error)throw r.error;
+ lang.value=(r.data&&r.data.preferred_language)==="ur"?"ur":"en";
+ setStatus("Your account is verified. Settings are private to your account.");
+ settings.onsubmit=async e=>{e.preventDefault();save.disabled=true;const v={id:uid,preferred_language:lang.value,updated_at:new Date().toISOString()};const r=await db.from("profiles").upsert(v,{onConflict:"id"});save.disabled=false;setStatus(r.error?"We could not save your settings right now.":"Settings saved.")};
+ change.onclick=async()=>{
+  const a=pw.value,b=pw2.value;
+  if(!a&&!b){setStatus("Leave password fields empty if you do not want to change it.");return}
+  if(a!==b){setStatus("Passwords do not match.");return}
+  if(a.length<8){setStatus("Password must be at least 8 characters.");return}
+  change.disabled=true;const r=await db.auth.updateUser({password:a});change.disabled=false;
+  if(r.error){setStatus("Password could not be updated. "+r.error.message);return}
+  pw.value="";pw2.value="";setStatus("Password updated successfully.");
+ };
+ del.onclick=async()=>{
+  if(!confirm("Are you sure you want to permanently delete your account? This cannot be undone."))return;
+  del.disabled=true;setStatus("Requesting secure account deletion…");
+  const fresh=await db.auth.getSession();const token=fresh.data.session?.access_token;
+  if(!token){del.disabled=false;setStatus("Your session expired. Please log in again.");return}
+  const base="https://nrckrzgxpxfwuyodbylg.supabase.co";
+  try{
+   const res=await fetch(base+"/functions/v1/delete-my-account",{method:"POST",headers:{Authorization:"Bearer "+token,apikey:"sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw}});
+   if(!res.ok)throw new Error("Deletion request failed.");
+   await db.auth.signOut();location.href="/account/login/";
+  }catch(e){console.warn(e);del.disabled=false;setStatus("The account could not be deleted. Please try again.")}
+ };
+}catch(e){console.warn(e);setStatus("We could not load your account settings. Please log in again.")}
+})();
+</script>
+<script src="/member/member-nav.js?v=20260929"></script>
+</body>
+</html>
