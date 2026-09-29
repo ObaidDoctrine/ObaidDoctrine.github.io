@@ -1,1 +1,119 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Member Dashboard | Obaid Doctrine</title><link rel="canonical" href="https://www.obaiddoctrine.com/member/dashboard/"><style>body{margin:0;background:#fafaf5;color:#31543a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-weight:800;letter-spacing:.04em}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#31543a;font-weight:700}.hero{background:#fff;border:1px solid #dce8b5;border-radius:24px;padding:28px;box-shadow:0 8px 28px rgba(49,84,58,.06)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}.card{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:20px;padding:20px}.num{font-size:2rem;font-weight:800}.muted{color:#6f756f}.btn{display:inline-block;margin-top:14px;padding:11px 15px;border-radius:11px;background:#31543a;color:#fff;text-decoration:none;font-weight:800}.status{margin-top:18px;padding:12px;border-radius:12px;background:#dce8b5}.activity{margin-top:16px}.item{padding:12px 0;border-bottom:1px solid #dce8b5}.item:last-child{border-bottom:0}.item a{color:#31543a;font-weight:700}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div><nav class="nav"><a href="/member/profile/">Profile</a><a href="/member/my-tests/">My Tests</a><a href="/member/progress/">Progress</a><a href="/member/library/">My Library</a><a href="/member/logout/">Log Out</a></nav></header><section class="hero"><h1 id="welcome">Welcome</h1><p class="muted">Your private learning space for knowledge, reflection and progress.</p><a class="btn" href="/mind-tests/">Explore Mind Tests</a> <a class="btn" href="/member/recommendations/">Recommendations</a><div id="status" class="status">Loading your member activity…</div></section><section class="grid"><article class="card"><div class="muted">Tests completed</div><div id="tests" class="num">—</div><a href="/member/my-tests/">View My Tests</a></article><article class="card"><div class="muted">Articles completed</div><div id="articles" class="num">—</div><a href="/member/progress/">View Progress</a></article><article class="card"><div class="muted">Saved articles</div><div id="saved" class="num">—</div><a href="/member/library/">Open My Library</a></article><article class="card"><div class="muted">Total learning activity</div><div id="total" class="num">—</div><a href="/member/progress/">Track Progress</a></article></section><section class="card activity"><h2>Recent learning activity</h2><div id="recent" class="muted">Loading…</div></section><section class="grid"><article class="card"><strong>Reflection Journal</strong><div id="journalCount" class="num">—</div><a href="/member/journal/">Open Journal</a></article><article class="card"><strong>Learning Paths</strong><p class="muted">Structured educational journeys.</p><a href="/member/learning-paths/">Explore Learning Paths</a></article></section></main><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>(async()=>{const status=document.getElementById("status");try{const session=await ODMember.requireSession();if(!session)return;const db=await ODMember.client(),u=session.user,name=u.user_metadata?.display_name||u.email?.split("@")[0]||"Member";document.getElementById("welcome").textContent="Welcome, "+name;const p=await db.from("profiles").upsert({id:u.id,display_name:u.user_metadata?.display_name||name,preferred_language:u.user_metadata?.preferred_language||"en",updated_at:new Date().toISOString()},{onConflict:"id"}).select("display_name").single();if(p.error)throw p.error;const [tests,prog,saved,journal]=await Promise.all([db.from("test_results").select("id",{count:"exact",head:true}),db.from("learning_progress").select("resource_type,resource_path,updated_at").eq("status","completed").order("updated_at",{ascending:false}),db.from("saved_articles").select("id",{count:"exact",head:true}),db.from("reflection_journal_entries").select("id",{count:"exact",head:true})]);if(tests.error||prog.error||saved.error||journal.error)throw(tests.error||prog.error||saved.error||journal.error);const rows=prog.data||[],articleCount=rows.filter(x=>x.resource_type==="article").length,testCount=rows.filter(x=>x.resource_type==="test").length,pathCount=rows.filter(x=>x.resource_type==="learning_path").length;document.getElementById("tests").textContent=testCount;document.getElementById("articles").textContent=articleCount;document.getElementById("saved").textContent=saved.count||0;document.getElementById("journalCount").textContent=journal.count||0;document.getElementById("total").textContent=articleCount+testCount+pathCount+rows.filter(x=>x.resource_type==="member_content").length;document.getElementById("recent").innerHTML=rows.length?rows.slice(0,5).map(x=>'<div class="item"><strong>'+({article:"Article",test:"Mind Test",learning_path:"Learning Path",member_content:"Member Knowledge"}[x.resource_type]||"Activity")+'</strong><div class="muted">'+x.resource_path+' · '+new Date(x.updated_at).toLocaleString()+'</div></div>').join(""):"No completed learning activity yet. Complete a Mind Test or mark an article as completed to start tracking.";status.textContent="Your account is protected. Private member data is restricted to your own account."; }catch(e){console.warn(e);status.textContent="We could not load your member activity right now. Please try again."}})()</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Member Dashboard | Obaid Doctrine</title>
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/dashboard/">
+<style>
+:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--forest);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1120px;margin:auto;padding:24px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:24px}
+.brand{font-weight:900;letter-spacing:.05em}.nav{display:flex;gap:12px;flex-wrap:wrap}.nav a{color:var(--forest);font-weight:750;text-decoration:none}.nav a:hover{text-decoration:underline}
+.hero{background:var(--white);border:1px solid var(--soft);border-radius:26px;padding:28px;box-shadow:0 10px 30px rgba(49,84,58,.06)}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}h1{margin:7px 0 8px;font-size:clamp(1.8rem,4vw,2.6rem)}h2{margin:0 0 14px;font-size:1.25rem}
+.muted{color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-block;padding:11px 15px;border-radius:11px;background:var(--forest);color:#fff;text-decoration:none;font-weight:800}.btn.secondary{background:var(--soft);color:var(--forest)}
+.status{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--soft);font-size:.92rem}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}.card{background:var(--white);border:1px solid rgba(49,84,58,.12);border-radius:20px;padding:20px}
+.num{font-size:2rem;font-weight:850;margin:5px 0}.card a{color:var(--forest);font-weight:750}.activity{margin-top:16px}.item{padding:13px 0;border-bottom:1px solid var(--soft)}.item:last-child{border-bottom:0}.item strong{display:block}.item small{display:block;margin-top:3px;color:var(--muted)}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.quick a{display:block;background:var(--white);border:1px solid var(--soft);border-radius:16px;padding:16px;color:var(--forest);text-decoration:none;font-weight:800}.quick span{display:block;margin-top:4px;color:var(--muted);font-size:.86rem;font-weight:500}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}}@media(max-width:560px){.top{align-items:flex-start;flex-direction:column}.grid,.quick{grid-template-columns:1fr}.hero{padding:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+<div class="brand">OBAID DOCTRINE</div>
+<nav class="nav" aria-label="Member navigation">
+<a href="/member/profile/">Profile</a><a href="/member/my-tests/">My Tests</a><a href="/member/progress/">Progress</a><a href="/member/library/">My Library</a><a href="/member/journal/">Journal</a><a href="/member/logout/">Log Out</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="eyebrow">Private Member Area</div>
+<h1 id="welcome">Welcome</h1>
+<p class="muted">Your personal space for learning, self-reflection and tracking your progress.</p>
+<div class="actions">
+<a class="btn" href="/mind-tests/">Explore Mind Tests</a>
+<a class="btn secondary" href="/member/knowledge/">Member Knowledge</a>
+<a class="btn secondary" href="/member/recommendations/">Recommendations</a>
+</div>
+<div id="status" class="status" role="status">Loading your member activity…</div>
+</section>
+
+<section class="grid" aria-label="Your activity">
+<article class="card"><div class="muted">Tests completed</div><div id="tests" class="num">—</div><a href="/member/my-tests/">View My Tests</a></article>
+<article class="card"><div class="muted">Articles completed</div><div id="articles" class="num">—</div><a href="/member/progress/">View Progress</a></article>
+<article class="card"><div class="muted">Saved articles</div><div id="saved" class="num">—</div><a href="/member/library/">Open My Library</a></article>
+<article class="card"><div class="muted">Journal entries</div><div id="journalCount" class="num">—</div><a href="/member/journal/">Open Journal</a></article>
+</section>
+
+<section class="card activity">
+<h2>Recent learning activity</h2>
+<div id="recent" class="muted">Loading…</div>
+</section>
+
+<section class="quick" aria-label="Member tools">
+<a href="/member/learning-paths/">Learning Paths<span>Structured educational journeys</span></a>
+<a href="/member/profile/">My Profile<span>Update your member information</span></a>
+<a href="/member/settings/">Account Settings<span>Manage your account preferences</span></a>
+</section>
+</main>
+
+<script src="/member/member-auth.js?v=20260929"></script>
+<script src="/member/member-nav.js?v=20260929"></script>
+<script>
+(async()=>{
+ const status=document.getElementById("status");
+ const recent=document.getElementById("recent");
+ try{
+  const session=await ODMember.requireSession(); if(!session)return;
+  const db=await ODMember.client();
+  const userResult=await db.auth.getUser();
+  if(userResult.error||!userResult.data.user) throw(userResult.error||new Error("Authenticated user could not be verified."));
+  const u=userResult.data.user;
+  const profileResult=await db.from("profiles").select("display_name,preferred_language").eq("id",u.id).maybeSingle();
+  if(profileResult.error) throw profileResult.error;
+  const profile=profileResult.data||{};
+  const name=profile.display_name||u.user_metadata?.display_name||u.email?.split("@")[0]||"Member";
+  document.getElementById("welcome").textContent="Welcome, "+name;
+
+  const [tests,prog,saved,journal]=await Promise.all([
+   db.from("test_results").select("id",{count:"exact",head:true}).eq("user_id",u.id),
+   db.from("learning_progress").select("resource_type,resource_path,updated_at").eq("user_id",u.id).eq("status","completed").order("updated_at",{ascending:false}).limit(20),
+   db.from("saved_articles").select("id",{count:"exact",head:true}).eq("user_id",u.id),
+   db.from("reflection_journal_entries").select("id",{count:"exact",head:true}).eq("user_id",u.id)
+  ]);
+  if(tests.error||prog.error||saved.error||journal.error) throw(tests.error||prog.error||saved.error||journal.error);
+
+  const rows=prog.data||[];
+  const articleCount=rows.filter(x=>x.resource_type==="article").length;
+  document.getElementById("tests").textContent=tests.count||0;
+  document.getElementById("articles").textContent=articleCount;
+  document.getElementById("saved").textContent=saved.count||0;
+  document.getElementById("journalCount").textContent=journal.count||0;
+
+  recent.textContent="";
+  if(!rows.length){
+   recent.textContent="No completed learning activity yet. Complete a Mind Test or mark an article as completed to start tracking.";
+  }else{
+   rows.slice(0,5).forEach(x=>{
+    const item=document.createElement("div"); item.className="item";
+    const strong=document.createElement("strong");
+    strong.textContent=({article:"Article",test:"Mind Test",learning_path:"Learning Path",member_content:"Member Knowledge"}[x.resource_type]||"Learning Activity");
+    const small=document.createElement("small");
+    small.textContent=(x.resource_path||"Resource")+" · "+new Date(x.updated_at).toLocaleString();
+    item.append(strong,small); recent.appendChild(item);
+   });
+  }
+  status.textContent="Your account is protected. Private member data is restricted to your own account.";
+ }catch(e){
+  console.warn(e);
+  status.textContent="We could not load your member activity right now. Please try again.";
+  recent.textContent="Activity is temporarily unavailable.";
+ }
+})();
+</script>
+</body>
+</html>
