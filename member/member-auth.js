@@ -7,8 +7,9 @@ let ready;
 function load(){if(ready)return ready;ready=new Promise((resolve,reject)=>{if(window.supabase)return resolve(window.supabase);const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";s.async=true;s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)});return ready}
 window.ODMember={
  async client(){const sdk=await load();return sdk.createClient(URL,KEY)},
+ async user(){const db=await this.client();const r=await db.auth.getUser();return r.data.user||null},
  async session(){const db=await this.client();const r=await db.auth.getSession();return r.data.session||null},
- async requireSession(){const s=await this.session();if(!s){location.href="/account/login/";return null}return s},
+ async requireSession(){const db=await this.client();const r=await db.auth.getUser();if(r.error||!r.data.user){location.href="/account/login/";return null}const s=await db.auth.getSession();return s.data.session||{user:r.data.user}},
  async logout(){const db=await this.client();return db.auth.signOut()}
 };
 })();
