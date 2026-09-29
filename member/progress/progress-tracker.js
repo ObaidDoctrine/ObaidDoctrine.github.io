@@ -17,6 +17,7 @@ window.ODProgress={
    const now=new Date().toISOString();
    const r=await supabase.from("learning_progress").upsert({user_id:s.user.id,resource_type:type,resource_path:path,status:"completed",completed_at:now,updated_at:now},{onConflict:"user_id,resource_type,resource_path"}).select("id").single();
    if(r.error){console.warn("[Obaid Doctrine] Progress not saved:",r.error.message);return {saved:false,reason:"database_error"}}
+   if(window.ODAnalytics){ODAnalytics.track("content_complete",{resource_type:type})}
    return {saved:true,id:r.data&&r.data.id};
   }catch(e){console.warn("[Obaid Doctrine] Progress tracker unavailable:",e);return {saved:false,reason:"connector_error"}}
  }
