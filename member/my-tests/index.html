@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>My Tests | Obaid Doctrine</title>
+<meta name="description" content="Your private Obaid Doctrine self-reflection test history.">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/my-tests/">
+<link rel="stylesheet" href="../../styles.css?v=20260929">
+<style>
+:root{--od-green:#31543a;--od-lime:#b7d84b;--od-ivory:#fafaf5;--od-muted:#6f756f}
+body{background:var(--od-ivory);color:var(--od-green)}.mt-wrap{max-width:980px;margin:auto;padding:32px 18px 70px}
+.mt-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:28px}.mt-brand{font-weight:800;letter-spacing:.04em}.mt-back{color:var(--od-green);font-weight:700}
+.mt-card{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin:14px 0;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+.mt-card h2{margin:.1rem 0 .5rem;font-size:1.2rem}.meta{color:var(--od-muted);font-size:.92rem}.score{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:#dce8b5;color:var(--od-green);font-weight:800}
+.state{text-align:center;padding:52px 22px}.btn{display:inline-block;border:0;border-radius:12px;padding:11px 16px;background:var(--od-green);color:#fff;text-decoration:none;font-weight:700;margin-top:12px}
+@media(max-width:600px){.mt-top{align-items:flex-start}.mt-card{padding:18px}}
+</style>
+</head>
+<body>
+<main class="mt-wrap">
+<header class="mt-top"><div class="mt-brand">OBAID DOCTRINE</div><a class="mt-back" href="/mind-tests/">Mind Tests</a></header>
+<section id="app" class="mt-card state"><h1>My Tests</h1><p>Loading your private test history…</p></section>
+</main>
+<script>
+(function(){
+"use strict";
+const URL="https://nrckrzgxpxfwuyodbylg.supabase.co";
+const KEY="sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw";
+const app=document.getElementById("app");
+function esc(v){return String(v??"").replace(/[&<>"']/g,function(c){return({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]})}
+function title(id){return ({'emotional-intelligence':'Emotional Intelligence','communication-style':'Communication Style','self-awareness':'Self-Awareness','conflict-style':'Conflict Style','motivation-goals':'Motivation & Goal Pursuit','stress-response':'Stress Response Style','resilience-adaptability':'Resilience & Adaptability','decision-making-style':'Decision-Making Style','relationship-communication':'Relationship Communication','personality-traits':'Personality Traits'})[id]||id}
+function load(){return new Promise((resolve,reject)=>{const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)})}
+async function run(){
+ try{
+  const sdk=await load();const db=sdk.createClient(URL,KEY);
+  const {data:{session}}=await db.auth.getSession();
+  if(!session){app.innerHTML='<h1>My Tests</h1><p>Please log in to view your private test history.</p><a class="btn" href="/account/login/">Log In</a>';return}
+  const {data,error}=await db.from("test_results").select("test_id,test_version,language,question_count,strongest_label,strongest_description,score,completed_at").order("completed_at",{ascending:false});
+  if(error)throw error;
+  if(!data.length){app.innerHTML='<h1>My Tests</h1><p>You have not saved a test result yet. Complete a Mind Test while logged in and it will appear here.</p><a class="btn" href="/mind-tests/">Explore Mind Tests</a>';return}
+  app.className="";app.innerHTML='<h1>My Tests</h1><p class="meta">Your saved self-reflection history. These results are educational and are not clinical diagnoses.</p>'+data.map(x=>'<article class="mt-card"><h2>'+esc(title(x.test_id))+'</h2><div class="meta">'+esc(new Date(x.completed_at).toLocaleString())+' · '+esc(x.language==="ur"?"اردو":"English")+'</div><div class="score">Pattern score: '+esc(x.score)+' / '+esc(x.question_count)+'</div><p><strong>'+esc(x.strongest_label||"Reflection result")+'</strong></p><p>'+esc(x.strongest_description||"")+'</p></article>').join("");
+ }catch(e){console.warn(e);app.innerHTML='<h1>My Tests</h1><p>We could not load your history right now. Please try again.</p><a class="btn" href="/mind-tests/">Back to Mind Tests</a>'}
+}
+run();
+})();
+</script>
+</body></html>
