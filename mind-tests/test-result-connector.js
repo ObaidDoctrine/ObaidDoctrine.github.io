@@ -60,6 +60,24 @@
         return { saved: false, reason: "database_error" };
       }
 
+      try {
+        const path = window.location.pathname;
+        if (path.startsWith("/")) {
+          const now = new Date().toISOString();
+          const progress = await supabase.from("learning_progress").upsert({
+            user_id: session.user.id,
+            resource_type: "test",
+            resource_path: path,
+            status: "completed",
+            completed_at: now,
+            updated_at: now
+          }, { onConflict: "user_id,resource_type,resource_path" });
+          if (progress.error) console.warn("[Obaid Doctrine] Test progress was not saved:", progress.error.message);
+        }
+      } catch (progressError) {
+        console.warn("[Obaid Doctrine] Test progress update unavailable:", progressError);
+      }
+
       return { saved: true, id: response.data && response.data.id };
     } catch (error) {
       console.warn("[Obaid Doctrine] Test result connector unavailable:", error);
