@@ -1,1 +1,75 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>My Library | Obaid Doctrine</title><link rel="canonical" href="https://www.obaiddoctrine.com/member/library/"><link rel="stylesheet" href="../../styles.css?v=20260929"><style>body{background:#fafaf5;color:#31543a}.wrap{max-width:980px;margin:auto;padding:32px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.brand{font-weight:800}.top a,a{color:#31543a;font-weight:700}.card{background:#fff;border:1px solid #dce8b5;border-radius:22px;padding:24px;margin:14px 0;box-shadow:0 8px 28px rgba(49,84,58,.06)}.item{display:flex;justify-content:space-between;gap:18px;align-items:center;border-top:1px solid #e8eedb;padding:16px 0}.item:first-child{border-top:0}.path{font-size:.9rem;color:#6f756f;word-break:break-word}.btn{border:0;border-radius:10px;padding:10px 14px;background:#31543a;color:#fff;font-weight:800;cursor:pointer}.state{text-align:center;padding:48px 20px}.msg{padding:10px;border-radius:10px;background:#dce8b5;margin-top:14px}@media(max-width:650px){.item{align-items:flex-start;flex-direction:column}.btn{width:100%}}</style></head><body><main class="wrap"><header class="top"><div class="brand">OBAID DOCTRINE</div><nav><a href="/member/dashboard/">Dashboard</a> · <a href="/member/profile/">Profile</a></nav></header><section id="app" class="card state"><h1>My Library</h1><p>Loading your saved articles…</p></section></main><script src="/member/member-auth.js?v=20260929"></script><script src="/member/member-nav.js?v=20260929"></script><script>(async()=>{const app=document.getElementById("app");function esc(v){return String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}function title(p){try{const x=p.split("/").filter(Boolean).pop()||p;return x.replace(/[-_]+/g," ").replace(/\b\w/g,c=>c.toUpperCase())}catch(e){return p}}try{const s=await ODMember.requireSession();if(!s)return;const db=await ODMember.client();const r=await db.from("saved_articles").select("id,article_path,created_at").order("created_at",{ascending:false});if(r.error)throw r.error;if(!r.data.length){app.innerHTML='<h1>My Library</h1><p>You have not saved any articles yet.</p><a href="/#insights">Explore Articles</a>';return}app.className="card";app.innerHTML='<h1>My Library</h1><p>Articles you saved for later.</p>'+r.data.map(x=>'<article class="item"><div><h2>'+esc(title(x.article_path))+'</h2><div class="path">'+esc(x.article_path)+'</div></div><div><a class="btn" href="'+encodeURI(x.article_path)+'">Open</a> <button class="btn" data-id="'+x.id+'">Remove</button></div></article>').join("");app.querySelectorAll("button[data-id]").forEach(b=>b.onclick=async()=>{b.disabled=true;const d=await db.from("saved_articles").delete().eq("id",b.dataset.id);if(d.error){b.disabled=false;alert("Could not remove this article.");return}location.reload()})}catch(e){console.warn(e);app.innerHTML='<h1>My Library</h1><p>We could not load your saved articles right now.</p>'}})()</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>My Library | Obaid Doctrine</title>
+<meta name="description" content="Your private Obaid Doctrine saved articles.">
+<link rel="canonical" href="https://www.obaiddoctrine.com/member/library/">
+<style>
+:root{--green:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--green);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}.brand{font-weight:900;letter-spacing:.04em}.top a{color:var(--green);font-weight:800;text-decoration:none}
+.hero,.item{background:#fff;border:1px solid rgba(49,84,58,.12);border-radius:22px;padding:24px;margin:14px 0;box-shadow:0 8px 28px rgba(49,84,58,.06)}
+h1{margin:.1rem 0 .5rem;font-size:clamp(1.8rem,4vw,2.4rem)}h2{margin:0 0 5px;font-size:1.15rem}.muted,.path{color:var(--muted);font-size:.92rem}.count{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:var(--soft);font-weight:800}
+.item{display:flex;justify-content:space-between;gap:20px;align-items:center}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;font-weight:800;cursor:pointer;text-decoration:none}.btn.secondary{background:var(--soft);color:var(--green)}.btn:disabled{opacity:.6;cursor:wait}
+.state{text-align:center;padding:50px 20px}.message{padding:12px 14px;border-radius:12px;background:var(--soft);margin-top:14px}
+@media(max-width:650px){.top{align-items:flex-start;flex-direction:column}.item{align-items:flex-start;flex-direction:column}.actions{width:100%}.actions .btn{flex:1;text-align:center}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">OBAID DOCTRINE</div><nav><a href="/member/dashboard/">Dashboard</a> &nbsp; <a href="/member/profile/">Profile</a> &nbsp; <a href="/member/my-tests/">My Tests</a></nav></header>
+<section id="app" class="hero state"><h1>My Library</h1><p class="muted">Loading your saved articles…</p></section>
+</main>
+<script src="/member/member-auth.js?v=20260929"></script>
+<script>
+(async()=>{
+ const app=document.getElementById("app");
+ const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const title=p=>{try{const x=String(p||"").split("/").filter(Boolean).pop()||"Saved Article";return decodeURIComponent(x).replace(/[-_]+/g," ").replace(/\b\w/g,c=>c.toUpperCase())}catch(e){return String(p||"Saved Article")}};
+ const safePath=p=>{try{const u=new URL(p,location.origin);if(u.origin!==location.origin)return null;return u.pathname+u.search+u.hash}catch(e){return null}};
+ try{
+  const session=await ODMember.requireSession();if(!session)return;
+  const db=await ODMember.client();
+  const auth=await db.auth.getUser();if(auth.error||!auth.data.user)throw(auth.error||new Error("User verification failed."));
+  const uid=auth.data.user.id;
+  const r=await db.from("saved_articles").select("id,article_path,created_at").eq("user_id",uid).order("created_at",{ascending:false}).limit(100);
+  if(r.error)throw r.error;
+  const rows=r.data||[];
+  app.className="hero";
+  app.innerHTML='<h1>My Library</h1><p class="muted">Articles you saved for later.</p><span class="count">'+rows.length+' saved '+(rows.length===1?"article":"articles")+'</span>';
+  if(!rows.length){
+   const box=document.createElement("div");box.className="message";box.textContent="Your library is empty. Save an article from Obaid Doctrine and it will appear here.";app.appendChild(box);
+   const a=document.createElement("a");a.className="btn";a.href="/articles/";a.textContent="Explore Articles";app.appendChild(a);return;
+  }
+  rows.forEach(x=>{
+   const path=safePath(x.article_path);
+   const item=document.createElement("article");item.className="item";
+   const info=document.createElement("div");
+   const h=document.createElement("h2");h.textContent=title(x.article_path);
+   const p=document.createElement("div");p.className="path";p.textContent=x.article_path||"Article";
+   const d=document.createElement("div");d.className="path";d.textContent="Saved "+(x.created_at?new Date(x.created_at).toLocaleDateString():"date unavailable");
+   info.append(h,p,d);
+   const actions=document.createElement("div");actions.className="actions";
+   if(path){const open=document.createElement("a");open.className="btn";open.href=path;open.textContent="Open";actions.appendChild(open)}
+   const remove=document.createElement("button");remove.className="btn secondary";remove.textContent="Remove";remove.type="button";
+   remove.addEventListener("click",async()=>{
+    remove.disabled=true;remove.textContent="Removing…";
+    try{
+     const del=await db.from("saved_articles").delete().eq("id",x.id).eq("user_id",uid);
+     if(del.error)throw del.error;
+     item.remove();
+     const remaining=app.querySelectorAll(".item").length;
+     const badge=app.querySelector(".count");if(badge)badge.textContent=remaining+" saved "+(remaining===1?"article":"articles");
+     if(!remaining){const box=document.createElement("div");box.className="message";box.textContent="Your library is now empty.";app.appendChild(box)}
+    }catch(e){console.warn(e);remove.disabled=false;remove.textContent="Remove";alert("Could not remove this article. Please try again.")}
+   });
+   actions.appendChild(remove);item.append(info,actions);app.appendChild(item);
+  });
+ }catch(e){console.warn(e);app.className="hero state";app.innerHTML='<h1>My Library</h1><p>We could not load your saved articles right now. Please try again.</p><a class="btn" href="/member/dashboard/">Back to Dashboard</a>'}
+})();
+</script>
+<script src="/member/member-nav.js?v=20260929"></script>
+</body>
+</html>
