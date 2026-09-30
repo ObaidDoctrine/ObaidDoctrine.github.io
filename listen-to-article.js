@@ -74,7 +74,7 @@ function init(){
   stop.addEventListener("click",()=>{
     active=false;index=0;if(synth)synth.cancel();if(audio){audio.pause();audio.src="";audio=null;}setStatus("");play.disabled=false;
   });
-  speed.addEventListener("change",()=>{if(usingPiper&&audio)audio.playbackRate=parseFloat(speed.value);});
+  speed.addEventListener("change",()=>{if(audio)audio.playbackRate=parseFloat(speed.value);});
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
