@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>Communication Style Self-Reflection Test | Obaid Doctrine</title><meta property="og:title" content="Communication Style Self-Reflection Test | Obaid Doctrine"><meta property="og:description" content="Explore your everyday communication tendencies with an original, research-informed self-reflection test. Educational only, not a clinical assessment."><meta property="og:url" content="https://www.obaiddoctrine.com/mind-tests/communication-style/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
@@ -36,9 +37,4 @@ const desc=[
 "You tend to express needs, limits and disagreement while trying to respect the other person. Assertiveness is not the same as aggression.",
 "You tend to connect viewpoints and look for workable shared solutions. This can be especially useful when people have different needs or interpretations."
 ];
-let answers=[],i=0;
-function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
-function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
-function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR COMMUNICATION PROFILE</p><h2>Your strongest area: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/12 responses aligned most closely with this area.</p><p class="test-note"><strong>Research note:</strong> Research on interpersonal communication and assertiveness commonly examines areas such as listening, empathy, expressiveness, interaction management and respectful assertion. This original tool is an educational self-reflection exercise, not a validated clinical or diagnostic assessment.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`;}
-render();
 </script><script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
