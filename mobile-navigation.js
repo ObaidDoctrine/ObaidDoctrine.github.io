@@ -64,7 +64,7 @@
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
     nav.classList.add("od-legacy-mobile-nav");
-    nav.setAttribute("aria-hidden", "true");
+    nav.setAttribute("aria-hidden", isMobile() ? "true" : "false");
     header.insertBefore(button, nav);
 
     const setOpen = open => {
@@ -72,7 +72,7 @@
       button.classList.toggle("od-mobile-nav-open", open);
       button.setAttribute("aria-expanded", open ? "true" : "false");
       button.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-      nav.setAttribute("aria-hidden", open ? "false" : "true");
+      nav.setAttribute("aria-hidden", open || !isMobile() ? "false" : "true");
       setBodyLock(open);
     };
 
@@ -93,6 +93,7 @@
 
     window.addEventListener("resize", () => {
       if (!isMobile()) setOpen(false);
+      else if (!nav.classList.contains("od-mobile-nav-open")) nav.setAttribute("aria-hidden", "true");
     });
   }
 
