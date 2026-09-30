@@ -17,7 +17,7 @@
   var labelData = typeof labels !== "undefined" ? labels : null;
   var descriptionData = typeof desc !== "undefined" ? desc : null;
 
-  var items = source.slice(0, 10);
+  var items = source.slice(0, 12);
   var isRTL = document.documentElement.dir === "rtl";
   var pathKey = location.pathname.replace(/\/+$/, "") || "/";
   var storageKey = "od-test-state:" + pathKey;
