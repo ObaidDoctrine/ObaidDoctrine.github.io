@@ -62,15 +62,24 @@
   }
 
   function loadSdk() {
-    return new Promise((resolve, reject) => {
-      if (window.supabase && typeof window.supabase.createClient === "function") return resolve();
+    if (window.supabase && typeof window.supabase.createClient === "function") return Promise.resolve();
+    if (window.__odSupabaseLoadPromise) return window.__odSupabaseLoadPromise;
+    window.__odSupabaseLoadPromise = new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-od-supabase="true"]');
+      if (existing) {
+        existing.addEventListener("load", resolve, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
       const script = document.createElement("script");
       script.src = SDK_URL;
       script.async = true;
+      script.dataset.odSupabase = "true";
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
     });
+    return window.__odSupabaseLoadPromise;
   }
 
   async function init() {
