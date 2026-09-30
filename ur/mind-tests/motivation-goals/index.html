@@ -1,5 +1,6 @@
 <!doctype html><html lang="ur" dir="rtl"><head>
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow,max-image-preview:large"><title>ترغیب اور مقصد کا خود شناسی ٹیسٹ | Obaid Doctrine</title><meta name="description" content="روزمرہ ترغیب اور مقاصد کی تکمیل کے رجحانات کو سمجھنے کے لیے original research-informed خود شناسی ٹیسٹ۔ یہ طبی تشخیص نہیں۔">
 <link rel="canonical" href="https://www.obaiddoctrine.com/ur/mind-tests/motivation-goals/">
@@ -36,5 +37,4 @@ const desc=[
 "آپ ایسے مقاصد کے ساتھ زیادہ جڑے رہ سکتے ہیں جو سیکھنے، بہتری اور بڑھتی ہوئی صلاحیت کا احساس دیں۔",
 "آپ کو ایسے لوگوں، معمولات اور ماحول سے فائدہ ہو سکتا ہے جو مستقل عمل کو آسان بنائیں۔"
 ];
-let answers=[],i=0;function render(){let q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">سوال ${i+1} از ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`}function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult()}function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کی ترغیبی پروفائل</p><h2>آپ کا نمایاں رجحان: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>رجحان اسکور:</strong> ${m}/12 جوابات اس پہلو سے سب سے زیادہ مطابقت رکھتے ہیں۔</p><p class="test-note"><strong>تحقیقی نوٹ:</strong> Motivation research میں اندرونی ترغیب اور بیرونی ترغیب کی مختلف شکلوں کا مطالعہ کیا گیا ہے۔ Self-Determination Theory خود اختیاری، صلاحیت اور تعلق جیسے نفسیاتی پہلوؤں کو بھی اہم سمجھتی ہے۔ ترغیب شخص، مقصد اور حالات کے مطابق بدل سکتی ہے۔ یہ اصل تعلیمی خود شناسی کی مشق ہے، طبی یا تشخیصی ٹیسٹ نہیں۔</p><button class="btn primary" onclick="location.reload()">ٹیسٹ دوبارہ دیں</button>`;}render();
 </script><script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
