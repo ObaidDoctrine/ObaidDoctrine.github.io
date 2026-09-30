@@ -1,5 +1,6 @@
 <!doctype html><html lang="ur" dir="rtl"><head>
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow,max-image-preview:large"><title>خود آگاہی کا خود شناسی ٹیسٹ | Obaid Doctrine</title><meta name="description" content="روزمرہ خود آگاہی، self-reflection اور metacognition پر مبنی original research-informed self-reflection test۔ یہ clinical assessment نہیں۔">
 <link rel="canonical" href="https://www.obaiddoctrine.com/ur/mind-tests/self-awareness/">
@@ -35,5 +36,4 @@ const desc=[
 "آپ مختلف حالات اور وقت کے ساتھ بار بار آنے والے patterns کو دیکھنے کی طرف مائل ہو سکتے ہیں، بجائے اس کے کہ ہر واقعے کو بالکل الگ سمجھیں۔",
 "آپ مشاہدے اور interpretation میں فرق کرنے اور کسی explanation کو حقیقت ماننے سے پہلے evidence دیکھنے کی طرف مائل ہو سکتے ہیں۔"
 ];
-let answers=[],i=0;function render(){let q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">سوال ${i+1} از ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`}function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult()}function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کی خود آگاہی پروفائل</p><h2>آپ کا نمایاں پہلو: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>رجحان اسکور:</strong> ${m}/12 جوابات اس پہلو سے سب سے زیادہ مطابقت رکھتے ہیں۔</p><p class="test-note"><strong>تحقیقی نوٹ:</strong> Self-awareness، self-reflection، self-knowledge اور metacognition پر psychology میں تحقیق کی جاتی ہے۔ APA کے مطابق metacognition اپنے cognitive processes سے آگاہی سے متعلق ہے۔ یہ اصل educational self-reflection exercise ہے، validated clinical یا diagnostic assessment نہیں۔</p><button class="btn primary" onclick="location.reload()">ٹیسٹ دوبارہ دیں</button>`;}render();
 </script><script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
