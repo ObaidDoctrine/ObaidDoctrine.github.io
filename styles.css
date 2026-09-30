@@ -465,3 +465,8 @@ html[dir="rtl"] .od-test-visual{text-align:right}
 .article-featured-image figcaption{margin-top:9px;padding:0 4px;color:var(--m);font-size:.82rem;line-height:1.5}
 html[dir="rtl"] .article-featured-image{text-align:right}
 @media(max-width:700px){.article-featured-image{margin-bottom:22px;padding:0 14px}.article-featured-image img{border-radius:18px}.article-featured-image figcaption{font-size:.78rem}}
+
+/* ---------- OBAID DOCTRINE visual system: Article listing thumbnails ---------- */
+.article-card-visual{display:block;width:100%;height:auto;aspect-ratio:1200/675;object-fit:cover;border-radius:18px;margin:0 0 14px;background:#FAFAF5;border:1px solid var(--line)}
+.article-list > a,.article-list > .article-card{overflow:hidden}
+@media(max-width:680px){.article-card-visual{border-radius:14px;margin-bottom:12px}}
