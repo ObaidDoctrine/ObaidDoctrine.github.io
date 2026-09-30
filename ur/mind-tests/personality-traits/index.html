@@ -3,7 +3,8 @@
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>شخصی خصوصیات کا خود شناسی ٹیسٹ | Obaid Doctrine</title>
 <meta name="description" content="روزمرہ رویوں کے ذریعے شخصیت کی پانچ وسیع خصوصیات پر مبنی تحقیقی خود شناسی ٹیسٹ۔ یہ طبی یا نفسیاتی تشخیص نہیں۔">
@@ -53,10 +54,5 @@ const desc=[
 "آپ سماجی رابطے، گفتگو اور لوگوں کے ساتھ فعال میل جول سے توانائی حاصل کرنے کی طرف مائل ہو سکتے ہیں۔",
 "آپ جذباتی سکون اور دباؤ یا غیر یقینی کیفیت میں جواب دینے سے پہلے سوچنے کے لیے وقت لینے کی طرف مائل ہو سکتے ہیں۔"
 ];
-let answers=[],i=0;
-function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">سوال ${i+1} از ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
-function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
-function showResult(){let s=[0,0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کی خود شناسی کا نتیجہ</p><h2>آپ کا نمایاں رجحان: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>رجحانی اسکور:</strong> ${m}/15 جوابات اس پہلو سے سب سے زیادہ مطابقت رکھتے ہیں۔</p><p class="test-note"><strong>تحقیقی نوٹ:</strong> شخصیت کی تحقیق میں عموماً نئے تجربات کے لیے کشادگی، ذمہ داری، سماجی میل جول، تعاون اور جذباتی استحکام/عدم استحکام جیسی وسیع خصوصیات کا مطالعہ کیا جاتا ہے۔ یہ اصل اور آسان تعلیمی خود شناسی ٹیسٹ ہے؛ یہ کسی مستند personality inventory کی نقل یا طبی تشخیص نہیں۔ شخصیت کے رجحانات حالات اور وقت کے ساتھ بھی مختلف ہو سکتے ہیں۔</p><button class="btn primary" onclick="location.reload()">ٹیسٹ دوبارہ دیں</button>`;}
-render();
 </script>
 <script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
