@@ -34,11 +34,11 @@ jobs:
           cp -a "$SRC"/. .
           rm -rf _website_extract
 
-      - name: Fix GitHub Pages URLs
+      - name: Preserve final canonical domain
         run: |
-          find . -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) \
-            -not -path "./.git/*" \
-            -exec sed -i 's#https://www\.obaiddoctrine\.com#https://obaiddoctrine.github.io#g' {} +
+          echo "Final canonical domain: https://www.obaiddoctrine.com"
+          test -f CNAME
+          grep -Fx "www.obaiddoctrine.com" CNAME
 
       - name: Restore Google verification
         run: |
