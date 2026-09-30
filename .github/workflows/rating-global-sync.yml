@@ -1,0 +1,57 @@
+name: One-time rating integration sync
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: contains(github.event.head_commit.message, '[rating-sync]') == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update rating integration
+        shell: bash
+        run: |
+          set -e
+          changed=0
+
+          while IFS= read -r -d '' file; do
+            if grep -q 'rating.js?v=20260927' "$file"; then
+              sed -i 's/rating\.js?v=20260927/rating.js?v=20260930/g' "$file"
+              changed=1
+            elif ! grep -q 'rating.js?v=' "$file"; then
+              sed -i 's#</body>#<script src="/rating.js?v=20260930" defer></script></body>#' "$file"
+              changed=1
+            fi
+          done < <(find articles ur/articles -mindepth 2 -maxdepth 2 -name index.html ! -path 'articles/index.html' ! -path 'ur/articles/index.html' -print0)
+
+          while IFS= read -r -d '' file; do
+            if ! grep -q 'rating.js?v=' "$file"; then
+              sed -i 's#</body>#<script src="/rating.js?v=20260930" defer></script></body>#' "$file"
+              changed=1
+            elif grep -q 'rating.js?v=20260927' "$file"; then
+              sed -i 's/rating\.js?v=20260927/rating.js?v=20260930/g' "$file"
+              changed=1
+            fi
+          done < <(find mind-tests ur/mind-tests -mindepth 2 -maxdepth 2 -name index.html ! -path 'mind-tests/index.html' ! -path 'ur/mind-tests/index.html' -print0)
+
+          if [ "$changed" -eq 1 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add articles ur/articles mind-tests ur/mind-tests
+            git commit -m "Sync rating integration [rating-sync]"
+            git push
+          else
+            echo "No rating integration changes required."
+          fi
+
+          rm -f .github/workflows/rating-global-sync.yml
+          if git status --porcelain | grep -q .github/workflows/rating-global-sync.yml; then
+            git add .github/workflows/rating-global-sync.yml
+            git commit -m "Remove one-time rating sync workflow [rating-sync]"
+            git push
+          fi
