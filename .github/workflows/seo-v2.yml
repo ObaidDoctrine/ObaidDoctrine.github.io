@@ -24,7 +24,7 @@ jobs:
           from datetime import datetime, timezone
 
           ROOT=Path('.')
-          BASE='https://obaiddoctrine.github.io'
+          BASE='https://www.obaiddoctrine.com'
 
           # Install Google Analytics 4 Google tag on every HTML page.
           GA4_TAG = '''<!-- Google tag (gtag.js) -->
