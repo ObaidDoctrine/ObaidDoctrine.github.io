@@ -11,15 +11,29 @@
 
   function visitorId() {
     const key = "od_rating_visitor_id";
+    const makeUuid = () => {
+      try {
+        if (window.crypto && typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();
+        if (window.crypto && typeof window.crypto.getRandomValues === "function") {
+          const bytes = new Uint8Array(16);
+          window.crypto.getRandomValues(bytes);
+          bytes[6] = (bytes[6] & 15) | 64;
+          bytes[8] = (bytes[8] & 63) | 128;
+          const h = Array.from(bytes, b => b.toString(16).padStart(2, "0")).join("");
+          return h.slice(0,8)+"-"+h.slice(8,12)+"-"+h.slice(12,16)+"-"+h.slice(16,20)+"-"+h.slice(20);
+        }
+      } catch (_) {}
+      return "00000000-0000-4000-8000-" + Date.now().toString(16).padStart(12, "0").slice(-12);
+    };
     try {
       let id = localStorage.getItem(key);
       if (!id) {
-        id = crypto.randomUUID();
+        id = makeUuid();
         localStorage.setItem(key, id);
       }
       return id;
     } catch (_) {
-      return crypto.randomUUID();
+      return makeUuid();
     }
   }
 
@@ -83,9 +97,9 @@
   }
 
   async function init() {
-    const article = document.querySelector(".article-body, article.content-wrap");
+    const article = document.querySelector(".article-body");
     const test = document.querySelector("#test, .mind-test, [data-mind-test]");
-    const target = article || (test && test.closest(".content-wrap")) || test;
+    const target = article || (test && (test.closest(".content-wrap") || test));
     if (!target || document.querySelector(".od-rating-box")) return;
 
     const box = addBox(target);
@@ -93,7 +107,7 @@
 
     const result = box.querySelector(".od-rating-result");
     const status = box.querySelector(".od-rating-status");
-    const path = location.pathname.replace(/index\.html$/, "");
+    const path = location.pathname.replace(/index\.html$/, "") || "/";
     let client;
 
     try {
@@ -135,6 +149,7 @@
           p_visitor_id: visitorId()
         });
         if (error) {
+          console.error("[OD Rating] save error", error);
           status.textContent = text("Rating could not be saved. Please try again.", "ریٹنگ محفوظ نہیں ہو سکی۔ دوبارہ کوشش کریں۔");
           box.querySelectorAll(".od-rating-star").forEach(b => { b.disabled = false; });
           return;
