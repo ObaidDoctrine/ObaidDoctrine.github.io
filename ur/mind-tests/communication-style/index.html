@@ -2,7 +2,8 @@
 <html lang="ur" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script><script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>ابلاغی انداز کا خود شناسی ٹیسٹ | Obaid Doctrine</title><meta property="og:title" content="ابلاغی انداز کا خود شناسی ٹیسٹ | Obaid Doctrine"><meta property="og:description" content="روزمرہ گفتگو کے انداز پر مبنی original research-informed self-reflection test۔ یہ clinical assessment یا diagnosis نہیں۔"><meta property="og:url" content="https://www.obaiddoctrine.com/ur/mind-tests/communication-style/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
@@ -36,9 +37,4 @@ const desc=[
 "آپ اپنی ضروریات، حدود اور اختلاف کا اظہار کرتے ہوئے دوسرے شخص کے احترام کو اہمیت دے سکتے ہیں۔ Assertiveness اور aggression ایک چیز نہیں ہیں۔",
 "آپ مختلف نقطۂ نظر کو جوڑنے اور مشترکہ قابلِ عمل حل تلاش کرنے کی طرف مائل ہو سکتے ہیں۔ یہ مختلف ضروریات یا تشریحات کے درمیان خاص طور پر مفید ہو سکتا ہے۔"
 ];
-let answers=[],i=0;
-function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">سوال ${i+1} از ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
-function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
-function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">آپ کی ابلاغی پروفائل</p><h2>آپ کا نمایاں پہلو: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>رجحان اسکور:</strong> ${m}/12 جوابات اس پہلو سے سب سے زیادہ مطابقت رکھتے ہیں۔</p><p class="test-note"><strong>تحقیقی نوٹ:</strong> interpersonal communication research میں listening، empathy، expressiveness، interaction management اور assertiveness جیسے پہلوؤں کا مطالعہ کیا جاتا ہے۔ یہ اصل educational self-reflection exercise ہے، validated clinical یا diagnostic assessment نہیں۔</p><button class="btn primary" onclick="location.reload()">ٹیسٹ دوبارہ دیں</button>`;}
-render();
 </script><script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
