@@ -291,6 +291,25 @@
     actions.appendChild(retry);
     result.appendChild(actions);
     result.appendChild(shareButtons(label, max));
+
+    if (typeof window.saveMindTestResult === "function") {
+      var testId = pathKey.replace(/^\\/|\\/$/g, "").split("/").pop() || "mind-test";
+      window.saveMindTestResult({
+        test_id: testId,
+        test_version: "2026-09",
+        language: isRTL ? "ur" : "en",
+        question_count: items.length,
+        answers: state.answers.slice(),
+        dimension_scores: scores,
+        strongest_dimension: label,
+        strongest_label: label,
+        strongest_description: descAt(winner),
+        score: max,
+        completed_at: new Date().toISOString()
+      }).catch(function (error) {
+        console.warn("[Obaid Doctrine] Test result save unavailable:", error);
+      });
+    }
   }
 
   injectStyles();
