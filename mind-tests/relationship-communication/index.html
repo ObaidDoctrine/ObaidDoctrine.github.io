@@ -3,7 +3,8 @@
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4T240RQDK"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L4T240RQDK');</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Relationship Communication Style Test | Obaid Doctrine</title>
 <meta name="description" content="A short research-informed self-reflection test exploring listening, emotional responsiveness, constructive expression and repair in close relationships. Educational only, not a clinical assessment.">
@@ -49,10 +50,5 @@ const desc=[
 "You tend to value direct, respectful expression of needs and concerns without turning disagreement into personal attack.",
 "You tend to focus on repairing misunderstandings, finding workable next steps and keeping difficult conversations productive."
 ];
-let answers=[],i=0;
-function render(){const q=questions[i];document.getElementById("test").innerHTML=`<div class="test-progress">Question ${i+1} of ${questions.length}</div><div class="test-question"><h2>${q[0]}</h2>${q[1].map((x,j)=>`<button class="test-option" onclick="choose(${j})">${x}</button>`).join("")}</div>`;}
-function choose(j){answers.push(j);i++;if(i<questions.length)render();else showResult();}
-function showResult(){let s=[0,0,0,0];answers.forEach(x=>s[x]++);let m=Math.max(...s),k=s.indexOf(m);document.getElementById("test").hidden=true;let r=document.getElementById("result");r.hidden=false;r.innerHTML=`<p class="eyebrow">YOUR REFLECTION PROFILE</p><h2>Your strongest area: ${labels[k]}</h2><p>${desc[k]}</p><p><strong>Pattern score:</strong> ${m}/12 responses aligned most closely with this area.</p><p class="test-note"><strong>Research note:</strong> Relationship communication research suggests that constructive communication, responsiveness, listening and problem-solving can matter in close relationships, but their effects depend on the situation and the people involved. This original tool is an educational self-reflection exercise, not a validated relationship-quality or clinical assessment.</p><button class="btn primary" onclick="location.reload()">Take Again</button>`; }
-render();
 </script>
 <script src="/mind-tests/test-engine.js?v=20260927" defer></script><script src="/mobile-navigation.js?v=20260927-1" defer></script></body></html>
