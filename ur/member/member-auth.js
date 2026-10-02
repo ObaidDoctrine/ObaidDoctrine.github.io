@@ -1,2 +1,12 @@
-/* OBAID DOCTRINE — Urdu protected member helper */
-(function(){"use strict";const URL="https://nrckrzgxpxfwuyodbylg.supabase.co",KEY="sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw";let ready;function load(){if(ready)return ready;ready=new Promise((resolve,reject)=>{if(window.supabase)return resolve(window.supabase);const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";s.async=true;s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)});return ready}window.ODMember={async client(){const sdk=await load();return sdk.createClient(URL,KEY)},async requireSession(){const db=await this.client(),r=await db.auth.getSession();if(!r.data.session){location.href="/ur/account/login/";return null}return r.data.session},async logout(){const db=await this.client();return db.auth.signOut()}}})();
+/* OBAID DOCTRINE — Urdu member helper
+ * Uses the same Firebase authentication + backend data facade as English member pages.
+ */
+(function(){
+"use strict";
+if(window.ODMember)return;
+const s=document.createElement("script");
+s.src="/member/member-auth.js?v=20261002";
+s.onload=()=>{};
+s.onerror=()=>console.error("[OD Urdu Member] Shared member authentication failed to load.");
+document.head.appendChild(s);
+})();
