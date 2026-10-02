@@ -43,7 +43,7 @@ hr{border:0;border-top:1px solid var(--soft);margin:28px 0}
 <button id="deleteAccount" type="button">Delete My Account</button>
 </section>
 </main>
-<script src="/member/member-auth.js?v=20260929"></script>
+<script src="/member/member-auth.js?v=20261002"></script>
 <script>
 (async()=>{
 "use strict";
@@ -71,13 +71,10 @@ try{
  del.onclick=async()=>{
   if(!confirm("Are you sure you want to permanently delete your account? This cannot be undone."))return;
   del.disabled=true;setStatus("Requesting secure account deletion…");
-  const fresh=await db.auth.getSession();const token=fresh.data.session?.access_token;
-  if(!token){del.disabled=false;setStatus("Your session expired. Please log in again.");return}
-  const base="https://nrckrzgxpxfwuyodbylg.supabase.co";
   try{
-   const res=await fetch(base+"/functions/v1/delete-my-account",{method:"POST",headers:{Authorization:"Bearer "+token,apikey:"sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw}});
-   if(!res.ok)throw new Error("Deletion request failed.");
-   await db.auth.signOut();location.href="/account/login/";
+   await ODBackend.deleteAccount();
+   await ODFirebaseAuth.logout();
+   location.href="/account/login/";
   }catch(e){console.warn(e);del.disabled=false;setStatus("The account could not be deleted. Please try again.")}
  };
 }catch(e){console.warn(e);setStatus("We could not load your account settings. Please log in again.")}
