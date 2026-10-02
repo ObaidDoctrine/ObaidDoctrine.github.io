@@ -91,7 +91,8 @@ window.ODMember={
  async session(){await ensureDeps();const user=await this.user();return user?{user}:null},
  async requireSession(){await ensureDeps();
   const user=await this.user();
-  if(!user){location.href="/account/login/";return null}
+  const loginPath=location.pathname.startsWith("/ur/")?"/ur/account/login/":"/account/login/";
+  if(!user){location.href=loginPath;return null}
   try{return {user,identity:await window.ODBackend.me()}}
   catch(error){console.error("[OD Member]",error);await window.ODFirebaseAuth.logout();location.href="/account/login/";return null}
  },
