@@ -4,7 +4,7 @@ const { createClient } = require("@supabase/supabase-js");
 const { verifyFirebaseRequest } = require("./authMiddleware");
 
 const supabaseUrl = defineSecret("SUPABASE_URL");
-const supabaseServiceRoleKey = defineSecret("SUPABASE_SERVICE_ROLE_KEY");
+const supabaseServiceRoleKey = defineSecret("SUPABASE_SECRET_KEY");
 
 function supabaseAdmin() {
   return createClient(supabaseUrl.value(), supabaseServiceRoleKey.value(), {
