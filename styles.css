@@ -450,3 +450,8 @@ html[dir="rtl"] .home-page .footer-links{
     align-items:stretch;
   }
 }
+
+
+/* AUTHENTICATION REMOVED — login/member entry points are no longer part of the public website. */
+.account-actions,.member-actions,.member-section,.member-final-cta{display:none!important}
+a[href^="/account/"],a[href^="/member/"]{display:none!important}
