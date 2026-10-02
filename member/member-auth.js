@@ -9,7 +9,7 @@ function result(data=null,error=null,extra={}){return {data,error,...extra}}
 
 class Query{
  constructor(table){this.table=table;this.action="select";this.payload=null;this.filters=[];this.opts={};this.card=null;this.orderBy=null;this.limitN=null}
- select(columns="*",opts={}){this.action="select";this.opts=opts||{};this.columns=columns;return this}
+ select(columns="*",opts={}){if(this.action==="select")this.action="select";this.opts=opts||{};this.columns=columns;return this}
  eq(field,value){this.filters.push([field,value]);return this}
  order(field,opts={}){this.orderBy={field,opts};return this}
  limit(n){this.limitN=n;return this}
