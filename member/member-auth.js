@@ -81,16 +81,21 @@ class Query{
  }
 }
 
+async function ensureDeps(){
+ if(!window.ODFirebaseAuth){await new Promise((resolve,reject)=>{const s=document.createElement("script");s.src="/account/firebase-auth.js?v=20261002";s.onload=resolve;s.onerror=reject;document.head.appendChild(s)})}
+ if(!window.ODBackend){await new Promise((resolve,reject)=>{const s=document.createElement("script");s.src="/member/backend-api.js?v=20261002";s.onload=resolve;s.onerror=reject;document.head.appendChild(s)})}
+}
+
 window.ODMember={
  async user(){return window.ODFirebaseAuth?window.ODFirebaseAuth.currentUser():null},
- async session(){const user=await this.user();return user?{user}:null},
- async requireSession(){
+ async session(){await ensureDeps();const user=await this.user();return user?{user}:null},
+ async requireSession(){await ensureDeps();
   const user=await this.user();
   if(!user){location.href="/account/login/";return null}
   try{return {user,identity:await window.ODBackend.me()}}
   catch(error){console.error("[OD Member]",error);await window.ODFirebaseAuth.logout();location.href="/account/login/";return null}
  },
- async client(){
+ async client(){await ensureDeps();
   return {
    auth:{
     getUser:async()=>{const user=await window.ODFirebaseAuth.currentUser();return result(user,null)},
@@ -102,6 +107,6 @@ window.ODMember={
    rpc:async(name)=>{if(name==="is_admin"){const me=await window.ODBackend.me();return result(me.role==="admin",null)}throw new Error("Unsupported RPC: "+name)}
   }
  },
- async logout(){return window.ODFirebaseAuth.logout()}
+ async logout(){await ensureDeps();return window.ODFirebaseAuth.logout()}
 };
 })();
