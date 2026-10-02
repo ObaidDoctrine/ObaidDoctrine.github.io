@@ -1,16 +1,18 @@
-/* OBAID DOCTRINE — Firebase-authenticated backend API client foundation
- * Sends Firebase ID tokens as Authorization: Bearer <token>.
- * Never sends client-controlled user IDs or roles for authorization.
+/* OBAID DOCTRINE — Firebase-authenticated backend API client
+ * Firebase is the authentication provider.
+ * The API is hosted as a Supabase Edge Function; no Supabase Auth session is used.
  */
 (function(){
 "use strict";
 
-const DEFAULT_BACKEND_URL = window.OD_BACKEND_URL || "";
+const DEFAULT_BACKEND_URL = "https://nrckrzgxpxfwuyodbylg.supabase.co/functions/v1/firebase-api";
+const BACKEND_URL = window.OD_BACKEND_URL || DEFAULT_BACKEND_URL;
+
 window.ODBackend = {
-  baseUrl: DEFAULT_BACKEND_URL.replace(/\\/$/,""),
+  baseUrl: BACKEND_URL.replace(/\/$/,""),
 
   async request(path, options={}){
-    if(!this.baseUrl) throw new Error("Backend URL is not configured yet.");
+    if(!this.baseUrl) throw new Error("Backend URL is not configured.");
     const token = window.ODFirebaseAuth ? await window.ODFirebaseAuth.idToken() : null;
     if(!token) throw new Error("Authentication required.");
 
