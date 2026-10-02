@@ -1,13 +1,6 @@
 const CACHE_NAME = "obaid-doctrine-pwa-v2";
 const APP_SHELL = ["/", "/manifest.json"];
 
-function isPrivatePath(pathname) {
-  return pathname === "/account/" || pathname.startsWith("/account/") ||
-         pathname === "/member/" || pathname.startsWith("/member/") ||
-         pathname === "/ur/account/" || pathname.startsWith("/ur/account/") ||
-         pathname === "/ur/member/" || pathname.startsWith("/ur/member/");
-}
-
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -27,7 +20,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin || isPrivatePath(url.pathname)) return;
+  if (url.origin !== self.location.origin) return;
 
   event.respondWith(
     fetch(event.request)
