@@ -139,19 +139,29 @@ test.describe("Mind Tests", () => {
 });
 
 test.describe("Mind Tests mobile viewport", () => {
-  test.use({ ...devices["Pixel 5"] });
-
-  test("English Mind Test remains usable on mobile", async ({ page }) => {
-    await assertPublicPage(page, "/mind-tests/emotional-intelligence/");
-    await expect(page.locator(".od-test-option").first()).toBeVisible();
-    for (let i = 0; i < 12; i++) await page.locator(".od-test-option").first().click();
-    await expect(page.locator("#result")).toBeVisible();
+  test("English Mind Test remains usable on mobile", async ({ browser }) => {
+    const context = await browser.newContext({ ...devices["Pixel 5"] });
+    try {
+      const page = await context.newPage();
+      await assertPublicPage(page, "/mind-tests/emotional-intelligence/");
+      await expect(page.locator(".od-test-option").first()).toBeVisible();
+      for (let i = 0; i < 12; i++) await page.locator(".od-test-option").first().click();
+      await expect(page.locator("#result")).toBeVisible();
+    } finally {
+      await context.close();
+    }
   });
 
-  test("Urdu Mind Test remains usable on mobile", async ({ page }) => {
-    await assertPublicPage(page, "/ur/mind-tests/emotional-intelligence/");
-    await expect(page.locator(".od-test-option").first()).toBeVisible();
-    for (let i = 0; i < 12; i++) await page.locator(".od-test-option").first().click();
-    await expect(page.locator("#result")).toBeVisible();
+  test("Urdu Mind Test remains usable on mobile", async ({ browser }) => {
+    const context = await browser.newContext({ ...devices["Pixel 5"] });
+    try {
+      const page = await context.newPage();
+      await assertPublicPage(page, "/ur/mind-tests/emotional-intelligence/");
+      await expect(page.locator(".od-test-option").first()).toBeVisible();
+      for (let i = 0; i < 12; i++) await page.locator(".od-test-option").first().click();
+      await expect(page.locator("#result")).toBeVisible();
+    } finally {
+      await context.close();
+    }
   });
 });
