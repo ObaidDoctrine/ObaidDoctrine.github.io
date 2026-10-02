@@ -32,7 +32,7 @@ async function load(){
     const auth = getAuth(app);
     await setPersistence(auth, browserLocalPersistence);
     return {app,auth,onAuthStateChanged,createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,signOut,sendPasswordResetEmail,
+      signInWithEmailAndPassword,signOut,sendPasswordResetEmail,verifyPasswordResetCode,confirmPasswordReset,
       updatePassword,sendEmailVerification};
   });
   return ready;
