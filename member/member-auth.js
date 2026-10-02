@@ -94,7 +94,7 @@ window.ODMember={
   const loginPath=location.pathname.startsWith("/ur/")?"/ur/account/login/":"/account/login/";
   if(!user){location.href=loginPath;return null}
   try{return {user,identity:await window.ODBackend.me()}}
-  catch(error){console.error("[OD Member]",error);await window.ODFirebaseAuth.logout();location.href="/account/login/";return null}
+  catch(error){console.error("[OD Member]",error);await window.ODFirebaseAuth.logout();location.href=loginPath;return null}
  },
  async client(){await ensureDeps();
   return {
