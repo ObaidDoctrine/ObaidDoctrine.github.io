@@ -1,12 +1,18 @@
-/* OBAID DOCTRINE — Member Auth
- * Supabase Auth UI helper for the static bilingual member platform.
- * Publishable key only; never use a service-role/secret key in browser code.
+/* OBAID DOCTRINE — Firebase Auth client
+ * Authentication is handled by Firebase. Supabase Auth is not used in the browser.
  */
 (function(){
 "use strict";
-const URL="https://nrckrzgxpxfwuyodbylg.supabase.co";
-const KEY="sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw";
-let ready;
-function load(){if(ready)return ready;ready=new Promise((resolve,reject)=>{if(window.supabase)return resolve(window.supabase);const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1";s.async=true;s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)});return ready}
-window.ODAuth={async client(){const sdk=await load();return sdk.createClient(URL,KEY)},async user(){const db=await this.client();const r=await db.auth.getUser();return r.data.user||null},async session(){const db=await this.client();const r=await db.auth.getSession();return r.data.session||null},async logout(){const db=await this.client();return db.auth.signOut()}};
+window.ODAuth={
+  async user(){ return window.ODFirebaseAuth ? window.ODFirebaseAuth.currentUser() : null; },
+  async session(){
+    const u=await this.user();
+    return u ? {user:u} : null;
+  },
+  async client(){ return null; },
+  async login(email,password){ return window.ODFirebaseAuth.signIn(email,password); },
+  async signup(email,password){ return window.ODFirebaseAuth.signUp(email,password); },
+  async resetPassword(email){ return window.ODFirebaseAuth.resetPassword(email); },
+  async logout(){ return window.ODFirebaseAuth.logout(); }
+};
 })();
