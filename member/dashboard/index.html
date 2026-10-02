@@ -1,68 +1,46 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Member Dashboard | Obaid Doctrine</title>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Member Dashboard | Obaid Doctrine</title>
 <link rel="canonical" href="https://www.obaiddoctrine.com/member/dashboard/">
 <style>
-:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--forest);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-.wrap{max-width:1120px;margin:auto;padding:24px 18px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:24px}
-.brand{font-weight:900;letter-spacing:.05em}.nav{display:flex;gap:12px;flex-wrap:wrap}.nav a{color:var(--forest);font-weight:750;text-decoration:none}.nav a:hover{text-decoration:underline}
-.hero{background:var(--white);border:1px solid var(--soft);border-radius:26px;padding:28px;box-shadow:0 10px 30px rgba(49,84,58,.06)}
-.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}h1{margin:7px 0 8px;font-size:clamp(1.8rem,4vw,2.6rem)}h2{margin:0 0 14px;font-size:1.25rem}
-.muted{color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-block;padding:11px 15px;border-radius:11px;background:var(--forest);color:#fff;text-decoration:none;font-weight:800}.btn.secondary{background:var(--soft);color:var(--forest)}
-.status{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--soft);font-size:.92rem}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}.card{background:var(--white);border:1px solid rgba(49,84,58,.12);border-radius:20px;padding:20px}
-.num{font-size:2rem;font-weight:850;margin:5px 0}.card a{color:var(--forest);font-weight:750}.activity{margin-top:16px}.item{padding:13px 0;border-bottom:1px solid var(--soft)}.item:last-child{border-bottom:0}.item strong{display:block}.item small{display:block;margin-top:3px;color:var(--muted)}
-.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.quick a{display:block;background:var(--white);border:1px solid var(--soft);border-radius:16px;padding:16px;color:var(--forest);text-decoration:none;font-weight:800}.quick span{display:block;margin-top:4px;color:var(--muted);font-size:.86rem;font-weight:500}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}}@media(max-width:560px){.top{align-items:flex-start;flex-direction:column}.grid,.quick{grid-template-columns:1fr}.hero{padding:22px}}
-</style>
-</head>
-<body>
+:root{--forest:#31543a;--lime:#b7d84b;--soft:#dce8b5;--ivory:#fafaf5;--muted:#6f756f;--white:#fff;--line:#e5eadf}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fafaf5 0,#f5f7ef 100%);color:var(--forest);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}.wrap{width:min(1180px,calc(100% - 32px));margin:auto;padding:24px 0 72px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px;padding:10px 4px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.07em}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:var(--soft);border:1px solid #cbd9bd;color:var(--forest);font-weight:950}.nav{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.nav a{color:var(--forest);font-size:12px;font-weight:800;text-decoration:none;padding:9px 11px;border-radius:10px}.nav a:hover{background:#fff}.nav a:last-child{background:var(--forest);color:#fff}
+.hero{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4vw,40px);box-shadow:0 18px 45px rgba(49,84,58,.08)}.hero:after{content:"";position:absolute;width:260px;height:260px;right:-110px;top:-110px;border-radius:50%;border:28px solid rgba(183,216,75,.14);pointer-events:none}.hero>*{position:relative;z-index:1}
+.profile-line{display:flex;align-items:center;gap:18px}.avatar{width:70px;height:70px;border-radius:22px;background:var(--soft);border:2px solid #cbd9bd;display:grid;place-items:center;font-size:24px;font-weight:950;box-shadow:0 10px 25px rgba(49,84,58,.08)}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}h1{margin:5px 0 7px;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;letter-spacing:-.035em}h2{margin:0 0 14px;font-size:1.2rem}.muted{color:var(--muted)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 16px;border-radius:12px;background:var(--forest);color:#fff;text-decoration:none;font-size:12px;font-weight:850;transition:transform .18s,box-shadow .18s}.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(49,84,58,.14)}.btn.secondary{background:#fff;color:var(--forest);border:1px solid var(--line)}
+.status{margin-top:20px;padding:12px 14px;border:1px solid #dce8b5;border-radius:13px;background:#f3f7e7;color:var(--forest);font-size:.9rem}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:30px 2px 12px}.section-head h2{margin:0}.section-head span{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 10px 28px rgba(49,84,58,.055)}.stat-card{position:relative;min-height:152px}.icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--soft);color:var(--forest);font-weight:950;font-size:15px;margin-bottom:16px}.stat-label{font-size:12px;color:var(--muted);font-weight:700}.num{font-size:2rem;line-height:1.05;font-weight:900;margin:5px 0 12px}.card a{color:var(--forest);font-size:12px;font-weight:850;text-decoration:none}.card a:hover{text-decoration:underline}
+.activity{margin-top:14px}.activity-title{display:flex;align-items:center;gap:10px}.activity-title .icon{margin:0;width:38px;height:38px}.item{padding:14px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.item strong{display:block;font-size:13px}.item small{display:block;margin-top:4px;color:var(--muted);font-size:11px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.quick a{display:block;background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;color:var(--forest);text-decoration:none;font-weight:850;box-shadow:0 8px 22px rgba(49,84,58,.045)}.quick a:hover{border-color:#cbd9bd;transform:translateY(-1px)}.quick span{display:block;margin-top:5px;color:var(--muted);font-size:.82rem;font-weight:550}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}}@media(max-width:640px){.wrap{width:min(100% - 22px,1180px);padding-top:12px}.top{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;width:100%;padding-bottom:3px}.nav a{flex:0 0 auto}.profile-line{align-items:flex-start}.avatar{width:58px;height:58px;border-radius:18px}.hero{padding:22px}.grid,.quick{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.btn{width:100%}.actions{display:grid;grid-template-columns:1fr}}
+</style></head><body>
 <main class="wrap">
-<header class="top">
-<div class="brand">OBAID DOCTRINE</div>
+<header class="top"><div class="brand"><div class="brand-mark">OD</div><span>OBAID DOCTRINE</span></div>
 <nav class="nav" aria-label="Member navigation">
 <a href="/member/profile/">Profile</a><a href="/member/my-tests/">My Tests</a><a href="/member/progress/">Progress</a><a href="/member/library/">My Library</a><a href="/member/journal/">Journal</a><a href="/member/logout/">Log Out</a>
-</nav>
-</header>
-
+</nav></header>
 <section class="hero">
-<div class="eyebrow">Private Member Area</div>
-<h1 id="welcome">Welcome</h1>
-<p class="muted">Your personal space for learning, self-reflection and tracking your progress.</p>
-<div class="actions">
-<a class="btn" href="/mind-tests/">Explore Mind Tests</a>
-<a class="btn secondary" href="/member/knowledge/">Member Knowledge</a>
-<a class="btn secondary" href="/member/recommendations/">Recommendations</a>
-</div>
+<div class="profile-line"><div class="avatar" aria-hidden="true">OD</div><div><div class="eyebrow">Private Member Area</div><h1 id="welcome">Welcome</h1><div class="muted">Your personal space for learning, self-reflection and tracking your progress.</div></div></div>
+<div class="actions"><a class="btn" href="/mind-tests/">Explore Mind Tests</a><a class="btn secondary" href="/member/knowledge/">Member Knowledge</a><a class="btn secondary" href="/member/recommendations/">Recommendations</a></div>
 <div id="status" class="status" role="status">Loading your member activity…</div>
 </section>
-
+<div class="section-head"><h2>Your activity</h2><span>Private account information</span></div>
 <section class="grid" aria-label="Your activity">
-<article class="card"><div class="muted">Tests completed</div><div id="tests" class="num">—</div><a href="/member/my-tests/">View My Tests</a></article>
-<article class="card"><div class="muted">Articles completed</div><div id="articles" class="num">—</div><a href="/member/progress/">View Progress</a></article>
-<article class="card"><div class="muted">Saved articles</div><div id="saved" class="num">—</div><a href="/member/library/">Open My Library</a></article>
-<article class="card"><div class="muted">Journal entries</div><div id="journalCount" class="num">—</div><a href="/member/journal/">Open Journal</a></article>
+<article class="card stat-card"><div class="icon" aria-hidden="true">T</div><div class="stat-label">Tests completed</div><div id="tests" class="num">—</div><a href="/member/my-tests/">View My Tests →</a></article>
+<article class="card stat-card"><div class="icon" aria-hidden="true">L</div><div class="stat-label">Articles completed</div><div id="articles" class="num">—</div><a href="/member/progress/">View Progress →</a></article>
+<article class="card stat-card"><div class="icon" aria-hidden="true">S</div><div class="stat-label">Saved articles</div><div id="saved" class="num">—</div><a href="/member/library/">Open My Library →</a></article>
+<article class="card stat-card"><div class="icon" aria-hidden="true">J</div><div class="stat-label">Journal entries</div><div id="journalCount" class="num">—</div><a href="/member/journal/">Open Journal →</a></article>
 </section>
-
-<section class="card activity">
-<h2>Recent learning activity</h2>
-<div id="recent" class="muted">Loading…</div>
-</section>
-
+<section class="card activity"><div class="activity-title"><div class="icon" aria-hidden="true">↗</div><h2>Recent learning activity</h2></div><div id="recent" class="muted">Loading…</div></section>
 <section class="quick" aria-label="Member tools">
 <a href="/member/learning-paths/">Learning Paths<span>Structured educational journeys</span></a>
 <a href="/member/profile/">My Profile<span>Update your member information</span></a>
 <a href="/member/settings/">Account Settings<span>Manage your account preferences</span></a>
 </section>
 </main>
-
-<script src="/member/member-auth.js?v=20260929"></script>
-<script src="/member/member-nav.js?v=20260929"></script>
 <script>
 (async()=>{
  const status=document.getElementById("status");
@@ -115,5 +93,5 @@
  }
 })();
 </script>
-</body>
-</html>
+
+</body></html>
