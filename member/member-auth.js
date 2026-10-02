@@ -1,15 +1,29 @@
-/* OBAID DOCTRINE — Protected member-page helper */
+/* OBAID DOCTRINE — Protected member-page helper
+ * Firebase is the authentication provider. Private data is accessed only through ODBackend.
+ */
 (function(){
 "use strict";
-const URL="https://nrckrzgxpxfwuyodbylg.supabase.co";
-const KEY="sb_publishable_3_4_B6bd6RplwmOZ81sNiQ_vkiIEKlw";
-let ready;
-function load(){if(ready)return ready;ready=new Promise((resolve,reject)=>{if(window.supabase)return resolve(window.supabase);const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";s.async=true;s.onload=()=>resolve(window.supabase);s.onerror=reject;document.head.appendChild(s)});return ready}
 window.ODMember={
- async client(){const sdk=await load();return sdk.createClient(URL,KEY)},
- async user(){const db=await this.client();const r=await db.auth.getUser();return r.data.user||null},
- async session(){const db=await this.client();const r=await db.auth.getSession();return r.data.session||null},
- async requireSession(){const db=await this.client();const r=await db.auth.getUser();if(r.error||!r.data.user){location.href="/account/login/";return null}const s=await db.auth.getSession();return s.data.session||{user:r.data.user}},
- async logout(){const db=await this.client();return db.auth.signOut()}
+  async user(){ return window.ODFirebaseAuth ? window.ODFirebaseAuth.currentUser() : null; },
+  async session(){
+    const user=await this.user();
+    return user ? {user} : null;
+  },
+  async requireSession(){
+    const user=await this.user();
+    if(!user){ location.href="/account/login/"; return null; }
+    try{
+      const me=await window.ODBackend.me();
+      return {user, identity:me};
+    }catch(error){
+      console.error("[OD Member]",error);
+      await window.ODFirebaseAuth.logout();
+      location.href="/account/login/";
+      return null;
+    }
+  },
+  async logout(){
+    return window.ODFirebaseAuth.logout();
+  }
 };
 })();
