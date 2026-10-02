@@ -27,6 +27,7 @@ window.ODBackend={
     if(!response.ok){const e=new Error(data&&data.error?data.error:"Account migration failed.");e.status=response.status;e.data=data;throw e}
     return data;
   },
+  deleteAccount(){return this.request("/delete-account",{method:"POST"})},
   me(){return this.request("/me")},
   stats(){return this.request("/stats")},
   profile(){return this.request("/me")},
