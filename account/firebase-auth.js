@@ -23,7 +23,7 @@ async function load(){
   ready = import(SDK + "firebase-app.js").then(async ({initializeApp,getApps})=>{
     const [{getAuth, onAuthStateChanged, setPersistence, browserLocalPersistence,
       createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,
-      sendPasswordResetEmail, updatePassword, sendEmailVerification},
+      sendPasswordResetEmail, verifyPasswordResetCode, confirmPasswordReset, updatePassword, sendEmailVerification},
       appMod] = await Promise.all([
       import(SDK + "firebase-auth.js"),
       Promise.resolve({initializeApp,getApps})
@@ -52,6 +52,8 @@ window.ODFirebaseAuth = {
     const x=await load();
     return x.sendPasswordResetEmail(x.auth,email);
   },
+  async verifyResetCode(code){ const x=await load(); return x.verifyPasswordResetCode(x.auth,code); },
+  async confirmReset(code,newPassword){ const x=await load(); return x.confirmPasswordReset(x.auth,code,newPassword); },
   async logout(){
     const x=await load();
     return x.signOut(x.auth);
