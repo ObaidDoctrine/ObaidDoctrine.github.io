@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Account | OBAID DOCTRINE</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.obaiddoctrine.com/auth/signup/">
+<link rel="stylesheet" href="/styles.css?v=ultra-editorial-20261003">
+<style>
+.auth-page{min-height:100vh;background:#FAFAF5;color:#173D2A}.auth-wrap{width:min(92%,520px);margin:auto;padding:70px 0}
+.auth-card{background:#fff;border:1px solid rgba(23,61,42,.14);border-radius:28px;padding:32px;box-shadow:0 12px 35px rgba(23,61,42,.08)}
+.auth-brand{font-weight:900;letter-spacing:.08em;color:#173D2A;text-decoration:none}.auth-card h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1;margin:28px 0 10px}
+.auth-card p{color:#6F756F;line-height:1.6}.auth-field{display:grid;gap:7px;margin:18px 0}.auth-field label{font-size:12px;font-weight:800;letter-spacing:.08em;color:#496B50}
+.auth-field input{width:100%;box-sizing:border-box;padding:14px 15px;border:1px solid rgba(23,61,42,.18);border-radius:12px;background:#FAFAF5;color:#173D2A;font:inherit}
+.auth-button{width:100%;padding:14px 18px;border:0;border-radius:12px;background:#173D2A;color:#fff;font-weight:800;cursor:pointer}.auth-button:disabled{opacity:.55}
+.auth-status{min-height:24px;margin-top:18px;font-size:14px}.auth-status[data-type="error"]{color:#8b2f2f}.auth-status[data-type="success"]{color:#496B50}
+.auth-secondary{margin-top:16px}.auth-secondary a{color:#173D2A;font-weight:800}[hidden]{display:none!important}
+</style></head>
+<body class="auth-page"><main class="auth-wrap"><a class="auth-brand" href="/">OBAID DOCTRINE</a>
+<section class="auth-card"><h1>Create Account</h1><p>Create your account with email and password. Nhost will send a verification email when email verification is required.</p>
+<form id="signup-form" novalidate>
+<div class="auth-field"><label for="email">EMAIL</label><input id="email" type="email" autocomplete="email" required></div>
+<div class="auth-field"><label for="password">PASSWORD</label><input id="password" type="password" autocomplete="new-password" minlength="8" required></div>
+<button id="signup-button" class="auth-button" type="submit">Create Account</button></form>
+<div id="auth-status" class="auth-status" role="status" aria-live="polite"></div>
+<p class="auth-secondary"><a href="/auth/">Already have an account? Sign in</a></p></section></main>
+<script type="module">
+import { signUpWithEmail } from "/auth/auth.js";
+const form=document.getElementById("signup-form"), statusEl=document.getElementById("auth-status"), btn=document.getElementById("signup-button");
+form.addEventListener("submit",async e=>{e.preventDefault();statusEl.textContent="Creating account…";statusEl.dataset.type="";btn.disabled=true;
+try{const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;if(!email||!password||password.length<8)throw new Error("Enter a valid email and a password of at least 8 characters.");
+const response=await signUpWithEmail(email,password);
+if(response.body?.session){location.href="/auth/";}else{statusEl.textContent="Account created. Check your email and open the verification link to activate your account.";statusEl.dataset.type="success";form.reset();}
+}catch(err){statusEl.textContent=err?.body?.message||err?.message||"Sign-up failed.";statusEl.dataset.type="error";}finally{btn.disabled=false;}});
+</script></body></html>
