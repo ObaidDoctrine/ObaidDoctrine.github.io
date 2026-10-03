@@ -1,4 +1,5 @@
 name: Build Obaid Doctrine Android App
+# Release build loads the canonical www host used by the Nhost web session.
 
 on:
   workflow_dispatch:
