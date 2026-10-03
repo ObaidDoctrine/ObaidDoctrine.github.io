@@ -132,7 +132,6 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          cp "Obaid_Doctrine__v1.0.4.apk" "Obaid_Doctrine__v1.0.4.apk"
           git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.4.APK"
           git add "Obaid_Doctrine__v1.0.4.apk"
 
