@@ -5,10 +5,9 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - "Obaid_Doctrine__v1.0.3.APK"
-      - "Obaid_Doctrine__v1.0.4.APK"
-      - "Obaid_Doctrine__v1.0.4.apk"
+    paths:
+      - "android-app/**"
+      - ".github/workflows/build-android-app.yml"
 
 concurrency:
   group: obaid-doctrine-android-release-${{ github.ref }}
