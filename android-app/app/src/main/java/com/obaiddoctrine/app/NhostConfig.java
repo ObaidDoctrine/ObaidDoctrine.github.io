@@ -2,8 +2,8 @@ package com.obaiddoctrine.app;
 
 public final class NhostConfig {
     private NhostConfig() {}
-    public static final String SUBDOMAIN = "REPLACE_WITH_NHOST_SUBDOMAIN";
-    public static final String REGION = "REPLACE_WITH_NHOST_REGION";
+    public static final String SUBDOMAIN = "twttbujomdakckte";
+    public static final String REGION = "eu-central-1";
     public static final String VERIFICATION_REDIRECT = "obaidmind://auth/verify";
     public static final String PASSWORD_RESET_REDIRECT = "obaidmind://auth/reset";
 
