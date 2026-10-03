@@ -68,7 +68,7 @@ public class AuthActivity extends Activity {
         password=field("New Password",InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);confirm=field("Confirm New Password",InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);primary=button("Change Password",v->doReset());box.addView(primary);}
     private void doLogin(){String e=email.getText().toString().trim(),p=password.getText().toString();if(!valid(e)){message("Please enter a valid email address.",true);return;}if(p.isEmpty()){message("Please enter your password.",true);return;}busy(true);
         api.signIn(e,p,new NhostApi.Callback<NhostApi.Session>(){
-            public void onSuccess(NhostApi.Session s){ui.post(()->{if(!s.user.optBoolean("emailVerified",true)){store.clearSession();verifyScreen("Please verify your email before logging in.");return;}try{store.saveSession(s);openApp();}catch(Exception x){store.clearSession();login("Secure session storage failed.");}});}
+            public void onSuccess(NhostApi.Session s){ui.post(()->{if(!s.user.optBoolean("emailVerified",false)){store.clearSession();verifyScreen("Please verify your email before logging in.");return;}try{store.saveSession(s);openApp();}catch(Exception x){store.clearSession();login("Secure session storage failed.");}});}
             public void onError(NhostApi.ApiException x){ui.post(()->{busy(false);message(user(x),true);});}
         });}
     private void doRegister(){String e=email.getText().toString().trim(),p=password.getText().toString(),c=confirm.getText().toString();if(!valid(e)){message("Please enter a valid email address.",true);return;}if(p.length()<9){message("Password must be at least 9 characters.",true);return;}if(!p.equals(c)){message("Passwords do not match.",true);return;}
