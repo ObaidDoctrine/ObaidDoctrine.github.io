@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@nhost/nhost-js@4.8.0";
+import { generatePKCEPair } from "https://esm.sh/@nhost/nhost-js@4.8.0/auth";
 
 const nhost = createClient({
   subdomain: "twttbujomdakckte",
@@ -97,3 +98,16 @@ logoutButton.addEventListener("click", async () => {
 });
 
 restoreSession();
+
+
+// Registration helper used by /auth/signup/
+export async function signUpWithEmail(email, password) {
+  const { verifier, challenge } = await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier", verifier);
+  return nhost.auth.signUpEmailPassword({
+    email,
+    password,
+    options: { redirectTo: `${window.location.origin}/auth/verify/` },
+    codeChallenge: challenge,
+  });
+}
