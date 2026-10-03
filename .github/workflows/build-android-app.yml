@@ -8,6 +8,11 @@ on:
     paths-ignore:
       - "Obaid_Doctrine__v1.0.3.APK"
       - "Obaid_Doctrine__v1.0.4.APK"
+      - "Obaid_Doctrine__v1.0.4.apk"
+
+concurrency:
+  group: obaid-doctrine-android-release-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -28,7 +33,6 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
-        with:
           packages: "platform-tools"
 
       - name: Install Android SDK packages
@@ -43,77 +47,98 @@ jobs:
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
         run: |
+          set -euo pipefail
+          test -n "$ANDROID_KEYSTORE_BASE64"
           printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/obaid-doctrine-upload.jks"
+          test -s "$RUNNER_TEMP/obaid-doctrine-upload.jks"
 
       - name: Verify release keystore
         env:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
+          set -euo pipefail
+          test -n "$ANDROID_KEYSTORE_PASSWORD"
           keytool -list -keystore "$RUNNER_TEMP/obaid-doctrine-upload.jks" -storepass "$ANDROID_KEYSTORE_PASSWORD" >/dev/null
 
-      - name: Build signed release APK
+      - name: Clean and build signed release APK
         working-directory: android-app
         env:
           ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/obaid-doctrine-upload.jks
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-        run: gradle :app:assembleRelease --no-daemon
-
-      - name: Locate and validate release APK
         run: |
-          APK_PATH="$(find android-app/app/build/outputs -type f -name '*.apk' | head -n 1)"
-          if [ -z "$APK_PATH" ]; then
-            echo "Release APK not found."
-            find android-app/app/build/outputs -maxdepth 6 -type f -print || true
-            exit 1
+          set -euo pipefail
+          gradle clean :app:assembleRelease --no-daemon --no-build-cache
+
+      - name: Forensic validate production APK
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          APK_PATH="android-app/app/build/outputs/apk/release/app-release.apk"
+          APK_OUT="Obaid_Doctrine__v1.0.4.apk"
+          test -f "$APK_PATH"
+          cp "$APK_PATH" "$APK_OUT"
+
+          echo "=== FILE ==="
+          file "$APK_OUT"
+          stat -c 'SIZE_BYTES=%s' "$APK_OUT"
+
+          echo "=== ZIP INTEGRITY ==="
+          unzip -t "$APK_OUT" >/dev/null
+
+          echo "=== ZIP ALIGNMENT ==="
+          "$ANDROID_HOME/build-tools/36.0.0/zipalign" -c -P 16 -v 4 "$APK_OUT"
+
+          echo "=== APK SIGNATURE ==="
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --min-sdk-version 23 "$APK_OUT"
+
+          echo "=== APK CERTIFICATE ==="
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs "$APK_OUT"
+
+          echo "=== APK MANIFEST/BADGING ==="
+          BADGING="$("$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK_OUT")"
+          printf '%s\n' "$BADGING"
+
+          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='4' versionName='1.0.4'"
+          printf '%s\n' "$BADGING" | grep -F "sdkVersion:'23'"
+          printf '%s\n' "$BADGING" | grep -F "targetSdkVersion:'36'"
+
+          echo "=== ABI CHECK ==="
+          if unzip -l "$APK_OUT" | grep -qE '(^| )lib/[^/]+/[^/]+\.so$'; then
+            unzip -l "$APK_OUT" | grep -E '(^| )lib/[^/]+/[^/]+\.so$'
+          else
+            echo "No native .so libraries present; ABI-specific native compatibility check is not applicable."
           fi
 
-          cp "$APK_PATH" Obaid_Doctrine__v1.0.4.APK
-          echo "APK: $APK_PATH"
-          ls -lh Obaid_Doctrine__v1.0.4.APK
-          file Obaid_Doctrine__v1.0.4.APK
+          echo "=== SHA-256 ==="
+          sha256sum "$APK_OUT"
 
-          echo "Checking ZIP/APK integrity..."
-          unzip -t Obaid_Doctrine__v1.0.4.APK >/dev/null
-
-          echo "Checking APK v1/v2/v3/v4 signatures..."
-          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose Obaid_Doctrine__v1.0.4.APK
-
-          echo "Checking JAR signature..."
-          jarsigner -verify Obaid_Doctrine__v1.0.4.APK >/dev/null
-
-          echo "SHA-256:"
-          sha256sum Obaid_Doctrine__v1.0.4.APK
-
-      - name: Upload APK artifact
+      - name: Upload verified APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Obaid-Doctrine-Android-v1.0.4
-          path: Obaid_Doctrine__v1.0.4.APK
+          path: Obaid_Doctrine__v1.0.4.apk
           if-no-files-found: error
 
-      - name: Publish APK into repository
+      - name: Publish single production APK into repository
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git fetch origin main
           git reset --hard origin/main
 
-          APK_PATH="$(find android-app/app/build/outputs -type f -name '*.apk' | head -n 1)"
-          if [ -z "$APK_PATH" ]; then
-            echo "Release APK not found after build."
-            exit 1
-          fi
+          cp "Obaid_Doctrine__v1.0.4.apk" "Obaid_Doctrine__v1.0.4.apk"
+          git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.4.APK"
+          git add "Obaid_Doctrine__v1.0.4.apk"
 
-          cp "$APK_PATH" Obaid_Doctrine__v1.0.4.APK
-
-          git add Obaid_Doctrine__v1.0.4.APK
           if git diff --cached --quiet; then
-            echo "APK is already up to date."
+            echo "Production APK is already current."
           else
-            git commit -m "Build Obaid Doctrine Android app v1.0.4"
+            git commit -m "Publish verified Android app v1.0.4"
             git push origin HEAD:main
           fi
 
