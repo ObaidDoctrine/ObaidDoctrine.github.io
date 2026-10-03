@@ -103,7 +103,7 @@ jobs:
           printf '%s\n' "$BADGING"
 
           printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='4' versionName='1.0.4'"
-          printf '%s\n' "$BADGING" | grep -F "sdkVersion:'23'"
+          printf '%s\n' "$BADGING" | grep -F "minSdkVersion:'23'"
           printf '%s\n' "$BADGING" | grep -F "targetSdkVersion:'36'"
 
           echo "=== ABI CHECK ==="
