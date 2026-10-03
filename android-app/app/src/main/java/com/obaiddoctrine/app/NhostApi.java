@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 final class NhostApi {
-    interface Callback<T> { void onSuccess(T value); void onError(ApiException error); }
+    interface Callback<T> { void onSuccess(T value); default void onError(ApiException error) {} }
     static final class Session {
         final String accessToken,refreshToken; final long accessTokenExpiresAt; final JSONObject user;
         Session(String a,String r,long e,JSONObject u){accessToken=a;refreshToken=r;accessTokenExpiresAt=e;user=u==null?new JSONObject():u;}
