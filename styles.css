@@ -1593,3 +1593,5 @@ html[dir="rtl"] .home-page .hero-meta{border-inline-start:1px solid rgba(23,61,4
 @media(max-width:600px){
   html[dir="rtl"] .home-page .hero-meta{border-inline-start:0;padding-inline-start:0}
 }
+
+.path-link{color:var(--f);font-weight:800;text-decoration:underline;text-decoration-color:var(--s);text-underline-offset:3px}.path-link:hover{color:#496B50;text-decoration-color:var(--l)}
