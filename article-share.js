@@ -61,28 +61,4 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();
-  // Load the member save control on public article pages without changing article content.
-  if (document.querySelector("article")) {
-    const s = document.createElement("script");
-    s.src = "/account/auth.js?v=20260929";
-    s.onload = function(){
-      const m = document.createElement("script");
-      m.src = "/member/member-auth.js?v=20260929";
-      m.onload = function(){
-        const a = document.createElement("script");
-        a.src = "/member/library/save-article.js?v=20260929";
-        document.body.appendChild(a);
-        const p = document.createElement("script");
-        p.src = "/member/progress/progress-tracker.js?v=20260929";
-        p.onload = function(){
-          const ap = document.createElement("script");
-          ap.src = "/member/progress/article-progress.js?v=20260929";
-          document.body.appendChild(ap);
-        };
-        document.body.appendChild(p);
-      };
-      document.body.appendChild(m);
-    };
-    document.body.appendChild(s);
-  }
 })();
