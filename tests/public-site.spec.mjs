@@ -164,7 +164,12 @@ test.describe("Mind Tests mobile viewport", () => {
       const page = await context.newPage();
       await assertPublicPage(page, "/ur/mind-tests/emotional-intelligence/");
       await expect(page.locator(".od-test-option").first()).toBeVisible();
-      for (let i = 0; i < 10; i++) {\n        const option = page.locator(".od-test-option:not(.od-locked)").first();\n        await expect(option).toBeVisible();\n        await expect(option).toBeEnabled({ timeout: 3000 });\n        await option.click({ force: true });\n      }
+      for (let i = 0; i < 10; i++) {
+        const option = page.locator(".od-test-option:not(.od-locked)").first();
+        await expect(option).toBeVisible();
+        await expect(option).toBeEnabled({ timeout: 3000 });
+        await option.click({ force: true });
+      }
       await expect(page.locator("#result")).toBeVisible();
     } finally {
       await context.close();
