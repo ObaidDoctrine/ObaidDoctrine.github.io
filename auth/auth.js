@@ -147,7 +147,7 @@ export async function signUpWithEmail(email, password) {
     email,
     password,
     options: {
-      redirectTo: `${window.location.origin}/auth/verify/`,
+      redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
     },
     codeChallenge: challenge,
   });
