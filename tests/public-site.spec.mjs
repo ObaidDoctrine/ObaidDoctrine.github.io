@@ -125,7 +125,7 @@ test.describe("Mind Tests", () => {
 
       for (let i = 0; i < 12; i++) {
         await expect(options.first()).toBeVisible();
-        await expect(options.first()).toBeEnabled();
+        await expect(options.first()).toBeEnabled({ timeout: 3000 });
         await options.first().click();
       }
 
@@ -149,7 +149,7 @@ test.describe("Mind Tests mobile viewport", () => {
       for (let i = 0; i < 12; i++) {
         const option = page.locator(".od-test-option").first();
         await expect(option).toBeVisible();
-        await expect(option).toBeEnabled();
+        await expect(option).toBeEnabled({ timeout: 3000 });
         await option.click();
       }
       await expect(page.locator("#result")).toBeVisible();
