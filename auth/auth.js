@@ -2,7 +2,7 @@ import { createClient } from "https://esm.sh/@nhost/nhost-js@4.8.0";
 import { generatePKCEPair } from "https://esm.sh/@nhost/nhost-js@4.8.0/auth";
 
 const nhost = createClient({
-  subdomain: "twttbujomdakckte",
+  subdomain: "ctwtjtbtbujomdskcktc",
   region: "eu-central-1"
 });
 
@@ -51,8 +51,6 @@ function renderSession(session) {
 
 async function restoreSession() {
   try {
-    // Nhost refreshSession() validates the stored session and refreshes
-    // it when necessary. A failed refresh returns null.
     const session = await nhost.refreshSession(60);
     renderSession(session);
   } catch (error) {
@@ -137,7 +135,6 @@ if (logoutButton) {
 
 restoreSession();
 
-// Registration helper used by /auth/signup/.
 export async function signUpWithEmail(email, password) {
   const { verifier, challenge } = await generatePKCEPair();
 
