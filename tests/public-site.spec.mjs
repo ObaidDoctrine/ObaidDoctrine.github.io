@@ -63,7 +63,7 @@ async function assertPublicPage(page, path) {
 test.describe("Public website smoke coverage", () => {
   test("English homepage is public and account-free", async ({ page }) => {
     await assertPublicPage(page, "/");
-    await expect(page.locator("h1")).toContainText("REAL LIFE");
+    await expect(page.locator("h1")).toContainText("BETTER MIND.");
     await expect(page.locator('a[href="/mind-tests/"]').first()).toBeVisible();
   });
 
