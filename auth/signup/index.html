@@ -30,6 +30,6 @@ const form=document.getElementById("signup-form"), statusEl=document.getElementB
 form.addEventListener("submit",async e=>{e.preventDefault();statusEl.textContent="Creating account…";statusEl.dataset.type="";btn.disabled=true;
 try{const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;if(!email||!password||password.length<8)throw new Error("Enter a valid email and a password of at least 8 characters.");
 const response=await signUpWithEmail(email,password);
-if(response.body?.session){location.href="/auth/";}else{statusEl.textContent="Account created. Check your email and open the verification link to activate your account.";statusEl.dataset.type="success";form.reset();}
+if(response.body?.session){location.href=new URLSearchParams(location.search).get("app")==="1"?"/auth/?app=1":"/auth/";}else{statusEl.textContent="Account created. Check your email and open the verification link to activate your account.";statusEl.dataset.type="success";form.reset();}
 }catch(err){statusEl.textContent=err?.body?.message||err?.message||"Sign-up failed.";statusEl.dataset.type="error";}finally{btn.disabled=false;}});
 </script></body></html>
