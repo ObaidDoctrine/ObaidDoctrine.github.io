@@ -125,6 +125,7 @@ test.describe("Mind Tests", () => {
 
       for (let i = 0; i < 12; i++) {
         await expect(options.first()).toBeVisible();
+        await expect(options.first()).toBeEnabled();
         await options.first().click();
       }
 
@@ -145,7 +146,12 @@ test.describe("Mind Tests mobile viewport", () => {
       const page = await context.newPage();
       await assertPublicPage(page, "/mind-tests/emotional-intelligence/");
       await expect(page.locator(".od-test-option").first()).toBeVisible();
-      for (let i = 0; i < 12; i++) await page.locator(".od-test-option").first().click();
+      for (let i = 0; i < 12; i++) {
+        const option = page.locator(".od-test-option").first();
+        await expect(option).toBeVisible();
+        await expect(option).toBeEnabled();
+        await option.click();
+      }
       await expect(page.locator("#result")).toBeVisible();
     } finally {
       await context.close();
