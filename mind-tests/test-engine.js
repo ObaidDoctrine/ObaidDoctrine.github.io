@@ -53,7 +53,7 @@ function render(){
 function choose(i,button){
  if(state.locked||state.index>=items.length)return;var q=getQuestion(items[state.index]);if(!q.options[i])return;state.locked=true;state.answers[state.index]=i;save();
  document.querySelectorAll(".od-test-option").forEach(function(b){b.disabled=true;b.classList.add("od-locked");});button.classList.add("od-selected");button.setAttribute("aria-pressed","true");
- setTimeout(function(){state.index++;save();render();var t=document.getElementById("test");if(t)window.scrollTo({top:Math.max(0,t.offsetTop-24),behavior:"smooth"});},180);
+ setTimeout(function(){state.index++;save();render();var t=document.getElementById("test");if(t)window.scrollTo({top:Math.max(0,t.offsetTop-(document.querySelector(".site-header")?.getBoundingClientRect().height||0)-24),behavior:"smooth"});},180);
 }
 function shareButtons(){
  var title=document.querySelector("main h1")?.textContent.trim()||document.title,url=location.href;
