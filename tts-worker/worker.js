@@ -1,6 +1,6 @@
 export default {
   async fetch(request, env) {
-    const origin = env.ALLOWED_ORIGIN || "https://obaiddoctrine.github.io";
+    const origin = env.ALLOWED_ORIGIN || "https://www.obaiddoctrine.com";
     const cors = {
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
