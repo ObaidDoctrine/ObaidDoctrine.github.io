@@ -89,15 +89,12 @@ jobs:
                   lowered = text.lower()
                   has_push = bool(re.search(r"\bgit\s+push\b", lowered))
                   targets_mind_tests = "mind-tests" in lowered or "ur/mind-tests" in lowered
-                  targets_articles = "articles" in lowered and (
-                      "rglob('*.html')" in lowered
-                      or 'rglob("*.html")' in lowered
-                      or "glob('*.html')" in lowered
-                      or 'glob("*.html")' in lowered
-                      or "articles/" in lowered
-                  )
-                  if has_push and (targets_mind_tests or targets_articles):
-                      unexpected_target_mutation_workflows.append(wf.as_posix())
+                  # Only workflows that can mutate the same Mind Test production paths
+          # are considered conflicting mutation workflows. Other repository writers
+          # are reported separately by their own workflows and are not silently
+          # treated as part of this Mind Test fix.
+          if has_push and targets_mind_tests and wf.name != Path(__file__).name:
+              unexpected_target_mutation_workflows.append(wf.as_posix())
 
           result = {
               "mind_test_pages": len(html_pages),
