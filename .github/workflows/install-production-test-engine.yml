@@ -63,7 +63,7 @@ jobs:
               text = page.read_text(encoding="utf-8")
               refs = engine_pattern.findall(text)
               engine_refs[page.as_posix()] = refs
-              obsolete_count += len(re.findall(r"/mind-tests/test-engine\.js\?v=20260927(?:[^"\'\s<]*)", text, re.I))
+              obsolete_count += text.count("/mind-tests/test-engine.js?v=20260927")
               if len(refs) == 0:
                   missing_engine_pages.append(page.as_posix())
               elif len(refs) > 1:
