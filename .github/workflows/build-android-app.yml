@@ -78,7 +78,7 @@ jobs:
           set -euo pipefail
 
           APK_PATH="android-app/app/build/outputs/apk/release/app-release.apk"
-          APK_OUT="Obaid_Doctrine__v1.0.5.apk"
+          APK_OUT="Obaid_Doctrine__v1.0.6.apk"
           test -f "$APK_PATH"
           cp "$APK_PATH" "$APK_OUT"
 
@@ -102,7 +102,7 @@ jobs:
           BADGING="$("$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK_OUT")"
           printf '%s\n' "$BADGING"
 
-          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='5' versionName='1.0.5'"
+          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='5' versionName='1.0.6'"
           printf '%s\n' "$BADGING" | grep -F "minSdkVersion:'23'"
           printf '%s\n' "$BADGING" | grep -F "targetSdkVersion:'36'"
 
@@ -119,22 +119,22 @@ jobs:
       - name: Upload verified APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Obaid-Doctrine-Android-v1.0.5
-          path: Obaid_Doctrine__v1.0.5.apk
+          name: Obaid-Doctrine-Android-v1.0.6
+          path: Obaid_Doctrine__v1.0.6.apk
           if-no-files-found: error
 
-      - name: Publish GitHub Release v1.0.5
+      - name: Publish GitHub Release v1.0.6
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.5
-          name: Obaid Doctrine Android App v1.0.5
+          tag_name: v1.0.6
+          name: Obaid Doctrine Android App v1.0.6
           body: |
-            Official Obaid Doctrine Android App — Version 1.0.5
+            Official Obaid Doctrine Android App — Version 1.0.6
 
             Package: com.obaiddoctrine.app
             Minimum Android version: Android 6.0 (API 23)
             Target Android version: Android 16 (API 36)
-          files: Obaid_Doctrine__v1.0.5.apk
+          files: Obaid_Doctrine__v1.0.6.apk
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -147,13 +147,13 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.5.APK"
-          git add "Obaid_Doctrine__v1.0.5.apk"
+          git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.6.APK"
+          git add "Obaid_Doctrine__v1.0.6.apk"
 
           if git diff --cached --quiet; then
             echo "Production APK is already current."
           else
-            git commit -m "Publish verified Android app v1.0.5"
+            git commit -m "Publish verified Android app v1.0.6"
             git push origin HEAD:main
           fi
 
