@@ -5,46 +5,134 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+# This workflow is intentionally verification-only.
+# Production HTML is the source of truth; CI must never rewrite Mind Test pages.
+concurrency:
+  group: production-mind-test-verification-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   install-test-engine:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
 
-      - name: Inject shared production test engine
+      - name: Verify production Mind Test engine and automation invariants
         shell: python
         run: |
           from pathlib import Path
+          import json
+          import re
+          import sys
 
-          marker = '<script src="/mind-tests/test-engine.js?v=20260927" defer></script>'
-          changed = []
+          root = Path(".")
+          html_pages = sorted(
+              list((root / "mind-tests").glob("*/index.html")) +
+              list((root / "ur/mind-tests").glob("*/index.html"))
+          )
+          if not html_pages:
+              raise SystemExit("No Mind Test pages found.")
 
-          for root in (Path("mind-tests"), Path("ur/mind-tests")):
-              for path in root.glob("*/index.html"):
-                  text = path.read_text(encoding="utf-8")
-                  if marker not in text:
-                      if "</body>" not in text:
-                          raise SystemExit(f"Missing </body> in {path}")
-                      text = text.replace("</body>", f"{marker}</body>", 1)
-                      path.write_text(text, encoding="utf-8")
-                      changed.append(str(path))
+          engine_file = root / "mind-tests" / "test-engine.js"
+          if not engine_file.is_file():
+              raise SystemExit("Missing mind-tests/test-engine.js")
 
-          print("Updated:", *changed, sep="\n- ")
-          print("Total:", len(changed))
+          engine_text = engine_file.read_text(encoding="utf-8")
+          version_match = re.search(r"Version\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", engine_text)
+          engine_version = version_match.group(1) if version_match else "UNKNOWN"
 
-      - name: Commit generated test-page updates
-        shell: bash
+          engine_refs = {}
+          obsolete_count = 0
+          duplicate_engine_pages = []
+          missing_engine_pages = []
+          duplicate_audio_pages = []
+          all_html = list(root.rglob("*.html"))
+
+          engine_pattern = re.compile(r'<script[^>]+src=["\']([^"\']*?/mind-tests/test-engine\.js(?:\?[^"\']*)?)["\'][^>]*>', re.I)
+          audio_pattern = re.compile(r'<script[^>]+src=["\']([^"\']*?/listen-to-article\.js(?:\?[^"\']*)?)["\'][^>]*>', re.I)
+
+          for page in html_pages:
+              text = page.read_text(encoding="utf-8")
+              refs = engine_pattern.findall(text)
+              engine_refs[page.as_posix()] = refs
+              if "20260927" in text:
+                  obsolete_count += text.count("20260927")
+              if len(refs) == 0:
+                  missing_engine_pages.append(page.as_posix())
+              elif len(refs) > 1:
+                  duplicate_engine_pages.append(page.as_posix())
+
+          audio_ref_counts = {}
+          for page in all_html:
+              text = page.read_text(encoding="utf-8")
+              refs = audio_pattern.findall(text)
+              audio_ref_counts[page.as_posix()] = refs
+              if len(refs) > 1:
+                  duplicate_audio_pages.append(page.as_posix())
+
+          unique_engine_refs = sorted({ref for refs in engine_refs.values() for ref in refs})
+          unexpected_target_mutation_workflows = []
+          workflow_root = root / ".github" / "workflows"
+          if workflow_root.exists():
+              for wf in sorted(workflow_root.glob("*")):
+                  if wf.suffix.lower() not in {".yml", ".yaml"}:
+                      continue
+                  text = wf.read_text(encoding="utf-8")
+                  lowered = text.lower()
+                  has_push = bool(re.search(r"\bgit\s+push\b", lowered))
+                  targets_mind_tests = "mind-tests" in lowered or "ur/mind-tests" in lowered
+                  targets_articles = "articles" in lowered and (
+                      "rglob('*.html')" in lowered
+                      or 'rglob("*.html")' in lowered
+                      or "glob('*.html')" in lowered
+                      or 'glob("*.html")' in lowered
+                      or "articles/" in lowered
+                  )
+                  if has_push and (targets_mind_tests or targets_articles):
+                      unexpected_target_mutation_workflows.append(wf.as_posix())
+
+          result = {
+              "mind_test_pages": len(html_pages),
+              "engine_file_version": engine_version,
+              "unique_engine_references": unique_engine_refs,
+              "obsolete_20260927_references": obsolete_count,
+              "missing_engine_pages": len(missing_engine_pages),
+              "duplicate_production_engine_pages": len(duplicate_engine_pages),
+              "duplicate_listen_to_article_pages": len(duplicate_audio_pages),
+              "unexpected_target_mutation_workflows": len(unexpected_target_mutation_workflows),
+              "unexpected_target_mutation_workflow_paths": unexpected_target_mutation_workflows,
+          }
+
+          print("FORENSIC_RESULT_JSON=" + json.dumps(result, sort_keys=True))
+
+          if obsolete_count != 0:
+              raise SystemExit("FAIL: obsolete 20260927 engine reference detected.")
+          if len(unique_engine_refs) != 1:
+              raise SystemExit(f"FAIL: expected exactly one production engine reference, found {unique_engine_refs}")
+          if missing_engine_pages:
+              raise SystemExit("FAIL: Mind Test pages missing the shared engine: " + ", ".join(missing_engine_pages))
+          if duplicate_engine_pages:
+              raise SystemExit("FAIL: duplicate production engine references: " + ", ".join(duplicate_engine_pages))
+          if duplicate_audio_pages:
+              raise SystemExit("FAIL: duplicate Listen-to-Article loaders: " + ", ".join(duplicate_audio_pages))
+          if unexpected_target_mutation_workflows:
+              raise SystemExit("FAIL: target HTML mutation workflow(s) still present: " + ", ".join(unexpected_target_mutation_workflows))
+
+          print("PASS: production Mind Test and automation invariants are clean.")
+
+      - name: Run repository E2E
         run: |
-          if git diff --quiet; then
-            echo "No test pages needed changes."
-            exit 0
+          if [ -f package.json ]; then
+            echo "package.json present; public E2E is owned by public-site-e2e.yml."
+            echo "This verification workflow does not mutate production HTML."
+          else
+            echo "No package.json; static verification completed."
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add mind-tests ur/mind-tests
-          git commit -m "Install production test engine [skip ci]"
-          git push
