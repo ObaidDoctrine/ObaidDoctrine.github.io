@@ -3,44 +3,70 @@ name: Install Listen to Article
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+# Production article HTML is authoritative. This workflow verifies it and never rewrites it.
+concurrency:
+  group: article-audio-loader-verification-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  install:
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - name: Add player to all article pages
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Verify Listen to Article loader invariants
+        shell: python
         run: |
-          python - <<'PY'
           from pathlib import Path
-          changed=[]
-          for root in ("articles","ur/articles"):
-              base=Path(root)
-              if not base.exists(): continue
-              for p in base.glob("*/index.html"):
-                  s=p.read_text(encoding="utf-8")
-                  tag='<script src="/listen-to-article.js?v=20260920-2" defer></script>'
-                  if "</body>" in s:
-                      import re
-                      s=re.sub(r'<script src="/listen-to-article\\.js(?:\\?[^"]*)?" defer></script>', tag, s, count=1)
-                      if tag not in s:
-                          s=s.replace("</body>", tag+"</body>", 1)
-                      p.write_text(s, encoding="utf-8")
-                      changed.append(str(p))
-          print("Updated", len(changed), "article pages")
-          for p in changed: print(p)
-          PY
-      - name: Commit article page updates
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add articles ur/articles
-          if git diff --cached --quiet; then
-            echo "No article pages needed changes."
-          else
-            git commit -m "Enable Listen to Article on all article pages"
-            git push
-          fi
+          import json
+          import re
+
+          root = Path(".")
+          pages = sorted(
+              list((root / "articles").glob("*/index.html")) +
+              list((root / "ur/articles").glob("*/index.html"))
+          )
+          if not pages:
+              raise SystemExit("No article pages found.")
+
+          pattern = re.compile(
+              r'<script[^>]+src=["\']([^"\']*?/listen-to-article\.js(?:\?[^"\']*)?)["\'][^>]*></script>',
+              re.I
+          )
+
+          duplicate_pages = []
+          obsolete_20260920 = 0
+          total_refs = 0
+          for page in pages:
+              text = page.read_text(encoding="utf-8")
+              refs = pattern.findall(text)
+              total_refs += len(refs)
+              obsolete_20260920 += text.count("listen-to-article.js?v=20260920-2")
+              if len(refs) > 1:
+                  duplicate_pages.append(page.as_posix())
+
+          result = {
+              "article_pages": len(pages),
+              "total_loader_references": total_refs,
+              "duplicate_loader_pages": len(duplicate_pages),
+              "obsolete_20260920_loader_references": obsolete_20260920,
+              "duplicate_pages": duplicate_pages,
+          }
+          print("FORENSIC_RESULT_JSON=" + json.dumps(result, sort_keys=True))
+
+          if obsolete_20260920 != 0:
+              raise SystemExit("FAIL: obsolete 20260920-2 Listen to Article loader detected.")
+          if duplicate_pages:
+              raise SystemExit("FAIL: duplicate Listen to Article loaders detected: " + ", ".join(duplicate_pages))
+
+          print("PASS: Listen to Article loader invariants are clean.")
