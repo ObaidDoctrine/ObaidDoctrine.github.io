@@ -5,6 +5,10 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+concurrency:
+  group: public-site-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
