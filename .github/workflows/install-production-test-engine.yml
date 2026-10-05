@@ -93,7 +93,7 @@ jobs:
           # are considered conflicting mutation workflows. Other repository writers
           # are reported separately by their own workflows and are not silently
           # treated as part of this Mind Test fix.
-          if has_push and targets_mind_tests and wf.name != Path(__file__).name:
+          if has_push and targets_mind_tests:
               unexpected_target_mutation_workflows.append(wf.as_posix())
 
           result = {
