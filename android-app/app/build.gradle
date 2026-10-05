@@ -38,3 +38,43 @@ android {
         }
     }
 }
+
+
+/*
+ * Launcher icon source:
+ * Reuse the canonical Obaid Doctrine brand asset from the website repo.
+ * The image is copied into generated Android resources at build time so
+ * the app and website keep the same branding without duplicating the binary.
+ */
+def launcherIconSource = file("$rootDir/../assets/brand-profile.png")
+def generatedLauncherResDir = file("$buildDir/generated/res/launcherIcon")
+
+android {
+    sourceSets {
+        main.res.srcDir(generatedLauncherResDir)
+    }
+}
+
+tasks.register("prepareLauncherIcon") {
+    inputs.file(launcherIconSource)
+    outputs.dir(generatedLauncherResDir)
+
+    doLast {
+        if (!launcherIconSource.exists()) {
+            throw new GradleException("Missing launcher icon source: $launcherIconSource")
+        }
+
+        def outputDir = file("$generatedLauncherResDir/drawable-nodpi")
+        outputDir.mkdirs()
+
+        copy {
+            from launcherIconSource
+            into outputDir
+            rename { "brand_profile_source.png" }
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn("prepareLauncherIcon")
+}
