@@ -25,7 +25,9 @@ jobs:
           fetch-depth: 1
 
       - name: Validate automation runtime
-        run: node --version
+        run: |
+          node --version
+          magick -version
 
       - name: Run production scheduler
         env:
