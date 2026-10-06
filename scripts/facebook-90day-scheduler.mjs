@@ -202,9 +202,10 @@ async function verifyPublishedPost(pageToken, externalId) {
 }
 
 async function logAttempt(post, status, extra = {}) {
-  return supabase("/rest/v1/facebook_publication_logs", {
+  const attemptedAt = new Date().toISOString();
+  return supabase("/rest/v1/facebook_publication_logs?on_conflict=content_post_id,platform,attempt_number", {
     method: "POST",
-    headers: {"Prefer":"return=minimal"},
+    headers: {"Prefer":"resolution=merge-duplicates,return=minimal"},
     body: JSON.stringify({
       content_post_id: post.id,
       platform: "facebook",
@@ -214,8 +215,8 @@ async function logAttempt(post, status, extra = {}) {
       response_status: extra.response_status ?? null,
       error_message: extra.error_message || null,
       idempotency_key: post.idempotency_key,
-      attempted_at: new Date().toISOString(),
-      published_at: status === "published" ? new Date().toISOString() : null,
+      attempted_at: attemptedAt,
+      published_at: status === "published" ? attemptedAt : null,
     })
   });
 }
