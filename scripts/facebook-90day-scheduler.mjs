@@ -29,6 +29,7 @@ const PAGE_ID = process.env.FB_PAGE_ID;
 const GRAPH_VERSION = process.env.FB_GRAPH_VERSION;
 const ENABLE_REELS = process.env.ENABLE_REELS === "true";
 const MAX_ITEMS = Math.max(1, Math.min(Number(process.env.FB_AUTOMATION_BATCH_SIZE || 3), 20));
+const IMAGE_CONVERTER = process.env.IMAGE_CONVERTER || (process.platform === "win32" ? "magick" : "convert");
 
 async function supabase(path, options = {}) {
   const headers = {
@@ -158,7 +159,7 @@ async function preparePhotoSource(mediaUrl) {
   const output = join(dir, "source.png");
   try {
     await writeFile(input, bytes);
-    await execFileAsync("magick", [input, "-background", "white", output], {timeout:30000});
+    await execFileAsync(IMAGE_CONVERTER, [input, "-background", "white", output], {timeout:30000});
     const png = await readFile(output);
     if (!png.length) throw new Error("NOT_VERIFIED: SVG conversion produced an empty PNG.");
     if (png.length > 4 * 1024 * 1024) throw new Error("NOT_VERIFIED: converted PNG exceeds Facebook's 4 MB photo limit.");
