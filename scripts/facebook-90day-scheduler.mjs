@@ -126,13 +126,32 @@ async function preflightExistingPhotoPost(pageToken, post) {
 
 async function publishPhoto(pageToken, post) {
   if (!post.media_url) throw new Error("NOT_VERIFIED: Image post requires a publicly reachable media_url before publication.");
-  const params = new URLSearchParams({url: post.media_url, caption: messageFor(post), access_token: pageToken});
-  const result = await graph(`/${PAGE_ID}/photos`, {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:params});
+  const params = new URLSearchParams({url: post.media_url, caption: messageFor(post)});
+  const result = await graph(`/${PAGE_ID}/photos`, {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded",
+      Authorization:`Bearer ${pageToken}`
+    },
+    body:params
+  });
   if (!result.ok || !result.data?.id) {
     const err = new Error(metaDiagnostic("Facebook image publication failed", result.status, result.data));
     err.status = result.status; err.meta = result.data; throw err;
   }
   return result.data.post_id || result.data.id;
+}
+
+async function verifyPublishedPost(pageToken, externalId) {
+  if (!externalId) throw new Error("NOT_VERIFIED: Meta returned no external publication ID.");
+  const result = await graph(`/${encodeURIComponent(externalId)}?fields=id,message,created_time`, {
+    headers:{Authorization:`Bearer ${pageToken}`}
+  });
+  if (!result.ok || String(result.data?.id || "") !== String(externalId)) {
+    const err = new Error(metaDiagnostic("NOT_VERIFIED: Facebook external post verification failed", result.status, result.data));
+    err.status = result.status; err.meta = result.data; throw err;
+  }
+  return result.data;
 }
 
 async function logAttempt(post, status, extra = {}) {
@@ -164,8 +183,15 @@ async function updatePost(id, patch) {
 
 async function publishLink(pageToken, post) {
   const message = messageFor(post);
-  const params = new URLSearchParams({message, access_token: pageToken});
-  const result = await graph(`/${PAGE_ID}/feed`, {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:params});
+  const params = new URLSearchParams({message});
+  const result = await graph(`/${PAGE_ID}/feed`, {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded",
+      Authorization:`Bearer ${pageToken}`
+    },
+    body:params
+  });
   if (!result.ok || !result.data?.id) {
     const err = new Error(metaDiagnostic("Facebook link publication failed", result.status, result.data));
     err.status = result.status;
@@ -274,9 +300,10 @@ async function main() {
         throw new Error(`Content type ${post.content_type} is not enabled by this production scheduler yet.`);
       }
 
+      await verifyPublishedPost(pageToken, externalId);
       await updatePost(post.id, {status:"published", facebook_post_id:externalId, published_at:new Date().toISOString(), error_message:null});
       await logAttempt(post, "published", {external_post_id:externalId, response_status:200});
-      console.log(`Published ${post.id} -> ${externalId}`);
+      console.log(`Published ${post.id} -> ${externalId} (verified)`);
     } catch (error) {
       const message = error?.message || String(error);
       const retryable = error?.status === 408 || error?.status === 429 || (error?.status >= 500 && error?.status <= 599);
