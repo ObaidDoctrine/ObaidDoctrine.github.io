@@ -108,6 +108,37 @@ create trigger facebook_content_posts_touch_updated_at
 before update on public.facebook_content_posts
 for each row execute function public.facebook_touch_updated_at();
 
+create or replace function public.facebook_validate_status_transition()
+returns trigger
+language plpgsql
+as $
+begin
+  if new.status is not distinct from old.status then
+    return new;
+  end if;
+  if not (
+    (old.status='draft' and new.status in ('schedule_pending','scheduled','cancelled')) or
+    (old.status='schedule_pending' and new.status in ('draft','scheduled','cancelled')) or
+    (old.status='scheduled' and new.status in ('publishing','cancelled')) or
+    (old.status='publishing' and new.status in ('published','failed','retry_pending')) or
+    (old.status='retry_pending' and new.status in ('publishing','failed','cancelled')) or
+    (old.status='failed' and new.status in ('retry_pending','scheduled','cancelled')) or
+    (old.status='published' and new.status='published') or
+    (old.status='cancelled' and new.status='cancelled')
+  ) then
+    raise exception 'Invalid Facebook automation status transition: % -> %', old.status, new.status;
+  end if;
+  return new;
+end;
+$;
+
+drop trigger if exists facebook_content_posts_status_guard on public.facebook_content_posts;
+create trigger facebook_content_posts_status_guard
+before update of status on public.facebook_content_posts
+for each row
+when (old.status is distinct from new.status)
+execute function public.facebook_validate_status_transition();
+
 create or replace function public.claim_due_facebook_posts(p_limit integer default 3)
 returns setof public.facebook_content_posts
 language plpgsql
