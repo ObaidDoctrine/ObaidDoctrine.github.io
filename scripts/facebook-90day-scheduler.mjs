@@ -112,6 +112,26 @@ async function preflightExistingPagePost(pageToken, post) {
   return found || null;
 }
 
+async function preflightExistingPhotoPost(pageToken, post) {
+  const fields = encodeURIComponent("id,message,created_time");
+  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100&access_token=${encodeURIComponent(pageToken)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed: ${metaDiagnostic("Meta Page feed read failed", res.status, data)}. Refusing to publish to avoid an unprovable duplicate.`);
+  return (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post))) || null;
+}
+
+async function publishPhoto(pageToken, post) {
+  if (!post.media_url) throw new Error("NOT_VERIFIED: Image post requires a publicly reachable media_url before publication.");
+  const params = new URLSearchParams({url: post.media_url, caption: messageFor(post), access_token: pageToken});
+  const result = await graph(`/${PAGE_ID}/photos`, {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:params});
+  if (!result.ok || !result.data?.id) {
+    const err = new Error(metaDiagnostic("Facebook image publication failed", result.status, result.data));
+    err.status = result.status; err.meta = result.data; throw err;
+  }
+  return result.data.post_id || result.data.id;
+}
+
 async function logAttempt(post, status, extra = {}) {
   return supabase("/rest/v1/facebook_publication_logs", {
     method: "POST",
@@ -235,6 +255,16 @@ async function main() {
           continue;
         }
         externalId = await publishLink(pageToken, post);
+      } else if (post.content_type === "image") {
+        const existing = await preflightExistingPhotoPost(pageToken, post);
+        if (existing?.id) {
+          externalId = existing.id;
+          await updatePost(post.id, {status:"published", facebook_post_id:externalId, published_at:existing.created_time || new Date().toISOString(), error_message:null});
+          await logAttempt(post, "published", {external_post_id:externalId});
+          console.log(`Recovered existing image publication for ${post.id}: ${externalId}`);
+          continue;
+        }
+        externalId = await publishPhoto(pageToken, post);
       } else if (post.content_type === "reel") {
         externalId = await publishReel(pageToken, post);
       } else {
