@@ -2,9 +2,9 @@
   "campaign": "OBAID DOCTRINE Facebook 90-Day Pilot",
   "version": 1,
   "days": 10,
-  "posts_per_day": 3,
+  "posts_per_day": 2,
   "status": "draft",
-  "notes": "Pilot content bank. Not approved for publication. Each item has a unique content_hash placeholder to be computed by importer.",
+  "notes": "10-day pilot content bank: 2 regular Urdu posts + 1 Urdu Reel concept per day. Reel media must be generated/validated and media_url populated before scheduling.",
   "posts": [
     {
       "id": "pilot-01",
@@ -46,7 +46,9 @@
       "message": "Not every feeling needs an immediate reaction.",
       "reflection": "What changes when you give yourself ten seconds before responding?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-04",
@@ -88,7 +90,9 @@
       "message": "A person who can say I was wrong has room to become better.",
       "reflection": "Is admitting a mistake harder because of the mistake or because of pride?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-07",
@@ -130,7 +134,9 @@
       "message": "You can leave an unhealthy situation without turning it into a public performance.",
       "reflection": "What does self-respect look like when nobody is watching?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-10",
@@ -172,7 +178,9 @@
       "message": "Sometimes strength is knowing when the conversation has stopped being useful.",
       "reflection": "When has having the last word cost more than it was worth?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-13",
@@ -214,7 +222,9 @@
       "message": "Ask what you know, what you do not know, and what you can control.",
       "reflection": "What helps you decide when certainty is impossible?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-16",
@@ -256,7 +266,9 @@
       "message": "The goal is not less feeling. It is better response.",
       "reflection": "Which emotion most often tries to make decisions for you?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-19",
@@ -298,7 +310,9 @@
       "message": "A boundary is a responsibility to yourself, not a threat to another person.",
       "reflection": "What makes a boundary clear instead of controlling?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-22",
@@ -340,7 +354,9 @@
       "message": "Patience becomes easier when you separate urgency from frustration.",
       "reflection": "What usually tests your patience most?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-25",
@@ -382,7 +398,9 @@
       "message": "Your values become credible through repeated behaviour.",
       "reflection": "Which value do you want your daily actions to demonstrate more clearly?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     },
     {
       "id": "pilot-28",
@@ -424,7 +442,10 @@
       "message": "Ask: What happened? What was my part? What will I do differently?",
       "reflection": "Which question helps you learn most from your own behaviour?",
       "status": "draft",
-      "content_type": "link"
+      "content_type": "reel",
+      "media_status": "needs_generation",
+      "media_url": null
     }
-  ]
+  ],
+  "reels_per_day": 1
 }
