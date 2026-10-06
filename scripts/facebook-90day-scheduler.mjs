@@ -2,8 +2,9 @@
 /**
  * OBAID DOCTRINE Facebook 90-day scheduler.
  * Safe defaults:
- * - uses the existing FB_PAGE_ACCESS_TOKEN secret as the Meta user token
- * - derives a Page token at runtime
+ * - accepts FB_PAGE_ACCESS_TOKEN as either a Page token or a User token
+ * - validates the token without exposing it
+ * - derives a Page token from /me/accounts only when needed
  * - refuses to publish link posts unless a preflight Page-feed read can prove
  *   the idempotency marker is absent/present
  * - Reels are feature-gated behind ENABLE_REELS=true
@@ -14,13 +15,11 @@ for (const key of required) {
 }
 const SUPABASE_URL = process.env.SUPABASE_URL.replace(/\/$/,"");
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const USER_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
+const ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
 const PAGE_ID = process.env.FB_PAGE_ID;
 const GRAPH_VERSION = process.env.FB_GRAPH_VERSION;
 const ENABLE_REELS = process.env.ENABLE_REELS === "true";
 const MAX_ITEMS = Math.max(1, Math.min(Number(process.env.FB_AUTOMATION_BATCH_SIZE || 3), 20));
-
-const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function supabase(path, options = {}) {
   const headers = {
@@ -46,17 +45,47 @@ async function graph(path, options = {}) {
   const res = await fetch(url, options);
   const text = await res.text();
   let data = null;
-  try { data = text ? JSON.parse(text) : null; } catch { data = text; }
+  try { data = text ? JSON.parse(text) : text; } catch { data = text; }
   return {status: res.status, ok: res.ok, data};
 }
 
-async function getPageToken() {
-  const url = `https://graph.facebook.com/${GRAPH_VERSION}/me/accounts?fields=id,name,tasks,access_token&access_token=${encodeURIComponent(USER_TOKEN)}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  if (!res.ok) throw new Error(`Meta token/account lookup failed (${res.status}).`);
-  const page = (data.data || []).find(x => x.id === PAGE_ID);
-  if (!page?.access_token) throw new Error("Meta token cannot provide the configured Page access token.");
+function metaDiagnostic(prefix, status, data) {
+  const e = data?.error;
+  const parts = [
+    `${prefix} (${status})`,
+    e?.message ? `message=${e.message}` : null,
+    e?.code != null ? `code=${e.code}` : null,
+    e?.error_subcode != null ? `subcode=${e.error_subcode}` : null,
+    e?.type ? `type=${e.type}` : null,
+    e?.fbtrace_id ? `fbtrace_id=${e.fbtrace_id}` : null,
+  ].filter(Boolean);
+  return parts.join(" | ");
+}
+
+async function resolvePageToken() {
+  // First treat the configured secret as a Page token. This avoids an
+  // unnecessary /me/accounts call when the secret is already a Page token.
+  const direct = await graph(`/${PAGE_ID}?fields=id,name`, {
+    headers: {Authorization: `Bearer ${ACCESS_TOKEN}`}
+  });
+  if (direct.ok && String(direct.data?.id) === String(PAGE_ID)) {
+    console.log("Meta token validation: configured token works directly as the Page token.");
+    return ACCESS_TOKEN;
+  }
+
+  // If it is not a usable Page token, treat it as a User token and derive
+  // the configured Page token from /me/accounts.
+  const accounts = await graph(`/me/accounts?fields=id,name,tasks,access_token`, {
+    headers: {Authorization: `Bearer ${ACCESS_TOKEN}`}
+  });
+  if (!accounts.ok) {
+    throw new Error(metaDiagnostic("Meta token validation failed: token is neither a usable configured Page token nor a User token that can list the configured Page", accounts.status, accounts.data));
+  }
+  const page = (accounts.data?.data || []).find(x => String(x.id) === String(PAGE_ID));
+  if (!page?.access_token) {
+    throw new Error("Meta token validation failed: User token is valid, but it cannot provide the configured Page access token.");
+  }
+  console.log(`Meta token validation: derived Page token for Page ${PAGE_ID} from the configured User token.`);
   return page.access_token;
 }
 
@@ -78,7 +107,7 @@ async function preflightExistingPagePost(pageToken, post) {
   const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100&access_token=${encodeURIComponent(pageToken)}`;
   const res = await fetch(url);
   const data = await res.json();
-  if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed (${res.status}). Refusing to publish to avoid an unprovable duplicate.`);
+  if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed: ${metaDiagnostic("Meta Page feed read failed", res.status, data)}. Refusing to publish to avoid an unprovable duplicate.`);
   const found = (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post)));
   return found || null;
 }
@@ -115,7 +144,7 @@ async function publishLink(pageToken, post) {
   const params = new URLSearchParams({message, access_token: pageToken});
   const result = await graph(`/${PAGE_ID}/feed`, {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:params});
   if (!result.ok || !result.data?.id) {
-    const err = new Error(`Facebook link publication failed (${result.status}).`);
+    const err = new Error(metaDiagnostic("Facebook link publication failed", result.status, result.data));
     err.status = result.status;
     err.meta = result.data;
     throw err;
@@ -132,14 +161,14 @@ async function publishReel(pageToken, post) {
     body:new URLSearchParams({upload_phase:"start",access_token:pageToken})
   });
   if (!start.ok || !start.data?.video_id || !start.data?.upload_url) {
-    const err = new Error(`Reel upload initialization failed (${start.status}).`);
+    const err = new Error(metaDiagnostic("Reel upload initialization failed", start.status, start.data));
     err.status = start.status; err.meta = start.data; throw err;
   }
   const upload = await fetch(start.data.upload_url, {
     method:"POST",
     headers:{Authorization:`OAuth ${pageToken}`, file_url:post.media_url}
   });
-  const uploadText = await upload.text();
+  await upload.text();
   if (!upload.ok) throw new Error(`Reel media upload failed (${upload.status}).`);
   const finishParams = new URLSearchParams({
     upload_phase:"finish",
@@ -155,14 +184,14 @@ async function publishReel(pageToken, post) {
     body:finishParams
   });
   if (!finish.ok) {
-    const err = new Error(`Reel publish/finish failed (${finish.status}).`);
+    const err = new Error(metaDiagnostic("Reel publish/finish failed", finish.status, finish.data));
     err.status = finish.status; err.meta = finish.data; throw err;
   }
   return finish.data?.post_id || finish.data?.video_id || start.data.video_id;
 }
 
 async function main() {
-  const pageToken = await getPageToken();
+  const pageToken = await resolvePageToken();
   const posts = await supabase(`/rest/v1/rpc/claim_due_facebook_posts?select=*&p_limit=${MAX_ITEMS}`, {
     method:"POST",
     headers:{"Prefer":"return=representation"},
@@ -210,7 +239,7 @@ async function main() {
       try { await logAttempt(post, "failed", {response_status:error?.status || null, error_message:message}); } catch {}
       console.error(`Failed ${post.id}: ${message}`);
     }
-    await sleep(250);
+    await new Promise(r => setTimeout(r, 250));
   }
 }
 
