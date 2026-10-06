@@ -102,7 +102,7 @@ jobs:
           BADGING="$("$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK_OUT")"
           printf '%s\n' "$BADGING"
 
-          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='5' versionName='1.0.6'"
+          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='6' versionName='1.0.6'"
           printf '%s\n' "$BADGING" | grep -F "minSdkVersion:'23'"
           printf '%s\n' "$BADGING" | grep -F "targetSdkVersion:'36'"
 
