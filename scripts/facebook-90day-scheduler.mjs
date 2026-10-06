@@ -16,6 +16,7 @@ const execFileAsync = promisify(execFile);
  * - refuses to publish link posts unless a preflight Page-feed read can prove
  *   the idempotency marker is absent/present
  * - Reels are feature-gated behind ENABLE_REELS=true
+ * - SVG image URLs are rasterized to PNG before Facebook photo upload
  */
 const required = ["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY","FB_PAGE_ACCESS_TOKEN","FB_PAGE_ID","FB_GRAPH_VERSION"];
 for (const key of required) {
