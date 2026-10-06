@@ -27,7 +27,7 @@ jobs:
 
       - name: Run production scheduler
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_URL: "https://nrckrzgxpxfwuyodbylg.supabase.co"
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           FB_PAGE_ID: "1021253154403079"
           FB_GRAPH_VERSION: "v26.0"
