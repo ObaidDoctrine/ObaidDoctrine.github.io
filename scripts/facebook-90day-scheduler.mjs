@@ -192,10 +192,10 @@ async function publishReel(pageToken, post) {
 
 async function main() {
   const pageToken = await resolvePageToken();
-  const posts = await supabase(`/rest/v1/rpc/claim_due_facebook_posts?select=*&p_limit=${MAX_ITEMS}`, {
+  const posts = await supabase("/rest/v1/rpc/claim_due_facebook_posts", {
     method:"POST",
     headers:{"Prefer":"return=representation"},
-    body:"{}"
+    body:JSON.stringify({p_limit: MAX_ITEMS})
   });
   if (!Array.isArray(posts) || posts.length === 0) {
     console.log("No due Facebook automation items.");
