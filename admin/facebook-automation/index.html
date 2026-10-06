@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Facebook Automation Control Center | OBAID DOCTRINE</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<style>
+:root{--green:#31543A;--lime:#B7D84B;--ivory:#FAFAF5;--soft:#DCE8B5;--muted:#6F756F;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--green);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{width:min(1400px,94%);margin:auto;padding:28px 0 80px}.brand{font-weight:900;letter-spacing:.08em;text-decoration:none;color:var(--green)}
+h1{font-size:clamp(2rem,5vw,4rem);line-height:1;letter-spacing:-.05em;margin:28px 0 8px}h2{margin:0 0 16px}
+.card{background:var(--white);border:1px solid rgba(49,84,58,.15);border-radius:22px;padding:22px;box-shadow:0 10px 30px rgba(49,84,58,.06);margin:18px 0}
+#admin-status{min-height:24px;color:var(--muted)}#admin-status[data-type=error]{color:#8b2f2f}#admin-status[data-type=success]{color:#496B50}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.stat{padding:18px;border:1px solid rgba(49,84,58,.12);border-radius:16px;background:var(--ivory)}.stat b{display:block;font-size:28px}.stat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn{border:0;border-radius:12px;padding:11px 15px;background:var(--green);color:#fff;font-weight:800;cursor:pointer}.btn.secondary{background:var(--soft);color:var(--green)}
+input,select,textarea{width:100%;border:1px solid rgba(49,84,58,.18);border-radius:10px;background:var(--ivory);padding:11px;color:var(--green);font:inherit}textarea{min-height:90px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.field{display:grid;gap:5px}.field label{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--muted)}.wide{grid-column:1/-1}
+.calendar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.day-card{border:1px solid rgba(49,84,58,.13);border-radius:16px;padding:12px;background:var(--ivory)}.day-head{display:flex;justify-content:space-between;margin-bottom:8px}.slot-row{width:100%;display:flex;justify-content:space-between;gap:10px;text-align:left;border:1px solid rgba(49,84,58,.10);background:#fff;border-radius:11px;padding:10px;margin:5px 0;color:var(--green);cursor:pointer}.slot-row span{min-width:0}.slot-row b{display:block;font-size:11px;text-transform:uppercase}.slot-row small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:230px;color:var(--muted)}.slot-row em{font-style:normal;font-size:10px;font-weight:900}.status-published{color:#496B50}.status-failed{color:#8b2f2f}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid rgba(49,84,58,.12);vertical-align:top;font-size:13px}
+.login{max-width:480px;margin:12vh auto}.login .card{padding:30px}.login .field{margin:12px 0}
+[hidden]{display:none!important}@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.calendar{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.stats,.calendar,.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="brand" href="/">OBAID DOCTRINE</a>
+<section id="login" class="login">
+<div class="card"><h1>Facebook Automation</h1><p>Private control center. Supabase authentication + admin allowlist are required.</p>
+<form id="login-form"><div class="field"><label>EMAIL</label><input id="login-email" type="email" required></div><div class="field"><label>PASSWORD</label><input id="login-password" type="password" required></div><button class="btn" type="submit">Sign in</button></form>
+<div id="admin-status" role="status" aria-live="polite"></div></div>
+</section>
+<section id="app" hidden>
+<div class="toolbar"><div><h1>90-Day Facebook Control Center</h1><p>270-item campaign • 3 daily slots • persistent publication records</p></div><button id="logout" class="btn secondary">Sign out</button></div>
+<div id="admin-status" role="status" aria-live="polite"></div>
+<section class="card"><div class="stats">
+<div class="stat"><b id="stat-total">0</b><span>Total records</span></div><div class="stat"><b id="stat-scheduled">0</b><span>Scheduled</span></div><div class="stat"><b id="stat-published">0</b><span>Published</span></div><div class="stat"><b id="stat-failed">0</b><span>Failed</span></div><div class="stat"><b id="stat-pending">0</b><span>Pending</span></div><div class="stat"><b id="stat-remaining">270</b><span>Remaining</span></div>
+</div></section>
+<section id="editor" class="card"><div class="toolbar"><h2 id="form-title">New content item</h2><button id="new-post" class="btn secondary" type="button">New</button><button id="cancel-edit" class="btn secondary" type="button">Clear</button></div>
+<form id="editor-form"><div class="grid">
+<div class="field"><label>DAY (1–90)</label><input name="day_number" id="day_number" type="number" min="1" max="90" required></div>
+<div class="field"><label>SLOT</label><select name="slot" id="slot"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div>
+<div class="field"><label>PILLAR</label><input name="pillar" required></div>
+<div class="field"><label>PUBLISH DATE</label><input name="publish_date" type="date"></div>
+<div class="field"><label>PUBLISH TIME</label><input name="publish_time" type="time"></div>
+<div class="field"><label>CONTENT TYPE</label><select name="content_type" id="content_type"><option value="reel">Reel (feature-gated)</option><option value="link">Link post</option><option value="video">Video (not enabled)</option><option value="image">Image (not enabled)</option></select></div>
+<div class="field"><label>STATUS</label><select name="status" id="status"><option>draft</option><option>schedule_pending</option><option>scheduled</option><option>cancelled</option><option>retry_pending</option></select></div>
+<div class="field wide"><label>TOPIC</label><input name="topic" required></div>
+<div class="field"><label>SUBTOPIC</label><input name="subtopic"></div><div class="field"><label>HOOK</label><input name="hook"></div>
+<div class="field wide"><label>CORE IDEA</label><textarea name="core_idea"></textarea></div>
+<div class="field"><label>LESSON</label><textarea name="lesson"></textarea></div><div class="field"><label>MESSAGE</label><textarea name="message"></textarea></div>
+<div class="field"><label>STORYLINE</label><textarea name="storyline"></textarea></div><div class="field"><label>SCENARIO</label><textarea name="scenario"></textarea></div>
+<div class="field"><label>METAPHOR</label><textarea name="metaphor"></textarea></div><div class="field"><label>VISUAL CONCEPT</label><textarea name="visual_concept"></textarea></div>
+<div class="field wide"><label>SCRIPT</label><textarea name="script"></textarea></div>
+<div class="field wide"><label>CAPTION</label><textarea name="caption"></textarea></div><div class="field wide"><label>CTA</label><textarea name="cta"></textarea></div>
+<div class="field wide"><label>MEDIA URL</label><input name="media_url" type="url"></div>
+<div class="field wide"><label>SCHEDULED AT (optional ISO timestamp; date/time above can populate it)</label><input name="scheduled_at" type="datetime-local"></div>
+</div><br><button class="btn" type="submit">Save content item</button></form>
+</section>
+<section class="card"><div class="toolbar"><h2>90-Day Calendar</h2></div><div id="calendar" class="calendar"></div></section>
+<section class="card"><h2>Publication History</h2><div class="table-wrap"><table><thead><tr><th>Content</th><th>Topic</th><th>Published</th><th>Facebook ID</th><th>Status</th><th>Error</th></tr></thead><tbody id="history"></tbody></table></div></section>
+</section>
+</main>
+<script type="module" src="/admin/facebook-automation/app.js"></script>
+</body></html>
