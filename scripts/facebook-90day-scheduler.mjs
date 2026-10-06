@@ -30,6 +30,11 @@ const GRAPH_VERSION = process.env.FB_GRAPH_VERSION;
 const ENABLE_REELS = process.env.ENABLE_REELS === "true";
 const MAX_ITEMS = Math.max(1, Math.min(Number(process.env.FB_AUTOMATION_BATCH_SIZE || 3), 20));
 const IMAGE_CONVERTER = process.env.IMAGE_CONVERTER || (process.platform === "win32" ? "magick" : "convert");
+const FETCH_TIMEOUT_MS = 30000;
+
+function fetchWithTimeout(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+  return fetch(url, {...options, signal: AbortSignal.timeout(timeoutMs)});
+}
 
 async function supabase(path, options = {}) {
   const headers = {
@@ -38,7 +43,7 @@ async function supabase(path, options = {}) {
     "Content-Type": "application/json",
     ...options.headers,
   };
-  const res = await fetch(`${SUPABASE_URL}${path}`, {...options, headers});
+  const res = await fetchWithTimeout(`${SUPABASE_URL}${path}`, {...options, headers});
   const text = await res.text();
   let data = null;
   try { data = text ? JSON.parse(text) : null; } catch { data = text; }
@@ -52,7 +57,7 @@ async function supabase(path, options = {}) {
 
 async function graph(path, options = {}) {
   const url = `https://graph.facebook.com/${GRAPH_VERSION}${path}`;
-  const res = await fetch(url, options);
+  const res = await fetchWithTimeout(url, options);
   const text = await res.text();
   let data = null;
   try { data = text ? JSON.parse(text) : text; } catch { data = text; }
@@ -118,7 +123,7 @@ function messageFor(post) {
 async function preflightExistingPagePost(pageToken, post) {
   const fields = encodeURIComponent("id,message,created_time");
   const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100`;
-  const res = await fetch(url, {headers:{Authorization:`Bearer ${pageToken}`}});
+  const res = await fetchWithTimeout(url, {headers:{Authorization:`Bearer ${pageToken}`}});
   const data = await res.json();
   if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed: ${metaDiagnostic("Meta Page feed read failed", res.status, data)}. Refusing to publish to avoid an unprovable duplicate.`);
   const found = (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post)));
@@ -135,7 +140,7 @@ async function preflightExistingPhotoPost(pageToken, post) {
 }
 
 async function preparePhotoSource(mediaUrl) {
-  const response = await fetch(mediaUrl, {headers:{"User-Agent":"OBAID-DOCTRINE-Facebook-Automation/1.0"}});
+  const response = await fetchWithTimeout(mediaUrl, {headers:{"User-Agent":"OBAID-DOCTRINE-Facebook-Automation/1.0"}});
   if (!response.ok) {
     throw new Error(`NOT_VERIFIED: media_url returned HTTP ${response.status}.`);
   }
@@ -263,10 +268,10 @@ async function publishReel(pageToken, post) {
     const err = new Error(metaDiagnostic("Reel upload initialization failed", start.status, start.data));
     err.status = start.status; err.meta = start.data; throw err;
   }
-  const upload = await fetch(start.data.upload_url, {
+  const upload = await fetchWithTimeout(start.data.upload_url, {
     method:"POST",
     headers:{Authorization:`OAuth ${pageToken}`, file_url:post.media_url}
-  });
+  }, 120000);
   await upload.text();
   if (!upload.ok) throw new Error(`Reel media upload failed (${upload.status}).`);
   const finishParams = new URLSearchParams({
