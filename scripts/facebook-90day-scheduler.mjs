@@ -63,8 +63,24 @@ function metaDiagnostic(prefix, status, data) {
 }
 
 async function resolvePageToken() {
-  // First treat the configured secret as a Page token. This avoids an
-  // unnecessary /me/accounts call when the secret is already a Page token.
+  // Prefer /me/accounts first. A User token can also resolve the Page node
+  // directly, so checking the Page node first can falsely classify a User
+  // token as a Page token. For New Page Experience APIs, that can later fail
+  // with Meta error 190/subcode 2069032 because the call requires a Page token.
+  const accounts = await graph(`/me/accounts?fields=id,name,tasks,access_token`, {
+    headers: {Authorization: `Bearer ${ACCESS_TOKEN}`}
+  });
+  if (accounts.ok) {
+    const page = (accounts.data?.data || []).find(x => String(x.id) === String(PAGE_ID));
+    if (!page?.access_token) {
+      throw new Error("Meta token validation failed: User token is valid, but it cannot provide the configured Page access token.");
+    }
+    console.log(`Meta token validation: derived Page token for Page ${PAGE_ID} from the configured User token.`);
+    return page.access_token;
+  }
+
+  // If /me/accounts is not available, test whether the configured secret is
+  // itself a usable Page token.
   const direct = await graph(`/${PAGE_ID}?fields=id,name`, {
     headers: {Authorization: `Bearer ${ACCESS_TOKEN}`}
   });
@@ -73,20 +89,7 @@ async function resolvePageToken() {
     return ACCESS_TOKEN;
   }
 
-  // If it is not a usable Page token, treat it as a User token and derive
-  // the configured Page token from /me/accounts.
-  const accounts = await graph(`/me/accounts?fields=id,name,tasks,access_token`, {
-    headers: {Authorization: `Bearer ${ACCESS_TOKEN}`}
-  });
-  if (!accounts.ok) {
-    throw new Error(metaDiagnostic("Meta token validation failed: token is neither a usable configured Page token nor a User token that can list the configured Page", accounts.status, accounts.data));
-  }
-  const page = (accounts.data?.data || []).find(x => String(x.id) === String(PAGE_ID));
-  if (!page?.access_token) {
-    throw new Error("Meta token validation failed: User token is valid, but it cannot provide the configured Page access token.");
-  }
-  console.log(`Meta token validation: derived Page token for Page ${PAGE_ID} from the configured User token.`);
-  return page.access_token;
+  throw new Error(metaDiagnostic("Meta token validation failed: configured secret is neither a usable User token for the Page nor a usable Page token", direct.status, direct.data));
 }
 
 function marker(post) {
