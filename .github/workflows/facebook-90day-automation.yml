@@ -33,5 +33,5 @@ jobs:
           FB_GRAPH_VERSION: "v26.0"
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           FB_AUTOMATION_BATCH_SIZE: "3"
-          ENABLE_REELS: "false"
+          ENABLE_REELS: "true"
         run: node scripts/facebook-90day-scheduler.mjs
