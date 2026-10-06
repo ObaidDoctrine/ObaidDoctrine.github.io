@@ -104,8 +104,8 @@ function messageFor(post) {
 
 async function preflightExistingPagePost(pageToken, post) {
   const fields = encodeURIComponent("id,message,created_time");
-  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100&access_token=${encodeURIComponent(pageToken)}`;
-  const res = await fetch(url);
+  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100`;
+  const res = await fetch(url, {headers:{Authorization:`Bearer ${pageToken}`}});
   const data = await res.json();
   if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed: ${metaDiagnostic("Meta Page feed read failed", res.status, data)}. Refusing to publish to avoid an unprovable duplicate.`);
   const found = (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post)));
@@ -114,8 +114,8 @@ async function preflightExistingPagePost(pageToken, post) {
 
 async function preflightExistingPhotoPost(pageToken, post) {
   const fields = encodeURIComponent("id,message,created_time");
-  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100&access_token=${encodeURIComponent(pageToken)}`;
-  const res = await fetch(url);
+  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PAGE_ID}/posts?fields=${fields}&limit=100`;
+  const res = await fetch(url, {headers:{Authorization:`Bearer ${pageToken}`}});
   const data = await res.json();
   if (!res.ok) throw new Error(`NOT_VERIFIED: Page feed preflight failed: ${metaDiagnostic("Meta Page feed read failed", res.status, data)}. Refusing to publish to avoid an unprovable duplicate.`);
   return (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post))) || null;
