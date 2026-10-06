@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+import {execFile} from "node:child_process";
+import {promisify} from "node:util";
+import {mkdtemp, readFile, rm, writeFile} from "node:fs/promises";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+
+const execFileAsync = promisify(execFile);
+
 /**
  * OBAID DOCTRINE Facebook 90-day scheduler.
  * Safe defaults:
@@ -124,16 +132,54 @@ async function preflightExistingPhotoPost(pageToken, post) {
   return (data.data || []).find(x => typeof x.message === "string" && x.message.includes(marker(post))) || null;
 }
 
+async function preparePhotoSource(mediaUrl) {
+  const response = await fetch(mediaUrl, {headers:{"User-Agent":"OBAID-DOCTRINE-Facebook-Automation/1.0"}});
+  if (!response.ok) {
+    throw new Error(`NOT_VERIFIED: media_url returned HTTP ${response.status}.`);
+  }
+
+  const contentType = (response.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+  const bytes = Buffer.from(await response.arrayBuffer());
+  if (!bytes.length) throw new Error("NOT_VERIFIED: media_url returned an empty file.");
+  if (bytes.length > 4 * 1024 * 1024) throw new Error("NOT_VERIFIED: image exceeds Facebook's 4 MB photo limit.");
+
+  const isSvg = contentType === "image/svg+xml" || /\\.svg(?:$|[?#])/i.test(mediaUrl);
+  if (!isSvg) {
+    const allowed = new Set(["image/jpeg","image/png","image/gif","image/tiff","image/heic","image/heif","image/webp"]);
+    if (!allowed.has(contentType)) {
+      throw new Error(`NOT_VERIFIED: unsupported image Content-Type ${contentType || "unknown"}.`);
+    }
+    return {buffer:bytes, contentType:contentType === "image/jpeg" ? "image/jpeg" : contentType, filename:"facebook-post-image"};
+  }
+
+  const dir = await mkdtemp(join(tmpdir(), "obaid-facebook-image-"));
+  const input = join(dir, "source.svg");
+  const output = join(dir, "source.png");
+  try {
+    await writeFile(input, bytes);
+    await execFileAsync("magick", [input, "-background", "white", output], {timeout:30000});
+    const png = await readFile(output);
+    if (!png.length) throw new Error("NOT_VERIFIED: SVG conversion produced an empty PNG.");
+    if (png.length > 4 * 1024 * 1024) throw new Error("NOT_VERIFIED: converted PNG exceeds Facebook's 4 MB photo limit.");
+    return {buffer:png, contentType:"image/png", filename:"facebook-post-image.png"};
+  } catch (error) {
+    const detail = error?.stderr?.trim() || error?.message || String(error);
+    throw new Error(`NOT_VERIFIED: SVG-to-PNG conversion failed: ${detail}`);
+  } finally {
+    await rm(dir, {recursive:true, force:true});
+  }
+}
+
 async function publishPhoto(pageToken, post) {
   if (!post.media_url) throw new Error("NOT_VERIFIED: Image post requires a publicly reachable media_url before publication.");
-  const params = new URLSearchParams({url: post.media_url, caption: messageFor(post)});
+  const source = await preparePhotoSource(post.media_url);
+  const form = new FormData();
+  form.append("source", new Blob([source.buffer], {type:source.contentType}), source.filename);
+  form.append("caption", messageFor(post));
   const result = await graph(`/${PAGE_ID}/photos`, {
     method:"POST",
-    headers:{
-      "Content-Type":"application/x-www-form-urlencoded",
-      Authorization:`Bearer ${pageToken}`
-    },
-    body:params
+    headers:{Authorization:`Bearer ${pageToken}`},
+    body:form
   });
   if (!result.ok || !result.data?.id) {
     const err = new Error(metaDiagnostic("Facebook image publication failed", result.status, result.data));
