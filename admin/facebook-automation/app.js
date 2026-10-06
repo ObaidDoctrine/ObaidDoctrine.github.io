@@ -16,7 +16,7 @@ const fields = [
 ];
 
 function setStatus(message, type="") {
-  const el = $("#admin-status");
+  const el = $("#admin-status") || $("#login-status");
   el.textContent = message;
   el.dataset.type = type;
 }
