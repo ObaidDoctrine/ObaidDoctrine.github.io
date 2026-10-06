@@ -153,8 +153,9 @@ async function publishLink(pageToken, post) {
 }
 
 async function publishReel(pageToken, post) {
-  if (!ENABLE_REELS) throw new Error("NOT_VERIFIED: Reel publishing is feature-gated. ENABLE_REELS is false until current Meta permissions/API behavior are verified with the live Page credentials.");
-  if (!post.media_url) throw new Error("Reel requires media_url.");
+  if (!ENABLE_REELS) throw new Error("NOT_VERIFIED: Reel publishing is feature-gated. ENABLE_REELS is false.");
+  if (!post.media_url) throw new Error("NOT_VERIFIED: Reel requires a publicly reachable media_url before publication.");
+
   const start = await graph(`/${PAGE_ID}/video_reels`, {
     method:"POST",
     headers:{"Content-Type":"application/x-www-form-urlencoded"},
@@ -187,7 +188,19 @@ async function publishReel(pageToken, post) {
     const err = new Error(metaDiagnostic("Reel publish/finish failed", finish.status, finish.data));
     err.status = finish.status; err.meta = finish.data; throw err;
   }
-  return finish.data?.post_id || finish.data?.video_id || start.data.video_id;
+
+  // Meta's Reel publish/encoding flow is asynchronous. Verify the returned
+  // video object is reachable before marking the database row published.
+  const videoId = finish.data?.video_id || start.data.video_id;
+  const verify = await graph(`/${videoId}?fields=id,status`, {
+    headers:{Authorization:`Bearer ${pageToken}`}
+  });
+  if (!verify.ok || String(verify.data?.id || "") !== String(videoId)) {
+    const err = new Error(metaDiagnostic("NOT_VERIFIED: Reel publish accepted but video verification failed", verify.status, verify.data));
+    err.status = verify.status; err.meta = verify.data; throw err;
+  }
+
+  return finish.data?.post_id || videoId;
 }
 
 async function main() {
