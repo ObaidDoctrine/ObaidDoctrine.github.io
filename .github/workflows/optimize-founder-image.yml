@@ -33,7 +33,8 @@ jobs:
           with Image.open(src) as im:
               if im.mode not in ("RGB", "RGBA"):
                   im = im.convert("RGBA")
-              im.save(dst, "WEBP", quality=88, method=6)
+              im.thumbnail((500,625), Image.Resampling.LANCZOS)
+              im.save(dst, "WEBP", quality=78, method=6)
 
           print(f"Created {dst}")
           print(f"Original bytes: {src.stat().st_size}")
