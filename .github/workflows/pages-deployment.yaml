@@ -24,3 +24,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name=obaid-doctrine
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+# Trigger deployment after Cloudflare credentials are configured.
