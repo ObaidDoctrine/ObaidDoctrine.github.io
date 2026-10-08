@@ -102,6 +102,7 @@
 
   let current = 0;
   let timer = null;
+  let paused = false;
   const interval = 6000;
 
   function show(index, userAction) {
@@ -113,38 +114,51 @@
     [...dots.children].forEach((dot, i) => dot.setAttribute("aria-pressed", i === current ? "true" : "false"));
     count.textContent = String(current + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
     live.textContent = lang === "ur" ? "آج کی بصیرت، سلائیڈ " + (current + 1) : "Today's insight, slide " + (current + 1);
-    if (userAction) restart();
+    if (userAction) startAutoplay();
   }
 
   function stop() {
     if (timer) {
-      window.clearInterval(timer);
+      window.clearTimeout(timer);
       timer = null;
     }
   }
 
-  function restart() {
+  function startAutoplay() {
     stop();
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      timer = window.setInterval(() => show(current + 1, false), interval);
+    if (!paused && !document.hidden) {
+      timer = window.setTimeout(() => {
+        show(current + 1, false);
+        startAutoplay();
+      }, interval);
     }
+  }
+
+  function pauseAutoplay() {
+    paused = true;
+    stop();
+  }
+
+  function resumeAutoplay() {
+    paused = false;
+    startAutoplay();
   }
 
   prev.addEventListener("click", () => show(current - 1, true));
   next.addEventListener("click", () => show(current + 1, true));
-  section.addEventListener("mouseenter", stop);
-  section.addEventListener("mouseleave", restart);
-  section.addEventListener("focusin", stop);
+  section.addEventListener("mouseenter", pauseAutoplay);
+  section.addEventListener("mouseleave", resumeAutoplay);
+  section.addEventListener("focusin", pauseAutoplay);
   section.addEventListener("focusout", event => {
-    if (!section.contains(event.relatedTarget)) restart();
+    if (!section.contains(event.relatedTarget)) resumeAutoplay();
   });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stop();
-    else restart();
+    else if (!paused) startAutoplay();
   });
 
   count.textContent = "01 / " + String(slides.length).padStart(2, "0");
   live.textContent = lang === "ur" ? "آج کی بصیرت، سلائیڈ 1" : "Today's insight, slide 1";
-  restart();
+  startAutoplay();
 })();
