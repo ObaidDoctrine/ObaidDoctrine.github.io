@@ -54,6 +54,7 @@
   if (!Array.isArray(items) || items.length === 0) return;
 
   const slides = items.slice(0, 10);
+  const slideElements = [];
   slidesRoot.replaceChildren();
   dots.replaceChildren();
 
@@ -87,6 +88,7 @@
 
     article.append(top, title, body);
     slidesRoot.appendChild(article);
+    slideElements.push(article);
 
     const dot = document.createElement("button");
     dot.type = "button";
@@ -104,7 +106,7 @@
 
   function show(index, userAction) {
     current = (index + slides.length) % slides.length;
-    slides.forEach((slide, i) => {
+    slideElements.forEach((slide, i) => {
       slide.hidden = i !== current;
       slide.setAttribute("aria-hidden", i === current ? "false" : "true");
     });
