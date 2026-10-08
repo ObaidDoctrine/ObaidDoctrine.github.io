@@ -1,0 +1,8 @@
+# Keep the Cloudflare Pages hostname out of search results when the production site is served on the custom domain.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=()
