@@ -1497,15 +1497,16 @@ html[dir="rtl"] .home-page .knowledge-orbit span{letter-spacing:0}
 .home-page .app-card p:last-child{color:var(--ed-muted)}
 
 .home-page .footer{
-  background:var(--ed-forest);
+  background:#31543A !important;
+  color:#F2F6EF !important;
   border-top-color:rgba(220,232,181,.18);
 }
-.home-page .footer strong{color:var(--ed-lime)}
-.home-page .footer p{color:#DCE8D9}
-.home-page .footer-links a{color:#F2F6EF}
-.home-page .footer-links a:hover{color:var(--ed-lime)}
-.home-page .footer-social-link{border-color:rgba(220,232,181,.24);background:rgba(255,255,255,.035);color:#F2F6EF}
-.home-page .footer-social-link:hover{background:var(--ed-lime);border-color:var(--ed-lime);color:var(--ed-forest)}
+.home-page .footer strong{color:#B7D84B !important}
+.home-page .footer p{color:#DCE8D9 !important}
+.home-page .footer-links a{color:#F2F6EF !important}
+.home-page .footer-links a:hover{color:#B7D84B !important}
+.home-page .footer-social-link{border-color:rgba(220,232,181,.24);background:rgba(255,255,255,.035);color:#F2F6EF !important}
+.home-page .footer-social-link:hover{background:#B7D84B;border-color:#B7D84B;color:#31543A !important}
 
 .home-page :focus-visible{
   outline:3px solid var(--ed-lime);
