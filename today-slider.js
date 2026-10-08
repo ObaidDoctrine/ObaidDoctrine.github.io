@@ -102,7 +102,6 @@
 
   let current = 0;
   let timer = null;
-  let paused = false;
   const interval = 6000;
 
   function show(index, userAction) {
@@ -119,43 +118,23 @@
 
   function stop() {
     if (timer) {
-      window.clearTimeout(timer);
+      window.clearInterval(timer);
       timer = null;
     }
   }
 
   function startAutoplay() {
     stop();
-    if (!paused && !document.hidden) {
-      timer = window.setTimeout(() => {
-        show(current + 1, false);
-        startAutoplay();
-      }, interval);
-    }
-  }
-
-  function pauseAutoplay() {
-    paused = true;
-    stop();
-  }
-
-  function resumeAutoplay() {
-    paused = false;
-    startAutoplay();
+    timer = window.setInterval(() => {
+      show(current + 1, false);
+    }, interval);
   }
 
   prev.addEventListener("click", () => show(current - 1, true));
   next.addEventListener("click", () => show(current + 1, true));
-  section.addEventListener("mouseenter", pauseAutoplay);
-  section.addEventListener("mouseleave", resumeAutoplay);
-  section.addEventListener("focusin", pauseAutoplay);
-  section.addEventListener("focusout", event => {
-    if (!section.contains(event.relatedTarget)) resumeAutoplay();
-  });
-
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stop();
-    else if (!paused) startAutoplay();
+    else startAutoplay();
   });
 
   count.textContent = "01 / " + String(slides.length).padStart(2, "0");
