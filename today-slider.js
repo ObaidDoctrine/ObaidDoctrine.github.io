@@ -49,9 +49,9 @@
   }
 
   const key = localDateKey();
-  const set = DAILY_CONTENT[key] || DAILY_CONTENT[FALLBACK_KEY];
-  const items = set[lang] || set.en;
-  if (!Array.isArray(items) || items.length === 0) return;
+  const set = DAILY_CONTENT[key] || null;
+  const items = set ? (set[lang] || set.en) : [];
+  if (!Array.isArray(items) || items.length === 0) {\n    if (slidesRoot) {\n      slidesRoot.innerHTML = `<article class="od-today-slide od-today-tone-ivory"><div class="od-today-slide-top"><span class="od-today-category">${lang === "ur" ? "روزانہ بصیرت" : "DAILY INSIGHT"}</span></div><h3 class="od-today-title">${lang === "ur" ? "آج کی بصیرت تیار کی جا رہی ہے۔" : "Today’s insight is being prepared."}</h3><p class="od-today-body">${lang === "ur" ? "نئی تحقیق سے باخبر اداریاتی مواد جلد یہاں دستیاب ہوگا۔" : "New research-informed editorial content will appear here when today’s edition is published."}</p></article>`;\n    }\n    return;\n  }
 
   const slides = items.slice(0, 10);
   const slideElements = [];
