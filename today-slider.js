@@ -108,16 +108,11 @@
       }
       function startAutoplay() {
         stop();
-        if (reduceMotion || document.hidden || section.matches(":hover") || section.contains(document.activeElement)) return;
+        
         timer = window.setInterval(() => show(current + 1, false), interval);
       }
       if (prev) prev.addEventListener("click", () => show(current - 1, true));
       if (next) next.addEventListener("click", () => show(current + 1, true));
-      section.addEventListener("mouseenter", stop);
-      section.addEventListener("mouseleave", startAutoplay);
-      section.addEventListener("focusin", stop);
-      section.addEventListener("focusout", () => window.setTimeout(startAutoplay, 0));
-      document.addEventListener("visibilitychange", () => document.hidden ? stop() : startAutoplay());
       count.textContent = "01 / " + String(slides.length).padStart(2, "0");
       live.textContent = lang === "ur" ? "آج کی بصیرت، سلائیڈ 1" : "Today's insight, slide 1";
       startAutoplay();
