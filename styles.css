@@ -1633,13 +1633,11 @@ html[dir=rtl] .od-today{text-align:right}html[dir=rtl] .od-today-kicker,html[dir
 .od-ticker-label{position:relative;z-index:1;display:flex;align-items:center;gap:9px;flex:0 0 auto;padding:0 clamp(14px,3vw,30px);background:#B7D84B;color:#31543A;font-size:11px;font-weight:900;letter-spacing:.07em;white-space:nowrap}
 .od-ticker-pulse{width:7px;height:7px;border-radius:50%;background:#31543A;box-shadow:0 0 0 4px rgba(49,84,58,.12)}
 .od-ticker-window{flex:1;min-width:0;overflow:hidden;display:flex;align-items:center}
-.od-ticker-track{display:flex;align-items:center;width:max-content;flex:0 0 auto;animation:odTickerMove 42s linear infinite;will-change:transform}
+.od-ticker-track{display:flex;direction:ltr;align-items:center;width:max-content;flex:0 0 auto;animation:odTickerMove 42s linear infinite;will-change:transform}
 .od-ticker-group{display:flex;align-items:center;flex:0 0 auto;gap:clamp(16px,2.5vw,32px);padding-inline:clamp(16px,2.5vw,32px)}
 .od-ticker-item{display:inline-block;color:#FAFAF5;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap}
 .od-ticker-separator{color:#B7D84B;font-size:12px;flex:0 0 auto}
 @keyframes odTickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-html[dir="rtl"] .od-ticker-track{animation-name:odTickerMoveRtl}
-@keyframes odTickerMoveRtl{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .od-ticker-accessible{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:600px){.od-mind-ticker{min-height:50px}.od-ticker-label{padding-inline:13px;font-size:10px}.od-ticker-item{font-size:11px}.od-ticker-track{animation-duration:34s}}
 @media(prefers-reduced-motion:reduce){.od-mind-ticker .od-ticker-track{animation-duration:42s!important;animation-iteration-count:infinite!important;will-change:transform}.od-mind-ticker .od-ticker-window{overflow:hidden}.od-mind-ticker .od-ticker-item{white-space:nowrap}}
