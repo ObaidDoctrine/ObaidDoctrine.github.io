@@ -1640,7 +1640,6 @@ html[dir=rtl] .od-today{text-align:right}html[dir=rtl] .od-today-kicker,html[dir
 @keyframes odTickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 html[dir="rtl"] .od-ticker-track{animation-name:odTickerMoveRtl}
 @keyframes odTickerMoveRtl{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.od-mind-ticker:hover .od-ticker-track,.od-mind-ticker:focus-within .od-ticker-track{animation-play-state:paused}
 .od-ticker-accessible{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:600px){.od-mind-ticker{min-height:50px}.od-ticker-label{padding-inline:13px;font-size:10px}.od-ticker-item{font-size:11px}.od-ticker-track{animation-duration:34s}}
-@media(prefers-reduced-motion:reduce){.od-ticker-track{animation:none!important;transform:none!important;will-change:auto}.od-ticker-window{overflow-x:auto;scrollbar-width:thin}.od-ticker-group{padding-inline:12px}.od-ticker-item{white-space:normal;max-width:78vw}}
+@media(prefers-reduced-motion:reduce){.od-mind-ticker .od-ticker-track{animation-duration:42s!important;animation-iteration-count:infinite!important;will-change:transform}.od-mind-ticker .od-ticker-window{overflow:hidden}.od-mind-ticker .od-ticker-item{white-space:nowrap}}
