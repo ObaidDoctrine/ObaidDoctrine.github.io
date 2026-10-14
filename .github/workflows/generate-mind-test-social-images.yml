@@ -1,0 +1,53 @@
+name: Generate raster Mind Test social images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/mind-tests/*.svg"
+      - ".github/workflows/generate-mind-test-social-images.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rasterize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install SVG renderer
+        run: python -m pip install --upgrade pip cairosvg
+      - name: Convert SVG designs to 1200x630 PNG
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import cairosvg
+
+          folder = Path("assets/mind-tests")
+          for source in sorted(folder.glob("*.svg")):
+              target = source.with_suffix(".png")
+              cairosvg.svg2png(
+                  url=str(source),
+                  write_to=str(target),
+                  output_width=1200,
+                  output_height=630,
+              )
+              print(f"Generated {target}")
+          PY
+      - name: Commit generated PNG assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/mind-tests/*.png
+          if git diff --cached --quiet; then
+            echo "No PNG changes to commit."
+          else
+            git commit -m "Generate PNG Mind Test social images"
+            git push
+          fi
