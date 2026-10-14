@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Self-Awareness | OBAID DOCTRINE</title><desc id="desc">Notice your own patterns. Educational self-reflection test.</desc>
+<rect width="1200" height="630" fill="#FAFAF5"/>
+<circle cx="1040" cy="60" r="230" fill="#F1F8D9"/><circle cx="1040" cy="60" r="170" fill="none" stroke="#DCE8B5" stroke-width="2"/>
+<path d="M0 500 C180 430 280 580 460 510 S650 480 740 540 L740 630 L0 630Z" fill="#F1F8D9"/>
+<rect x="62" y="62" width="8" height="72" rx="4" fill="#B7D84B"/>
+<text x="92" y="90" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#31543A">OBAID DOCTRINE</text>
+<text x="92" y="122" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#6F756F">BETTER MIND • BETTER CHARACTER • BETTER LIFE</text>
+<text x="92" y="260" font-family="Arial,Helvetica,sans-serif" font-size="46" font-weight="700" fill="#173B35">Self-Awareness</text>
+<rect x="92" y="290" width="68" height="6" rx="3" fill="#B7D84B"/>
+<text x="92" y="340" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#50635F">Notice your own patterns.</text>
+<text x="92" y="430" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="#31543A">FREE EDUCATIONAL SELF-REFLECTION</text>
+<rect x="92" y="465" width="245" height="54" rx="27" fill="#31543A"/>
+<text x="214" y="499" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">EXPLORE YOURSELF  →</text>
+<g><rect x="720" y="120" width="155" height="220" rx="75" fill="#DCE8B5" stroke="#31543A" stroke-width="7"/><path d="M790 180 C750 175 750 225 780 240 C805 250 810 280 780 290" fill="none" stroke="#31543A" stroke-width="6" stroke-linecap="round"/><circle cx="790" cy="165" r="18" fill="#B7D84B"/><path d="M680 340 Q795 380 915 340" fill="none" stroke="#B7D84B" stroke-width="12" stroke-linecap="round"/></g>
+<text x="1100" y="585" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#6F756F">EDUCATIONAL • NOT A DIAGNOSIS</text>
+</svg>
