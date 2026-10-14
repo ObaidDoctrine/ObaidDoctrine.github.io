@@ -1,6 +1,7 @@
 name: Generate raster Mind Test social images
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -23,13 +24,14 @@ jobs:
           python-version: "3.12"
       - name: Install SVG renderer
         run: python -m pip install --upgrade pip cairosvg
-      - name: Convert SVG designs to 1200x630 PNG
+      - name: Convert SVG designs and update page metadata
         run: |
           python - <<'PY'
           from pathlib import Path
           import cairosvg
 
           folder = Path("assets/mind-tests")
+          slugs = []
           for source in sorted(folder.glob("*.svg")):
               target = source.with_suffix(".png")
               cairosvg.svg2png(
@@ -38,16 +40,30 @@ jobs:
                   output_width=1200,
                   output_height=630,
               )
+              slugs.append(source.stem)
               print(f"Generated {target}")
+
+          for root in (Path("mind-tests"), Path("ur/mind-tests")):
+              for page in root.glob("*/index.html"):
+                  content = page.read_text(encoding="utf-8")
+                  original = content
+                  for slug in slugs:
+                      content = content.replace(
+                          f"assets/mind-tests/{slug}.svg",
+                          f"assets/mind-tests/{slug}.png",
+                      )
+                  if content != original:
+                      page.write_text(content, encoding="utf-8")
+                      print(f"Updated {page}")
           PY
-      - name: Commit generated PNG assets
+      - name: Commit generated PNG assets and metadata
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/mind-tests/*.png
+          git add assets/mind-tests/*.png mind-tests/*/index.html ur/mind-tests/*/index.html
           if git diff --cached --quiet; then
-            echo "No PNG changes to commit."
+            echo "No PNG or metadata changes to commit."
           else
-            git commit -m "Generate PNG Mind Test social images"
+            git commit -m "Use PNG previews for Mind Tests on social platforms"
             git push
           fi
