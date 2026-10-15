@@ -151,14 +151,38 @@ try {
     if (/noindex/i.test(attr(robotsTag ?? "", "content"))) {
       errors.push("sitemap.xml: noindex page must not be included: " + loc);
     }
-    if (lastmod && !/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?$/.test(lastmod)) {
-      errors.push("sitemap.xml: invalid lastmod date/time for " + loc + ": " + lastmod);
+    if (lastmod) {
+      const dateMatch = lastmod.match(/^(\d{4})-(\d{2})-(\d{2})(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?$/);
+      const calendarDate = dateMatch ? new Date(Date.UTC(Number(dateMatch[1]), Number(dateMatch[2]) - 1, Number(dateMatch[3]))) : null;
+      const validCalendarDate = Boolean(dateMatch && calendarDate &&
+        calendarDate.getUTCFullYear() === Number(dateMatch[1]) &&
+        calendarDate.getUTCMonth() === Number(dateMatch[2]) - 1 &&
+        calendarDate.getUTCDate() === Number(dateMatch[3]));
+      if (!validCalendarDate) errors.push("sitemap.xml: invalid lastmod date/time for " + loc + ": " + lastmod);
     }
   }
   if (!entries.length) errors.push("sitemap.xml: no <url> entries found");
+  const sitemapSet = new Set(locs);
+  for (const [file, page] of pages) {
+    if (page.indexable && page.canonical && !sitemapSet.has(page.canonical)) {
+      errors.push(relative(root, file).split("\\\\").join("/") + ": indexable canonical URL is missing from sitemap.xml: " + page.canonical);
+    }
+  }
   console.log("Sitemap validation: " + locs.length + " URLs checked.");
 } catch (error) {
   errors.push("sitemap.xml: could not read sitemap.xml (" + error.message + ")");
+}
+
+try {
+  const robots = readFileSync(join(root, "robots.txt"), "utf8");
+  if (!/^\s*Sitemap:\s*https:\/\/www\.obaiddoctrine\.com\/sitemap\.xml\s*$/im.test(robots)) {
+    errors.push("robots.txt: missing Sitemap directive for https://www.obaiddoctrine.com/sitemap.xml");
+  }
+  if (!/^User-agent:\s*\*\s*\n(?:[^\n]*\n)*?Allow:\s*\/\s*$/im.test(robots)) {
+    warnings.push("robots.txt: could not confirm an Allow: / rule for all crawlers; review directives manually");
+  }
+} catch (error) {
+  errors.push("robots.txt: could not read robots.txt (" + error.message + ")");
 }
 
 console.log("Scanned " + htmlFiles.length + " HTML files; " + [...pages.values()].filter(p => p.indexable).length + " indexable pages.");
