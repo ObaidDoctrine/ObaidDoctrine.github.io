@@ -66,7 +66,7 @@ for (const file of htmlFiles) {
     try { url = new URL(canonical); } catch {}
     if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname)) {
       errors.push(rel + ": canonical must be an absolute HTTPS URL on the production domain");
-    } else if (url.pathname !== "/" && !url.pathname.endsWith("/")) {
+    } else if (url.pathname !== "/" && !url.pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(url.pathname)) {
       errors.push(rel + ": canonical path should use the site's trailing-slash convention: " + canonical);
     }
   }
