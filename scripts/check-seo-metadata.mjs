@@ -114,6 +114,53 @@ for (const file of htmlFiles) {
   }
 }
 
+
+const sitemapPath = join(root, "sitemap.xml");
+try {
+  const sitemap = readFileSync(sitemapPath, "utf8");
+  const entries = [...sitemap.matchAll(/<url\\b[^>]*>([\\s\\S]*?)<\\/url>/gi)].map(m => m[1]);
+  const locs = [];
+  const seenLocs = new Set();
+  for (const entry of entries) {
+    const loc = entry.match(/<loc>\\s*([^<]+?)\\s*<\\/loc>/i)?.[1]?.trim() ?? "";
+    const lastmod = entry.match(/<lastmod>\\s*([^<]+?)\\s*<\\/lastmod>/i)?.[1]?.trim() ?? "";
+    if (!loc) { errors.push("sitemap.xml: URL entry is missing <loc>"); continue; }
+    if (seenLocs.has(loc)) errors.push("sitemap.xml: duplicate URL: " + loc);
+    seenLocs.add(loc);
+    locs.push(loc);
+    let url;
+    try { url = new URL(loc); } catch {}
+    if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname) || url.search || url.hash) {
+      errors.push("sitemap.xml: URL must be a clean absolute HTTPS production URL: " + loc);
+      continue;
+    }
+    const targetFile = localFileForUrl(loc);
+    if (!targetFile) { errors.push("sitemap.xml: URL cannot be mapped to a local page: " + loc); continue; }
+    let targetSource;
+    try { targetSource = readFileSync(targetFile, "utf8"); } catch {
+      errors.push("sitemap.xml: target file does not exist: " + loc);
+      continue;
+    }
+    const tags = [...targetSource.matchAll(/<link\\b[^>]*>/gi)].map(m => m[0]);
+    const canonicals = tags.filter(tag => attr(tag, "rel").toLowerCase().split(/\\s+/).includes("canonical"));
+    if (canonicals.length !== 1 || attr(canonicals[0] ?? "", "href") !== loc) {
+      errors.push("sitemap.xml: URL must match the page's single canonical URL: " + loc);
+    }
+    const robotsTag = [...targetSource.matchAll(/<meta\\b[^>]*>/gi)].map(m => m[0])
+      .find(tag => attr(tag, "name").toLowerCase() === "robots");
+    if (/noindex/i.test(attr(robotsTag ?? "", "content"))) {
+      errors.push("sitemap.xml: noindex page must not be included: " + loc);
+    }
+    if (lastmod && !/^\\d{4}-\\d{2}-\\d{2}(?:T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?$/.test(lastmod)) {
+      errors.push("sitemap.xml: invalid lastmod date/time for " + loc + ": " + lastmod);
+    }
+  }
+  if (!entries.length) errors.push("sitemap.xml: no <url> entries found");
+  console.log("Sitemap validation: " + locs.length + " URLs checked.");
+} catch (error) {
+  errors.push("sitemap.xml: could not read sitemap.xml (" + error.message + ")");
+}
+
 console.log("Scanned " + htmlFiles.length + " HTML files; " + [...pages.values()].filter(p => p.indexable).length + " indexable pages.");
 if (warnings.length) {
   console.warn("\nWarnings (" + warnings.length + "):");
