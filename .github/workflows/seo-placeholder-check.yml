@@ -1,0 +1,23 @@
+name: SEO citation placeholder regression check
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  citation-placeholders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Scan published HTML for internal citation placeholders
+        run: node scripts/check-seo-placeholders.mjs
