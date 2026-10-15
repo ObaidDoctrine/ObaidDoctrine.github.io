@@ -1,5 +1,5 @@
 The short answer
-In psychology, learning is commonly defined as a relatively permanent change in behaviour or knowledge that results from experience. The word “relatively” matters: learning does not mean a change can never be lost or modified. It means the change is more durable than a momentary state. OpenStax uses this experience-based definition as a foundation for the psychological study of learning. citeturn0search0turn0search14
+In psychology, learning is commonly defined as a relatively permanent change in behaviour or knowledge that results from experience. The word “relatively” matters: learning does not mean a change can never be lost or modified. It means the change is more durable than a momentary state. OpenStax uses this experience-based definition as a foundation for the psychological study of learning.
 Learning is not the same as every change
 Behaviour can change for many reasons. Growth and maturation can produce new abilities without being learned. Fatigue, medication, illness or temporary changes in arousal can alter performance without necessarily producing learning. Psychologists therefore ask whether experience produced a relatively lasting change rather than simply observing that performance changed.
 How psychologists study learning
