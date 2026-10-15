@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   generate:
+    # SEO/content PR pushes must not regenerate and commit every article audio asset.
+    # Keep automatic audio generation limited to main; manual dispatch remains available.
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
