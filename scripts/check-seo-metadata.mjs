@@ -118,12 +118,12 @@ for (const file of htmlFiles) {
 const sitemapPath = join(root, "sitemap.xml");
 try {
   const sitemap = readFileSync(sitemapPath, "utf8");
-  const entries = [...sitemap.matchAll(/<url\\b[^>]*>([\\s\\S]*?)<\\/url>/gi)].map(m => m[1]);
+  const entries = [...sitemap.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi)].map(m => m[1]);
   const locs = [];
   const seenLocs = new Set();
   for (const entry of entries) {
-    const loc = entry.match(/<loc>\\s*([^<]+?)\\s*<\\/loc>/i)?.[1]?.trim() ?? "";
-    const lastmod = entry.match(/<lastmod>\\s*([^<]+?)\\s*<\\/lastmod>/i)?.[1]?.trim() ?? "";
+    const loc = entry.match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1]?.trim() ?? "";
+    const lastmod = entry.match(/<lastmod>\s*([^<]+?)\s*<\/lastmod>/i)?.[1]?.trim() ?? "";
     if (!loc) { errors.push("sitemap.xml: URL entry is missing <loc>"); continue; }
     if (seenLocs.has(loc)) errors.push("sitemap.xml: duplicate URL: " + loc);
     seenLocs.add(loc);
@@ -141,17 +141,17 @@ try {
       errors.push("sitemap.xml: target file does not exist: " + loc);
       continue;
     }
-    const tags = [...targetSource.matchAll(/<link\\b[^>]*>/gi)].map(m => m[0]);
-    const canonicals = tags.filter(tag => attr(tag, "rel").toLowerCase().split(/\\s+/).includes("canonical"));
+    const tags = [...targetSource.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
+    const canonicals = tags.filter(tag => attr(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
     if (canonicals.length !== 1 || attr(canonicals[0] ?? "", "href") !== loc) {
       errors.push("sitemap.xml: URL must match the page's single canonical URL: " + loc);
     }
-    const robotsTag = [...targetSource.matchAll(/<meta\\b[^>]*>/gi)].map(m => m[0])
+    const robotsTag = [...targetSource.matchAll(/<meta\b[^>]*>/gi)].map(m => m[0])
       .find(tag => attr(tag, "name").toLowerCase() === "robots");
     if (/noindex/i.test(attr(robotsTag ?? "", "content"))) {
       errors.push("sitemap.xml: noindex page must not be included: " + loc);
     }
-    if (lastmod && !/^\\d{4}-\\d{2}-\\d{2}(?:T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?$/.test(lastmod)) {
+    if (lastmod && !/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?$/.test(lastmod)) {
       errors.push("sitemap.xml: invalid lastmod date/time for " + loc + ": " + lastmod);
     }
   }
