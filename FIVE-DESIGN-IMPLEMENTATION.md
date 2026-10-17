@@ -6,7 +6,7 @@ This is a preview-only change on `design/five-designs-sitewide-preview`. It does
 ## Design allocation
 1. **Premium Editorial** — English home page, English article index, and English article detail template.
 2. **Dark Luxury** — founder profile, portfolio, and about page.
-3. **Swiss Minimal** — English and Urdu Mind Tests, Learning Lab, Start Here, Contact, Disclaimer, Privacy Policy, and Terms & Conditions.
+3. **Swiss Minimal** — English and Urdu Mind Tests, Learning Lab, English Start Here, Contact, Disclaimer, Privacy Policy, and Terms & Conditions.
 4. **Warm Humanist** — Urdu-language pages, Relationships, Marriage & Family, and Just for Women.
 5. **Knowledge Lab** — Psychology, Human Behaviour, Self-Improvement, Society & Life, and Research Insights.
 
