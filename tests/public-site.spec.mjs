@@ -126,7 +126,15 @@ test.describe("Mind Tests", () => {
       for (let i = 0; i < 10; i++) {
         await expect(options.first()).toBeVisible();
         await expect(options.first()).toBeEnabled({ timeout: 3000 });
-        await options.first().click({ force: true });
+        await options.first().click();
+
+        if (i < 9) {
+          // The test engine advances asynchronously; wait for the next question
+          // instead of racing the 180 ms transition.
+          await expect(page.locator(".od-test-progress span").first()).toContainText(String(i + 2));
+        } else {
+          await expect(page.locator("#result")).toBeVisible();
+        }
       }
 
       await expect(page.locator("#result")).toBeVisible();
@@ -150,7 +158,14 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        await option.click({ force: true });
+        await option.click();
+
+        if (i < 9) {
+          // Wait for the delayed question transition before selecting again.
+          await expect(page.locator(".od-test-progress span").first()).toContainText(String(i + 2));
+        } else {
+          await expect(page.locator("#result")).toBeVisible();
+        }
       }
       await expect(page.locator("#result")).toBeVisible();
     } finally {
@@ -168,7 +183,14 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        await option.click({ force: true });
+        await option.click();
+
+        if (i < 9) {
+          // Wait for the delayed question transition before selecting again.
+          await expect(page.locator(".od-test-progress span").first()).toContainText(String(i + 2));
+        } else {
+          await expect(page.locator("#result")).toBeVisible();
+        }
       }
       await expect(page.locator("#result")).toBeVisible();
     } finally {
