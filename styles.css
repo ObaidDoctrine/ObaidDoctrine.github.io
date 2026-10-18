@@ -1735,3 +1735,36 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
 @media(prefers-reduced-motion:reduce){
  html[lang="en"] body.home-page *,body[data-design] *,html[lang="ur"] body:not([data-design="swiss-minimal"]) *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
+
+
+/* OBAID DOCTRINE — Verywell Mind-inspired premium editorial preview (2026-10-19)
+   Preview-only visual layer. Preserves existing content, URLs, metadata and page structure.
+   Inspiration is limited to editorial hierarchy and scannable card patterns; no assets or copy copied. */
+.home-page{--od-editorial-navy:#142b46;--od-editorial-blue:#d9eaf5;--od-editorial-ink:#172a40;--od-editorial-muted:#617184;--od-editorial-paper:#f7f8fa;}
+.home-page .hero{background:linear-gradient(125deg,#f7f8fa 0%,#fff 55%,#eaf3f9 100%);border-radius:0 0 30px 30px;box-shadow:0 18px 55px rgba(20,43,70,.08)}
+.home-page .hero h1,.home-page .hero-sub,.home-page .brand,.home-page .head h2{color:var(--od-editorial-navy)}
+.home-page .hero h1 .accent{background:var(--od-editorial-blue);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.home-page .primary{background:var(--od-editorial-navy);color:#fff;box-shadow:0 10px 24px rgba(20,43,70,.16)}
+.home-page .primary:hover{background:#20476d}
+.home-page .hero-photo{border-color:rgba(20,43,70,.15);box-shadow:0 25px 70px rgba(20,43,70,.13)}
+.home-page .caption{background:rgba(20,43,70,.95)}
+.home-page .caption strong{color:var(--od-editorial-blue)}
+.home-page .featured-panel{border-radius:26px;box-shadow:0 18px 50px rgba(20,43,70,.08)}
+.home-page .question-card,.home-page .card,.home-page .path,.home-page .research-card,.home-page .test-card,.home-page .myth-card,.home-page .method-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.home-page .question-card:hover,.home-page .card:hover,.home-page .path:hover,.home-page .research-card:hover,.home-page .test-card:hover,.home-page .myth-card:hover,.home-page .method-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(20,43,70,.12);border-color:rgba(91,145,184,.45)}
+.home-page .question-card,.home-page .test-card,.home-page .method-card{border-radius:20px;background:linear-gradient(155deg,#fff 0%,#f8fbfd 100%)}
+.home-page .cat:before,.home-page .path:before{background:#7ca9c9}
+.home-page .cat:nth-child(2):before,.home-page .path:nth-child(2):before{background:#a7c9df}
+.home-page .cat:nth-child(3):before,.home-page .path:nth-child(3):before{background:#c7dfee}
+.home-page .woman-card{background:linear-gradient(105deg,#eaf3f9,#fff 58%,#f7f8fa);border-color:rgba(20,43,70,.12)}
+.home-page .woman-icon{background:var(--od-editorial-navy)}
+.home-page .woman-kicker{color:var(--od-editorial-navy)}
+.home-page .research{background:var(--od-editorial-navy)}
+.home-page .research-card{background:#1c3a5b;border-color:rgba(255,255,255,.16)}
+.home-page .research-card .label{color:var(--od-editorial-blue)}
+.home-page .footer{background:#10243a}
+.home-page .footer strong{color:var(--od-editorial-blue)}
+.home-page .section .head h2{letter-spacing:-.04em}
+.home-page .card h3,.home-page .research-card h3,.home-page .path h3{letter-spacing:-.02em}
+@media(prefers-reduced-motion:reduce){.home-page .question-card,.home-page .card,.home-page .path,.home-page .research-card,.home-page .test-card,.home-page .myth-card,.home-page .method-card{transition:none}.home-page .question-card:hover,.home-page .card:hover,.home-page .path:hover,.home-page .research-card:hover,.home-page .test-card:hover,.home-page .myth-card:hover,.home-page .method-card:hover{transform:none}}
+@media(max-width:700px){.home-page .question-card:hover,.home-page .card:hover,.home-page .path:hover,.home-page .research-card:hover,.home-page .test-card:hover,.home-page .myth-card:hover,.home-page .method-card:hover{transform:none}}
