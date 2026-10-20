@@ -16,13 +16,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Deploy
-        uses: cloudflare/wrangler-action@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=obaid-doctrine
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-# Trigger deployment after Cloudflare credentials are configured.
+      - name: Resolve the configured Cloudflare production branch
+        id: cloudflare-production
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          response="$(curl --fail-with-body --silent --show-error \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/obaid-doctrine" \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            --header "Content-Type: application/json")"
+          production_branch="$(printf '%s' "$response" | jq -er 'select(.success == true) | .result.production_branch | select(type == "string" and length > 0)')"
+          echo "Cloudflare Pages production branch: ${production_branch}"
+          echo "CLOUDFLARE_PRODUCTION_BRANCH=${production_branch}" >> "$GITHUB_ENV"
+
+      - name: Deploy to the configured production branch
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          npx wrangler pages deploy . \
+            --project-name=obaid-doctrine \
+            --branch "$CLOUDFLARE_PRODUCTION_BRANCH"
+
