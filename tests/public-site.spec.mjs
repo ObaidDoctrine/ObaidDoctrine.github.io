@@ -38,7 +38,26 @@ const authRoutes = [
   "/ur/member/dashboard/",
 ];
 
-async function assertPublicPage(page, path) {
+
+async function clickMindTestOption(page, option) {
+  // Playwright's locator.click() performs a second auto-scroll which can put
+  // the option back underneath the fixed header. Position it first, then use
+  // the actual mouse coordinates so the test verifies a real pointer target.
+  await option.evaluate(el => {
+    el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+    const header = document.querySelector(".site-header");
+    const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+    const rect = el.getBoundingClientRect();
+    const safeY = headerBottom + 24;
+    if (rect.top + rect.height / 2 < safeY) {
+      window.scrollBy({ top: rect.top + rect.height / 2 - safeY, behavior: "instant" });
+    }
+  });
+  const rect = await option.boundingBox();
+  if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
+  await page.mouse.click(rect.x + rect.width / 2, rect.y + rect.height / 2);
+}
+\nasync function assertPublicPage(page, path) {
   const errors = [];
   page.on("pageerror", e => errors.push(e.message));
   const response = await page.goto(path, { waitUntil: "domcontentloaded" });
@@ -126,18 +145,7 @@ test.describe("Mind Tests", () => {
       for (let i = 0; i < 10; i++) {
         await expect(options.first()).toBeVisible();
         await expect(options.first()).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await options.first().evaluate(el => {
-          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
-          const header = document.querySelector(".site-header");
-          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
-          const optionTop = el.getBoundingClientRect().top;
-          // Keep the click target below the sticky header, not merely centered.
-          if (optionTop < headerBottom + 16) {
-            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
-          }
-        });
-        await options.first().click();
+        await clickMindTestOption(page, options.first());
 
         if (i < 9) {
           // The test engine advances asynchronously; wait for the next question
@@ -169,18 +177,7 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => {
-          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
-          const header = document.querySelector(".site-header");
-          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
-          const optionTop = el.getBoundingClientRect().top;
-          // Keep the click target below the sticky header, not merely centered.
-          if (optionTop < headerBottom + 16) {
-            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
-          }
-        });
-        await option.click();
+        await clickMindTestOption(page, option);
 
         if (i < 9) {
           // Wait for the delayed question transition before selecting again.
@@ -205,18 +202,7 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => {
-          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
-          const header = document.querySelector(".site-header");
-          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
-          const optionTop = el.getBoundingClientRect().top;
-          // Keep the click target below the sticky header, not merely centered.
-          if (optionTop < headerBottom + 16) {
-            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
-          }
-        });
-        await option.click();
+        await clickMindTestOption(page, option);
 
         if (i < 9) {
           // Wait for the delayed question transition before selecting again.
