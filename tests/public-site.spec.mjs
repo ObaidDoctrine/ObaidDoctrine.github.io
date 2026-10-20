@@ -127,7 +127,16 @@ test.describe("Mind Tests", () => {
         await expect(options.first()).toBeVisible();
         await expect(options.first()).toBeEnabled({ timeout: 3000 });
         // Center the target so the sticky site header cannot intercept the click.
-        await options.first().evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+        await options.first().evaluate(el => {
+          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+          const header = document.querySelector(".site-header");
+          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+          const optionTop = el.getBoundingClientRect().top;
+          // Keep the click target below the sticky header, not merely centered.
+          if (optionTop < headerBottom + 16) {
+            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
+          }
+        });
         await options.first().click();
 
         if (i < 9) {
@@ -161,7 +170,16 @@ test.describe("Mind Tests mobile viewport", () => {
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
         // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+        await option.evaluate(el => {
+          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+          const header = document.querySelector(".site-header");
+          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+          const optionTop = el.getBoundingClientRect().top;
+          // Keep the click target below the sticky header, not merely centered.
+          if (optionTop < headerBottom + 16) {
+            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
+          }
+        });
         await option.click();
 
         if (i < 9) {
@@ -188,7 +206,16 @@ test.describe("Mind Tests mobile viewport", () => {
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
         // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+        await option.evaluate(el => {
+          el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+          const header = document.querySelector(".site-header");
+          const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+          const optionTop = el.getBoundingClientRect().top;
+          // Keep the click target below the sticky header, not merely centered.
+          if (optionTop < headerBottom + 16) {
+            window.scrollBy({ top: optionTop - headerBottom - 16, behavior: "instant" });
+          }
+        });
         await option.click();
 
         if (i < 9) {
