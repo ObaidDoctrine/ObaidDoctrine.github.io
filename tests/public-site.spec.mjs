@@ -126,6 +126,8 @@ test.describe("Mind Tests", () => {
       for (let i = 0; i < 10; i++) {
         await expect(options.first()).toBeVisible();
         await expect(options.first()).toBeEnabled({ timeout: 3000 });
+        // Center the target so the sticky site header cannot intercept the click.
+        await options.first().evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
         await options.first().click();
 
         if (i < 9) {
@@ -158,6 +160,8 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
+        // Center the target so the sticky site header cannot intercept the click.
+        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
         await option.click();
 
         if (i < 9) {
@@ -183,6 +187,8 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
+        // Center the target so the sticky site header cannot intercept the click.
+        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
         await option.click();
 
         if (i < 9) {
