@@ -40,22 +40,26 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Place the option's center in the viewport, safely away from the sticky
-  // header, then use a real pointer click at its fresh bounding-box center.
-  await option.evaluate(el => {
-    const rect = el.getBoundingClientRect();
-    const targetY = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
-    window.scrollTo({ top: Math.max(0, targetY), behavior: "instant" });
-  });
-  await option.waitFor({ state: "visible" });
+  // Center the option, then click within the visible intersection below the
+  // sticky header. Some answer cards are taller than the remaining viewport,
+  // so their geometric center is not always a visible click target.
+  await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
   const rect = await option.boundingBox();
   if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
   const headerBottom = await page.locator(".site-header").evaluate(el => el.getBoundingClientRect().bottom);
-  const centerY = rect.y + rect.height / 2;
-  if (centerY <= headerBottom + 8 || centerY >= await page.evaluate(() => window.innerHeight - 8)) {
-    throw new Error("Mind Test answer option center is outside the safe clickable viewport");
+  const viewportHeight = await page.evaluate(() => window.innerHeight);
+  const safeTop = Math.max(rect.y + 2, headerBottom + 8);
+  const safeBottom = Math.min(rect.y + rect.height - 2, viewportHeight - 8);
+  if (safeBottom <= safeTop) {
+    await option.evaluate(el => {
+      const r = el.getBoundingClientRect();
+      window.scrollBy({ top: r.top + r.height / 2 - window.innerHeight / 2, behavior: "instant" });
+    });
+    return clickMindTestOption(page, option);
   }
-  await page.mouse.click(rect.x + rect.width / 2, centerY);
+  const x = rect.x + rect.width / 2;
+  const y = (safeTop + safeBottom) / 2;
+  await page.mouse.click(x, y);
 }
 
 async function assertPublicPage(page, path) {
