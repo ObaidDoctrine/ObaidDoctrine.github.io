@@ -40,22 +40,24 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Playwright's locator.click() performs a second auto-scroll which can put
-  // the option back underneath the fixed header. Position it first, then use
-  // the actual mouse coordinates so the test verifies a real pointer target.
+  // Keep the real pointer click below the sticky header. Scroll based on the
+  // option's document position, then calculate fresh viewport coordinates.
   await option.evaluate(el => {
-    el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
     const header = document.querySelector(".site-header");
     const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
     const rect = el.getBoundingClientRect();
-    const safeY = headerBottom + 24;
-    if (rect.top + rect.height / 2 < safeY) {
-      window.scrollBy({ top: rect.top + rect.height / 2 - safeY, behavior: "instant" });
-    }
+    const targetScroll = window.scrollY + rect.top - headerBottom - 24;
+    window.scrollTo({ top: Math.max(0, targetScroll), behavior: "instant" });
   });
   const rect = await option.boundingBox();
   if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
-  await page.mouse.click(rect.x + rect.width / 2, rect.y + rect.height / 2);
+  const headerBottom = await page.locator(".site-header").evaluate(el => el.getBoundingClientRect().bottom);
+  const x = rect.x + rect.width / 2;
+  const y = Math.max(rect.y + Math.min(rect.height / 2, 24), headerBottom + 8);
+  if (y >= rect.y + rect.height) {
+    throw new Error("Mind Test answer option is fully covered by the sticky header");
+  }
+  await page.mouse.click(x, y);
 }
 
 async function assertPublicPage(page, path) {
