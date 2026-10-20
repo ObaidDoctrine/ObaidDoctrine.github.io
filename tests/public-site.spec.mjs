@@ -40,24 +40,22 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Keep the real pointer click below the sticky header. Scroll based on the
-  // option's document position, then calculate fresh viewport coordinates.
+  // Place the option's center in the viewport, safely away from the sticky
+  // header, then use a real pointer click at its fresh bounding-box center.
   await option.evaluate(el => {
-    const header = document.querySelector(".site-header");
-    const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
     const rect = el.getBoundingClientRect();
-    const targetScroll = window.scrollY + rect.top - headerBottom - 24;
-    window.scrollTo({ top: Math.max(0, targetScroll), behavior: "instant" });
+    const targetY = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+    window.scrollTo({ top: Math.max(0, targetY), behavior: "instant" });
   });
+  await option.waitFor({ state: "visible" });
   const rect = await option.boundingBox();
   if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
   const headerBottom = await page.locator(".site-header").evaluate(el => el.getBoundingClientRect().bottom);
-  const x = rect.x + rect.width / 2;
-  const y = Math.max(rect.y + Math.min(rect.height / 2, 24), headerBottom + 8);
-  if (y >= rect.y + rect.height) {
-    throw new Error("Mind Test answer option is fully covered by the sticky header");
+  const centerY = rect.y + rect.height / 2;
+  if (centerY <= headerBottom + 8 || centerY >= await page.evaluate(() => window.innerHeight - 8)) {
+    throw new Error("Mind Test answer option center is outside the safe clickable viewport");
   }
-  await page.mouse.click(x, y);
+  await page.mouse.click(rect.x + rect.width / 2, centerY);
 }
 
 async function assertPublicPage(page, path) {
