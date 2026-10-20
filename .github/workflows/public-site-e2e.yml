@@ -3,6 +3,8 @@ name: "OBAID DOCTRINE — Public Website E2E"
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
