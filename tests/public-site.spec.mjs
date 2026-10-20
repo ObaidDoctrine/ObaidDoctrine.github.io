@@ -57,7 +57,8 @@ async function clickMindTestOption(page, option) {
   if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
   await page.mouse.click(rect.x + rect.width / 2, rect.y + rect.height / 2);
 }
-\nasync function assertPublicPage(page, path) {
+
+async function assertPublicPage(page, path) {
   const errors = [];
   page.on("pageerror", e => errors.push(e.message));
   const response = await page.goto(path, { waitUntil: "domcontentloaded" });
