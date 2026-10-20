@@ -40,26 +40,27 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Center the option, then click within the visible intersection below the
-  // sticky header. Some answer cards are taller than the remaining viewport,
-  // so their geometric center is not always a visible click target.
-  await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
-  const rect = await option.boundingBox();
-  if (!rect) throw new Error("Mind Test answer option has no clickable bounding box");
-  const headerBottom = await page.locator(".site-header").evaluate(el => el.getBoundingClientRect().bottom);
-  const viewportHeight = await page.evaluate(() => window.innerHeight);
-  const safeTop = Math.max(rect.y + 2, headerBottom + 8);
-  const safeBottom = Math.min(rect.y + rect.height - 2, viewportHeight - 8);
-  if (safeBottom <= safeTop) {
-    await option.evaluate(el => {
-      const r = el.getBoundingClientRect();
-      window.scrollBy({ top: r.top + r.height / 2 - window.innerHeight / 2, behavior: "instant" });
-    });
+  // Read geometry in one browser-side operation. Locator.boundingBox() was
+  // timing out on live test pages even after the answer option resolved.
+  const target = await option.evaluate(el => {
+    el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+    const rect = el.getBoundingClientRect();
+    const header = document.querySelector(".site-header");
+    const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+    const x = Math.max(rect.left + 2, Math.min(rect.right - 2, rect.left + rect.width / 2));
+    const top = Math.max(rect.top + 2, headerBottom + 8);
+    const bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
+    if (bottom <= top) {
+      window.scrollBy({ top: rect.top + rect.height / 2 - window.innerHeight / 2, behavior: "instant" });
+      return null;
+    }
+    return { x, y: (top + bottom) / 2 };
+  });
+  if (!target) {
+    await page.waitForTimeout(100);
     return clickMindTestOption(page, option);
   }
-  const x = rect.x + rect.width / 2;
-  const y = (safeTop + safeBottom) / 2;
-  await page.mouse.click(x, y);
+  await page.mouse.click(target.x, target.y);
 }
 
 async function assertPublicPage(page, path) {
