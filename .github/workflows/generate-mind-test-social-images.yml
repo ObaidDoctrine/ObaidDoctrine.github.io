@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   rasterize:
@@ -56,14 +57,19 @@ jobs:
                       page.write_text(content, encoding="utf-8")
                       print(f"Updated {page}")
           PY
-      - name: Commit generated PNG assets and metadata
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/mind-tests/*.png mind-tests/*/index.html ur/mind-tests/*/index.html
-          if git diff --cached --quiet; then
-            echo "No PNG or metadata changes to commit."
-          else
-            git commit -m "Use PNG previews for Mind Tests on social platforms"
-            git push
-          fi
+      - name: Propose generated PNG assets and metadata
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/mind-test-social-images
+          delete-branch: true
+          commit-message: "Use PNG previews for Mind Tests on social platforms"
+          title: "Assets: refresh Mind Test social preview images"
+          body: |
+            Automatically generated social preview PNGs from the Mind Test SVG artwork.
+            The page metadata changes are limited to Open Graph/social image asset paths.
+            Review the generated assets and metadata before merging.
+          add-paths: |
+            assets/mind-tests/*.png
+            mind-tests/*/index.html
+            ur/mind-tests/*/index.html
