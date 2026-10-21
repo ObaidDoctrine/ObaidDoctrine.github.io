@@ -38,6 +38,65 @@ const authRoutes = [
   "/ur/member/dashboard/",
 ];
 
+
+async function clickMindTestOption(page, option) {
+  // Scroll once, then choose a point that the browser confirms belongs to the
+  // option. Do not infer the blocked area from the entire header element's box:
+  // sticky headers can have a large box that does not accurately describe the
+  // pixels actually intercepting this particular click.
+  await option.scrollIntoViewIfNeeded();
+
+  const target = await option.evaluate(el => {
+    el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+
+    const rect = el.getBoundingClientRect();
+    const header = document.querySelector(".site-header");
+    const headerRect = header?.getBoundingClientRect();
+    const headerStyle = header ? getComputedStyle(header) : null;
+    const x = Math.max(rect.left + 2, Math.min(rect.right - 2, rect.left + rect.width / 2));
+    const inset = Math.min(3, Math.max(1, rect.height / 10));
+    const candidates = [0.25, 0.5, 0.75].map(ratio => ({
+      x,
+      y: Math.max(1, Math.min(window.innerHeight - 2, rect.top + rect.height * ratio))
+    }));
+
+    const describe = hit => hit
+      ? hit.tagName + (typeof hit.className === "string" && hit.className.trim()
+        ? "." + hit.className.trim().replace(/\\s+/g, ".")
+        : "")
+      : null;
+
+    for (const point of candidates) {
+      const hit = document.elementFromPoint(point.x, point.y);
+      if (hit && (hit === el || el.contains(hit))) {
+        return { x: point.x, y: point.y };
+      }
+    }
+
+    return {
+      error: "No sampled point hits the answer option after scrolling",
+      rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
+      viewport: { width: window.innerWidth, height: window.innerHeight },
+      header: headerRect ? {
+        top: headerRect.top,
+        bottom: headerRect.bottom,
+        height: headerRect.height,
+        position: headerStyle.position
+      } : null,
+      candidates: candidates.map(point => ({
+        x: point.x,
+        y: point.y,
+        hit: describe(document.elementFromPoint(point.x, point.y))
+      }))
+    };
+  });
+
+  if (target.error) {
+    throw new Error("Mind Test option click geometry failed: " + JSON.stringify(target));
+  }
+  await page.mouse.click(target.x, target.y);
+}
+
 async function assertPublicPage(page, path) {
   const errors = [];
   page.on("pageerror", e => errors.push(e.message));
@@ -126,9 +185,7 @@ test.describe("Mind Tests", () => {
       for (let i = 0; i < 10; i++) {
         await expect(options.first()).toBeVisible();
         await expect(options.first()).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await options.first().evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
-        await options.first().click();
+        await clickMindTestOption(page, options.first());
 
         if (i < 9) {
           // The test engine advances asynchronously; wait for the next question
@@ -160,9 +217,7 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
-        await option.click();
+        await clickMindTestOption(page, option);
 
         if (i < 9) {
           // Wait for the delayed question transition before selecting again.
@@ -187,9 +242,7 @@ test.describe("Mind Tests mobile viewport", () => {
         const option = page.locator(".od-test-option:not(.od-locked)").first();
         await expect(option).toBeVisible();
         await expect(option).toBeEnabled({ timeout: 3000 });
-        // Center the target so the sticky site header cannot intercept the click.
-        await option.evaluate(el => el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
-        await option.click();
+        await clickMindTestOption(page, option);
 
         if (i < 9) {
           // Wait for the delayed question transition before selecting again.
