@@ -240,8 +240,8 @@ test.describe("Mind Tests", () => {
       expect(measured, `header/hero/title geometry missing for ${path}`).not.toBeNull();
       expect(measured.gapFromHeader, `unexpected title gap for ${path}: ${JSON.stringify(measured)}`).toBeGreaterThanOrEqual(0);
       expect(measured.gapFromHeader, `excessive blank space for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(60);
-      expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(45);
-      expect(measured.paddingTop).toBe("42px");
+      expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(20);
+      expect(measured.paddingTop).toBe("12px");
       expect(measured.paddingBottom).toBe("30px");
     }
   });
@@ -306,8 +306,8 @@ test.describe("Mind Tests mobile viewport", () => {
         expect(measured, `header/hero/title geometry missing for ${path}`).not.toBeNull();
         expect(measured.gapFromHeader, `unexpected title gap for ${path}: ${JSON.stringify(measured)}`).toBeGreaterThanOrEqual(0);
         expect(measured.gapFromHeader, `excessive mobile blank space for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(45);
-        expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(32);
-        expect(measured.paddingTop).toBe("28px");
+        expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(16);
+        expect(measured.paddingTop).toBe("8px");
         expect(measured.paddingBottom).toBe("22px");
       }
     } finally {
