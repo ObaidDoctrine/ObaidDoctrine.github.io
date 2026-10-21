@@ -40,25 +40,64 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Read geometry in one browser-side operation. Locator.boundingBox() was
-  // timing out on live test pages even after the answer option resolved.
+  // Position the option below the sticky header without recursive retries.
+  // A previous implementation repeatedly centered the option and then
+  // scrolled it back to the same position until the test timed out.
   const target = await option.evaluate(el => {
     el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
-    const rect = el.getBoundingClientRect();
-    const header = document.querySelector(".site-header");
-    const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
-    const x = Math.max(rect.left + 2, Math.min(rect.right - 2, rect.left + rect.width / 2));
-    const top = Math.max(rect.top + 2, headerBottom + 8);
-    const bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
+
+    const getGeometry = () => {
+      const rect = el.getBoundingClientRect();
+      const header = document.querySelector(".site-header");
+      const headerBottom = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
+      return { rect, headerBottom };
+    };
+
+    let { rect, headerBottom } = getGeometry();
+    let top = Math.max(rect.top + 2, headerBottom + 8);
+    let bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
+
+    // If the header leaves no clickable vertical area, move the option
+    // below it. Do not re-center it afterward.
     if (bottom <= top) {
-      window.scrollBy({ top: rect.top + rect.height / 2 - window.innerHeight / 2, behavior: "instant" });
-      return null;
+      const desiredTop = Math.min(
+        headerBottom + 12,
+        window.innerHeight - 12 - Math.min(rect.height, 80)
+      );
+      window.scrollBy({ top: rect.top - desiredTop, behavior: "instant" });
+      ({ rect, headerBottom } = getGeometry());
+      top = Math.max(rect.top + 2, headerBottom + 8);
+      bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
     }
-    return { x, y: (top + bottom) / 2 };
+
+    const x = Math.max(rect.left + 2, Math.min(rect.right - 2, rect.left + rect.width / 2));
+    if (bottom <= top || rect.right <= rect.left) {
+      return {
+        error: "No clickable area remains after one bounded scroll correction",
+        rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
+        headerBottom,
+        viewportHeight: window.innerHeight
+      };
+    }
+
+    const y = (top + bottom) / 2;
+    const hit = document.elementFromPoint(x, y);
+    if (!hit || (hit !== el && !el.contains(hit))) {
+      return {
+        error: "Computed click point is not inside the answer option",
+        rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
+        headerBottom,
+        viewportHeight: window.innerHeight,
+        hit: hit ? (hit.tagName + (hit.className && typeof hit.className === "string" ? "." + hit.className.trim().replace(/\\s+/g, ".") : "")) : null,
+        x,
+        y
+      };
+    }
+    return { x, y };
   });
-  if (!target) {
-    await page.waitForTimeout(100);
-    return clickMindTestOption(page, option);
+
+  if (target.error) {
+    throw new Error("Mind Test option click geometry failed: " + JSON.stringify(target));
   }
   await page.mouse.click(target.x, target.y);
 }
