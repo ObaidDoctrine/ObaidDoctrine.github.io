@@ -40,60 +40,55 @@ const authRoutes = [
 
 
 async function clickMindTestOption(page, option) {
-  // Position the option below the sticky header without recursive retries.
-  // A previous implementation repeatedly centered the option and then
-  // scrolled it back to the same position until the test timed out.
+  // Scroll once, then choose a point that the browser confirms belongs to the
+  // option. Do not infer the blocked area from the entire header element's box:
+  // sticky headers can have a large box that does not accurately describe the
+  // pixels actually intercepting this particular click.
+  await option.scrollIntoViewIfNeeded();
+
   const target = await option.evaluate(el => {
     el.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
 
-    const getGeometry = () => {
-      const rect = el.getBoundingClientRect();
-      const header = document.querySelector(".site-header");
-      const headerBottom = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
-      return { rect, headerBottom };
-    };
-
-    let { rect, headerBottom } = getGeometry();
-    let top = Math.max(rect.top + 2, headerBottom + 8);
-    let bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
-
-    // If the header leaves no clickable vertical area, move the option
-    // below it. Do not re-center it afterward.
-    if (bottom <= top) {
-      const desiredTop = Math.min(
-        headerBottom + 12,
-        window.innerHeight - 12 - Math.min(rect.height, 80)
-      );
-      window.scrollBy({ top: rect.top - desiredTop, behavior: "instant" });
-      ({ rect, headerBottom } = getGeometry());
-      top = Math.max(rect.top + 2, headerBottom + 8);
-      bottom = Math.min(rect.bottom - 2, window.innerHeight - 8);
-    }
-
+    const rect = el.getBoundingClientRect();
+    const header = document.querySelector(".site-header");
+    const headerRect = header?.getBoundingClientRect();
+    const headerStyle = header ? getComputedStyle(header) : null;
     const x = Math.max(rect.left + 2, Math.min(rect.right - 2, rect.left + rect.width / 2));
-    if (bottom <= top || rect.right <= rect.left) {
-      return {
-        error: "No clickable area remains after one bounded scroll correction",
-        rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
-        headerBottom,
-        viewportHeight: window.innerHeight
-      };
+    const inset = Math.min(3, Math.max(1, rect.height / 10));
+    const candidates = [0.25, 0.5, 0.75].map(ratio => ({
+      x,
+      y: Math.max(1, Math.min(window.innerHeight - 2, rect.top + rect.height * ratio))
+    }));
+
+    const describe = hit => hit
+      ? hit.tagName + (typeof hit.className === "string" && hit.className.trim()
+        ? "." + hit.className.trim().replace(/\\s+/g, ".")
+        : "")
+      : null;
+
+    for (const point of candidates) {
+      const hit = document.elementFromPoint(point.x, point.y);
+      if (hit && (hit === el || el.contains(hit))) {
+        return { x: point.x, y: point.y };
+      }
     }
 
-    const y = (top + bottom) / 2;
-    const hit = document.elementFromPoint(x, y);
-    if (!hit || (hit !== el && !el.contains(hit))) {
-      return {
-        error: "Computed click point is not inside the answer option",
-        rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
-        headerBottom,
-        viewportHeight: window.innerHeight,
-        hit: hit ? (hit.tagName + (hit.className && typeof hit.className === "string" ? "." + hit.className.trim().replace(/\s+/g, ".") : "")) : null,
-        x,
-        y
-      };
-    }
-    return { x, y };
+    return {
+      error: "No sampled point hits the answer option after scrolling",
+      rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
+      viewport: { width: window.innerWidth, height: window.innerHeight },
+      header: headerRect ? {
+        top: headerRect.top,
+        bottom: headerRect.bottom,
+        height: headerRect.height,
+        position: headerStyle.position
+      } : null,
+      candidates: candidates.map(point => ({
+        x: point.x,
+        y: point.y,
+        hit: describe(document.elementFromPoint(point.x, point.y))
+      }))
+    };
   });
 
   if (target.error) {
