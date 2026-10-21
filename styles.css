@@ -1816,3 +1816,14 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
 @media(max-width:760px){
   .site-header > .od-mobile-nav-toggle{display:grid;}
 }
+
+
+/* Mind Tests spacing fix: the global .content-wrap padding must not stack inside the hero. */
+.mt-page .mt-hero > .content-wrap{
+  padding-block:0;
+}
+@media(max-width:760px){
+  .mt-page .mt-hero > .content-wrap{
+    padding-block:0;
+  }
+}
