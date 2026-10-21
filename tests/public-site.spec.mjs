@@ -74,7 +74,7 @@ test.describe("Public website smoke coverage", () => {
 
     const inspect = async card => card.evaluate(el => {
       const rgb = value => {
-        const m = value.match(/[\\d.]+/g);
+        const m = value.match(/[0-9.]+/g);
         return m ? m.slice(0, 3).map(Number) : null;
       };
       const luminance = color => {
