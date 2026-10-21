@@ -67,6 +67,26 @@ test.describe("Public website smoke coverage", () => {
     await expect(page.locator('a[href="/mind-tests/"]').first()).toBeVisible();
   });
 
+  test("featured homepage Mind Test cards have readable contrast", async ({ page }) => {
+    await assertPublicPage(page, "/");
+    const cards = page.locator(".home-page .mind-feature .test-card");
+    await expect(cards).toHaveCount(5);
+    for (const card of await cards.all()) {
+      const colors = await card.evaluate(el => {
+        const cardStyle = getComputedStyle(el);
+        const strong = el.querySelector("strong");
+        return {
+          background: cardStyle.backgroundColor,
+          text: cardStyle.color,
+          title: strong ? getComputedStyle(strong).color : null,
+        };
+      });
+      expect(colors.background).toBe("rgb(37, 75, 53)");
+      expect(colors.text).toBe("rgb(255, 255, 255)");
+      expect(colors.title).toBe("rgb(255, 255, 255)");
+    }
+  });
+
   test("Urdu homepage is public and account-free", async ({ page }) => {
     await assertPublicPage(page, "/ur/");
     await expect(page.locator("html")).toHaveAttribute("lang", "ur");
@@ -117,6 +137,17 @@ test.describe("Mind Tests", () => {
     ...englishTests.map(slug => ({ lang: "ur", path: `/ur/mind-tests/${slug}/` })),
   ];
 
+  test("individual Mind Test hero spacing is compact on desktop", async ({ page }) => {
+    await assertPublicPage(page, "/mind-tests/self-awareness/");
+    const hero = page.locator("body:has(#test) .page-hero");
+    await expect(hero).toBeVisible();
+    const padding = await hero.evaluate(el => ({
+      top: getComputedStyle(el).paddingTop,
+      bottom: getComputedStyle(el).paddingBottom,
+    }));
+    expect(padding).toEqual({ top: "42px", bottom: "30px" });
+  });
+
   for (const item of cases) {
     test(`${item.lang} Mind Test works without an account: ${item.path}`, async ({ page }) => {
       await assertPublicPage(page, item.path);
@@ -150,6 +181,23 @@ test.describe("Mind Tests", () => {
 });
 
 test.describe("Mind Tests mobile viewport", () => {
+  test("individual Mind Test hero spacing is compact on mobile", async ({ browser }) => {
+    const context = await browser.newContext({ ...devices["Pixel 5"] });
+    try {
+      const page = await context.newPage();
+      await assertPublicPage(page, "/mind-tests/self-awareness/");
+      const hero = page.locator("body:has(#test) .page-hero");
+      await expect(hero).toBeVisible();
+      const padding = await hero.evaluate(el => ({
+        top: getComputedStyle(el).paddingTop,
+        bottom: getComputedStyle(el).paddingBottom,
+      }));
+      expect(padding).toEqual({ top: "28px", bottom: "22px" });
+    } finally {
+      await context.close();
+    }
+  });
+
   test("English Mind Test remains usable on mobile", async ({ browser }) => {
     const context = await browser.newContext({ ...devices["Pixel 5"] });
     try {
