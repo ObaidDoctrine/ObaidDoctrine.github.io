@@ -88,7 +88,7 @@ async function clickMindTestOption(page, option) {
         rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
         headerBottom,
         viewportHeight: window.innerHeight,
-        hit: hit ? (hit.tagName + (hit.className && typeof hit.className === "string" ? "." + hit.className.trim().replace(/\\s+/g, ".") : "")) : null,
+        hit: hit ? (hit.tagName + (hit.className && typeof hit.className === "string" ? "." + hit.className.trim().replace(/\s+/g, ".") : "")) : null,
         x,
         y
       };
