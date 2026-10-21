@@ -1838,3 +1838,31 @@ body:has(#test) .page-hero{
     padding-block:28px 22px;
   }
 }
+
+
+/* Tighten the pre-title icon/label stack on individual Mind Test pages. */
+body:has(#test) .page-hero{
+  padding-top:12px !important;
+}
+body:has(#test) .page-hero .sa-icon{
+  display:inline-flex;
+  align-items:center;
+  font-size:1.25rem;
+  line-height:1.2;
+  margin:0 8px 6px 0;
+  vertical-align:middle;
+}
+body:has(#test) .page-hero .sa-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:.2rem .55rem;
+  margin:0 0 6px;
+  font-size:.68rem;
+  line-height:1.2;
+  vertical-align:middle;
+}
+@media(max-width:700px){
+  body:has(#test) .page-hero{
+    padding-top:8px !important;
+  }
+}
