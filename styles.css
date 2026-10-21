@@ -1827,3 +1827,14 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
     padding-block:0;
   }
 }
+
+
+/* Compact the hero on individual Mind Test pages; the sticky header already occupies its own layout space. */
+body:has(#test) .page-hero{
+  padding-block:42px 30px;
+}
+@media(max-width:700px){
+  body:has(#test) .page-hero{
+    padding-block:28px 22px;
+  }
+}
