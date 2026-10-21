@@ -141,6 +141,8 @@ img,svg,video,iframe{max-width:100%;}
 
 /* Existing homepage hamburger remains the interactive mobile pattern. */
 .site-header > .mobile{display:none;margin:0;}
+/* The legacy-nav script injects a hamburger on every viewport; keep it hidden on desktop. */
+.site-header > .od-mobile-nav-toggle{display:none;}
 .site-header > .mobile summary{cursor:pointer;}
 
 /* ---------- Reading experience ---------- */
