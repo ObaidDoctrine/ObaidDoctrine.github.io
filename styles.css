@@ -1768,3 +1768,51 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
 .home-page .card h3,.home-page .research-card h3,.home-page .path h3{letter-spacing:-.02em}
 @media(prefers-reduced-motion:reduce){.home-page .question-card,.home-page .card,.home-page .path,.home-page .research-card,.home-page .test-card,.home-page .myth-card,.home-page .method-card{transition:none}.home-page .question-card:hover,.home-page .card:hover,.home-page .path:hover,.home-page .research-card:hover,.home-page .test-card:hover,.home-page .myth-card:hover,.home-page .method-card:hover{transform:none}}
 @media(max-width:700px){.home-page .question-card:hover,.home-page .card:hover,.home-page .path:hover,.home-page .research-card:hover,.home-page .test-card:hover,.home-page .myth-card:hover,.home-page .method-card:hover{transform:none}}
+
+
+/* Regression guard: legacy navigation controls must never inflate desktop headers. */
+.site-header > .od-mobile-nav-toggle{
+  display:none;
+  box-sizing:border-box;
+  width:40px;
+  height:40px;
+  margin:0;
+  padding:0;
+  place-items:center;
+  flex:0 0 40px;
+}
+.site-header > .od-mobile-nav-toggle svg{
+  display:block;
+  width:20px;
+  height:20px;
+  max-width:20px;
+  max-height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+}
+
+/* Keep all five featured Mind Test cards readable on the dark green section. */
+.home-page .mind-feature .test-card{
+  color:#fff;
+  background:#254b35;
+  border-color:rgba(255,255,255,.22);
+}
+.home-page .mind-feature .test-card strong{
+  color:#fff;
+}
+.home-page .mind-feature .test-card > span:not(.test-no){
+  color:#e6eee7;
+}
+.home-page .mind-feature .test-card .test-no{
+  color:#173b2b;
+  background:#d8ef83;
+}
+.home-page .mind-feature .test-card:focus-visible{
+  outline:3px solid #d8ef83;
+  outline-offset:3px;
+}
+@media(max-width:760px){
+  .site-header > .od-mobile-nav-toggle{display:grid;}
+}
