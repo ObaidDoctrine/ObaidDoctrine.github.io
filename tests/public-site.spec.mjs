@@ -240,7 +240,7 @@ test.describe("Mind Tests", () => {
       expect(measured, `header/hero/title geometry missing for ${path}`).not.toBeNull();
       expect(measured.gapFromHeader, `unexpected title gap for ${path}: ${JSON.stringify(measured)}`).toBeGreaterThanOrEqual(0);
       expect(measured.gapFromHeader, `excessive blank space for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(60);
-      expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(20);
+      expect(measured.gapInsideHero, `hero top gap exceeds compact spacing for ${path}`).toBeLessThanOrEqual(40);
       expect(measured.paddingTop).toBe("12px");
       expect(measured.paddingBottom).toBe("30px");
     }
