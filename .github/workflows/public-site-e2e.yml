@@ -1,6 +1,8 @@
 name: "OBAID DOCTRINE — Public Website E2E"
 
 on:
+  pull_request:
+    branches: ["main"]
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -31,7 +33,22 @@ jobs:
       - name: Install Chromium
         run: npx playwright install chromium --with-deps
 
-      - name: Run public-site E2E
+      - name: Start local static-site server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/obaid-doctrine-http.log 2>&1 &
+          echo $! > /tmp/obaid-doctrine-http.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/obaid-doctrine-http.log
+          exit 1
+
+      - name: Run public-site E2E against checked-out branch
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: http://127.0.0.1:4173
         run: npx playwright test
 
       - name: Upload Playwright report

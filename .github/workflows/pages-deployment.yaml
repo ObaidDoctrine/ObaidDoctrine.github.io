@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
 
 jobs:
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,3 +49,45 @@ jobs:
             --project-name=obaid-doctrine \
             --branch "$CLOUDFLARE_PRODUCTION_BRANCH"
 
+
+  deploy-pr58-preview:
+    # Isolated preview only for PR 58. This job can never target the production branch.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/mobile-header-and-home-test-card-contrast'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy PR 58 preview to Cloudflare Pages
+    steps:
+      - name: Checkout the exact PR commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Deploy isolated preview branch
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "::error::CLOUDFLARE_API_TOKEN repository secret is missing"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "::error::CLOUDFLARE_ACCOUNT_ID repository secret is missing"; exit 1; }
+          npx --yes wrangler@4 pages deploy . --project-name=obaid-doctrine --branch=pr-58-preview
+
+      - name: Verify isolated preview responds with HTML
+        run: |
+          set -euo pipefail
+          preview_url="https://pr-58-preview.obaid-doctrine.pages.dev/"
+          for i in {1..18}; do
+            status="$(curl --silent --output /tmp/preview.html --write-out '%{http_code}' "$preview_url" || true)"
+            if [ "$status" = "200" ] && grep -qi '<html' /tmp/preview.html; then
+              echo "Verified Cloudflare preview HTTP 200: $preview_url"
+              echo "### Cloudflare preview" >> "$GITHUB_STEP_SUMMARY"
+              echo "$preview_url" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::Cloudflare preview did not return valid HTML: $preview_url"
+          exit 1
