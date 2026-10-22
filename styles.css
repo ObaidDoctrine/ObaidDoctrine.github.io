@@ -1890,3 +1890,10 @@ body:has(#test) .page-hero h1{
 /* Mind Test pages need deterministic scrolling so sticky navigation cannot cover answer controls. */
 html:has(#test){scroll-behavior:auto!important;scroll-padding-top:110px;}
 body:has(#test) .od-test-option{scroll-margin-top:110px;}
+
+
+/* Root-cause fix: sticky navigation was intercepting pointer events on Mind Test answers. Keep the header in normal flow on test pages so answer controls remain clickable at every viewport size. */
+body:has(#test) .site-header{
+  position:relative !important;
+  inset-block-start:auto !important;
+}
