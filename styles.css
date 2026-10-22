@@ -286,7 +286,7 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
   .site-header > .mobile summary::after{content:"";display:block;}
   .site-header > .mobile[open] .mobile-panel{z-index:1001;}
 
-  .site-header > .od-mobile-nav-toggle{
+  .site-header > .mobile{
     display:none;
     width:40px;
     height:40px;
@@ -300,7 +300,7 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
     cursor:pointer;
     touch-action:manipulation;
   }
-  .site-header > .od-mobile-nav-toggle svg{
+  .site-header > .mobile svg{
     width:20px;
     height:20px;
     fill:none;
@@ -310,7 +310,7 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
   }
 
   /* Legacy page headers: collapsed by default; opened only by the compact control. */
-  .site-header > .od-mobile-nav-toggle{display:grid;}
+  .site-header > .mobile{display:grid;}
   .site-header > .od-legacy-mobile-nav{
     display:none !important;
     grid-column:1/-1;
@@ -341,11 +341,11 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
     border-radius:12px;
   }
 
-  .site-header > .od-mobile-nav-toggle.od-mobile-nav-open{
+  .site-header > .mobile.od-mobile-nav-open{
     background:var(--od-soft,var(--s));
   }
 
-  .home-page .site-header > .od-mobile-nav-toggle{
+  .home-page .site-header > .mobile{
     grid-column:3;
     grid-row:1;
     justify-self:end;
@@ -362,7 +362,7 @@ html[dir="rtl"] .article-body ul,html[dir="rtl"] .article-body ol{padding-inline
 }
 
 @media (prefers-reduced-motion:reduce){
-  .site-header > .od-mobile-nav-toggle{transition:none;}
+  .site-header > .mobile{transition:none;}
 }
 
 /* 2026-09-30 homepage transformation */
@@ -1771,7 +1771,7 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
 
 
 /* Regression guard: legacy navigation controls must never inflate desktop headers. */
-.site-header > .od-mobile-nav-toggle{
+.site-header > .mobile{
   display:none;
   box-sizing:border-box;
   width:40px;
@@ -1781,7 +1781,7 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
   place-items:center;
   flex:0 0 40px;
 }
-.site-header > .od-mobile-nav-toggle svg{
+.site-header > .mobile svg{
   display:block;
   width:20px;
   height:20px;
@@ -1814,7 +1814,7 @@ body[data-design="knowledge-lab"] .notice{background:#e2f0f1;border-color:#c0dfe
   outline-offset:3px;
 }
 @media(max-width:760px){
-  .site-header > .od-mobile-nav-toggle{display:grid;}
+  .site-header > .mobile{display:grid;}
 }
 
 
