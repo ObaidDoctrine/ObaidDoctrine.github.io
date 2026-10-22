@@ -289,16 +289,22 @@ test.describe("Mind Tests mobile viewport", () => {
           const header = document.querySelector(".site-header");
           const hero = document.querySelector("body:has(#test) .page-hero");
           const title = hero?.querySelector("h1");
-          if (!header || !hero || !title) return null;
+          const badge = hero?.querySelector(".sa-badge");
+          const icon = hero?.querySelector(".sa-icon");
+          if (!header || !hero || !title || !badge || !icon) return null;
           const headerRect = header.getBoundingClientRect();
           const heroRect = hero.getBoundingClientRect();
           const titleRect = title.getBoundingClientRect();
+          const badgeRect = badge.getBoundingClientRect();
+          const iconRect = icon.getBoundingClientRect();
           return {
             headerBottom: headerRect.bottom,
             heroTop: heroRect.top,
+            iconTop: iconRect.top,
             titleTop: titleRect.top,
             gapFromHeader: titleRect.top - headerRect.bottom,
-            gapInsideHero: titleRect.top - heroRect.top,
+            gapAfterBadge: titleRect.top - badgeRect.bottom,
+            iconTopOffset: iconRect.top - heroRect.top,
             paddingTop: getComputedStyle(hero).paddingTop,
             paddingBottom: getComputedStyle(hero).paddingBottom,
           };
@@ -306,7 +312,9 @@ test.describe("Mind Tests mobile viewport", () => {
         expect(measured, `header/hero/title geometry missing for ${path}`).not.toBeNull();
         expect(measured.gapFromHeader, `unexpected title gap for ${path}: ${JSON.stringify(measured)}`).toBeGreaterThanOrEqual(0);
         expect(measured.gapFromHeader, `excessive mobile blank space for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(45);
-        expect(measured.gapInsideHero, `hero top gap does not match compact spacing for ${path}`).toBeLessThanOrEqual(16);
+        expect(measured.iconTopOffset, `hero top padding exceeds compact spacing for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(10);
+        expect(measured.gapAfterBadge, `title is too far below the badge for ${path}: ${JSON.stringify(measured)}`).toBeGreaterThanOrEqual(0);
+        expect(measured.gapAfterBadge, `title is too far below the badge for ${path}: ${JSON.stringify(measured)}`).toBeLessThanOrEqual(16);
         expect(measured.paddingTop).toBe("8px");
         expect(measured.paddingBottom).toBe("22px");
       }
