@@ -1873,7 +1873,7 @@ body:has(#test) .page-hero .sa-badge{
 body:has(#test) .page-hero .sa-icon{
   font-size:1.1rem !important;
   line-height:1 !important;
-  margin:0 6px 0 0 !important;
+  margin:-4px 6px 0 0 !important;
   vertical-align:middle !important;
 }
 body:has(#test) .page-hero .sa-badge{
