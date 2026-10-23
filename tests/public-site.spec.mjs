@@ -377,3 +377,56 @@ test.describe("Mind Tests mobile viewport", () => {
     }
   });
 });
+
+test.describe("Responsive layout regression coverage", () => {
+  const viewports = [
+    { width: 360, height: 800 },
+    { width: 390, height: 844 },
+    { width: 768, height: 1024 },
+    { width: 1366, height: 900 },
+  ];
+  const publicPages = [
+    "/",
+    "/articles/",
+    "/articles/what-is-psychology/",
+    "/mind-tests/self-awareness/",
+    "/ur/mind-tests/self-awareness/",
+  ];
+
+  for (const viewport of viewports) {
+    test(`key public pages fit the viewport at ${viewport.width}px`, async ({ browser }) => {
+      const context = await browser.newContext({ viewport });
+      const page = await context.newPage();
+      try {
+        for (const path of publicPages) {
+          const response = await page.goto(path, { waitUntil: "domcontentloaded" });
+          expect(response, `No response for ${path} at ${viewport.width}px`).not.toBeNull();
+          expect(response.status(), `HTTP status for ${path} at ${viewport.width}px`).toBe(200);
+          await expect(page.locator("header.site-header")).toBeVisible();
+          await expect(page.locator("main h1").first()).toBeVisible();
+
+          const dimensions = await page.evaluate(() => ({
+            viewportWidth: document.documentElement.clientWidth,
+            documentWidth: document.documentElement.scrollWidth,
+            headerHeight: document.querySelector("header.site-header")?.getBoundingClientRect().height ?? 0,
+          }));
+          expect(
+            dimensions.documentWidth,
+            `horizontal overflow on ${path} at ${viewport.width}px: ${JSON.stringify(dimensions)}`
+          ).toBeLessThanOrEqual(dimensions.viewportWidth + 1);
+          expect(
+            dimensions.headerHeight,
+            `unexpectedly tall header on ${path} at ${viewport.width}px`
+          ).toBeGreaterThan(0);
+          expect(
+            dimensions.headerHeight,
+            `header height exceeds 140px on ${path} at ${viewport.width}px`
+          ).toBeLessThanOrEqual(140);
+        }
+      } finally {
+        await context.close();
+      }
+    });
+  }
+});
+
