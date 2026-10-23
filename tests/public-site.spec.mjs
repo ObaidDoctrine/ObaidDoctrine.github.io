@@ -383,7 +383,8 @@ test.describe("Responsive layout regression coverage", () => {
     { width: 360, height: 800 },
     { width: 390, height: 844 },
     { width: 768, height: 1024 },
-    { width: 1366, height: 900 },
+    { width: 1366, height: 768 },
+    { width: 1440, height: 900 },
   ];
   const publicPages = [
     "/",
@@ -435,7 +436,8 @@ test.describe("Responsive layout regression coverage", () => {
 test.describe("All Mind Tests responsive smoke coverage", () => {
   const widths = [
     { width: 390, height: 844 },
-    { width: 1366, height: 900 },
+    { width: 1366, height: 768 },
+    { width: 1440, height: 900 },
   ];
   const testSlugs = [
     "emotional-intelligence",
