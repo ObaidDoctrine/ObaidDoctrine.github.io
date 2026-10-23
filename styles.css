@@ -1704,7 +1704,7 @@ html[dir="rtl"] .home-page .hero-meta{border-inline-start:1px solid rgba(23,61,4
 
 /* Normalize test hero spacing and icon/badge sizing across test-specific class names. */
 body:has(#test) .page-hero{
-  padding-block:clamp(24px,4vw,44px) clamp(18px,3vw,30px);
+  padding-block:12px 30px;
 }
 body:has(#test) .page-hero [class$="-icon"]{
   display:inline-flex;
@@ -1724,7 +1724,7 @@ body:has(#test) .page-hero [class$="-badge"]{
 }
 @media(max-width:700px){
   body:has(#test) .page-hero{
-    padding-block:22px 18px;
+    padding-block:10px 18px;
   }
 }
 
