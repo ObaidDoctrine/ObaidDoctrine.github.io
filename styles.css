@@ -1402,7 +1402,7 @@ html[dir="rtl"] .home-page .knowledge-orbit span{letter-spacing:0}
   border-radius:22px;
   background:rgba(255,255,255,.055);
   box-shadow:none;
-  transition:transform var(--ed-smooth) ease,background-color var(--ed-smooth) ease,border-color var(--ed-smooth) ease;
+  transition:transform var(--ed-smooth) ease,border-color var(--ed-smooth) ease;
 }
 .home-page .test-card:nth-child(4),.home-page .test-card:nth-child(5){grid-column:span 6}
 .home-page .test-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.09);border-color:rgba(199,240,0,.4)}
@@ -1711,20 +1711,20 @@ body:has(#test) .page-hero [class$="-icon"]{
   align-items:center;
   font-size:1.25rem;
   line-height:1.2;
-  margin:0 8px 6px 0;
+  margin:0 8px 2px 0;
   vertical-align:middle;
 }
 body:has(#test) .page-hero [class$="-badge"]{
   display:inline-flex;
   align-items:center;
   padding:.15rem .5rem;
-  margin:0 0 6px;
+  margin:0 0 2px;
   font-size:.68rem;
   line-height:1.2;
 }
 @media(max-width:700px){
   body:has(#test) .page-hero{
-    padding-block:10px 18px;
+    padding-block:8px 22px;
   }
 }
 
