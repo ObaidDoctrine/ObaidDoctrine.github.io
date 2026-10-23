@@ -1,4 +1,4 @@
-const CACHE_NAME = "obaid-doctrine-pwa-v2";
+const CACHE_NAME = "obaid-doctrine-pwa-v3";
 const APP_SHELL = ["/", "/manifest.json"];
 
 self.addEventListener("install", event => {
