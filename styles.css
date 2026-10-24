@@ -1897,3 +1897,40 @@ body:has(#test) .site-header{
   position:relative !important;
   inset-block-start:auto !important;
 }
+
+
+/* OBAID DOCTRINE — Mind Test layout: keep the title and first question in view */
+/* Target only interactive test pages; leave article and homepage heroes unchanged. */
+body:has(#test) .page-hero{
+  padding:12px 0 30px;
+}
+body:has(#test) .page-hero h1{
+  max-width:900px;
+  margin:0 0 10px;
+  font-size:clamp(1.9rem,3.4vw,3rem);
+  line-height:1.12;
+  letter-spacing:-.03em;
+  overflow-wrap:break-word;
+}
+body:has(#test) .page-hero .lead{
+  max-width:780px;
+  margin:0;
+  font-size:clamp(15px,1.25vw,17px);
+  line-height:1.65;
+}
+body:has(#test) .page-hero .eyebrow{
+  margin-bottom:8px;
+}
+@media(max-width:700px){
+  body:has(#test) .page-hero{padding:8px 0 22px;}
+  body:has(#test) .page-hero h1{
+    font-size:clamp(1.65rem,7vw,2.25rem);
+    line-height:1.16;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+  body:has(#test) .page-hero .lead{font-size:15px;line-height:1.65;}
+}
+@media(prefers-reduced-motion:reduce){
+  body:has(#test) .page-hero h1{scroll-behavior:auto;}
+}
