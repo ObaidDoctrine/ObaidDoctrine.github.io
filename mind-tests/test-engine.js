@@ -24,9 +24,28 @@ function esc(v){return String(v==null?"":v).replace(/&/g,"&amp;").replace(/</g,"
 function getQuestion(q){return{text:q[0],options:Array.isArray(q[1])?q[1]:[],scores:Array.isArray(q[2])?q[2]:null,values:Array.isArray(q[3])?q[3]:null};}
 function dimensionsCount(){return dimensionData&&dimensionData.length?dimensionData.length:(labelData&&labelData.length?labelData.length:5);}
 function scoreAnswers(){
- var n=dimensionsCount(), scores=Array(n).fill(0), maxes=Array(n).fill(0);
- items.forEach(function(item){var q=getQuestion(item);q.options.forEach(function(_,i){var d=q.scores?q.scores[i]:i;var v=q.values?q.values[i]:1;if(Number.isInteger(d)&&d>=0&&d<n)maxes[d]+=Number(v)||0;});});
- state.answers.forEach(function(answer,index){var q=getQuestion(items[index]);var d=q.scores?q.scores[answer]:answer;var v=q.values?q.values[answer]:1;if(Number.isInteger(d)&&d>=0&&d<n)scores[d]+=Number(v)||0;});
+ var n=dimensionsCount(),scores=Array(n).fill(0),maxes=Array(n).fill(0);
+ // Add each question's maximum available value once per dimension, not every option value.
+ items.forEach(function(item){
+  var q=getQuestion(item),questionMaxes=Array(n).fill(0);
+  q.options.forEach(function(_,i){
+   var d=q.scores?q.scores[i]:i;
+   var raw=q.values?q.values[i]:1;
+   var v=Number(raw);
+   if(!Number.isFinite(v))v=1;
+   if(Number.isInteger(d)&&d>=0&&d<n)questionMaxes[d]=Math.max(questionMaxes[d],v);
+  });
+  questionMaxes.forEach(function(v,d){maxes[d]+=v;});
+ });
+ state.answers.forEach(function(answer,index){
+  var q=getQuestion(items[index]);
+  if(!q||!Number.isInteger(answer)||answer<0||answer>=q.options.length)return;
+  var d=q.scores?q.scores[answer]:answer;
+  var raw=q.values?q.values[answer]:1;
+  var v=Number(raw);
+  if(!Number.isFinite(v))v=1;
+  if(Number.isInteger(d)&&d>=0&&d<n)scores[d]+=v;
+ });
  return{scores:scores,maxes:maxes};
 }
 function labelAt(i){if(dimensionData&&dimensionData[i])return dimensionData[i][0];if(labelData&&labelData[i])return labelData[i];return isRTL?"نمایاں رجحان":"Response pattern";}
