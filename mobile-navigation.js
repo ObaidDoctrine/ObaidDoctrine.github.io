@@ -159,6 +159,7 @@
 
 
   function init() {
+    initLanguageSwitch();
     document.querySelectorAll(".site-header").forEach(header => {
       const details = header.querySelector(":scope > details.mobile");
       if (details) {
