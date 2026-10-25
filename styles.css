@@ -1934,3 +1934,17 @@ body:has(#test) .page-hero .eyebrow{
 @media(prefers-reduced-motion:reduce){
   body:has(#test) .page-hero h1{scroll-behavior:auto;}
 }
+
+
+/* OBAID DOCTRINE — globally remove the intrusive site header from every English/Urdu page, article and mind test. */
+.site-header,
+header.site-header {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
