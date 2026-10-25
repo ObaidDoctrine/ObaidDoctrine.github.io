@@ -40,6 +40,9 @@ walk(root);
 for (const file of htmlFiles) {
   const source = readFileSync(file, "utf8");
   const rel = relative(root, file).split(sep).join("/");
+  if (/https?:\/\/obaiddoctrine\.com(?=[:/?#\s"'<>])/i.test(source)) {
+    errors.push(rel + ": non-www absolute URL found; use https://www.obaiddoctrine.com");
+  }
   const base = new URL("https://www.obaiddoctrine.com/" + rel);
   const anchorTags = [...source.matchAll(/<a\b[^>]*>/gi)].map(m => m[0]);
   for (const tag of anchorTags) {
