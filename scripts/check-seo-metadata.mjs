@@ -23,7 +23,7 @@ function getTag(source, regex) { return source.match(regex)?.[0] ?? ""; }
 function localFileForUrl(value) {
   let url;
   try { url = new URL(value); } catch { return null; }
-  if (url.protocol !== "https:" || !["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname)) return null;
+  if (url.protocol !== "https:" || !["www.obaiddoctrine.com"].includes(url.hostname)) return null;
   let path = decodeURIComponent(url.pathname);
   if (path.endsWith("/")) path += "index.html";
   else if (!/\.[a-z0-9]+$/i.test(path)) path += "/index.html";
@@ -42,6 +42,9 @@ const pages = new Map();
 for (const file of htmlFiles) {
   const source = readFileSync(file, "utf8");
   const rel = relative(root, file).split("\\").join("/");
+  if (/https?:\/\/obaiddoctrine\.com(?=[:/?#\s"'<>])/i.test(source)) {
+    errors.push(rel + ": non-www absolute URL found; use https://www.obaiddoctrine.com");
+  }
   const metaTags = [...source.matchAll(/<meta\b[^>]*>/gi)].map(m => m[0]);
   const linkTags = [...source.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
   const robots = metaTags.find(tag => attr(tag, "name").toLowerCase() === "robots");
@@ -64,7 +67,7 @@ for (const file of htmlFiles) {
   else {
     let url;
     try { url = new URL(canonical); } catch {}
-    if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname)) {
+    if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com"].includes(url.hostname)) {
       errors.push(rel + ": canonical must be an absolute HTTPS URL on the production domain");
     } else if (url.pathname !== "/" && !url.pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(url.pathname)) {
       errors.push(rel + ": canonical path should use the site's trailing-slash convention: " + canonical);
@@ -130,7 +133,7 @@ try {
     locs.push(loc);
     let url;
     try { url = new URL(loc); } catch {}
-    if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname) || url.search || url.hash) {
+    if (!url || url.protocol !== "https:" || !["www.obaiddoctrine.com"].includes(url.hostname) || url.search || url.hash) {
       errors.push("sitemap.xml: URL must be a clean absolute HTTPS production URL: " + loc);
       continue;
     }
