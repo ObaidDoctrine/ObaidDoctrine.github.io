@@ -174,12 +174,12 @@ test.describe("Public website smoke coverage", () => {
 
   test("English and Urdu language switchers work", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
-    await page.locator('a[href="/ur/"]').first().click();
+    await page.locator('a[href="/ur/"]:visible').first().click();
     await expect(page).toHaveURL(/\/ur\/$/);
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
 
     await page.goto("/ur/", { waitUntil: "domcontentloaded" });
-    await page.locator('a[href="/"]').first().click();
+    await page.locator('a[href="/"]:visible').first().click();
     await expect(page).toHaveURL(/\/$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
   });
