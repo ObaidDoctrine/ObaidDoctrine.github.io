@@ -126,6 +126,11 @@
     button.setAttribute("aria-expanded", "false");
     button.innerHTML = '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
 
+    const languageBar = document.createElement("div");
+    languageBar.className = "od-visible-language-switch";
+    languageBar.setAttribute("aria-label", "Choose language");
+    languageBar.innerHTML = '<a href="' + englishPath + '"' + (!isUrdu ? ' aria-current="page"' : '') + '>English</a><a href="' + urduPath + '"' + (isUrdu ? ' aria-current="page"' : '') + '>اردو</a>';
+
     const overlay = document.createElement("div");
     overlay.className = "od-side-menu-overlay";
     overlay.hidden = true;
@@ -149,7 +154,7 @@
     const style = document.createElement("style");
     style.textContent = `
       .od-side-menu-toggle {
-        position:fixed!important; right:12px!important; top:45%!important; z-index:2147483000!important;
+        position:fixed!important; right:12px!important; top:12px!important; z-index:2147483000!important;
         display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important;
         gap:3px!important; width:52px!important; min-height:54px!important; padding:7px 5px!important;
         border:1px solid rgba(49,84,58,.25)!important; border-radius:16px!important; background:#fff!important;
@@ -157,6 +162,19 @@
         font:700 20px/1 system-ui,sans-serif!important;
       }
       .od-side-menu-toggle small { font-size:10px!important; line-height:1.2!important; }
+      .od-visible-language-switch {
+        position:fixed!important; top:18px!important; right:72px!important; z-index:2147483000!important;
+        display:flex!important; align-items:center!important; gap:4px!important; padding:4px!important;
+        border:1px solid rgba(49,84,58,.22)!important; border-radius:13px!important;
+        background:#fff!important; box-shadow:0 4px 18px rgba(0,0,0,.14)!important;
+        font:700 12px/1.2 system-ui,sans-serif!important;
+      }
+      .od-visible-language-switch a {
+        display:block!important; padding:8px 9px!important; border-radius:9px!important;
+        color:#31543A!important; text-decoration:none!important; white-space:nowrap!important;
+      }
+      .od-visible-language-switch a[aria-current="page"] { background:#dce8b5!important; }
+
       .od-side-menu-overlay { position:fixed!important; inset:0!important; z-index:2147483001!important; background:rgba(12,24,17,.45)!important; }
       .od-side-menu {
         position:fixed!important; z-index:2147483002!important; top:0!important; right:0!important; bottom:0!important;
@@ -173,10 +191,11 @@
       .od-side-menu-languages { display:flex!important; flex-wrap:wrap!important; align-items:center!important; gap:8px!important; padding-top:14px!important; border-top:1px solid #dce5d8!important; font-size:13px!important; }
       .od-side-menu-languages span { flex-basis:100%!important; font-weight:800!important; }
       .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#dce8b5!important; color:#31543A!important; text-decoration:none!important; font-weight:800!important; }
-      @media(max-width:760px){ .od-side-menu-toggle { right:8px!important; width:46px!important; min-height:50px!important; border-radius:14px!important; } }
+      @media(max-width:760px){ .od-side-menu-toggle { right:8px!important; top:12px!important; width:46px!important; min-height:50px!important; border-radius:14px!important; } .od-visible-language-switch { right:62px!important; top:17px!important; } .od-visible-language-switch a { padding:8px 7px!important; } }
     `;
     document.head.appendChild(style);
     document.body.appendChild(button);
+    document.body.appendChild(languageBar);
     document.body.appendChild(overlay);
     document.body.appendChild(panel);
 
