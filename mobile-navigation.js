@@ -98,65 +98,102 @@
   }
 
   function initLanguageSwitch() {
-    if (document.querySelector(".od-floating-language-switch")) return;
+    if (document.querySelector(".od-side-menu")) return;
 
     const path = window.location.pathname || "/";
     const isUrdu = path === "/ur" || path.startsWith("/ur/");
-    let englishPath = path;
-    let urduPath = path;
+    const prefix = isUrdu ? "/ur" : "";
+    const label = isUrdu ? {
+      menu: "مینو کھولیں", close: "مینو بند کریں", home: "ہوم", psychology: "نفسیات",
+      behaviour: "انسانی رویّے", relationships: "تعلقات", family: "شادی اور خاندان",
+      articles: "مضامین", tests: "مائنڈ ٹیسٹس", research: "تحقیق", about: "ہمارے بارے میں",
+      contact: "رابطہ", privacy: "پرائیویسی پالیسی", terms: "شرائط و ضوابط",
+      language: "زبان تبدیل کریں", other: "English"
+    } : {
+      menu: "Open menu", close: "Close menu", home: "Home", psychology: "Psychology",
+      behaviour: "Human Behaviour", relationships: "Relationships", family: "Marriage & Family",
+      articles: "Articles", tests: "Mind Tests", research: "Research Insights", about: "About",
+      contact: "Contact", privacy: "Privacy Policy", terms: "Terms & Conditions",
+      language: "Language", other: "اردو"
+    };
 
-    if (isUrdu) {
-      englishPath = path.replace(/^\/ur(?=\/|$)/, "") || "/";
-      urduPath = path;
-    } else {
-      urduPath = path === "/" ? "/ur/" : "/ur" + path;
-    }
+    const englishPath = isUrdu ? path.replace(/^\/ur(?=\/|$)/, "") || "/" : path;
+    const urduPath = isUrdu ? path : (path === "/" ? "/ur/" : "/ur" + path);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "od-side-menu-toggle";
+    button.setAttribute("aria-label", label.menu);
+    button.setAttribute("aria-expanded", "false");
+    button.innerHTML = '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
 
-    const switcher = document.createElement("nav");
-    switcher.className = "od-floating-language-switch";
-    switcher.setAttribute("aria-label", "Language / زبان");
-    switcher.innerHTML =
-      '<a href="' + englishPath + '"' + (!isUrdu ? ' aria-current="page"' : "") + '>English</a>' +
-      '<span aria-hidden="true">|</span>' +
-      '<a href="' + urduPath + '"' + (isUrdu ? ' aria-current="page"' : "") + '>اردو</a>';
+    const overlay = document.createElement("div");
+    overlay.className = "od-side-menu-overlay";
+    overlay.hidden = true;
+
+    const panel = document.createElement("aside");
+    panel.className = "od-side-menu";
+    panel.setAttribute("aria-label", "OBAID DOCTRINE navigation");
+    panel.hidden = true;
+    const links = [
+      ["home", prefix + "/"], ["psychology", prefix + "/psychology/"],
+      ["behaviour", prefix + "/human-behaviour/"], ["relationships", prefix + "/relationships/"],
+      ["family", prefix + "/marriage-family/"], ["articles", prefix + "/articles/"],
+      ["tests", prefix + "/mind-tests/"], ["research", prefix + "/research-insights/"],
+      ["about", prefix + "/about/"], ["contact", prefix + "/contact/"],
+      ["privacy", prefix + "/privacy-policy/"], ["terms", prefix + "/terms-and-conditions/"]
+    ];
+    panel.innerHTML = '<div class="od-side-menu-heading"><strong>OBAID DOCTRINE</strong><button type="button" class="od-side-menu-close" aria-label="' + label.close + '">×</button></div>' +
+      '<nav>' + links.map(item => '<a href="' + item[1] + '">' + label[item[0]] + '</a>').join("") + '</nav>' +
+      '<div class="od-side-menu-languages"><span>' + label.language + '</span><a href="' + englishPath + '">English</a><a href="' + urduPath + '">اردو</a></div>';
 
     const style = document.createElement("style");
     style.textContent = `
-      .od-floating-language-switch {
-        position: fixed !important;
-        z-index: 2147483000 !important;
-        top: max(10px, env(safe-area-inset-top)) !important;
-        right: 12px !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 9px !important;
-        padding: 9px 12px !important;
-        border: 1px solid rgba(49,84,58,.2) !important;
-        border-radius: 999px !important;
-        background: #fff !important;
-        box-shadow: 0 3px 14px rgba(0,0,0,.14) !important;
-        color: #31543A !important;
-        font: 700 13px/1.2 system-ui, sans-serif !important;
-        direction: ltr !important;
+      .od-side-menu-toggle {
+        position:fixed!important; right:12px!important; top:45%!important; z-index:2147483000!important;
+        display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important;
+        gap:3px!important; width:52px!important; min-height:54px!important; padding:7px 5px!important;
+        border:1px solid rgba(49,84,58,.25)!important; border-radius:16px!important; background:#fff!important;
+        color:#31543A!important; box-shadow:0 4px 18px rgba(0,0,0,.18)!important; cursor:pointer!important;
+        font:700 20px/1 system-ui,sans-serif!important;
       }
-      .od-floating-language-switch a {
-        color: #31543A !important;
-        text-decoration: none !important;
-        white-space: nowrap !important;
+      .od-side-menu-toggle small { font-size:10px!important; line-height:1.2!important; }
+      .od-side-menu-overlay { position:fixed!important; inset:0!important; z-index:2147483001!important; background:rgba(12,24,17,.45)!important; }
+      .od-side-menu {
+        position:fixed!important; z-index:2147483002!important; top:0!important; right:0!important; bottom:0!important;
+        width:min(330px,86vw)!important; max-height:100dvh!important; overflow-y:auto!important; box-sizing:border-box!important;
+        padding:18px!important; background:#FAFAF5!important; color:#243128!important; box-shadow:-12px 0 35px rgba(0,0,0,.2)!important;
+        font:500 15px/1.5 system-ui,sans-serif!important; direction:ltr!important;
       }
-      .od-floating-language-switch a[aria-current="page"] {
-        text-decoration: underline !important;
-        text-underline-offset: 3px !important;
-      }
-      .od-floating-language-switch span { opacity: .55 !important; }
-      @media (max-width: 760px) {
-        .od-floating-language-switch { top: max(8px, env(safe-area-inset-top)) !important; right: 8px !important; padding: 8px 10px !important; }
-      }
+      .od-side-menu[hidden], .od-side-menu-overlay[hidden] { display:none!important; }
+      .od-side-menu-heading { display:flex!important; justify-content:space-between!important; align-items:center!important; gap:12px!important; padding:4px 0 16px!important; border-bottom:1px solid #dce5d8!important; color:#31543A!important; }
+      .od-side-menu-close { width:38px!important; height:38px!important; border:0!important; border-radius:10px!important; background:#eaf0e5!important; color:#31543A!important; font-size:28px!important; cursor:pointer!important; }
+      .od-side-menu nav { display:flex!important; flex-direction:column!important; gap:5px!important; padding:14px 0!important; }
+      .od-side-menu nav a { display:block!important; padding:10px 12px!important; border-radius:10px!important; color:#31543A!important; background:#fff!important; text-decoration:none!important; font-size:14px!important; font-weight:700!important; }
+      .od-side-menu nav a:hover { background:#eaf0d9!important; }
+      .od-side-menu-languages { display:flex!important; flex-wrap:wrap!important; align-items:center!important; gap:8px!important; padding-top:14px!important; border-top:1px solid #dce5d8!important; font-size:13px!important; }
+      .od-side-menu-languages span { flex-basis:100%!important; font-weight:800!important; }
+      .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#dce8b5!important; color:#31543A!important; text-decoration:none!important; font-weight:800!important; }
+      @media(max-width:760px){ .od-side-menu-toggle { right:8px!important; width:46px!important; min-height:50px!important; border-radius:14px!important; } }
     `;
     document.head.appendChild(style);
-    document.body.appendChild(switcher);
-  }
+    document.body.appendChild(button);
+    document.body.appendChild(overlay);
+    document.body.appendChild(panel);
 
+    const setOpen = open => {
+      panel.hidden = !open;
+      overlay.hidden = !open;
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.setAttribute("aria-label", open ? label.close : label.menu);
+      button.innerHTML = open ? '<span aria-hidden="true">×</span><small>' + (isUrdu ? "بند" : "Close") + '</small>' : '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+    button.addEventListener("click", () => setOpen(panel.hidden));
+    panel.querySelector(".od-side-menu-close").addEventListener("click", () => setOpen(false));
+    overlay.addEventListener("click", () => setOpen(false));
+    panel.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+  }
 
   function init() {
     initLanguageSwitch();
