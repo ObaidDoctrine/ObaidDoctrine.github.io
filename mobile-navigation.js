@@ -97,6 +97,67 @@
     });
   }
 
+  function initLanguageSwitch() {
+    if (document.querySelector(".od-floating-language-switch")) return;
+
+    const path = window.location.pathname || "/";
+    const isUrdu = path === "/ur" || path.startsWith("/ur/");
+    let englishPath = path;
+    let urduPath = path;
+
+    if (isUrdu) {
+      englishPath = path.replace(/^\/ur(?=\/|$)/, "") || "/";
+      urduPath = path;
+    } else {
+      urduPath = path === "/" ? "/ur/" : "/ur" + path;
+    }
+
+    const switcher = document.createElement("nav");
+    switcher.className = "od-floating-language-switch";
+    switcher.setAttribute("aria-label", "Language / زبان");
+    switcher.innerHTML =
+      '<a href="' + englishPath + '"' + (!isUrdu ? ' aria-current="page"' : "") + '>English</a>' +
+      '<span aria-hidden="true">|</span>' +
+      '<a href="' + urduPath + '"' + (isUrdu ? ' aria-current="page"' : "") + '>اردو</a>';
+
+    const style = document.createElement("style");
+    style.textContent = `
+      .od-floating-language-switch {
+        position: fixed !important;
+        z-index: 2147483000 !important;
+        top: max(10px, env(safe-area-inset-top)) !important;
+        right: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 9px !important;
+        padding: 9px 12px !important;
+        border: 1px solid rgba(49,84,58,.2) !important;
+        border-radius: 999px !important;
+        background: #fff !important;
+        box-shadow: 0 3px 14px rgba(0,0,0,.14) !important;
+        color: #31543A !important;
+        font: 700 13px/1.2 system-ui, sans-serif !important;
+        direction: ltr !important;
+      }
+      .od-floating-language-switch a {
+        color: #31543A !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+      }
+      .od-floating-language-switch a[aria-current="page"] {
+        text-decoration: underline !important;
+        text-underline-offset: 3px !important;
+      }
+      .od-floating-language-switch span { opacity: .55 !important; }
+      @media (max-width: 760px) {
+        .od-floating-language-switch { top: max(8px, env(safe-area-inset-top)) !important; right: 8px !important; padding: 8px 10px !important; }
+      }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(switcher);
+  }
+
+
   function init() {
     document.querySelectorAll(".site-header").forEach(header => {
       const details = header.querySelector(":scope > details.mobile");
