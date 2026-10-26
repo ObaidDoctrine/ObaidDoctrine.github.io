@@ -51,6 +51,10 @@ jobs:
           PLAYWRIGHT_TEST_BASE_URL: http://127.0.0.1:4173
         run: npx playwright test
 
+      - name: Audit live production canonical and redirect behavior (PR #63 only)
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'seo/live-canonical-redirect-audit' }}
+        run: node scripts/audit-live-seo.mjs
+
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v5
