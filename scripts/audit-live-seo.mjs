@@ -63,7 +63,11 @@ async function auditPage(pageUrl) {
   for (const alias of variants) {
     const result = await fetchFollowing(alias);
     const target = expectedCanonical(expected);
-    if (!result.ok || result.status !== 200 || result.finalUrl !== target) report("FAIL", "alias redirect mismatch: " + alias + " -> " + result.finalUrl + " (status=" + result.status + "); expected final URL " + target + "; " + (result.error ?? ""));
+    const redirectStatuses = result.chain.slice(0, -1).map((hop) => hop.status);
+    const hasTemporaryRedirect = redirectStatuses.some((status) => ![301, 308].includes(status));
+    if (!result.ok || result.status !== 200 || result.finalUrl !== target || redirectStatuses.length === 0 || hasTemporaryRedirect) {
+      report("FAIL", "alias redirect mismatch: " + alias + " -> " + result.finalUrl + "; chain=" + result.chain.map((hop) => hop.status + " " + hop.url).join(" -> ") + "; expected a permanent 301/308 redirect chain ending at " + target + " with HTTP 200; " + (result.error ?? ""));
+    }
   }
   results.push({ pageUrl, canonicalStatus: canonical.status, finalUrl: canonical.finalUrl });
 }
