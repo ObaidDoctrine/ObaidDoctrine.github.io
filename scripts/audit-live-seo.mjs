@@ -11,7 +11,7 @@ const CONCURRENCY = 8;
 const failures = [];
 const results = [];
 function report(level, message) {
-  const line = \`[\${level}] \${message}\`;
+  const line = "[" + level + "] " + message;
   console.log(line);
   if (level === "FAIL") failures.push(line);
 }
@@ -53,16 +53,17 @@ function expectedCanonical(url) { return BASE + url.pathname + url.search; }
 async function auditPage(pageUrl) {
   const expected = new URL(pageUrl);
   const canonical = await fetchFollowing(pageUrl);
-  if (!canonical.ok || canonical.status !== 200) report("FAIL", \`sitemap page did not return HTTP 200: \${pageUrl}; status=\${canonical.status}; \${canonical.error ?? ""}\`);
+  if (!canonical.ok || canonical.status !== 200) report("FAIL", "sitemap page did not return HTTP 200: " + pageUrl + "; status=" + canonical.status + "; " + (canonical.error ?? ""));
   else {
-    if (new URL(canonical.finalUrl).hostname !== "www.obaiddoctrine.com" || new URL(canonical.finalUrl).protocol !== "https:") report("FAIL", \`sitemap page ended at non-canonical host/protocol: \${pageUrl} -> \${canonical.finalUrl}\`);
+    if (new URL(canonical.finalUrl).hostname !== "www.obaiddoctrine.com" || new URL(canonical.finalUrl).protocol !== "https:") report("FAIL", "sitemap page ended at non-canonical host/protocol: " + pageUrl + " -> " + canonical.finalUrl);
     const actualCanonical = canonicalFrom(canonical.body);
-    if (actualCanonical.count !== 1 || actualCanonical.value !== expectedCanonical(expected)) report("FAIL", \`canonical mismatch: \${pageUrl}; count=\${actualCanonical.count}; canonical=\${actualCanonical.value || "(missing)"}; expected=\${expectedCanonical(expected)}\`);
+    if (actualCanonical.count !== 1 || actualCanonical.value !== expectedCanonical(expected)) report("FAIL", "canonical mismatch: " + pageUrl + "; count=" + actualCanonical.count + "; canonical=" + (actualCanonical.value || "(missing)") + "; expected=" + expectedCanonical(expected));
   }
   const variants = ["http://www.obaiddoctrine.com" + expected.pathname + expected.search, "https://obaiddoctrine.com" + expected.pathname + expected.search, "http://obaiddoctrine.com" + expected.pathname + expected.search];
   for (const alias of variants) {
-    const result = await fetchFollowing(alias), target = expectedCanonical(expected);
-    if (!result.ok || result.status !== 200 || result.finalUrl !== target) report("FAIL", \`alias redirect mismatch: \${alias} -> \${result.finalUrl} (status=\${result.status}); expected final URL \${target}; \${result.error ?? ""}\`);
+    const result = await fetchFollowing(alias);
+    const target = expectedCanonical(expected);
+    if (!result.ok || result.status !== 200 || result.finalUrl !== target) report("FAIL", "alias redirect mismatch: " + alias + " -> " + result.finalUrl + " (status=" + result.status + "); expected final URL " + target + "; " + (result.error ?? ""));
   }
   results.push({ pageUrl, canonicalStatus: canonical.status, finalUrl: canonical.finalUrl });
 }
@@ -71,19 +72,19 @@ async function runPool(items, worker, limit) {
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => { while (next < items.length) { const index = next++; await worker(items[index]); } }));
 }
 const sitemapResult = await fetchFollowing(SITEMAP);
-if (!sitemapResult.ok || sitemapResult.status !== 200) { console.error(\`Could not read sitemap \${SITEMAP}: status=\${sitemapResult.status}; \${sitemapResult.error ?? ""}\`); process.exit(2); }
+if (!sitemapResult.ok || sitemapResult.status !== 200) { console.error("Could not read sitemap " + SITEMAP + ": status=" + sitemapResult.status + "; " + (sitemapResult.error ?? "")); process.exit(2); }
 const urls = [...sitemapResult.body.matchAll(/<loc>\s*(.*?)\s*<\/loc>/gis)].map((m) => m[1].trim());
 if (!urls.length) { console.error("Sitemap contained no <loc> URLs."); process.exit(2); }
 const unique = [...new Set(urls)];
-if (unique.length !== urls.length) report("FAIL", \`sitemap contains duplicate URLs: \${urls.length - unique.length}\`);
+if (unique.length !== urls.length) report("FAIL", "sitemap contains duplicate URLs: " + (urls.length - unique.length));
 for (const url of unique) {
   try {
     const parsed = new URL(url);
-    if (parsed.protocol !== "https:" || parsed.hostname !== "www.obaiddoctrine.com" || parsed.search || parsed.hash) report("FAIL", \`non-canonical or dirty sitemap URL: \${url}\`);
-  } catch { report("FAIL", \`invalid sitemap URL: \${url}\`); }
+    if (parsed.protocol !== "https:" || parsed.hostname !== "www.obaiddoctrine.com" || parsed.search || parsed.hash) report("FAIL", "non-canonical or dirty sitemap URL: " + url);
+  } catch { report("FAIL", "invalid sitemap URL: " + url); }
 }
-console.log(\`Read-only live SEO audit: \${unique.length} unique sitemap URLs; testing HTTP/www aliases and canonical tags with concurrency \${CONCURRENCY}.\`);
+console.log("Read-only live SEO audit: " + unique.length + " unique sitemap URLs; testing HTTP/www aliases and canonical tags with concurrency " + CONCURRENCY + ".");
 await runPool(unique, auditPage, CONCURRENCY);
-console.log(\`\nAudited \${results.length} sitemap pages; failures: \${failures.length}.\`);
+console.log("\nAudited " + results.length + " sitemap pages; failures: " + failures.length + ".");
 if (failures.length) process.exit(1);
 console.log("PASS: sitemap pages, canonical tags, and HTTP/non-www redirects matched the www HTTPS URL.");
