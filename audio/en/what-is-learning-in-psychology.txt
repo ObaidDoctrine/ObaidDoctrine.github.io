@@ -1,5 +1,5 @@
-The short answer
-In psychology, learning is commonly defined as a relatively permanent change in behaviour or knowledge that results from experience. The word “relatively” matters: learning does not mean a change can never be lost or modified. It means the change is more durable than a momentary state. OpenStax uses this experience-based definition as a foundation for the psychological study of learning.
+What counts as learning?
+Psychologists often describe learning as a relatively lasting change in behaviour or knowledge produced by experience. For example, a student who improves at solving a problem after practice may have learned a useful strategy. One successful attempt is not enough to prove lasting learning, however: fatigue, motivation, prior knowledge and the situation can affect performance. Researchers therefore look for evidence that a change is connected to experience and persists beyond a single moment.
 Learning is not the same as every change
 Behaviour can change for many reasons. Growth and maturation can produce new abilities without being learned. Fatigue, medication, illness or temporary changes in arousal can alter performance without necessarily producing learning. Psychologists therefore ask whether experience produced a relatively lasting change rather than simply observing that performance changed.
 How psychologists study learning

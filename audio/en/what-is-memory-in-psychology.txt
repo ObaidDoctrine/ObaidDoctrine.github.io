@@ -20,7 +20,7 @@ Remembering is not always a perfect replay. Retrieval can involve reconstruction
 Memory, emotion and sleep
 Emotion can influence what is encoded and later remembered, while sleep can support aspects of memory consolidation. These relationships are complex: emotionally intense or highly memorable experiences are not automatically accurate, and sleep does not guarantee perfect recall.
 Memory and learning are connected—but not identical
-Learning involves relatively lasting changes produced by experience, while memory concerns the processes that allow information to be retained and retrieved. They interact continuously, but they are not interchangeable terms. Our future Learning pillar will examine that distinction in greater depth.
+Learning involves relatively lasting changes produced by experience, while memory concerns the processes that allow information to be retained and retrieved. They interact continuously, but they are not interchangeable terms. Our article What Is Learning in Psychology? explains how experience produces relatively lasting changes.
 What research does not prove
 There is no single “memory center” that stores every memory.
 Remembering something vividly does not automatically prove every detail is accurate.
