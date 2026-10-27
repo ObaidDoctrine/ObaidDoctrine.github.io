@@ -50,7 +50,8 @@ for (const file of htmlFiles) {
       errors.push(rel + ": invalid anchor href: " + href);
       continue;
     }
-    if (!["www.obaiddoctrine.com", "obaiddoctrine.com"].includes(url.hostname)) continue;
+    if (url.hostname === "obaiddoctrine.com") { errors.push(rel + ": non-www internal URL must use www: " + href); continue; }
+    if (url.hostname !== "www.obaiddoctrine.com") continue;
     if (!["https:", "http:"].includes(url.protocol)) continue;
     const target = localHtmlPath(url.pathname);
     if (target?.skip) continue;
