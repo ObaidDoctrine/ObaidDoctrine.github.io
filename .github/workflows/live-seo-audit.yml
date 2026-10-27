@@ -1,6 +1,11 @@
 name: Read-only live SEO and redirect audit
 
 on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "scripts/audit-live-seo.mjs"
+      - ".github/workflows/live-seo-audit.yml"
   workflow_dispatch:
 
 permissions:
