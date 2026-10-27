@@ -45,7 +45,7 @@ async function fetchFollowing(startUrl) {
     if (response.status === 200) {
       try { body = await response.text(); } catch (error) { return { ok: false, error: "response body read failed: " + String(error), chain, finalUrl: current, status: response.status, body: "" }; }
     }
-    return { ok: true, chain, finalUrl: current, status: response.status, body };
+    return { ok: true, chain, finalUrl: current, status: response.status, body, headers: response.headers };
   }
   return { ok: false, error: "redirect limit exceeded", chain, finalUrl: current, status: 0, body: "" };
 }
@@ -59,6 +59,16 @@ async function auditPage(pageUrl) {
     if (new URL(canonical.finalUrl).hostname !== "www.obaiddoctrine.com" || new URL(canonical.finalUrl).protocol !== "https:") report("FAIL", "sitemap page ended at non-canonical host/protocol: " + pageUrl + " -> " + canonical.finalUrl);
     const actualCanonical = canonicalFrom(canonical.body);
     if (actualCanonical.count !== 1 || actualCanonical.value !== expectedCanonical(expected)) report("FAIL", "canonical mismatch: " + pageUrl + "; count=" + actualCanonical.count + "; canonical=" + (actualCanonical.value || "(missing)") + "; expected=" + expectedCanonical(expected));
+    const xRobotsTag = canonical.headers?.get("x-robots-tag") ?? "";
+    if (/\\bnoindex\\b/i.test(xRobotsTag)) report("FAIL", "sitemap page sends X-Robots-Tag noindex: " + pageUrl + "; header=" + xRobotsTag);
+    const robotMetaTags = [...canonical.body.matchAll(/<meta\\b[^>]*>/gi)].map((m) => m[0]).filter((tag) => {
+      const name = tag.match(/\\bname\\s*=\\s*(['"])(.*?)\\1/i)?.[2]?.toLowerCase() ?? "";
+      return ["robots", "googlebot", "bingbot"].includes(name);
+    });
+    for (const tag of robotMetaTags) {
+      const directives = tag.match(/\\bcontent\\s*=\\s*(['"])(.*?)\\1/i)?.[2] ?? "";
+      if (/\\bnoindex\\b/i.test(directives)) report("FAIL", "sitemap page has a noindex meta directive: " + pageUrl + "; " + tag);
+    }
   }
   const variants = ["http://www.obaiddoctrine.com" + expected.pathname + expected.search, "https://obaiddoctrine.com" + expected.pathname + expected.search, "http://obaiddoctrine.com" + expected.pathname + expected.search];
   for (const alias of variants) {
@@ -76,8 +86,15 @@ async function runPool(items, worker, limit) {
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => { while (next < items.length) { const index = next++; await worker(items[index]); } }));
 }
+const robotsUrl = BASE + "/robots.txt";
+const robotsResult = await fetchFollowing(robotsUrl);
+if (!robotsResult.ok || robotsResult.status !== 200 || robotsResult.finalUrl !== robotsUrl) {
+  report("FAIL", "robots.txt must resolve directly to HTTP 200: " + robotsUrl + "; status=" + robotsResult.status + "; final=" + robotsResult.finalUrl + "; " + (robotsResult.error ?? ""));
+} else if (!/^\\s*Sitemap:\\s*https:\\/\\/www\\.obaiddoctrine\\.com\\/sitemap\\.xml\\s*$/im.test(robotsResult.body)) {
+  report("FAIL", "live robots.txt is missing the canonical sitemap directive: " + SITEMAP);
+}
 const sitemapResult = await fetchFollowing(SITEMAP);
-if (!sitemapResult.ok || sitemapResult.status !== 200) { console.error("Could not read sitemap " + SITEMAP + ": status=" + sitemapResult.status + "; " + (sitemapResult.error ?? "")); process.exit(2); }
+if (!sitemapResult.ok || sitemapResult.status !== 200 || sitemapResult.finalUrl !== SITEMAP) { console.error("Could not read sitemap " + SITEMAP + ": status=" + sitemapResult.status + "; final=" + sitemapResult.finalUrl + "; " + (sitemapResult.error ?? "")); process.exit(2); }
 const urls = [...sitemapResult.body.matchAll(/<loc>\s*(.*?)\s*<\/loc>/gis)].map((m) => m[1].trim());
 if (!urls.length) { console.error("Sitemap contained no <loc> URLs."); process.exit(2); }
 const unique = [...new Set(urls)];
@@ -92,4 +109,4 @@ console.log("Read-only live SEO audit: " + unique.length + " unique sitemap URLs
 await runPool(unique, auditPage, CONCURRENCY);
 console.log("\nAudited " + results.length + " sitemap pages; failures: " + failures.length + ".");
 if (failures.length) process.exit(1);
-console.log("PASS: sitemap pages, canonical tags, and HTTP/non-www redirects matched the www HTTPS URL.");
+console.log("PASS: robots.txt, sitemap URLs, indexability directives, canonical tags, and HTTP/non-www redirects matched the www HTTPS URL.");
