@@ -55,6 +55,7 @@ async function auditPage(pageUrl) {
   const canonical = await fetchFollowing(pageUrl);
   if (!canonical.ok || canonical.status !== 200) report("FAIL", "sitemap page did not return HTTP 200: " + pageUrl + "; status=" + canonical.status + "; " + (canonical.error ?? ""));
   else {
+    if (canonical.finalUrl !== pageUrl) report("FAIL", "sitemap URL redirected to a different URL: " + pageUrl + " -> " + canonical.finalUrl + "; sitemap URLs should resolve directly to their canonical destination.");
     if (new URL(canonical.finalUrl).hostname !== "www.obaiddoctrine.com" || new URL(canonical.finalUrl).protocol !== "https:") report("FAIL", "sitemap page ended at non-canonical host/protocol: " + pageUrl + " -> " + canonical.finalUrl);
     const actualCanonical = canonicalFrom(canonical.body);
     if (actualCanonical.count !== 1 || actualCanonical.value !== expectedCanonical(expected)) report("FAIL", "canonical mismatch: " + pageUrl + "; count=" + actualCanonical.count + "; canonical=" + (actualCanonical.value || "(missing)") + "; expected=" + expectedCanonical(expected));
