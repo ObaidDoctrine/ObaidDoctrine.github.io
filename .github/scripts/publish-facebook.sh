@@ -1,10 +1,34 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ -z "${FB_PAGE_ACCESS_TOKEN:-}" ]]; then
-  echo "::error::FB_PAGE_ACCESS_TOKEN repository secret is not configured."
-  exit 1
-fi
+load_page_access_token() {
+  if [[ -z "${FB_PAGE_ACCESS_TOKEN:-}" ]]; then
+    echo "::error::FB_PAGE_ACCESS_TOKEN repository secret is not configured."
+    exit 1
+  fi
+
+  ACCOUNTS_RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
+    --get \
+    --data-urlencode "fields=id,name,tasks,access_token" \
+    --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+    "https://graph.facebook.com/$FB_GRAPH_VERSION/me/accounts")
+
+  ACCOUNTS_STATUS=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed -n 's/^HTTP_STATUS://p' | tail -n 1)
+  if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
+    echo "::error::Could not retrieve Page access token from the stored Meta user token."
+    echo "$ACCOUNTS_RESPONSE"
+    exit 1
+  fi
+
+  PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
+
+  if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
+    echo "::error::The stored Meta token cannot provide a Page access token for Obaid Doctrine."
+    exit 1
+  fi
+
+  echo "Meta token is valid and a Page access token was obtained for the configured Page."
+}
 
 BEFORE="${GITHUB_EVENT_BEFORE:-}"
 AFTER="${GITHUB_SHA:-}"
@@ -14,29 +38,9 @@ if [[ -z "$AFTER" ]]; then
   exit 1
 fi
 
-ACCOUNTS_RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
-  --get \
-  --data-urlencode "fields=id,name,tasks,access_token" \
-  --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
-  "https://graph.facebook.com/$FB_GRAPH_VERSION/me/accounts")
-
-ACCOUNTS_STATUS=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed -n 's/^HTTP_STATUS://p' | tail -n 1)
-if [[ "$ACCOUNTS_STATUS" != "200" ]]; then
-  echo "::error::Could not retrieve Page access token from the stored Meta user token."
-  echo "$ACCOUNTS_RESPONSE"
-  exit 1
-fi
-
-PAGE_ACCESS_TOKEN=$(printf '%s' "$ACCOUNTS_RESPONSE" | sed 's/HTTP_STATUS:[0-9]*$//' | jq -r --arg page_id "$FB_PAGE_ID" '.data[] | select(.id == $page_id) | .access_token' | head -n 1)
-
-if [[ -z "$PAGE_ACCESS_TOKEN" || "$PAGE_ACCESS_TOKEN" == "null" ]]; then
-  echo "::error::The stored Meta token cannot provide a Page access token for Obaid Doctrine."
-  exit 1
-fi
-
-echo "Meta token is valid and a Page access token was obtained for the configured Page."
-
+# Manual dispatch deliberately validates credentials but never creates a post.
 if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
+  load_page_access_token
   echo "Manual run: validation only; no Facebook post will be created."
   exit 0
 fi
@@ -47,10 +51,13 @@ else
   FILES=$(git diff --name-status "$BEFORE" "$AFTER" -- 'articles/**' | awk '$1 == "A" {print $2}')
 fi
 
+# Content edits should not depend on a social publishing token: only new article pages are posted.
 if [[ -z "$FILES" ]]; then
   echo "No newly added article files found. Nothing to publish."
   exit 0
 fi
+
+load_page_access_token
 
 while IFS= read -r FILE; do
   [[ -z "$FILE" ]] && continue
@@ -72,7 +79,11 @@ $URL
 — Obaid Doctrine"
 
   echo "Publishing: $TITLE"
-  RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}"     --request POST     --data-urlencode "message=$MESSAGE"     --data-urlencode "access_token=$PAGE_ACCESS_TOKEN"     "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
+  RESPONSE=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
+    --request POST \
+    --data-urlencode "message=$MESSAGE" \
+    --data-urlencode "access_token=$PAGE_ACCESS_TOKEN" \
+    "https://graph.facebook.com/$FB_GRAPH_VERSION/$FB_PAGE_ID/feed")
 
   echo "Facebook API response:"
   echo "$RESPONSE"

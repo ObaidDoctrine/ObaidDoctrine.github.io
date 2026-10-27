@@ -1,0 +1,44 @@
+name: Shell script syntax check
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/scripts/**/*.sh"
+      - ".github/workflows/shell-script-check.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - ".github/scripts/**/*.sh"
+      - ".github/workflows/shell-script-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  shell-syntax:
+    name: Validate repository shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Run bash syntax checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          find .github/scripts -type f -name '*.sh' -print0 | while IFS= read -r -d '' script; do
+            echo "Checking $script"
+            bash -n "$script"
+          done
+      - name: Verify no-op publishing exits without a Meta token
+        shell: bash
+        env:
+          FB_PAGE_ID: "1021253154403079"
+          FB_GRAPH_VERSION: "v26.0"
+        run: |
+          set -euo pipefail
+          export GITHUB_EVENT_NAME=push
+          export GITHUB_EVENT_BEFORE="$(git rev-parse HEAD)"
+          export GITHUB_SHA="$(git rev-parse HEAD)"
+          unset FB_PAGE_ACCESS_TOKEN || true
+          bash .github/scripts/publish-facebook.sh
