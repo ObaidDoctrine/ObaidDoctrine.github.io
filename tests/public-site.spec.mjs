@@ -40,10 +40,19 @@ const authRoutes = [
 
 async function assertPublicPage(page, path) {
   const errors = [];
+  const failedStylesheets = [];
+  const baseOrigin = new URL(BASE).origin;
   page.on("pageerror", e => errors.push(e.message));
+  page.on("response", response => {
+    const resourceUrl = new URL(response.url());
+    if (resourceUrl.origin === baseOrigin && /\\.css$/i.test(resourceUrl.pathname) && response.status() >= 400) {
+      failedStylesheets.push(`${response.status()} ${response.url()}`);
+    }
+  });
   const response = await page.goto(path, { waitUntil: "domcontentloaded" });
   expect(response, `No response for ${path}`).not.toBeNull();
   expect(response.status(), `HTTP status for ${path}`).toBe(200);
+  expect(failedStylesheets, `Failed local stylesheets on ${path}`).toEqual([]);
 
   const forbiddenLinks = await page.locator('a[href*="/account/"], a[href*="/member/"]').evaluateAll(
     els => els.map(e => e.getAttribute("href"))
