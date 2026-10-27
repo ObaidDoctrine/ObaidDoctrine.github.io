@@ -248,6 +248,12 @@ test.describe("Mind Tests", () => {
 
   for (const item of cases) {
     test(`${item.lang} Mind Test works without an account: ${item.path}`, async ({ page }) => {
+      // Prevent a saved completed run from another restored session from hiding #test.
+      await page.addInitScript(() => {
+        for (const key of Object.keys(sessionStorage)) {
+          if (key.startsWith("od-test-state-v2:")) sessionStorage.removeItem(key);
+        }
+      });
       await assertPublicPage(page, item.path);
       const options = page.locator(".od-test-option:not(.od-locked)");
       await expect(options.first()).toBeVisible();
