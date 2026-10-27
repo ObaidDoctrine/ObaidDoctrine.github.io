@@ -8,6 +8,11 @@ const SITEMAP = BASE + "/sitemap.xml";
 const TIMEOUT_MS = 12000;
 const MAX_REDIRECTS = 10;
 const CONCURRENCY = 8;
+const CONTENT_MARKERS = new Map([
+  [BASE + "/articles/what-is-learning-in-psychology/", "What counts as learning?"],
+  [BASE + "/articles/what-is-personality-in-psychology/", "Definition of personality in psychology"],
+  [BASE + "/articles/what-is-memory-in-psychology/", "Definition of memory in psychology"],
+]);
 const failures = [];
 const results = [];
 function report(level, message) {
@@ -55,6 +60,8 @@ async function auditPage(pageUrl) {
   const canonical = await fetchFollowing(pageUrl);
   if (!canonical.ok || canonical.status !== 200) report("FAIL", "sitemap page did not return HTTP 200: " + pageUrl + "; status=" + canonical.status + "; " + (canonical.error ?? ""));
   else {
+    const expectedMarker = CONTENT_MARKERS.get(pageUrl);
+    if (expectedMarker && !canonical.body.includes(expectedMarker)) report("FAIL", "live content marker missing: " + pageUrl + "; expected text=" + expectedMarker + "; server=" + (canonical.headers?.get("server") ?? "(none)") + "; cf-cache-status=" + (canonical.headers?.get("cf-cache-status") ?? "(none)") + "; age=" + (canonical.headers?.get("age") ?? "(none)") + "; cache-control=" + (canonical.headers?.get("cache-control") ?? "(none)") + "; last-modified=" + (canonical.headers?.get("last-modified") ?? "(none)") + "; etag=" + (canonical.headers?.get("etag") ?? "(none)"));
     if (canonical.finalUrl !== pageUrl) report("FAIL", "sitemap URL redirected to a different URL: " + pageUrl + " -> " + canonical.finalUrl + "; sitemap URLs should resolve directly to their canonical destination.");
     if (new URL(canonical.finalUrl).hostname !== "www.obaiddoctrine.com" || new URL(canonical.finalUrl).protocol !== "https:") report("FAIL", "sitemap page ended at non-canonical host/protocol: " + pageUrl + " -> " + canonical.finalUrl);
     const actualCanonical = canonicalFrom(canonical.body);
