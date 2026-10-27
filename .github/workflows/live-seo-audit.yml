@@ -7,12 +7,17 @@ on:
       - "scripts/audit-live-seo.mjs"
       - ".github/workflows/live-seo-audit.yml"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy OBAID DOCTRINE to Cloudflare Pages"]
+    types: [completed]
+    branches: ["main"]
 
 permissions:
   contents: read
 
 jobs:
   audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     name: Audit live sitemap URLs and canonical redirects
     runs-on: ubuntu-latest
     timeout-minutes: 25
