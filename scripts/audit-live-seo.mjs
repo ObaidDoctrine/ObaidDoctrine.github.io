@@ -60,14 +60,14 @@ async function auditPage(pageUrl) {
     const actualCanonical = canonicalFrom(canonical.body);
     if (actualCanonical.count !== 1 || actualCanonical.value !== expectedCanonical(expected)) report("FAIL", "canonical mismatch: " + pageUrl + "; count=" + actualCanonical.count + "; canonical=" + (actualCanonical.value || "(missing)") + "; expected=" + expectedCanonical(expected));
     const xRobotsTag = canonical.headers?.get("x-robots-tag") ?? "";
-    if (/\\bnoindex\\b/i.test(xRobotsTag)) report("FAIL", "sitemap page sends X-Robots-Tag noindex: " + pageUrl + "; header=" + xRobotsTag);
-    const robotMetaTags = [...canonical.body.matchAll(/<meta\\b[^>]*>/gi)].map((m) => m[0]).filter((tag) => {
-      const name = tag.match(/\\bname\\s*=\\s*(['"])(.*?)\\1/i)?.[2]?.toLowerCase() ?? "";
+    if (/\bnoindex\b/i.test(xRobotsTag)) report("FAIL", "sitemap page sends X-Robots-Tag noindex: " + pageUrl + "; header=" + xRobotsTag);
+    const robotMetaTags = [...canonical.body.matchAll(/<meta\b[^>]*>/gi)].map((m) => m[0]).filter((tag) => {
+      const name = tag.match(/\bname\s*=\s*(['"])(.*?)\1/i)?.[2]?.toLowerCase() ?? "";
       return ["robots", "googlebot", "bingbot"].includes(name);
     });
     for (const tag of robotMetaTags) {
-      const directives = tag.match(/\\bcontent\\s*=\\s*(['"])(.*?)\\1/i)?.[2] ?? "";
-      if (/\\bnoindex\\b/i.test(directives)) report("FAIL", "sitemap page has a noindex meta directive: " + pageUrl + "; " + tag);
+      const directives = tag.match(/\bcontent\s*=\s*(['"])(.*?)\1/i)?.[2] ?? "";
+      if (/\bnoindex\b/i.test(directives)) report("FAIL", "sitemap page has a noindex meta directive: " + pageUrl + "; " + tag);
     }
   }
   const variants = ["http://www.obaiddoctrine.com" + expected.pathname + expected.search, "https://obaiddoctrine.com" + expected.pathname + expected.search, "http://obaiddoctrine.com" + expected.pathname + expected.search];
@@ -90,7 +90,7 @@ const robotsUrl = BASE + "/robots.txt";
 const robotsResult = await fetchFollowing(robotsUrl);
 if (!robotsResult.ok || robotsResult.status !== 200 || robotsResult.finalUrl !== robotsUrl) {
   report("FAIL", "robots.txt must resolve directly to HTTP 200: " + robotsUrl + "; status=" + robotsResult.status + "; final=" + robotsResult.finalUrl + "; " + (robotsResult.error ?? ""));
-} else if (!/^\\s*Sitemap:\\s*https:\\/\\/www\\.obaiddoctrine\\.com\\/sitemap\\.xml\\s*$/im.test(robotsResult.body)) {
+} else if (!/^\s*Sitemap:\s*https:\/\/www\.obaiddoctrine\.com\/sitemap\.xml\s*$/im.test(robotsResult.body)) {
   report("FAIL", "live robots.txt is missing the canonical sitemap directive: " + SITEMAP);
 }
 const sitemapResult = await fetchFollowing(SITEMAP);
