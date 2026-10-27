@@ -1936,15 +1936,4 @@ body:has(#test) .page-hero .eyebrow{
 }
 
 
-/* OBAID DOCTRINE — globally remove the intrusive site header from every English/Urdu page, article and mind test. */
-.site-header,
-header.site-header {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
+/* Keep shared navigation visible; Mind Test pages already place it in normal flow above. */
