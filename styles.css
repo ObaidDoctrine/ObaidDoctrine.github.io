@@ -1937,3 +1937,13 @@ body:has(#test) .page-hero .eyebrow{
 
 
 /* Keep shared navigation visible; Mind Test pages already place it in normal flow above. */
+
+
+
+/* SEO recovery: accessible contrast and reduced non-composited hover transitions (2026-10-27). */
+.home-page .card-index{color:#536A10}
+.home-page .card.feature .card-index{color:#DCE8B5}
+.home-page .mind-feature .eyebrow{color:#31543A}
+.home-page .research .eyebrow{color:#DCE8B5}
+.home-page .research-index{color:#DCE8B5}
+.home-page .card,.home-page .path,.home-page .research-card{transition:transform var(--ed-smooth) ease}
