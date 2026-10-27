@@ -30,3 +30,15 @@ jobs:
             echo "Checking $script"
             bash -n "$script"
           done
+      - name: Verify no-op publishing exits without a Meta token
+        shell: bash
+        env:
+          FB_PAGE_ID: "1021253154403079"
+          FB_GRAPH_VERSION: "v26.0"
+        run: |
+          set -euo pipefail
+          export GITHUB_EVENT_NAME=push
+          export GITHUB_EVENT_BEFORE="$(git rev-parse HEAD)"
+          export GITHUB_SHA="$(git rev-parse HEAD)"
+          unset FB_PAGE_ACCESS_TOKEN || true
+          bash .github/scripts/publish-facebook.sh
