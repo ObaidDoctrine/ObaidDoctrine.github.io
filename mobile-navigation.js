@@ -159,7 +159,7 @@
     style.textContent = `
       /* The injected side menu is a mobile-only fallback. */
       @media(min-width:761px){
-        .od-side-menu-toggle,.od-visible-language-switch,.od-side-menu-overlay,.od-side-menu{display:none!important;}
+        html body .od-side-menu-toggle,html body .od-visible-language-switch,html body .od-side-menu-overlay,html body .od-side-menu{display:none!important;}
       }
       @media(max-width:760px){
         /* The side menu is the sole control for legacy headers on mobile. */
