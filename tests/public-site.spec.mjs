@@ -168,6 +168,24 @@ test.describe("Public website smoke coverage", () => {
     }
   });
 
+  test("article navigation keeps the normal header on tablet and desktop widths", async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 1024, height: 900 } });
+    try {
+      const page = await context.newPage();
+      for (const width of [768, 820, 1024, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        for (const path of ["/articles/why-we-procrastinate/", "/ur/articles/why-we-procrastinate/"]) {
+          await assertPublicPage(page, path);
+          await expect(page.locator(".od-side-menu-toggle")).toBeHidden();
+          await expect(page.locator(".site-header > nav").first()).toBeVisible();
+          await expect(page.locator(".site-header > nav a").first()).toBeVisible();
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
+
   test("featured homepage Mind Test cards remain readable on mobile", async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
     try {
