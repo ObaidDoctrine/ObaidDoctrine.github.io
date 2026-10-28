@@ -100,6 +100,10 @@
   function initLanguageSwitch() {
     if (document.querySelector(".od-side-menu")) return;
 
+    // Pages with a native <details class="mobile"> already provide their own
+    // accessible menu. Do not add a second, fixed menu to those pages.
+    if (document.querySelector(".site-header > details.mobile")) return;
+
     const path = window.location.pathname || "/";
     const isUrdu = path === "/ur" || path.startsWith("/ur/");
     const prefix = isUrdu ? "/ur" : "";
@@ -153,6 +157,14 @@
 
     const style = document.createElement("style");
     style.textContent = `
+      /* The injected side menu is a mobile-only fallback. */
+      @media(min-width:761px){
+        html body .od-side-menu-toggle,html body .od-visible-language-switch,html body .od-side-menu-overlay,html body .od-side-menu{display:none!important;}
+      }
+      @media(max-width:760px){
+        /* The side menu is the sole control for legacy headers on mobile. */
+        .site-header > .od-mobile-nav-toggle{display:none!important;}
+      }
       .od-side-menu-toggle {
         position:fixed!important; right:12px!important; top:12px!important; z-index:2147483000!important;
         display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important;
