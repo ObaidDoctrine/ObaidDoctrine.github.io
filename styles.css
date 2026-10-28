@@ -1937,3 +1937,49 @@ body:has(#test) .page-hero .eyebrow{
 
 
 /* Keep shared navigation visible; Mind Test pages already place it in normal flow above. */
+
+
+/* Mobile navigation repair for article/topic pages whose header nav has no .nav class.
+   Keep links reachable on small screens without changing the desktop layout. */
+@media(max-width:700px){
+  .site-header > nav[aria-label="Primary navigation"]{
+    display:flex;
+    flex:0 0 100%;
+    order:3;
+    align-items:center;
+    gap:4px;
+    max-width:100%;
+    margin:2px 0 0;
+    padding:2px 0 4px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+  .site-header > nav[aria-label="Primary navigation"] a{
+    display:inline-flex;
+    flex:0 0 auto;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    padding:7px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .site-header > nav[aria-label="Primary navigation"] a:focus-visible{
+    outline:2px solid var(--l);
+    outline-offset:1px;
+  }
+  .site-header > .brand{
+    flex:1 1 auto;
+    max-width:100%;
+  }
+  .site-header > .brand small{
+    max-width:calc(100vw - 100px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+}
