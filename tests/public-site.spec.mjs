@@ -145,20 +145,23 @@ test.describe("Public website smoke coverage", () => {
     }
   });
 
-  test("English and Urdu article headers expose one mobile menu control", async ({ browser }) => {
+  test("English and Urdu article headers expose one mobile menu control across phone widths", async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
     try {
       const page = await context.newPage();
-      for (const path of ["/articles/why-we-procrastinate/", "/ur/articles/why-we-procrastinate/"]) {
-        await assertPublicPage(page, path);
-        await expect(page.locator(".od-side-menu-toggle")).toHaveCount(1);
-        await expect(page.locator(".od-side-menu-toggle")).toBeVisible();
-        await expect(page.locator(".site-header > .od-mobile-nav-toggle")).toBeHidden();
-        await page.locator(".od-side-menu-toggle").click();
-        await expect(page.locator(".od-side-menu")).toBeVisible();
-        await expect(page.locator(".od-side-menu a").first()).toBeVisible();
-        await page.keyboard.press("Escape");
-        await expect(page.locator(".od-side-menu")).toBeHidden();
+      for (const width of [320, 360, 375, 390, 414, 430]) {
+        await page.setViewportSize({ width, height: 844 });
+        for (const path of ["/articles/why-we-procrastinate/", "/ur/articles/why-we-procrastinate/"]) {
+          await assertPublicPage(page, path);
+          await expect(page.locator(".od-side-menu-toggle")).toHaveCount(1);
+          await expect(page.locator(".od-side-menu-toggle")).toBeVisible();
+          await expect(page.locator(".site-header > .od-mobile-nav-toggle")).toBeHidden();
+          await page.locator(".od-side-menu-toggle").click();
+          await expect(page.locator(".od-side-menu")).toBeVisible();
+          await expect(page.locator(".od-side-menu a").first()).toBeVisible();
+          await page.keyboard.press("Escape");
+          await expect(page.locator(".od-side-menu")).toBeHidden();
+        }
       }
     } finally {
       await context.close();
