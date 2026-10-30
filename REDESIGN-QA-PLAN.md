@@ -62,3 +62,27 @@ These controls must be preserved and re-tested after any redesign. Do not broade
 ## Current status
 
 This document is a QA plan only. No production UI has been implemented. The required 12ui CLI setup previously timed out; design production remains gated on access to a functioning 12ui design workflow.
+
+## Additional verified findings from the existing Playwright suite
+
+The existing `tests/public-site.spec.mjs` is a substantial regression suite, and `playwright.config.mjs` is present (there is no root `package.json`). The E2E workflow installs `@playwright/test@1.63.0` directly and runs this configuration.
+
+Important redesign compatibility issue:
+- The homepage Mind Test card tests hard-code the current legacy green palette: card background `rgb(37, 75, 53)`, title `rgb(255, 255, 255)`, description `rgb(230, 238, 231)`, and badge background `rgb(216, 239, 131)`.
+- The suite checks these values on desktop and mobile, plus hover/focus contrast. An intentional move to the approved orange/category palette will therefore fail these assertions unless the tests are updated to validate the new approved tokens and actual contrast ratios rather than the old green RGB values.
+- This is a test expectation migration, not evidence that the existing design is defective. Update the test only alongside the approved implementation, and retain the meaningful contrast, hover, focus, visibility and responsive assertions.
+- Existing tests also check English/Urdu homepages, language switching, no account/member links, robots/sitemap/manifest/service worker reachability, 20 negative auth/member routes, and 20 Mind Test language variants with interactive completion/restart. Preserve all these behaviors.
+- Mind Test title spacing is explicitly asserted in desktop and mobile for English and Urdu. Redesign spacing changes must either satisfy these expectations or deliberately revise the assertions based on a reviewed visual specification.
+
+Deployment safety:
+- `.github/workflows/pages-deployment.yaml` deploys to Cloudflare Pages only on a push to `main`; pull requests do not trigger its production deployment job.
+- A special PR-58 preview job is hard-coded to one historical branch name and is not a general preview mechanism. Do not assume a new redesign PR will receive a Cloudflare preview from this workflow.
+- The deployment job resolves the Cloudflare project's configured production branch using repository secrets and deploys to that branch. Keep all redesign work on the isolated design branch until the full review gate is passed.
+- `.github/workflows/seo-v2.yml` has `contents: write` and, when manually dispatched or triggered by its path marker, runs a script that edits all HTML pages and pushes a commit. Do not manually trigger this legacy automation during the redesign; review its effects separately before any use.
+
+## Additional acceptance gates
+
+- [ ] Migrate the homepage Mind Test card regression assertions from legacy green RGB constants to approved orange/category tokens and measured WCAG contrast checks, without weakening hover/focus/mobile coverage.
+- [ ] Run the full existing Playwright suite after implementation, including all bilingual Mind Test flows and negative auth/member route checks.
+- [ ] Verify the exact Cloudflare preview mechanism for the new PR before relying on preview URLs; the current workflow's PR preview condition is branch-specific.
+- [ ] Do not trigger the legacy SEO V2 write workflow during redesign implementation.
