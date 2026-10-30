@@ -302,3 +302,131 @@ body.home-page:not([data-design]) .mind-feature .test-card:focus-visible {
   outline:3px solid #BA510A;
   outline-offset:4px;
 }
+
+
+/* English homepage had a later blue editorial skin; explicitly remap that cascade to the approved orange system. */
+html[lang="en"] body.home-page:not([data-design]) {
+  background:#FFFAF5;
+  color:#171717;
+}
+html[lang="en"] body.home-page:not([data-design]) .site-header {
+  background:rgba(255,255,255,.96);
+  border-bottom-color:#EAD8C9;
+  box-shadow:0 10px 30px rgba(23,23,23,.06);
+}
+html[lang="en"] body.home-page:not([data-design]) .brand { color:#171717; }
+html[lang="en"] body.home-page:not([data-design]) .hero {
+  background:linear-gradient(130deg,#FFF7F0 0%,#fff 52%,#FFF0E5 100%);
+  border-radius:0 0 34px 34px;
+  box-shadow:0 18px 55px rgba(23,23,23,.06);
+}
+html[lang="en"] body.home-page:not([data-design]) .hero h1 {
+  color:#171717;
+  font-family:Inter,Arial,sans-serif;
+  letter-spacing:-.055em;
+  line-height:1.02;
+}
+html[lang="en"] body.home-page:not([data-design]) .hero h1 .accent {
+  background:#F47721;
+  color:#171717;
+}
+html[lang="en"] body.home-page:not([data-design]) .hero-sub { color:#171717; }
+html[lang="en"] body.home-page:not([data-design]) .hero-photo {
+  background:rgba(255,255,255,.78);
+  border-color:rgba(244,119,33,.28);
+  box-shadow:0 22px 60px rgba(23,23,23,.10);
+}
+html[lang="en"] body.home-page:not([data-design]) .hero-photo:before {
+  border-color:rgba(244,119,33,.50);
+}
+html[lang="en"] body.home-page:not([data-design]) .hero-photo:after {
+  border-color:rgba(244,119,33,.18);
+  box-shadow:0 0 0 34px rgba(244,119,33,.03),0 0 0 70px rgba(244,119,33,.055);
+}
+html[lang="en"] body.home-page:not([data-design]) .caption {
+  background:rgba(23,23,23,.95);
+  border-color:rgba(255,173,112,.24);
+  box-shadow:0 14px 32px rgba(23,23,23,.18);
+}
+html[lang="en"] body.home-page:not([data-design]) .caption strong { color:#FFAD70; }
+html[lang="en"] body.home-page:not([data-design]) .primary,
+html[lang="en"] body.home-page:not([data-design]) .btn.primary {
+  background:#F47721;
+  color:#171717;
+  box-shadow:0 10px 28px rgba(244,119,33,.20);
+}
+html[lang="en"] body.home-page:not([data-design]) .primary:hover,
+html[lang="en"] body.home-page:not([data-design]) .btn.primary:hover { background:#FF9145; }
+html[lang="en"] body.home-page:not([data-design]) .ghost,
+html[lang="en"] body.home-page:not([data-design]) .btn.ghost {
+  background:#fff;
+  border-color:#EAD8C9;
+  color:#171717;
+}
+body.home-page:not([data-design]) .hero:before {
+  background-image:linear-gradient(rgba(244,119,33,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(244,119,33,.045) 1px,transparent 1px);
+}
+body.home-page:not([data-design]) .hero:after {
+  border-color:rgba(244,119,33,.16);
+  box-shadow:0 0 0 38px rgba(244,119,33,.055),0 0 0 76px rgba(244,119,33,.025);
+}
+body.home-page:not([data-design]) .hero-photo:before {
+  border-color:rgba(244,119,33,.50);
+}
+body.home-page:not([data-design]) .hero-photo:after {
+  border-color:rgba(244,119,33,.18);
+  box-shadow:0 0 0 34px rgba(244,119,33,.03),0 0 0 68px rgba(244,119,33,.055);
+}
+body.home-page:not([data-design]) .knowledge-orbit span {
+  border-color:rgba(244,119,33,.28);
+  background:rgba(255,250,245,.94);
+  color:#171717;
+  box-shadow:0 8px 22px rgba(244,119,33,.10);
+}
+body.home-page:not([data-design]) .featured-copy .label { color:#FFAD70; }
+body.home-page:not([data-design]) .featured-copy > p:not(.label) { color:#E9DED6; }
+body.home-page:not([data-design]) .featured-meta { color:#D7C9BE; }
+body.home-page:not([data-design]) .featured-side {
+  background:#292521;
+}
+body.home-page:not([data-design]) .featured-side:before {
+  background:radial-gradient(circle at 50% 50%,rgba(244,119,33,.16),transparent 28%),linear-gradient(135deg,rgba(255,255,255,.03),transparent 60%);
+}
+body.home-page:not([data-design]) .field-ring { border-color:rgba(244,119,33,.34); }
+body.home-page:not([data-design]) .ring-two { border-color:rgba(255,173,112,.26); }
+body.home-page:not([data-design]) .field-dot {
+  background:#F47721;
+  box-shadow:0 0 0 8px rgba(244,119,33,.12);
+}
+body.home-page:not([data-design]) .field-label {
+  border-color:rgba(255,173,112,.24);
+  color:#FFF7F0;
+  background:rgba(23,23,23,.58);
+}
+body.home-page:not([data-design]) .editorial-link {
+  border-color:rgba(244,119,33,.62);
+  color:#FFAD70;
+}
+body.home-page:not([data-design]) .editorial-link:hover {
+  background:rgba(244,119,33,.12);
+}
+body.home-page:not([data-design]) .question-card:hover,
+body.home-page:not([data-design]) .cat:hover,
+body.home-page:not([data-design]) .card:hover,
+body.home-page:not([data-design]) .path:hover,
+body.home-page:not([data-design]) .research-card:hover,
+body.home-page:not([data-design]) .test-card:hover,
+body.home-page:not([data-design]) .myth-card:hover,
+body.home-page:not([data-design]) .method-card:hover {
+  border-color:rgba(186,81,10,.58);
+  box-shadow:0 14px 32px rgba(244,119,33,.11);
+}
+body.home-page:not([data-design]) .myth-card:last-child {
+  border-color:rgba(244,119,33,.45);
+  box-shadow:inset 5px 0 0 #F47721;
+}
+body.home-page:not([data-design]) .think-grid .question-step {
+  border-color:rgba(244,119,33,.62);
+  box-shadow:inset 5px 0 0 #F47721;
+}
+body.home-page:not([data-design]) .think-grid .link { color:#BA510A; }
