@@ -191,7 +191,7 @@
       .od-side-menu nav a:hover { background:#FFF0E5!important; }
       .od-side-menu-languages { display:flex!important; flex-wrap:wrap!important; align-items:center!important; gap:8px!important; padding-top:14px!important; border-top:1px solid #EAD8C9!important; font-size:13px!important; }
       .od-side-menu-languages span { flex-basis:100%!important; font-weight:800!important; }
-      .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#FFF0E5!important; color:#171717!important; text-decoration:none!important; font-weight:800!important; }
+      .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#F47721!important; color:#171717!important; text-decoration:none!important; font-weight:800!important; }
       @media(max-width:760px){ .od-side-menu-toggle { right:8px!important; top:12px!important; width:46px!important; min-height:50px!important; border-radius:14px!important; } .od-visible-language-switch { right:62px!important; top:17px!important; } .od-visible-language-switch a { padding:8px 7px!important; } }
     `;
     document.head.appendChild(style);
