@@ -119,3 +119,26 @@ After implementation:
 - Browser tests for the redesign: not run.
 - Production deployment: not performed.
 - Mandatory design workflow: remains a prerequisite; do not bypass it with an unapproved substitute.
+
+
+## 8. Source stylesheet colour-token inventory (2026-10-30)
+
+A read-only inspection of the current `main` branch identified the following migration surface:
+
+| File | Size inspected | CSS custom-property declarations | Distinct literal HEX colours | Migration note |
+|---|---:|---:|---:|---|
+| `styles.css` | 90,089 bytes | 73 | 119 | Multiple legacy and editorial token namespaces coexist; do not globally replace colours |
+| `master-homepage.css` | 12,847 bytes | 7 | 13 | Homepage-specific lime/ink/paper tokens need an explicit mapping |
+| `five-design-system.css` | 9,623 bytes | 0 | 55 | Contains several independent visual variants; preserve variant identity unless explicitly redesigned |
+| `mobile-navigation.js` | 12,544 bytes | 0 | 8 | Runtime-injected CSS contains hard-coded legacy green/sage values; migrate separately and verify Urdu RTL |
+
+### Safe migration rules
+
+1. Establish one documented semantic token layer (brand, surfaces, text, borders, focus, category accents and category text) before changing component declarations.
+2. Map legacy token namespaces to semantic tokens only after tracing which selectors and pages consume them.
+3. Keep category accent fills separate from accessible category text colours; never assume one hue works for both foreground and background use.
+4. Treat runtime-injected mobile navigation styles as a separate migration target; CSS variables in stylesheets will not automatically replace hard-coded JavaScript literals.
+5. Preserve the distinct editorial variants in `five-design-system.css` until their route usage is inventoried. Do not flatten all page types into one palette.
+6. After implementation, run route-based visual checks in English LTR and Urdu RTL, at mobile/tablet/desktop widths, and test hover, focus-visible, active, disabled and reduced-motion states.
+
+This inventory is based on source text inspection only. It is not a rendered-browser audit. No source files were modified as part of this inventory.
