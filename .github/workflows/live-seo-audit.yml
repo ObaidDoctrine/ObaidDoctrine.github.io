@@ -11,13 +11,14 @@ on:
     workflows: ["Deploy OBAID DOCTRINE to Cloudflare Pages"]
     types: [completed]
     branches: ["main"]
+  deployment_status:
 
 permissions:
   contents: read
 
 jobs:
   audit:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && (github.event_name != 'deployment_status' || github.event.deployment_status.state == 'success')
     name: Audit live sitemap URLs and canonical redirects
     runs-on: ubuntu-latest
     timeout-minutes: 25
