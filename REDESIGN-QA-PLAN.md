@@ -86,3 +86,27 @@ Deployment safety:
 - [ ] Run the full existing Playwright suite after implementation, including all bilingual Mind Test flows and negative auth/member route checks.
 - [ ] Verify the exact Cloudflare preview mechanism for the new PR before relying on preview URLs; the current workflow's PR preview condition is branch-specific.
 - [ ] Do not trigger the legacy SEO V2 write workflow during redesign implementation.
+
+
+## 8. Verified stylesheet and homepage cascade inventory (2026-10-30)
+
+Read-only inspection of the current design branch confirms the following:
+
+- `styles.css` is approximately 90,089 bytes and is minified into a single physical line. Its opening root tokens still define the legacy forest/lime palette (`#31543A`, `#B7D84B`, ivory/sage surfaces) and repeated `--od-*` declarations occur in the same stylesheet. Do not perform blind global string replacement: several semantic aliases and legacy declarations coexist.
+- `index.html` links Google Fonts twice (preload with onload swap and a regular stylesheet link), then links `/styles.css?v=20261030-css-performance` using the same preload-plus-stylesheet pattern. It also contains one inline style block and four script blocks. Any future font/CSS optimization must first determine whether the duplicate font link is intentional and measure the impact before changing it.
+- `five-design-system.css` (9,623 bytes) contains multiple opt-in design variants, including selectors scoped to `body[data-design=...]`, plus unscoped homepage/article selectors. It includes mobile and reduced-motion rules. Variant scoping and selector specificity need to be mapped before consolidating it.
+- `master-homepage.css` (12,847 bytes) defines a second homepage token set (`--od-master-*`) with lime-based styling and numerous Urdu RTL overrides for header, hero, question grid, navigation and sections.
+- The homepage inline CSS, shared `styles.css`, optional design-system overrides and homepage stylesheet can all contribute to the final cascade. The actual stylesheet inclusion order must be traced on representative English and Urdu pages before implementation.
+- Existing breakpoints are not fully standardized (observed examples include 1100, 1050, 1000, 820, 760, 700, 680, 560, 480 and 360 pixels). The redesign should define a deliberate responsive scale and test boundary widths rather than mechanically replacing breakpoints.
+- Preserve `prefers-reduced-motion: reduce` behavior across every migrated stylesheet. Existing reduced-motion rules were observed in all three inspected CSS files.
+
+### Required implementation sequence after the 12ui design gate is cleared
+
+1. Build a page-to-stylesheet dependency map for representative English/Urdu home, category, article, profile, and Mind Test pages.
+2. Identify all shared tokens and the true cascade order, including inline critical CSS and dynamically injected mobile navigation styles.
+3. Introduce the approved orange/category tokens centrally, then migrate shared components in controlled groups; do not overwrite category identity colours with orange.
+4. Update visual regression assertions to the approved tokens while retaining contrast, keyboard focus, hover, RTL, and responsive behavior assertions.
+5. Compare before/after computed styles and performance at desktop, tablet, and mobile widths; run the full existing interactive Mind Test and navigation suite.
+6. Only after successful review should a pull request and a separately approved deployment plan be considered.
+
+No production CSS, HTML, JavaScript, route, metadata, or deployment configuration was changed as part of this inventory.
