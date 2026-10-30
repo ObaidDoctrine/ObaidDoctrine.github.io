@@ -231,7 +231,7 @@ The following darker alternatives were recalculated to pass 4.5:1 on **both** `#
 
 | Semantic text/accent token | Proposed universal text colour | Contrast on white | Contrast on warm cream |
 |---|---:|---:|---:|
-| Brand orange text | `#BA510A` | 4.92:1 | 4.51:1 |
+| Brand orange text | `#9B430B` | 6.56:1 | 6.01:1 |
 | Bright orange text | `#B65400` | 4.93:1 | 4.52:1 |
 | Psychology | `#8054C7` | 5.24:1 | 4.80:1 |
 | Human Behaviour | `#147D76` | 4.97:1 | 4.55:1 |
