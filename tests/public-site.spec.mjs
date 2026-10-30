@@ -94,6 +94,25 @@ test.describe("Public website smoke coverage", () => {
       expect(palette.primary).toBe("rgb(244, 119, 33)");
       expect(palette.mapPosition).toBe("absolute");
       expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
+      if (item.path === "/") {
+        const criticalCss = await page.locator("#od-critical-css").textContent();
+        expect(criticalCss).toContain("#F47721");
+        expect(criticalCss).not.toContain("#31543A");
+      }
+    }
+  });
+
+  test("English and Urdu homepage mobile heroes hide decorative maps without horizontal overflow", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const path of ["/", "/ur/"]) {
+      await page.goto(path, { waitUntil: "domcontentloaded" });
+      const layout = await page.evaluate(() => ({
+        viewport: document.documentElement.clientWidth,
+        documentWidth: document.documentElement.scrollWidth,
+        mapDisplay: getComputedStyle(document.querySelector(".hero-map")).display,
+      }));
+      expect(layout.mapDisplay).toBe("none");
+      expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewport);
     }
   });
 
