@@ -1,6 +1,6 @@
 # OBAID DOCTRINE — Sitewide Orange Design-System Migration Specification
 
-Status: implementation specification / not yet applied
+Status: implemented on the redesign branch; PR #82 open; production release pending
 Target branch: `design/orange-editorial-redesign-20261030`
 Production branch: `main` (must remain unchanged until reviewed and approved)
 
@@ -173,3 +173,19 @@ A read-only sample of nine representative English/Urdu routes was inspected agai
 The route list above is based on nine inspected HTML files selected from the repository tree. It does not claim every route has the same asset versions or class structure. The next complete inventory should enumerate all HTML files, normalize each CSS/JS asset URL, and map route-specific class names before any selector or cache-busting edits.
 
 No production or source files were changed by this inspection.
+
+
+## 10. Implementation record (2026-10-31)
+
+The first implementation pass is committed on branch `design/orange-editorial-redesign-20261030` and proposed in GitHub PR #82.
+
+Changed source files:
+- `styles.css`: semantic orange editorial tokens, common page/component overrides, category accents, homepage-specific token namespace, dark ticker/footer treatment, and light-surface Mind Test cards with accessible foreground colours.
+- `mobile-navigation.js`: orange/cream/charcoal runtime menu palette and route-aware Urdu RTL drawer direction.
+- `index.html` and `ur/index.html`: orange browser theme colour and updated shared CSS cache-busting version.
+- `manifest.json`: orange PWA theme colour and warm off-white background.
+- `tests/public-site.spec.mjs`: updated contrast expectations and added mobile drawer/PWA theme regression checks.
+
+A responsive bilingual homepage prototype was created in MagicPath as a design reference. The actual static-site implementation is the shared CSS/JS migration above; it does not replace the existing HTML route structure.
+
+Release status: Vercel preview and GitHub Actions checks are pending. Production `main` and Cloudflare Pages remain unchanged until the PR passes validation and is merged.
