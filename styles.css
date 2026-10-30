@@ -17,7 +17,7 @@ body:not([data-design]) {
   --gold:#A9650D;
   --teal:#147D76;
   --od-brand-orange:#F47721;
-  --od-brand-orange-text:#BA510A;
+  --od-brand-orange-text:#9B430B;
   --od-ink:#171717;
   --od-paper:#FFFAF5;
   --od-muted:#665B53;
@@ -429,7 +429,7 @@ body.home-page:not([data-design]) .think-grid .question-step {
   border-color:rgba(244,119,33,.62);
   box-shadow:inset 5px 0 0 #F47721;
 }
-body.home-page:not([data-design]) .think-grid .link { color:#BA510A; }
+body.home-page:not([data-design]) .think-grid .link { color:#9B430B; }
 
 
 /* Restore the Urdu/English homepage hero's intended two-column layout and style its decorative SVG map. */
