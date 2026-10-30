@@ -232,3 +232,72 @@ html[lang="en"] body:not([data-design]):has(.article-body) .article-body h3 {
     transition-duration:.01ms !important;
   }
 }
+
+
+/* Homepage-specific legacy token namespaces and ticker are migrated in the same pass. */
+body:not([data-design]) {
+  --od-forest:#171717;
+  --od-lime:#F47721;
+  --od-ivory:#FFFAF5;
+  --od-soft:#FFF0E5;
+  --od-muted:#665B53;
+  --od-line:#EAD8C9;
+  --od-surface:#FFFFFF;
+  --od-surface-soft:#FFF7F0;
+  --od-ink:#171717;
+  --od-white:#FFFFFF;
+  --od-line-strong:rgba(23,23,23,.18);
+  --od-shadow:0 18px 55px rgba(23,23,23,.07);
+  --od-shadow-soft:0 10px 30px rgba(23,23,23,.045);
+}
+body:not([data-design]) .home-page {
+  --ed-forest:#171717;
+  --ed-green:#292521;
+  --ed-moss:#171717;
+  --ed-lime:#F47721;
+  --ed-olive:#9B430B;
+  --ed-soft:#FFF0E5;
+  --ed-ivory:#FFFAF5;
+  --ed-white:#FFFFFF;
+  --ed-muted:#665B53;
+  --ed-line:#EAD8C9;
+  --ed-shadow:0 22px 70px rgba(23,23,23,.08);
+  --ed-shadow-soft:0 12px 34px rgba(23,23,23,.045);
+  background:#FFFAF5;
+  color:#171717;
+}
+body:not([data-design]) .home-page .footer {
+  background:#171717 !important;
+  color:#F8F4F0 !important;
+  border-top-color:rgba(255,173,112,.22) !important;
+}
+body:not([data-design]) .home-page .footer strong { color:#FFAD70 !important; }
+body:not([data-design]) .home-page .footer-links a { color:#F8F4F0 !important; }
+body:not([data-design]) .home-page .footer-links a:hover { color:#FFAD70 !important; }
+body:not([data-design]) .home-page .footer-social-link {
+  border-color:rgba(255,173,112,.24);
+  background:rgba(255,255,255,.035);
+  color:#F8F4F0 !important;
+}
+body:not([data-design]) .home-page .footer-social-link:hover {
+  background:#F47721;
+  border-color:#F47721;
+  color:#171717 !important;
+}
+body:not([data-design]) .od-mind-ticker {
+  background:#171717;
+  color:#FFFAF5;
+  border-top-color:rgba(244,119,33,.28);
+  border-bottom-color:rgba(244,119,33,.28);
+}
+body:not([data-design]) .od-ticker-label { background:#F47721; color:#171717; }
+body:not([data-design]) .od-ticker-pulse {
+  background:#F47721;
+  box-shadow:0 0 0 4px rgba(244,119,33,.18);
+}
+body:not([data-design]) .od-ticker-item { color:#FFFAF5; }
+body:not([data-design]) .od-ticker-separator { color:#FFAD70; }
+body:not([data-design]) .home-page .mind-feature .test-card:focus-visible {
+  outline:3px solid #BA510A;
+  outline-offset:4px;
+}
