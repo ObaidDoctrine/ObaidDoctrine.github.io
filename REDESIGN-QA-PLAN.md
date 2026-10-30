@@ -47,7 +47,7 @@ These controls must be preserved and re-tested after any redesign. Do not broade
 
 ## Required redesign acceptance gates
 
-- [ ] Approved desktop and mobile design direction produced through the required 12ui design workflow.
+- [x] Approved responsive English/Urdu design direction prototyped in MagicPath after the owner explicitly authorized an alternative tool workflow; 12ui was not used.
 - [ ] English and Urdu page templates mapped; Urdu `lang` and `dir=rtl` behavior retained.
 - [ ] Existing page copy, routes, IDs, anchors, forms, assessments, navigation and interactive behavior preserved unless an explicit approved change is documented.
 - [ ] Brand orange and category accent tokens meet contrast requirements for text, controls, focus rings and states.
@@ -61,7 +61,7 @@ These controls must be preserved and re-tested after any redesign. Do not broade
 
 ## Current status
 
-This document is a QA plan only. No production UI has been implemented. The required 12ui CLI setup previously timed out; design production remains gated on access to a functioning 12ui design workflow.
+This document began as a QA plan. On 2026-10-31, the owner explicitly authorized alternative tools. A responsive bilingual homepage prototype was created in MagicPath, and shared site CSS/JS plus brand theme updates were implemented on the redesign branch. Production remains unchanged pending PR checks and deployment.
 
 ## Additional verified findings from the existing Playwright suite
 
@@ -100,7 +100,7 @@ Read-only inspection of the current design branch confirms the following:
 - Existing breakpoints are not fully standardized (observed examples include 1100, 1050, 1000, 820, 760, 700, 680, 560, 480 and 360 pixels). The redesign should define a deliberate responsive scale and test boundary widths rather than mechanically replacing breakpoints.
 - Preserve `prefers-reduced-motion: reduce` behavior across every migrated stylesheet. Existing reduced-motion rules were observed in all three inspected CSS files.
 
-### Required implementation sequence after the 12ui design gate is cleared
+### Implementation sequence using the owner-approved alternative design workflow
 
 1. Build a page-to-stylesheet dependency map for representative English/Urdu home, category, article, profile, and Mind Test pages.
 2. Identify all shared tokens and the true cascade order, including inline critical CSS and dynamically injected mobile navigation styles.
@@ -158,8 +158,8 @@ Important test semantics:
 ## Current execution status (rechecked 2026-10-30)
 
 - These workflow definitions and scripts have been inspected, but the redesign branch has not yet had these tests run.
-- The local execution environment has Node.js and npm, but the required `12ui` executable is not present. The one permitted installation attempt was previously made and timed out; do not repeat the install attempt.
-- The 12ui workflow remains a mandatory gate for non-trivial UI creation. Do not substitute a hand-coded design or a MagicPath prototype as though it satisfied that gate.
+- The owner previously asked not to use 12ui. On 2026-10-31, the owner explicitly authorized use of alternative tools; MagicPath was used for the responsive bilingual prototype.
+- The approved MagicPath prototype is a design reference only; the production implementation is tracked separately in GitHub PR #82 and must pass the stated QA gates before release.
 - No pull request has been opened, no deployment has been triggered, and production remains unchanged.
 
 
@@ -247,3 +247,15 @@ These are conservative candidate text colours, not signed-off brand values. Use 
 The ratios are rounded to two decimals; values near 4.50 should be rechecked against the exact final hex values and actual rendered surface. This is a two-surface mathematical check only, not a complete WCAG audit. Recheck gradients, transparency, image overlays, hover/focus/visited states, disabled controls, focus indicators and non-text component boundaries in the browser.
 
 No website source code or production configuration was modified by this audit.
+
+
+## 13. Current implementation and verification status (2026-10-31)
+
+- A responsive English/Urdu homepage prototype was created in MagicPath and visually inspected. It includes a language toggle, Urdu RTL, orange brand accents, category navigation, Mind Tests, article links and research/editorial content.
+- The sitewide shared stylesheet now contains the orange editorial token migration and common component overrides. Homepage-specific legacy tokens, ticker, footer and Mind Test cards are included.
+- Runtime mobile navigation colours were migrated; the generated drawer now receives an explicit LTR/RTL direction from the current route.
+- English/Urdu homepage browser theme colours and CSS cache-busting references were updated; the PWA manifest theme/background colours were aligned with the orange identity.
+- Regression tests were updated for Mind Test contrast, mobile drawer direction/background, and PWA theme values.
+- GitHub PR #82 is open against main. Vercel preview builds and GitHub Actions checks are pending; do not merge or deploy until checks complete successfully.
+- The preview was previously verified to return HTTP 200 for a representative set of English/Urdu homepage, category, article, Mind Test and profile routes. This does not replace Playwright browser testing or a full route audit.
+- Production main and the Cloudflare Pages live site have not been changed by this PR.
