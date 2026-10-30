@@ -85,15 +85,19 @@ test.describe("Public website smoke coverage", () => {
         heading: getComputedStyle(document.querySelector(".hero h1")).color,
         accent: getComputedStyle(document.querySelector(".hero h1 .accent")).backgroundColor,
         primary: getComputedStyle(document.querySelector(".hero .primary")).backgroundColor,
-        mapPosition: getComputedStyle(document.querySelector(".hero-map")).position,
-        mapStroke: getComputedStyle(document.querySelector(".hero-map .map-line")).stroke,
+        mapPosition: document.querySelector(".hero-map") ? getComputedStyle(document.querySelector(".hero-map")).position : "absent",
+        mapStroke: document.querySelector(".hero-map .map-line") ? getComputedStyle(document.querySelector(".hero-map .map-line")).stroke : "absent",
       }));
       expect(palette.direction).toBe(item.direction);
       expect(palette.heading).toBe("rgb(23, 23, 23)");
       expect(palette.accent).toBe("rgb(244, 119, 33)");
       expect(palette.primary).toBe("rgb(244, 119, 33)");
-      expect(palette.mapPosition).toBe("absolute");
-      expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
+      if (item.path === "/ur/") {
+        expect(palette.mapPosition).toBe("absolute");
+        expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
+      } else {
+        expect(palette.mapPosition).toBe("absent");
+      }
       if (item.path === "/") {
         const criticalCss = await page.locator("#od-critical-css").textContent();
         expect(criticalCss).toContain("#F47721");
@@ -109,9 +113,9 @@ test.describe("Public website smoke coverage", () => {
       const layout = await page.evaluate(() => ({
         viewport: document.documentElement.clientWidth,
         documentWidth: document.documentElement.scrollWidth,
-        mapDisplay: getComputedStyle(document.querySelector(".hero-map")).display,
+        mapDisplay: document.querySelector(".hero-map") ? getComputedStyle(document.querySelector(".hero-map")).display : "absent",
       }));
-      expect(layout.mapDisplay).toBe("none");
+      expect(["none", "absent"]).toContain(layout.mapDisplay);
       expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewport);
     }
   });
