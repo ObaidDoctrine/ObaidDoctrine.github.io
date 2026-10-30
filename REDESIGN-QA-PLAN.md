@@ -110,3 +110,27 @@ Read-only inspection of the current design branch confirms the following:
 6. Only after successful review should a pull request and a separately approved deployment plan be considered.
 
 No production CSS, HTML, JavaScript, route, metadata, or deployment configuration was changed as part of this inventory.
+
+
+## 9. Verified mobile navigation and multi-theme migration risks (2026-10-30)
+
+Read-only inspection of the current design branch files confirms:
+
+- `mobile-navigation.js` is 12,544 bytes and injects its own complete side-menu and language-switcher stylesheet at runtime. The injected CSS contains 112 `!important` declarations, fixed-position controls, and hard-coded legacy green/sage values (including `#31543A`, `#dce8b5`, and `#FAFAF5`). Updating CSS files alone will not recolour this interface.
+- The injected side-menu panel explicitly sets `direction:ltr`. Urdu labels are supplied, but the panel's layout direction must be reviewed and tested for Urdu RTL rather than assuming translated strings are sufficient.
+- The same script supports multiple navigation modes: existing `<details>` menus, legacy header navigation, and a generated side menu. It also manages body scroll locking, Escape-to-close, overlay dismissal, language switching and responsive behavior. Do not replace or simplify it without tracing which mode each page actually uses.
+- `index.html` contains a separate inline critical stylesheet that independently hard-codes the forest/lime palette in header, hero, buttons and mobile layout. These declarations can override or visually conflict with the shared stylesheet if only one layer is migrated.
+- `styles.css` contains multiple generations of token namespaces and repeated token declarations, including `--f/--l/--i`, `--od-forest/--od-lime`, `--ed-*`, and a separate editorial navy/blue set. A global text replacement would risk changing opt-in editorial or category-specific variants unintentionally.
+- `master-homepage.css` uses its own lime token (`--od-master-lime:#B7D84B`) and includes explicit Urdu RTL layout rules. Its overrides must be migrated as a coordinated component layer.
+- `five-design-system.css` contains several distinct colour families (including neutral, blue, warm, and teal variants) and both responsive and reduced-motion rules. Treat it as a multi-variant stylesheet, not as a single global brand palette.
+
+### Additional implementation gates
+
+- [ ] Trace which pages load `mobile-navigation.js`, which navigation mode each page uses, and whether generated navigation duplicates server-rendered controls.
+- [ ] Replace runtime-injected colour literals with approved shared design tokens only after confirming all navigation modes and Urdu RTL behavior.
+- [ ] Rework the generated side menu's direction, alignment, focus order, close controls and language switch for Urdu without regressing English.
+- [ ] Migrate the homepage critical CSS and shared stylesheet together; verify computed styles after the complete cascade loads.
+- [ ] Keep opt-in editorial/design variants and category accent colours distinct from the global orange brand token.
+- [ ] Test keyboard operation, Escape, overlay dismissal, body scroll restoration, route navigation and language switching at mobile and desktop breakpoints.
+
+These are verified source-level findings, not browser-tested defects. No source code or production configuration was modified by this inspection.
