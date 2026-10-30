@@ -76,6 +76,27 @@ test.describe("Public website smoke coverage", () => {
     await expect(page.locator('a[href="/mind-tests/"]').first()).toBeVisible();
   });
 
+  test("English and Urdu homepage heroes use the orange brand system and correct direction", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    for (const item of [{ path: "/", direction: "ltr" }, { path: "/ur/", direction: "rtl" }]) {
+      await page.goto(item.path, { waitUntil: "domcontentloaded" });
+      const palette = await page.evaluate(() => ({
+        direction: getComputedStyle(document.body).direction,
+        heading: getComputedStyle(document.querySelector(".hero h1")).color,
+        accent: getComputedStyle(document.querySelector(".hero h1 .accent")).backgroundColor,
+        primary: getComputedStyle(document.querySelector(".hero .primary")).backgroundColor,
+        mapPosition: getComputedStyle(document.querySelector(".hero-map")).position,
+        mapStroke: getComputedStyle(document.querySelector(".hero-map .map-line")).stroke,
+      }));
+      expect(palette.direction).toBe(item.direction);
+      expect(palette.heading).toBe("rgb(23, 23, 23)");
+      expect(palette.accent).toBe("rgb(244, 119, 33)");
+      expect(palette.primary).toBe("rgb(244, 119, 33)");
+      expect(palette.mapPosition).toBe("absolute");
+      expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
+    }
+  });
+
   test("featured homepage Mind Test cards meet WCAG AA contrast in default, hover and focus states", async ({ page }) => {
     await assertPublicPage(page, "/");
     const cards = page.locator(".home-page .mind-feature .test-card");
