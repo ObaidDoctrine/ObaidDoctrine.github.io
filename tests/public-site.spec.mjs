@@ -85,6 +85,9 @@ test.describe("Public website smoke coverage", () => {
         heading: getComputedStyle(document.querySelector(".hero h1")).color,
         accent: getComputedStyle(document.querySelector(".hero h1 .accent")).backgroundColor,
         primary: getComputedStyle(document.querySelector(".hero .primary")).backgroundColor,
+        primaryText: getComputedStyle(document.querySelector(".hero .primary")).color,
+        ghost: getComputedStyle(document.querySelector(".hero .ghost")).backgroundColor,
+        ghostText: getComputedStyle(document.querySelector(".hero .ghost")).color,
         mapPosition: document.querySelector(".hero-map") ? getComputedStyle(document.querySelector(".hero-map")).position : "absent",
         mapStroke: document.querySelector(".hero-map .map-line") ? getComputedStyle(document.querySelector(".hero-map .map-line")).stroke : "absent",
       }));
@@ -92,6 +95,9 @@ test.describe("Public website smoke coverage", () => {
       expect(palette.heading).toBe("rgb(23, 23, 23)");
       expect(palette.accent).toBe("rgb(244, 119, 33)");
       expect(palette.primary).toBe("rgb(244, 119, 33)");
+      expect(palette.primaryText).toBe("rgb(23, 23, 23)");
+      expect(palette.ghost).toBe("rgb(255, 255, 255)");
+      expect(palette.ghostText).toBe("rgb(23, 23, 23)");
       if (item.path === "/ur/") {
         expect(palette.mapPosition).toBe("absolute");
         expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
