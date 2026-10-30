@@ -193,6 +193,25 @@ test.describe("Public website smoke coverage", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
   });
 
+  test("mobile navigation uses the orange palette and correct Urdu RTL direction", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const item of [{ path: "/", direction: "ltr" }, { path: "/ur/", direction: "rtl" }]) {
+      await page.goto(item.path, { waitUntil: "domcontentloaded" });
+      const toggle = page.locator(".od-side-menu-toggle");
+      await expect(toggle).toBeVisible();
+      await toggle.click();
+      const panel = page.locator(".od-side-menu");
+      await expect(panel).toBeVisible();
+      await expect(panel).toHaveAttribute("dir", item.direction);
+      const appearance = await panel.evaluate(el => ({
+        direction: getComputedStyle(el).direction,
+        background: getComputedStyle(el).backgroundColor,
+      }));
+      expect(appearance.direction).toBe(item.direction);
+      expect(appearance.background).toBe("rgb(255, 250, 245)");
+    }
+  });
+
   test("public sitemap and robots are reachable", async ({ request }) => {
     const sitemap = await request.get("/sitemap.xml");
     expect(sitemap.status()).toBe(200);
@@ -204,8 +223,12 @@ test.describe("Public website smoke coverage", () => {
     expect(await robots.text()).toContain("Sitemap:");
   });
 
-  test("manifest and service worker are reachable", async ({ request }) => {
-    expect((await request.get("/manifest.json")).status()).toBe(200);
+  test("manifest and service worker are reachable and carry the orange brand theme", async ({ request }) => {
+    const manifestResponse = await request.get("/manifest.json");
+    expect(manifestResponse.status()).toBe(200);
+    const manifest = await manifestResponse.json();
+    expect(manifest.theme_color).toBe("#F47721");
+    expect(manifest.background_color).toBe("#FFFAF5");
     expect((await request.get("/sw.js")).status()).toBe(200);
   });
 });
