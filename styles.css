@@ -486,3 +486,25 @@ html[dir="rtl"] body.home-page:not([data-design]) .hero-meta {
 }
 
 html[lang="ur"] body.home-page:not([data-design]) .hero h1 { color:#171717; }
+
+html[lang="ur"] body:not([data-design]) .btn.primary,
+html[lang="ur"] body:not([data-design]) .button.primary,
+html[lang="ur"] body:not([data-design]) .primary {
+  background:#F47721;
+  color:#171717;
+  border-color:#F47721;
+  box-shadow:0 10px 24px rgba(244,119,33,.20);
+}
+html[lang="ur"] body:not([data-design]) .btn.primary:hover,
+html[lang="ur"] body:not([data-design]) .button.primary:hover {
+  background:#FF9145;
+  border-color:#FF9145;
+}
+html[lang="ur"] body:not([data-design]) .btn.ghost,
+html[lang="ur"] body:not([data-design]) .button.ghost,
+html[lang="ur"] body:not([data-design]) .ghost {
+  background:#fff;
+  color:#171717;
+  border-color:#EAD8C9;
+  box-shadow:none;
+}
