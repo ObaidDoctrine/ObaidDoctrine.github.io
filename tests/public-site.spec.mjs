@@ -165,9 +165,9 @@ test.describe("Public website smoke coverage", () => {
             width: el.getBoundingClientRect().width,
           };
         });
-        expect(result.background).toBe("rgb(37, 75, 53)");
-        expect(result.title).toBe("rgb(255, 255, 255)");
-        expect(result.description).toBe("rgb(230, 238, 231)");
+        expect(result.background).toBe("rgb(255, 255, 255)");
+        expect(result.title).toBe("rgb(23, 23, 23)");
+        expect(result.description).toBe("rgb(98, 86, 78)");
         expect(result.width).toBeGreaterThan(0);
       }
     } finally {
