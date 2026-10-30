@@ -221,3 +221,29 @@ Candidate values are mathematically generated same-hue/saturation darker alterna
 The calculations use white `#FFFFFF` as the background. Recheck on warm cream `#FFF3E8`, tinted chips, gradients, images, hover/focus states, and every actual rendered combination before release. Do not infer that this table certifies link affordance, focus visibility, or non-text contrast.
 
 No site source code or production configuration was modified by this recommendation.
+
+
+## 12. Contrast re-check against both white and warm-cream surfaces (2026-10-30)
+
+A follow-up check found that the candidate text colours in section 11 were selected to pass on pure white, but most do **not** reach 4.5:1 on the proposed warm-cream surface `#FFF3E8`. Therefore section 11 candidates must not be treated as universal link/text tokens.
+
+The following darker alternatives were recalculated to pass 4.5:1 on **both** `#FFFFFF` and `#FFF3E8`:
+
+| Semantic text/accent token | Proposed universal text colour | Contrast on white | Contrast on warm cream |
+|---|---:|---:|---:|
+| Brand orange text | `#BA510A` | 4.92:1 | 4.51:1 |
+| Bright orange text | `#B65400` | 4.93:1 | 4.52:1 |
+| Psychology | `#8054C7` | 5.24:1 | 4.80:1 |
+| Human Behaviour | `#147D76` | 4.97:1 | 4.55:1 |
+| Relationships | `#D72255` | 4.94:1 | 4.53:1 |
+| Marriage & Family | `#9B651C` | 4.92:1 | 4.50:1 |
+| Self Improvement | `#2B6FCB` | 4.95:1 | 4.54:1 |
+| Mind Tests | `#9254C2` | 4.92:1 | 4.51:1 |
+| Research & Insights | `#367E55` | 4.92:1 | 4.50:1 |
+| Learning Lab | `#A85D2E` | 4.92:1 | 4.51:1 |
+
+These are conservative candidate text colours, not signed-off brand values. Use a distinct vivid category/accent token for decorative fills when desired, and a semantic `*-text` token for links, labels and icons on light surfaces. Filled buttons must use a separately verified foreground/background pair (for primary orange fill, charcoal `#171717` is the current passing pairing).
+
+The ratios are rounded to two decimals; values near 4.50 should be rechecked against the exact final hex values and actual rendered surface. This is a two-surface mathematical check only, not a complete WCAG audit. Recheck gradients, transparency, image overlays, hover/focus/visited states, disabled controls, focus indicators and non-text component boundaries in the browser.
+
+No website source code or production configuration was modified by this audit.
