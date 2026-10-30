@@ -76,6 +76,56 @@ test.describe("Public website smoke coverage", () => {
     await expect(page.locator('a[href="/mind-tests/"]').first()).toBeVisible();
   });
 
+  test("English and Urdu homepage heroes use the orange brand system and correct direction", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    for (const item of [{ path: "/", direction: "ltr" }, { path: "/ur/", direction: "rtl" }]) {
+      await page.goto(item.path, { waitUntil: "domcontentloaded" });
+      const palette = await page.evaluate(() => ({
+        direction: getComputedStyle(document.body).direction,
+        heading: getComputedStyle(document.querySelector(".hero h1")).color,
+        accent: getComputedStyle(document.querySelector(".hero h1 .accent")).backgroundColor,
+        primary: getComputedStyle(document.querySelector(".hero .primary")).backgroundColor,
+        primaryText: getComputedStyle(document.querySelector(".hero .primary")).color,
+        ghost: getComputedStyle(document.querySelector(".hero .ghost")).backgroundColor,
+        ghostText: getComputedStyle(document.querySelector(".hero .ghost")).color,
+        mapPosition: document.querySelector(".hero-map") ? getComputedStyle(document.querySelector(".hero-map")).position : "absent",
+        mapStroke: document.querySelector(".hero-map .map-line") ? getComputedStyle(document.querySelector(".hero-map .map-line")).stroke : "absent",
+      }));
+      expect(palette.direction).toBe(item.direction);
+      expect(palette.heading).toBe("rgb(23, 23, 23)");
+      expect(palette.accent).toBe("rgb(244, 119, 33)");
+      expect(palette.primary).toBe("rgb(244, 119, 33)");
+      expect(palette.primaryText).toBe("rgb(23, 23, 23)");
+      expect(palette.ghost).toBe("rgb(255, 255, 255)");
+      expect(palette.ghostText).toBe("rgb(23, 23, 23)");
+      if (item.path === "/ur/") {
+        expect(palette.mapPosition).toBe("absolute");
+        expect(palette.mapStroke).toBe("rgb(186, 81, 10)");
+      } else {
+        expect(palette.mapPosition).toBe("absent");
+      }
+      if (item.path === "/") {
+        const criticalCss = await page.locator("#od-critical-css").textContent();
+        expect(criticalCss).toContain("#F47721");
+        expect(criticalCss).not.toContain("#31543A");
+      }
+    }
+  });
+
+  test("English and Urdu homepage mobile heroes hide decorative maps without horizontal overflow", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const path of ["/", "/ur/"]) {
+      await page.goto(path, { waitUntil: "domcontentloaded" });
+      const layout = await page.evaluate(() => ({
+        viewport: document.documentElement.clientWidth,
+        documentWidth: document.documentElement.scrollWidth,
+        mapDisplay: document.querySelector(".hero-map") ? getComputedStyle(document.querySelector(".hero-map")).display : "absent",
+      }));
+      expect(["none", "absent"]).toContain(layout.mapDisplay);
+      expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewport);
+    }
+  });
+
   test("featured homepage Mind Test cards meet WCAG AA contrast in default, hover and focus states", async ({ page }) => {
     await assertPublicPage(page, "/");
     const cards = page.locator(".home-page .mind-feature .test-card");
@@ -121,11 +171,11 @@ test.describe("Public website smoke coverage", () => {
 
     for (const card of await cards.all()) {
       const colors = await inspect(card);
-      expect(colors.background).toBe("rgb(37, 75, 53)");
-      expect(colors.cardText).toBe("rgb(255, 255, 255)");
-      expect(colors.titleColor).toBe("rgb(255, 255, 255)");
-      expect(colors.descriptionColor).toBe("rgb(230, 238, 231)");
-      expect(colors.badgeBackground).toBe("rgb(216, 239, 131)");
+      expect(colors.background).toBe("rgb(255, 255, 255)");
+      expect(colors.cardText).toBe("rgb(23, 23, 23)");
+      expect(colors.titleColor).toBe("rgb(23, 23, 23)");
+      expect(colors.descriptionColor).toBe("rgb(98, 86, 78)");
+      expect(colors.badgeBackground).toBe("rgb(244, 119, 33)");
       for (const [element, contrast] of Object.entries(colors.ratios)) {
         expect(contrast, `${element} contrast ratio: ${contrast}`).not.toBeNull();
         expect(contrast, `${element} must meet WCAG 2.2 AA`).toBeGreaterThanOrEqual(4.5);
@@ -133,7 +183,7 @@ test.describe("Public website smoke coverage", () => {
 
       await card.hover();
       const hovered = await inspect(card);
-      expect(hovered.background).toBe("rgb(37, 75, 53)");
+      expect(hovered.background).toBe("rgb(255, 255, 255)");
       expect(hovered.ratios.description).toBeGreaterThanOrEqual(4.5);
 
       await card.focus();
@@ -165,9 +215,9 @@ test.describe("Public website smoke coverage", () => {
             width: el.getBoundingClientRect().width,
           };
         });
-        expect(result.background).toBe("rgb(37, 75, 53)");
-        expect(result.title).toBe("rgb(255, 255, 255)");
-        expect(result.description).toBe("rgb(230, 238, 231)");
+        expect(result.background).toBe("rgb(255, 255, 255)");
+        expect(result.title).toBe("rgb(23, 23, 23)");
+        expect(result.description).toBe("rgb(98, 86, 78)");
         expect(result.width).toBeGreaterThan(0);
       }
     } finally {
@@ -193,6 +243,25 @@ test.describe("Public website smoke coverage", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
   });
 
+  test("mobile navigation uses the orange palette and correct Urdu RTL direction", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const item of [{ path: "/", direction: "ltr" }, { path: "/ur/", direction: "rtl" }]) {
+      await page.goto(item.path, { waitUntil: "domcontentloaded" });
+      const toggle = page.locator(".od-side-menu-toggle");
+      await expect(toggle).toBeVisible();
+      await toggle.click();
+      const panel = page.locator(".od-side-menu");
+      await expect(panel).toBeVisible();
+      await expect(panel).toHaveAttribute("dir", item.direction);
+      const appearance = await panel.evaluate(el => ({
+        direction: getComputedStyle(el).direction,
+        background: getComputedStyle(el).backgroundColor,
+      }));
+      expect(appearance.direction).toBe(item.direction);
+      expect(appearance.background).toBe("rgb(255, 250, 245)");
+    }
+  });
+
   test("public sitemap and robots are reachable", async ({ request }) => {
     const sitemap = await request.get("/sitemap.xml");
     expect(sitemap.status()).toBe(200);
@@ -204,8 +273,12 @@ test.describe("Public website smoke coverage", () => {
     expect(await robots.text()).toContain("Sitemap:");
   });
 
-  test("manifest and service worker are reachable", async ({ request }) => {
-    expect((await request.get("/manifest.json")).status()).toBe(200);
+  test("manifest and service worker are reachable and carry the orange brand theme", async ({ request }) => {
+    const manifestResponse = await request.get("/manifest.json");
+    expect(manifestResponse.status()).toBe(200);
+    const manifest = await manifestResponse.json();
+    expect(manifest.theme_color).toBe("#F47721");
+    expect(manifest.background_color).toBe("#FFFAF5");
     expect((await request.get("/sw.js")).status()).toBe(200);
   });
 });

@@ -138,6 +138,7 @@
     const panel = document.createElement("aside");
     panel.className = "od-side-menu";
     panel.setAttribute("aria-label", "OBAID DOCTRINE navigation");
+    panel.setAttribute("dir", isUrdu ? "rtl" : "ltr");
     panel.hidden = true;
     const links = [
       ["home", prefix + "/"], ["psychology", prefix + "/psychology/"],
@@ -157,40 +158,40 @@
         position:fixed!important; right:12px!important; top:12px!important; z-index:2147483000!important;
         display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important;
         gap:3px!important; width:52px!important; min-height:54px!important; padding:7px 5px!important;
-        border:1px solid rgba(49,84,58,.25)!important; border-radius:16px!important; background:#fff!important;
-        color:#31543A!important; box-shadow:0 4px 18px rgba(0,0,0,.18)!important; cursor:pointer!important;
+        border:1px solid rgba(244,119,33,.32)!important; border-radius:16px!important; background:#fff!important;
+        color:#171717!important; box-shadow:0 4px 18px rgba(0,0,0,.18)!important; cursor:pointer!important;
         font:700 20px/1 system-ui,sans-serif!important;
       }
       .od-side-menu-toggle small { font-size:10px!important; line-height:1.2!important; }
       .od-visible-language-switch {
         position:fixed!important; top:18px!important; right:72px!important; z-index:2147483000!important;
         display:flex!important; align-items:center!important; gap:4px!important; padding:4px!important;
-        border:1px solid rgba(49,84,58,.22)!important; border-radius:13px!important;
+        border:1px solid rgba(244,119,33,.30)!important; border-radius:13px!important;
         background:#fff!important; box-shadow:0 4px 18px rgba(0,0,0,.14)!important;
         font:700 12px/1.2 system-ui,sans-serif!important;
       }
       .od-visible-language-switch a {
         display:block!important; padding:8px 9px!important; border-radius:9px!important;
-        color:#31543A!important; text-decoration:none!important; white-space:nowrap!important;
+        color:#171717!important; text-decoration:none!important; white-space:nowrap!important;
       }
-      .od-visible-language-switch a[aria-current="page"] { background:#dce8b5!important; }
+      .od-visible-language-switch a[aria-current="page"] { background:#FFF0E5!important; }
 
-      .od-side-menu-overlay { position:fixed!important; inset:0!important; z-index:2147483001!important; background:rgba(12,24,17,.45)!important; }
+      .od-side-menu-overlay { position:fixed!important; inset:0!important; z-index:2147483001!important; background:rgba(23,23,23,.48)!important; }
       .od-side-menu {
         position:fixed!important; z-index:2147483002!important; top:0!important; right:0!important; bottom:0!important;
         width:min(330px,86vw)!important; max-height:100dvh!important; overflow-y:auto!important; box-sizing:border-box!important;
-        padding:18px!important; background:#FAFAF5!important; color:#243128!important; box-shadow:-12px 0 35px rgba(0,0,0,.2)!important;
-        font:500 15px/1.5 system-ui,sans-serif!important; direction:ltr!important;
+        padding:18px!important; background:#FFFAF5!important; color:#24201D!important; box-shadow:-12px 0 35px rgba(0,0,0,.2)!important;
+        font:500 15px/1.5 system-ui,sans-serif!important; direction:${isUrdu ? "rtl" : "ltr"}!important;
       }
       .od-side-menu[hidden], .od-side-menu-overlay[hidden] { display:none!important; }
-      .od-side-menu-heading { display:flex!important; justify-content:space-between!important; align-items:center!important; gap:12px!important; padding:4px 0 16px!important; border-bottom:1px solid #dce5d8!important; color:#31543A!important; }
-      .od-side-menu-close { width:38px!important; height:38px!important; border:0!important; border-radius:10px!important; background:#eaf0e5!important; color:#31543A!important; font-size:28px!important; cursor:pointer!important; }
+      .od-side-menu-heading { display:flex!important; justify-content:space-between!important; align-items:center!important; gap:12px!important; padding:4px 0 16px!important; border-bottom:1px solid #EAD8C9!important; color:#171717!important; }
+      .od-side-menu-close { width:38px!important; height:38px!important; border:0!important; border-radius:10px!important; background:#FFF0E5!important; color:#171717!important; font-size:28px!important; cursor:pointer!important; }
       .od-side-menu nav { display:flex!important; flex-direction:column!important; gap:5px!important; padding:14px 0!important; }
-      .od-side-menu nav a { display:block!important; padding:10px 12px!important; border-radius:10px!important; color:#31543A!important; background:#fff!important; text-decoration:none!important; font-size:14px!important; font-weight:700!important; }
-      .od-side-menu nav a:hover { background:#eaf0d9!important; }
-      .od-side-menu-languages { display:flex!important; flex-wrap:wrap!important; align-items:center!important; gap:8px!important; padding-top:14px!important; border-top:1px solid #dce5d8!important; font-size:13px!important; }
+      .od-side-menu nav a { display:block!important; padding:10px 12px!important; border-radius:10px!important; color:#171717!important; background:#fff!important; text-decoration:none!important; font-size:14px!important; font-weight:700!important; }
+      .od-side-menu nav a:hover { background:#FFF0E5!important; }
+      .od-side-menu-languages { display:flex!important; flex-wrap:wrap!important; align-items:center!important; gap:8px!important; padding-top:14px!important; border-top:1px solid #EAD8C9!important; font-size:13px!important; }
       .od-side-menu-languages span { flex-basis:100%!important; font-weight:800!important; }
-      .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#dce8b5!important; color:#31543A!important; text-decoration:none!important; font-weight:800!important; }
+      .od-side-menu-languages a { padding:8px 11px!important; border-radius:9px!important; background:#F47721!important; color:#171717!important; text-decoration:none!important; font-weight:800!important; }
       @media(max-width:760px){ .od-side-menu-toggle { right:8px!important; top:12px!important; width:46px!important; min-height:50px!important; border-radius:14px!important; } .od-visible-language-switch { right:62px!important; top:17px!important; } .od-visible-language-switch a { padding:8px 7px!important; } }
     `;
     document.head.appendChild(style);
