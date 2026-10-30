@@ -134,3 +134,30 @@ Read-only inspection of the current design branch files confirms:
 - [ ] Test keyboard operation, Escape, overlay dismissal, body scroll restoration, route navigation and language switching at mobile and desktop breakpoints.
 
 These are verified source-level findings, not browser-tested defects. No source code or production configuration was modified by this inspection.
+
+
+## Verified workflow entry points and exact checks (rechecked 2026-10-30)
+
+The following workflow filenames and commands were fetched from `main`:
+
+| Workflow file | Workflow name | Command / behavior |
+|---|---|---|
+| `.github/workflows/public-site-e2e.yml` | OBAID DOCTRINE — Public Website E2E | Installs Playwright 1.63.0 and Chromium, serves the checked-out static site on port 4173, runs `npx playwright test` |
+| `.github/workflows/seo-metadata-check.yml` | SEO bilingual metadata validation | `node scripts/check-seo-metadata.mjs` |
+| `.github/workflows/seo-internal-link-check.yml` | SEO internal link validation | `node scripts/check-internal-links.mjs` |
+| `.github/workflows/seo-placeholder-check.yml` | SEO citation placeholder regression check | `node scripts/check-seo-placeholders.mjs` |
+| `.github/workflows/live-seo-audit.yml` | Read-only live SEO and redirect audit | `node scripts/audit-live-seo.mjs`; read-only HTTP checks against the live site |
+
+Important test semantics:
+- Public-site E2E runs against the checked-out branch via a local static server; it does not deploy.
+- SEO metadata checks local canonical, title, description, language, hreflang reciprocity, sitemap targets and robots sitemap directive. It does not query Google's canonical/indexing decision.
+- Internal-link checks local HTML targets and flags non-www internal URLs.
+- Placeholder checks scan published HTML for internal citation/search reference markers.
+- Live SEO audit reads live robots/sitemap/page responses and tests permanent HTTP/non-www aliases; it does not write to production.
+
+## Current execution status (rechecked 2026-10-30)
+
+- These workflow definitions and scripts have been inspected, but the redesign branch has not yet had these tests run.
+- The local execution environment has Node.js and npm, but the required `12ui` executable is not present. The one permitted installation attempt was previously made and timed out; do not repeat the install attempt.
+- The 12ui workflow remains a mandatory gate for non-trivial UI creation. Do not substitute a hand-coded design or a MagicPath prototype as though it satisfied that gate.
+- No pull request has been opened, no deployment has been triggered, and production remains unchanged.
