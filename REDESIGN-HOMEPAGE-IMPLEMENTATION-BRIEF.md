@@ -108,4 +108,4 @@ Historical mobile Lighthouse snapshot supplied by the site owner: Performance 10
 
 ## 9. Current implementation gate
 
-This document is a design/engineering brief only. It does not claim that a visual design, prototype, code change, browser test, or deployment has been completed. The required 12ui design workflow was previously attempted once and timed out; do not claim it is available until its toolchain is actually verified.
+The owner previously instructed not to use 12ui. On 2026-10-31, the owner explicitly authorized alternative tools to complete the redesign. A responsive English/Urdu homepage prototype has been created in MagicPath and visually inspected. The first static-site implementation pass (shared CSS, mobile navigation, homepage theme metadata, PWA theme, and regression tests) is committed on the redesign branch and proposed in PR #82. This is not yet a production release: Vercel preview and GitHub Actions checks remain pending, and the live Cloudflare Pages site has not been changed.
