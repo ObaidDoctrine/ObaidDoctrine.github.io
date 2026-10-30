@@ -484,3 +484,5 @@ html[dir="rtl"] body.home-page:not([data-design]) .hero-meta {
 @media (max-width:760px) {
   body.home-page:not([data-design]) .hero-map { display:none; }
 }
+
+html[lang="ur"] body.home-page:not([data-design]) .hero h1 { color:#171717; }
