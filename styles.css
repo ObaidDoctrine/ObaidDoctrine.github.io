@@ -430,3 +430,57 @@ body.home-page:not([data-design]) .think-grid .question-step {
   box-shadow:inset 5px 0 0 #F47721;
 }
 body.home-page:not([data-design]) .think-grid .link { color:#BA510A; }
+
+
+/* Restore the Urdu/English homepage hero's intended two-column layout and style its decorative SVG map. */
+body.home-page:not([data-design]) .hero-grid > div:first-child {
+  position:relative;
+  z-index:2;
+}
+body.home-page:not([data-design]) .hero-photo { z-index:2; }
+body.home-page:not([data-design]) .hero-map {
+  position:absolute;
+  top:50%;
+  right:0;
+  z-index:0;
+  display:block;
+  width:min(48%,520px);
+  transform:translateY(-50%);
+  pointer-events:none;
+  opacity:.68;
+}
+body.home-page:not([data-design]) .hero-map svg {
+  display:block;
+  width:100%;
+  height:auto;
+  overflow:visible;
+}
+body.home-page:not([data-design]) .hero-map .map-line {
+  fill:none;
+  stroke:#BA510A;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-dasharray:5 8;
+  opacity:.36;
+}
+body.home-page:not([data-design]) .hero-map .map-ring {
+  fill:none;
+  stroke:#F47721;
+  stroke-width:1.5;
+  opacity:.28;
+}
+body.home-page:not([data-design]) .hero-map .map-node {
+  fill:#F47721;
+  stroke:#FFFAF5;
+  stroke-width:4;
+}
+html[dir="rtl"] body.home-page:not([data-design]) .hero-map {
+  right:auto;
+  left:0;
+}
+html[dir="rtl"] body.home-page:not([data-design]) .hero-meta {
+  border-inline-start-color:rgba(244,119,33,.35);
+}
+@media (max-width:760px) {
+  body.home-page:not([data-design]) .hero-map { display:none; }
+}
