@@ -142,3 +142,34 @@ A read-only inspection of the current `main` branch identified the following mig
 6. After implementation, run route-based visual checks in English LTR and Urdu RTL, at mobile/tablet/desktop widths, and test hover, focus-visible, active, disabled and reduced-motion states.
 
 This inventory is based on source text inspection only. It is not a rendered-browser audit. No source files were modified as part of this inventory.
+
+
+## 9. Route-to-component and stylesheet dependency map (2026-10-30)
+
+A read-only sample of nine representative English/Urdu routes was inspected against the `main` branch. This is a representative sample, not a complete audit of all 172 HTML documents.
+
+| Route | Shared stylesheet reference | Notable page-level component classes |
+|---|---|---|
+| `/` | `/styles.css?v=20261030-css-performance` | `.wrap`, `.section`, `.cat`, `.test-card`, `.method-card`, `.path-link` |
+| `/ur/` | `/styles.css?v=20261009-ticker3` | `.wrap`, `.section`, `.cat`, `.test-card`, `.research-card`, `.map-node` |
+| `/psychology/` | `/styles.css?v=20261030-css-performance` | `.page-hero`, `.topic-grid`, `.topic-card` |
+| `/relationships/` | `/styles.css` | `.page-hero`, `.topic-grid`, `.topic-card` |
+| `/human-behaviour/` | `/styles.css` | `.page-hero`, `.topic-grid`, `.topic-card` |
+| `/ur/relationships/` | `/styles.css?v=20260926` | `.pillar-hero`, `.pillar-grid`, `.pillar-card` |
+| `/mind-tests/` | `../styles.css?v=20261021-individual-test-hero` | `.mt-page`, `.mt-hero`, `.mt-grid`, `.mt-card` |
+| `/about/` | `/styles.css?v=20261030-css-performance` | `.page-hero`, `.article-body` |
+| `/articles/what-is-psychology/` | `/styles.css` | `.page-hero`, `.article-body`, `.breadcrumb`, `.article-meta` |
+
+### Findings and implications
+
+- All nine sampled routes load the shared `styles.css`; the homepage, Urdu homepage, topic landing pages, article pages and Mind Tests use different component families within that shared stylesheet.
+- The same shared stylesheet is referenced with at least five cache-query forms in this sample: no query, `?v=20261030-css-performance`, `?v=20261009-ticker3`, `?v=20260926`, and `?v=20261021-individual-test-hero`. Before a sitewide CSS migration, standardize cache-busting references in a controlled batch and verify every route receives the intended asset.
+- `mobile-navigation.js` is included by the sampled pages and injects its own styles. It must be included in the same visual regression plan as the shared CSS, especially for menu open/close, keyboard focus, and Urdu RTL.
+- The English and Urdu topic landing pages do not use identical component structures (for example, `.topic-grid/.topic-card` versus `.pillar-grid/.pillar-card`). Do not assume a single selector migration will cover both languages.
+- Homepage category cards, Mind Tests cards, topic cards, article reading layouts and Urdu pillar cards require separate selector-level checks.
+
+### Scope and limits
+
+The route list above is based on nine inspected HTML files selected from the repository tree. It does not claim every route has the same asset versions or class structure. The next complete inventory should enumerate all HTML files, normalize each CSS/JS asset URL, and map route-specific class names before any selector or cache-busting edits.
+
+No production or source files were changed by this inspection.
