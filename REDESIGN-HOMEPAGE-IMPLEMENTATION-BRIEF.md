@@ -104,7 +104,7 @@ Historical mobile Lighthouse snapshot supplied by the site owner: Performance 10
 - [ ] Canonical, hreflang, metadata, JSON-LD, sitemap, robots, and security headers unchanged and verified.
 - [ ] Existing Playwright tests pass without weakening assertions.
 - [ ] Fresh Lighthouse / PageSpeed checks completed on desktop and mobile.
-- [ ] Production deployment remains blocked until explicit owner approval.
+- [ ] Production deployment remains blocked until all automated checks and preview verification pass; the owner has authorized the redesign and deployment.
 
 ## 9. Current implementation gate
 
