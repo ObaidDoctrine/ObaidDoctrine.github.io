@@ -161,3 +161,39 @@ Important test semantics:
 - The local execution environment has Node.js and npm, but the required `12ui` executable is not present. The one permitted installation attempt was previously made and timed out; do not repeat the install attempt.
 - The 12ui workflow remains a mandatory gate for non-trivial UI creation. Do not substitute a hand-coded design or a MagicPath prototype as though it satisfied that gate.
 - No pull request has been opened, no deployment has been triggered, and production remains unchanged.
+
+
+## 10. Verified palette contrast audit (2026-10-30)
+
+Contrast ratios below were calculated from the supplied sRGB hex values using the WCAG relative-luminance formula. These are mathematical checks of the proposed tokens, not a full browser accessibility audit.
+
+For normal-size text, use a minimum contrast ratio of 4.5:1. Large text may use 3:1, but interactive controls, focus indicators, icons that convey meaning, and component boundaries need their own applicable checks.
+
+| Token / category colour | Hex | Charcoal `#171717` on colour | White `#FFFFFF` on colour | Safe initial use |
+|---|---:|---:|---:|---|
+| Primary Orange | `#F47721` | 6.41:1 PASS | 2.80:1 FAIL | Use charcoal text on orange buttons/badges |
+| Bright Orange | `#FF9B45` | 8.56:1 PASS | 2.09:1 FAIL | Use charcoal text; avoid white text |
+| Psychology | `#8054C7` | 3.42:1 FAIL | 5.24:1 PASS | White text on this solid category background |
+| Human Behaviour | `#168B83` | 4.32:1 FAIL | 4.15:1 FAIL | Do not use either pairing for normal text; use on light surface as a non-text accent, or darken token |
+| Relationships | `#E34F78` | 4.83:1 PASS | 3.71:1 FAIL | Charcoal text on this solid category background |
+| Marriage & Family | `#D58B26` | 6.45:1 PASS | 2.78:1 FAIL | Charcoal text on this solid category background |
+| Self Improvement | `#3478D4` | 4.08:1 FAIL | 4.39:1 FAIL | Neither pairing passes for normal text; darken/adjust token or use as non-text accent |
+| Mind Tests | `#9B63C7` | 4.27:1 FAIL | 4.20:1 FAIL | Neither pairing passes for normal text; darken/adjust token or use as non-text accent |
+| Research & Insights | `#39865A` | 4.04:1 FAIL | 4.44:1 FAIL | Neither pairing passes for normal text; darken/adjust token or use as non-text accent |
+| Learning Lab | `#C36C35` | 4.71:1 PASS | 3.81:1 FAIL | Charcoal text on this solid category background |
+
+Additional surface checks:
+- Charcoal on warm cream `#FFF3E8`: 16.42:1 PASS.
+- Charcoal on white: 17.93:1 PASS.
+- White on primary orange and bright orange fails even the 3:1 large-text threshold; do not use white labels on these orange fills.
+- The design-system kit's initial `--primary-foreground:#FFFFFF` pairing is therefore unsafe for normal text on `--primary:#F47721`. Set the foreground to `#171717` before using the token in buttons, chips, or other filled controls.
+
+Implementation rules:
+1. Keep category hues as identity accents, but do not assume every hue is a valid text colour or text-bearing background.
+2. For any category colour used as text on white/cream, independently verify foreground-to-surface contrast; the table above reports text-on-colour, not colour-on-white.
+3. If a token is adjusted, record the new hex and recompute every foreground/background pairing before implementation.
+4. Test focus indicators and non-text control boundaries separately; text contrast results do not certify them.
+5. Do not use opacity to dim text. Use an explicit semantic foreground token that meets contrast.
+6. Re-run automated and manual checks against rendered English LTR and Urdu RTL pages after implementation.
+
+No production CSS or component code was changed by this audit.
