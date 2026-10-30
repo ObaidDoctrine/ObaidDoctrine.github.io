@@ -121,11 +121,11 @@ test.describe("Public website smoke coverage", () => {
 
     for (const card of await cards.all()) {
       const colors = await inspect(card);
-      expect(colors.background).toBe("rgb(37, 75, 53)");
-      expect(colors.cardText).toBe("rgb(255, 255, 255)");
-      expect(colors.titleColor).toBe("rgb(255, 255, 255)");
-      expect(colors.descriptionColor).toBe("rgb(230, 238, 231)");
-      expect(colors.badgeBackground).toBe("rgb(216, 239, 131)");
+      expect(colors.background).toBe("rgb(255, 255, 255)");
+      expect(colors.cardText).toBe("rgb(23, 23, 23)");
+      expect(colors.titleColor).toBe("rgb(23, 23, 23)");
+      expect(colors.descriptionColor).toBe("rgb(98, 86, 78)");
+      expect(colors.badgeBackground).toBe("rgb(244, 119, 33)");
       for (const [element, contrast] of Object.entries(colors.ratios)) {
         expect(contrast, `${element} contrast ratio: ${contrast}`).not.toBeNull();
         expect(contrast, `${element} must meet WCAG 2.2 AA`).toBeGreaterThanOrEqual(4.5);
@@ -133,7 +133,7 @@ test.describe("Public website smoke coverage", () => {
 
       await card.hover();
       const hovered = await inspect(card);
-      expect(hovered.background).toBe("rgb(37, 75, 53)");
+      expect(hovered.background).toBe("rgb(255, 255, 255)");
       expect(hovered.ratios.description).toBeGreaterThanOrEqual(4.5);
 
       await card.focus();
