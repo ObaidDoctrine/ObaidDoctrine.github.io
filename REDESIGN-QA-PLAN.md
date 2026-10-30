@@ -197,3 +197,27 @@ Implementation rules:
 6. Re-run automated and manual checks against rendered English LTR and Urdu RTL pages after implementation.
 
 No production CSS or component code was changed by this audit.
+
+
+## 11. Text-on-light-surface token alternatives (2026-10-30)
+
+The previous table tested dark/white text placed on solid category fills. This separate check tests the category hue itself when used as text or an icon on a white surface. It avoids the common mistake of assuming a colour that works as a card background also works as a text colour.
+
+| Semantic use | Current token | Current contrast on white | Candidate text token | Candidate contrast on white |
+|---|---:|---:|---:|---:|
+| Brand orange text/link | `#F47721` | 2.80:1 FAIL | `#C3550A` | 4.54:1 PASS |
+| Bright orange text/link | `#FF9B45` | 2.09:1 FAIL | `#BF5800` | 4.55:1 PASS |
+| Psychology text/link | `#8054C7` | 5.24:1 PASS | Keep current | 5.24:1 PASS |
+| Human Behaviour text/link | `#168B83` | 4.15:1 FAIL | `#15847C` | 4.54:1 PASS |
+| Relationships text/link | `#E34F78` | 3.71:1 FAIL | `#DE2E5F` | 4.50:1 PASS |
+| Marriage & Family text/link | `#D58B26` | 2.78:1 FAIL | `#A36A1D` | 4.53:1 PASS |
+| Self Improvement text/link | `#3478D4` | 4.39:1 FAIL | `#3176D3` | 4.50:1 PASS |
+| Mind Tests text/link | `#9B63C7` | 4.20:1 FAIL | `#975CC5` | 4.51:1 PASS |
+| Research & Insights text/link | `#39865A` | 4.44:1 FAIL | `#388459` | 4.55:1 PASS |
+| Learning Lab text/link | `#C36C35` | 3.81:1 FAIL | `#B16230` | 4.51:1 PASS |
+
+Candidate values are mathematically generated same-hue/saturation darker alternatives and are **proposals, not yet approved brand tokens**. Review them visually in the actual design before adoption. Keep the original bright orange for filled surfaces with charcoal foreground where its contrast passes; use the darker orange alternative only for orange text/icons on white. Likewise, separate each category's vivid identity/accent token from its accessible text token when needed.
+
+The calculations use white `#FFFFFF` as the background. Recheck on warm cream `#FFF3E8`, tinted chips, gradients, images, hover/focus states, and every actual rendered combination before release. Do not infer that this table certifies link affordance, focus visibility, or non-text contrast.
+
+No site source code or production configuration was modified by this recommendation.
