@@ -76,84 +76,73 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           APK_PATH="android-app/app/build/outputs/apk/release/app-release.apk"
-          APK_OUT="Obaid_Doctrine__v1.0.6.apk"
+          APK_OUT="Obaid_Doctrine__v1.0.7.apk"
           test -f "$APK_PATH"
           cp "$APK_PATH" "$APK_OUT"
-
           echo "=== FILE ==="
           file "$APK_OUT"
           stat -c 'SIZE_BYTES=%s' "$APK_OUT"
-
           echo "=== ZIP INTEGRITY ==="
           unzip -t "$APK_OUT" >/dev/null
-
           echo "=== ZIP ALIGNMENT ==="
           "$ANDROID_HOME/build-tools/36.0.0/zipalign" -c -P 16 -v 4 "$APK_OUT"
-
           echo "=== APK SIGNATURE ==="
           "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --min-sdk-version 23 "$APK_OUT"
-
           echo "=== APK CERTIFICATE ==="
           "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs "$APK_OUT"
-
           echo "=== APK MANIFEST/BADGING ==="
           BADGING="$("$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK_OUT")"
           printf '%s\n' "$BADGING"
-
-          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='6' versionName='1.0.6'"
+          printf '%s\n' "$BADGING" | grep -F "package: name='com.obaiddoctrine.app' versionCode='7' versionName='1.0.7'"
           printf '%s\n' "$BADGING" | grep -F "minSdkVersion:'23'"
           printf '%s\n' "$BADGING" | grep -F "targetSdkVersion:'36'"
-
           echo "=== ABI CHECK ==="
           if unzip -l "$APK_OUT" | grep -qE '(^| )lib/[^/]+/[^/]+\.so$'; then
             unzip -l "$APK_OUT" | grep -E '(^| )lib/[^/]+/[^/]+\.so$'
           else
             echo "No native .so libraries present; ABI-specific native compatibility check is not applicable."
           fi
-
           echo "=== SHA-256 ==="
           sha256sum "$APK_OUT"
 
       - name: Upload verified APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Obaid-Doctrine-Android-v1.0.6
-          path: Obaid_Doctrine__v1.0.6.apk
+          name: Obaid-Doctrine-Android-v1.0.7
+          path: Obaid_Doctrine__v1.0.7.apk
           if-no-files-found: error
 
-      - name: Publish GitHub Release v1.0.6
+      - name: Publish GitHub Release v1.0.7
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.6
-          name: Obaid Doctrine Android App v1.0.6
+          tag_name: v1.0.7
+          name: Obaid Doctrine Android App v1.0.7
           body: |
-            Official Obaid Doctrine Android App — Version 1.0.6
+            Official Obaid Doctrine Android App — Version 1.0.7
 
             Package: com.obaiddoctrine.app
             Minimum Android version: Android 6.0 (API 23)
             Target Android version: Android 16 (API 36)
-          files: Obaid_Doctrine__v1.0.6.apk
+            Includes the app authentication callback fix and hardened WebView navigation.
+          files: Obaid_Doctrine__v1.0.7.apk
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish single production APK into repository
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
+          git config user.email "41898282+users.noreply.github.com"
           git fetch origin main
           git reset --hard origin/main
-
           git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.6.APK"
-          git add "Obaid_Doctrine__v1.0.6.apk"
-
+          git add "Obaid_Doctrine__v1.0.7.apk"
           if git diff --cached --quiet; then
             echo "Production APK is already current."
           else
-            git commit -m "Publish verified Android app v1.0.6"
+            git commit -m "Publish verified Android app v1.0.7"
             git push origin HEAD:main
           fi
 
