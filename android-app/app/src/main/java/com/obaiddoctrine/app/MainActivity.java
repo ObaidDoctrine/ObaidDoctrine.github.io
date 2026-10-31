@@ -165,6 +165,15 @@ public class MainActivity extends Activity {
                     || path.startsWith("/auth/verify/")
                     || path.startsWith("/auth/recovery/")
                     || path.startsWith("/auth/reset-password/");
+            // Keep native app context on every account screen so logout and
+            // post-auth callbacks are handled by this Activity.
+            if (authPage && !"1".equals(uri.getQueryParameter("app"))) {
+                Uri appAuthUrl = uri.buildUpon()
+                        .appendQueryParameter("app", "1")
+                        .build();
+                view.loadUrl(appAuthUrl.toString());
+                return true;
+            }
             // Only the public landing page is available without authentication.
             if (authPage || path.equals("/") || path.isEmpty()) return false;
 
