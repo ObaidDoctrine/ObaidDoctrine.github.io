@@ -66,7 +66,12 @@ jobs:
           grep -F 'webView.clearCache(true);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'webView.loadUrl(HOME_URL);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'appendQueryParameter("returnTo", uri.toString())' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'appendQueryParameter("app", "1")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'if (authenticated) return false;' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'target.searchParams.set("returnTo", returnTo)' auth/auth.js
+          test "$(grep -c 'redirectTo.searchParams.set("returnTo", returnTo)' auth/auth.js)" -eq 2
+          grep -F 'suffix.set("returnTo",returnTo)' auth/recovery/index.html
+          grep -F 'window.location.replace("obaiddoctrine://logout")' auth/reset-password/index.html
           test "$(grep -c 'export async function requestPasswordReset' auth/auth.js)" -eq 1
           node --check auth/auth.js
           grep -F 'userPasswordReset' auth/auth.js
