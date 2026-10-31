@@ -134,21 +134,24 @@ if (logoutButton) {
   });
 }
 
-// The shared module is also imported by the signup page. Only the login page
-// owns the session-panel UI, so restore/render it only when that form exists.
 if (form) restoreSession();
 
-export async function signUpWithEmail(email, password) {
+export async function signUpWithEmail(email, password, displayName = "") {
   const { verifier, challenge } = await generatePKCEPair();
 
   localStorage.setItem("nhost_pkce_verifier", verifier);
 
+  const options = {
+    redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
+  };
+  if (displayName.trim()) {
+    options.displayName = displayName.trim().slice(0, 32);
+  }
+
   return nhost.auth.signUpEmailPassword({
     email,
     password,
-    options: {
-      redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
-    },
+    options,
     codeChallenge: challenge,
   });
 }
