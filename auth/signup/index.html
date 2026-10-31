@@ -1,39 +1,196 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Create Account | OBAID DOCTRINE</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://www.obaiddoctrine.com/auth/signup/">
 <link rel="stylesheet" href="/styles.css?v=ultra-editorial-20261003">
 <style>
-.auth-page{min-height:100vh;background:#101010;color:#f8f6f1}.auth-wrap{width:min(92%,520px);margin:auto;padding:70px 0}
-.auth-card{background:#191919;border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:32px;box-shadow:0 18px 55px rgba(0,0,0,.28)}
-.auth-brand{font-weight:900;letter-spacing:.08em;color:#ff7a1a;text-decoration:none}.auth-card h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1;margin:28px 0 10px;color:#fff}
-.auth-card p{color:#c5c0b8;line-height:1.6}.auth-field{display:grid;gap:7px;margin:18px 0}.auth-field label{font-size:12px;font-weight:800;letter-spacing:.08em;color:#ff9a50}
-.auth-field input{width:100%;box-sizing:border-box;padding:14px 15px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:#101010;color:#fff;font:inherit}
-.auth-field input:focus{outline:2px solid #ff7a1a;outline-offset:2px}
-.auth-button{width:100%;padding:14px 18px;border:0;border-radius:12px;background:#ff7a1a;color:#17110b;font-weight:900;cursor:pointer}.auth-button:disabled{opacity:.55}
-.auth-status{min-height:24px;margin-top:18px;font-size:14px;color:#ddd}.auth-status[data-type="error"]{color:#ff8b8b}.auth-status[data-type="success"]{color:#8bd5a5}
-.auth-secondary{margin-top:16px}.auth-secondary a{color:#ff9a50;font-weight:800}[hidden]{display:none!important}
-@media(max-width:560px){.auth-wrap{padding:36px 0}.auth-card{padding:24px;border-radius:20px}}
-</style></head>
-<body class="auth-page"><main class="auth-wrap"><a class="auth-brand" href="/">OBAID DOCTRINE</a>
-<section class="auth-card"><h1>Create Account</h1><p>Create your account with email and password. Verify your email to activate access.</p>
+:root{color-scheme:dark;--orange:#ff7a1a;--ink:#101010;--panel:#191919}
+*{box-sizing:border-box}
+.auth-page{min-height:100vh;background:var(--ink);color:#f8f6f1}
+.auth-wrap{width:min(92%,540px);margin:auto;padding:56px 0}
+.auth-card{background:var(--panel);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:30px;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.auth-brand{font-weight:900;letter-spacing:.08em;color:var(--orange);text-decoration:none}
+.auth-card h1{font-size:clamp(2rem,7vw,3rem);line-height:1.05;letter-spacing:-.04em;margin:26px 0 10px;color:#fff}
+.auth-card p{color:#c5c0b8;line-height:1.6}
+.auth-field{display:grid;gap:7px;margin:16px 0}
+.auth-field label{font-size:12px;font-weight:800;letter-spacing:.07em;color:#ff9a50}
+.auth-control{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:#101010;padding-right:10px}
+.auth-control input{width:100%;min-width:0;padding:14px;border:0;background:transparent;color:#fff;font:inherit}
+.auth-control input:focus{outline:2px solid var(--orange);outline-offset:2px;border-radius:10px}
+.auth-control button{flex:none;border:0;background:transparent;color:#ffb078;font:inherit;font-size:12px;font-weight:800;padding:8px;cursor:pointer}
+.auth-field>input{width:100%;padding:14px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:#101010;color:#fff;font:inherit}
+.auth-field>input:focus{outline:2px solid var(--orange);outline-offset:2px}
+.auth-hint{font-size:12px;color:#aaa49c;margin:2px 0 0}
+.auth-strength{height:5px;background:#39332d;border-radius:9px;overflow:hidden}
+.auth-strength span{display:block;height:100%;width:0;background:var(--orange);transition:width .15s ease}
+.auth-check{display:flex;align-items:flex-start;gap:10px;margin:20px 0;color:#d8d2ca;font-size:13px;line-height:1.5}
+.auth-check input{width:18px;height:18px;flex:none;accent-color:var(--orange);margin-top:1px}
+.auth-card a{color:#ffad75;font-weight:700}
+.auth-button{width:100%;padding:14px 18px;border:0;border-radius:12px;background:var(--orange);color:#17110b;font-weight:900;font-size:15px;cursor:pointer}
+.auth-button:disabled{opacity:.55;cursor:wait}
+.auth-status{min-height:24px;margin-top:16px;font-size:14px;color:#ddd}
+.auth-status[data-type="error"]{color:#ff9696}
+.auth-status[data-type="success"]{color:#91dfaa}
+.auth-secondary{margin-top:18px;text-align:center}
+[hidden]{display:none!important}
+@media(max-width:560px){.auth-wrap{padding:30px 0}.auth-card{padding:22px;border-radius:18px}}
+</style>
+</head>
+<body class="auth-page">
+<main class="auth-wrap">
+<a class="auth-brand" href="/">OBAID DOCTRINE</a>
+<section class="auth-card" aria-labelledby="signup-title">
+<h1 id="signup-title">Create your account</h1>
+<p>Join OBAID DOCTRINE to continue your learning journey. Verify your email to activate your account.</p>
 <form id="signup-form" novalidate>
-<div class="auth-field"><label for="email">EMAIL</label><input id="email" type="email" autocomplete="email" required></div>
-<div class="auth-field"><label for="password">PASSWORD</label><input id="password" type="password" autocomplete="new-password" minlength="8" required></div>
-<button id="signup-button" class="auth-button" type="submit">Create Account</button></form>
+  <div class="auth-field">
+    <label for="displayName">FULL NAME</label>
+    <input id="displayName" name="displayName" type="text" autocomplete="name" maxlength="32" required aria-describedby="name-hint">
+    <p class="auth-hint" id="name-hint">Use the name you want displayed on your account (up to 32 characters).</p>
+  </div>
+  <div class="auth-field">
+    <label for="email">EMAIL ADDRESS</label>
+    <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+  </div>
+  <div class="auth-field">
+    <label for="password">PASSWORD</label>
+    <div class="auth-control">
+      <input id="password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="50" required aria-describedby="password-hint password-strength-label">
+      <button type="button" class="toggle-password" data-target="password" aria-pressed="false">Show</button>
+    </div>
+    <p class="auth-hint" id="password-hint">Use 12–50 characters. A longer, unique passphrase is recommended.</p>
+    <div class="auth-strength" aria-hidden="true"><span id="strength-bar"></span></div>
+    <p class="auth-hint" id="password-strength-label" aria-live="polite">Password strength: not entered</p>
+  </div>
+  <div class="auth-field">
+    <label for="confirmPassword">CONFIRM PASSWORD</label>
+    <div class="auth-control">
+      <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="50" required>
+      <button type="button" class="toggle-password" data-target="confirmPassword" aria-pressed="false">Show</button>
+    </div>
+  </div>
+  <label class="auth-check">
+    <input id="termsAccepted" name="termsAccepted" type="checkbox" required>
+    <span>I agree to the <a href="/terms-and-conditions/" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> and acknowledge the <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
+  </label>
+  <button id="signup-button" class="auth-button" type="submit">Create Account</button>
+</form>
 <div id="auth-status" class="auth-status" role="status" aria-live="polite"></div>
-<p class="auth-secondary"><a id="signin-link" href="/auth/">Already have an account? Sign in</a></p></section></main>
+<p class="auth-secondary"><a id="signin-link" href="/auth/">Already have an account? Sign in</a></p>
+</section>
+</main>
 <script type="module">
 import { signUpWithEmail } from "/auth/auth.js";
-const form=document.getElementById("signup-form"), statusEl=document.getElementById("auth-status"), btn=document.getElementById("signup-button");
-const appMode=new URLSearchParams(location.search).get("app")==="1";
-document.getElementById("signin-link").href=appMode?"/auth/?app=1":"/auth/";
-form.addEventListener("submit",async e=>{e.preventDefault();statusEl.textContent="Creating account…";statusEl.dataset.type="";btn.disabled=true;
-try{const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;if(!email||!password||password.length<8)throw new Error("Enter a valid email and a password of at least 8 characters.");
-const response=await signUpWithEmail(email,password);
-if(response.body?.session){location.href=appMode?"/auth/?app=1":"/auth/";}else{statusEl.textContent="Account created. Check your email and open the verification link to activate your account.";statusEl.dataset.type="success";form.reset();}
-}catch(err){statusEl.textContent=err?.body?.message||err?.message||"Sign-up failed.";statusEl.dataset.type="error";}finally{btn.disabled=false;}});
-</script></body></html>
+
+const form = document.getElementById("signup-form");
+const statusEl = document.getElementById("auth-status");
+const btn = document.getElementById("signup-button");
+const nameInput = document.getElementById("displayName");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const confirmInput = document.getElementById("confirmPassword");
+const termsInput = document.getElementById("termsAccepted");
+const strengthBar = document.getElementById("strength-bar");
+const strengthLabel = document.getElementById("password-strength-label");
+const appMode = new URLSearchParams(location.search).get("app") === "1";
+
+document.getElementById("signin-link").href = appMode ? "/auth/?app=1" : "/auth/";
+
+function setStatus(message, type = "") {
+  statusEl.textContent = message;
+  statusEl.dataset.type = type;
+}
+
+function passwordStrength(value) {
+  if (!value) return { score: 0, label: "not entered" };
+  let score = 0;
+  if (value.length >= 12) score++;
+  if (value.length >= 16) score++;
+  if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+  if (/\d/.test(value)) score++;
+  if (/[^A-Za-z0-9]/.test(value)) score++;
+  if (new Set(value).size >= 8) score++;
+  const label = score <= 2 ? "weak" : score <= 4 ? "fair" : "strong";
+  return { score, label };
+}
+
+passwordInput.addEventListener("input", () => {
+  const result = passwordStrength(passwordInput.value);
+  strengthBar.style.width = `${Math.round(result.score / 6 * 100)}%`;
+  strengthLabel.textContent = `Password strength: ${result.label}`;
+});
+
+document.querySelectorAll(".toggle-password").forEach((button) => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.target);
+    const reveal = input.type === "password";
+    input.type = reveal ? "text" : "password";
+    button.textContent = reveal ? "Hide" : "Show";
+    button.setAttribute("aria-pressed", String(reveal));
+  });
+});
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (btn.disabled) return;
+
+  const displayName = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value;
+  const confirmation = confirmInput.value;
+
+  if (!displayName || displayName.length > 32) {
+    setStatus("Enter your name (up to 32 characters).", "error");
+    nameInput.focus();
+    return;
+  }
+  if (!emailInput.validity.valid || !email) {
+    setStatus("Enter a valid email address.", "error");
+    emailInput.focus();
+    return;
+  }
+  if (password.length < 12 || password.length > 50) {
+    setStatus("Your password must contain 12–50 characters.", "error");
+    passwordInput.focus();
+    return;
+  }
+  if (password !== confirmation) {
+    setStatus("The passwords do not match.", "error");
+    confirmInput.focus();
+    return;
+  }
+  if (!termsInput.checked) {
+    setStatus("Please accept the Terms & Conditions and Privacy Policy to continue.", "error");
+    termsInput.focus();
+    return;
+  }
+
+  btn.disabled = true;
+  setStatus("Creating your account…");
+
+  try {
+    const response = await signUpWithEmail(email, password, displayName);
+    if (response.body?.session) {
+      location.href = appMode ? "/auth/?app=1" : "/auth/";
+      return;
+    }
+    setStatus("Account created. Check your email and open the verification link to activate your account.", "success");
+    form.reset();
+    strengthBar.style.width = "0";
+    strengthLabel.textContent = "Password strength: not entered";
+  } catch (error) {
+    setStatus(
+      error?.body?.message || error?.message || "Sign-up failed. Please try again.",
+      "error"
+    );
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
