@@ -155,8 +155,11 @@ public class MainActivity extends Activity {
             boolean authPage = path.equals("/auth/")
                     || path.startsWith("/auth/signup/")
                     || path.startsWith("/auth/verify/");
+            // Legal documents must remain readable before registration/login.
+            boolean legalPage = path.equals("/privacy-policy/")
+                    || path.equals("/terms-and-conditions/");
 
-            if (authPage) return false;
+            if (authPage || legalPage) return false;
 
             view.stopLoading();
             view.loadUrl(AUTH_URL);
