@@ -38,7 +38,7 @@ const form=document.getElementById(formId),input=document.getElementById(inputId
 form.addEventListener("submit",async event=>{event.preventDefault();if(button.disabled)return;
 if(!input.validity.valid){input.reportValidity();return}button.disabled=true;show("Sending request…");
 try{await action(input.value);show(success,"success");form.reset()}
-catch(error){show(error?.body?.message||error?.message||"The request could not be completed. Try again later.","error")}
+catch(error){console.error("Account recovery request failed:",error);show("We could not process this request right now. Please try again later.","error")}
 finally{button.disabled=false}});
 }
 bind("reset-request","reset-email","reset-button",requestPasswordReset,"If the address is eligible, a reset email has been requested. Check your inbox and spam folder.");
