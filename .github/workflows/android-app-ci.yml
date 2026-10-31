@@ -37,6 +37,13 @@ jobs:
       - name: Compile debug APK
         working-directory: android-app
         run: gradle clean :app:assembleDebug --no-daemon
+      - name: Upload debug APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: obaid-doctrine-android-debug-v1.0.7
+          path: android-app/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
       - name: Verify app version and auth flow wiring
         run: |
           set -euo pipefail
