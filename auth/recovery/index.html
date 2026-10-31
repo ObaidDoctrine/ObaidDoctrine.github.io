@@ -28,7 +28,14 @@ a{color:#ffad75;font-weight:700}
 <button id="verify-button" type="submit">Resend verification email</button></form>
 <p id="status" class="status" role="status" aria-live="polite"></p>
 <p><a id="signin-link" href="/auth/">Back to sign in</a></p></section></main>
-<script>const appMode=new URLSearchParams(location.search).get("app")==="1";document.getElementById("signin-link").href=appMode?"/auth/?app=1":"/auth/";</script>
+<script>
+const params=new URLSearchParams(location.search);
+const suffix=new URLSearchParams();
+if(params.get("app")==="1")suffix.set("app","1");
+const returnTo=params.get("returnTo");
+if(returnTo)suffix.set("returnTo",returnTo);
+document.getElementById("signin-link").href="/auth/"+(suffix.toString()?"?"+suffix.toString():"");
+</script>
 <script type="module">
 import {requestPasswordReset,resendVerificationEmail} from "/auth/auth.js";
 const status=document.getElementById("status");
