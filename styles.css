@@ -508,3 +508,120 @@ html[lang="ur"] body:not([data-design]) .ghost {
   border-color:#EAD8C9;
   box-shadow:none;
 }
+
+
+/* Mobile/phone-width hardening for homepage, including browsers forced into Desktop-site mode.
+   The device-width clause catches narrow physical screens even when the CSS layout viewport is widened. */
+@media screen and (max-width:1100px), screen and (max-device-width:800px) {
+  body.home-page:not([data-design]) .site-header {
+    min-height:64px;
+    padding:8px 14px;
+    gap:8px;
+    flex-wrap:nowrap;
+  }
+  body.home-page:not([data-design]) .site-header > .brand {
+    flex:1 1 auto;
+    min-width:0;
+  }
+  body.home-page:not([data-design]) .site-header > .brand strong {
+    font-size:11px;
+    letter-spacing:.055em;
+  }
+  body.home-page:not([data-design]) .site-header > .brand small {
+    font-size:6px;
+    letter-spacing:.08em;
+  }
+  body.home-page:not([data-design]) .site-header > .account-link,
+  body.home-page:not([data-design]) .site-header > .nav {
+    display:none !important;
+  }
+  body.home-page:not([data-design]) .site-header > .lang a {
+    min-width:40px;
+    min-height:32px;
+    padding:6px 8px;
+    font-size:10px;
+  }
+  body.home-page:not([data-design]) .site-header > .mobile {
+    display:block !important;
+    flex:0 0 auto;
+    margin-inline-start:0;
+  }
+  body.home-page:not([data-design]) .site-header > .mobile .mobile-panel {
+    top:46px;
+    inset-inline-end:0;
+    left:auto;
+    right:0;
+    width:min(320px,calc(100vw - 28px));
+    z-index:60;
+  }
+  body.home-page:not([data-design]) .hero-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+    min-height:0;
+    gap:26px;
+    padding:44px 0 52px;
+  }
+  body.home-page:not([data-design]) .hero-copy {
+    width:100%;
+    max-width:760px;
+    margin-inline:auto;
+    text-align:center;
+  }
+  body.home-page:not([data-design]) .hero h1 {
+    margin-inline:auto;
+    font-size:clamp(38px,8vw,62px);
+    line-height:1.02;
+    text-wrap:balance;
+  }
+  body.home-page:not([data-design]) .hero-lead {
+    margin-inline:auto;
+    font-size:15px;
+  }
+  body.home-page:not([data-design]) .hero-actions {
+    justify-content:center;
+  }
+  body.home-page:not([data-design]) .hero-photo {
+    justify-self:center !important;
+    width:min(100%,380px) !important;
+    margin-inline:auto;
+  }
+  body.home-page:not([data-design]) .featured-panel {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  body.home-page:not([data-design]) .featured-side {
+    min-height:260px;
+  }
+}
+@media screen and (max-width:600px), screen and (max-device-width:480px) {
+  body.home-page:not([data-design]) .wrap {
+    width:calc(100% - 28px);
+  }
+  body.home-page:not([data-design]) .hero-grid {
+    padding:36px 0 44px;
+    gap:22px;
+  }
+  body.home-page:not([data-design]) .hero h1 {
+    font-size:clamp(34px,10.5vw,48px);
+    line-height:1.04;
+  }
+  body.home-page:not([data-design]) .hero-actions {
+    display:grid;
+    grid-template-columns:1fr;
+    width:min(100%,350px);
+    margin-inline:auto;
+  }
+  body.home-page:not([data-design]) .hero-actions .btn {
+    width:100%;
+  }
+  body.home-page:not([data-design]) .hero-photo {
+    width:min(100%,340px) !important;
+  }
+  body.home-page:not([data-design]) .featured-copy {
+    padding:30px 24px;
+  }
+  body.home-page:not([data-design]) .featured-copy h2 {
+    font-size:clamp(30px,8.5vw,42px);
+  }
+  body.home-page:not([data-design]) .featured-side {
+    min-height:230px;
+  }
+}
