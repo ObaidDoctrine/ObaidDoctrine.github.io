@@ -98,7 +98,11 @@ const strengthBar = document.getElementById("strength-bar");
 const strengthLabel = document.getElementById("password-strength-label");
 const appMode = new URLSearchParams(location.search).get("app") === "1";
 
-document.getElementById("signin-link").href = appMode ? "/auth/?app=1" : "/auth/";
+const returnTo = new URLSearchParams(location.search).get("returnTo");
+const authQuery = new URLSearchParams();
+if (appMode) authQuery.set("app", "1");
+if (returnTo) authQuery.set("returnTo", returnTo);
+document.getElementById("signin-link").href = "/auth/" + (authQuery.toString() ? "?" + authQuery.toString() : "");
 
 function setStatus(message, type = "") {
   statusEl.textContent = message;
@@ -175,7 +179,7 @@ form.addEventListener("submit", async (event) => {
   try {
     const response = await signUpWithEmail(email, password, displayName);
     if (response.body?.session) {
-      location.href = appMode ? "/auth/?app=1" : "/auth/";
+      location.href = "/auth/" + (authQuery.toString() ? "?" + authQuery.toString() : "");
       return;
     }
     setStatus("Account created. Check your email and open the verification link to activate your account.", "success");
