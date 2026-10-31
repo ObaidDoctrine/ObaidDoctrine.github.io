@@ -144,9 +144,11 @@ export async function signUpWithEmail(email, password, displayName = "") {
 
   localStorage.setItem("nhost_pkce_verifier", verifier);
 
-  const options = {
-    redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
-  };
+  const verifyUrl = new URL("/auth/verify/", window.location.origin);
+  if (APP_MODE) verifyUrl.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) verifyUrl.searchParams.set("returnTo", returnTo);
+  const options = { redirectTo: verifyUrl.toString() };
   if (displayName.trim()) {
     options.displayName = displayName.trim().slice(0, 32);
   }
