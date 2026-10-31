@@ -134,7 +134,7 @@ jobs:
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git reset --hard origin/main
           git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.6.APK"
