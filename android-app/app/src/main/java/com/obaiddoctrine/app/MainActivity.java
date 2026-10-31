@@ -157,8 +157,6 @@ public class MainActivity extends Activity {
         }
 
         if ("https".equalsIgnoreCase(scheme) && SITE_HOST.equalsIgnoreCase(host)) {
-            if (authenticated) return false;
-
             String path = uri.getPath() == null ? "/" : uri.getPath();
             boolean authPage = path.equals("/auth/")
                     || path.startsWith("/auth/signup/")
@@ -174,6 +172,10 @@ public class MainActivity extends Activity {
                 view.loadUrl(appAuthUrl.toString());
                 return true;
             }
+            // Authenticated users may open account screens, but all other
+            // same-origin pages remain in the existing authenticated session.
+            if (authenticated) return false;
+
             // Only the public landing page is available without authentication.
             if (authPage || path.equals("/") || path.isEmpty()) return false;
 
