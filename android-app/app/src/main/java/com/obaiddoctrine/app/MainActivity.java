@@ -202,7 +202,7 @@ public class MainActivity extends Activity {
         if (!authenticated) {
             if (webView != null) {
                 webView.clearHistory();
-                webView.loadUrl(AUTH_URL);
+                webView.loadUrl(HOME_URL);
             }
             return;
         }
