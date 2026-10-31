@@ -27,7 +27,11 @@ const code = params.get("code");
 const returnTo = params.get("returnTo");
 const verifier = localStorage.getItem("nhost_pkce_verifier");
 const status = document.getElementById("status");
-document.getElementById("signin-link").href = appMode ? "/auth/?app=1" : "/auth/";
+const signinQuery = new URLSearchParams();
+if (appMode) signinQuery.set("app", "1");
+if (returnTo) signinQuery.set("returnTo", returnTo);
+document.getElementById("signin-link").href =
+  "/auth/" + (signinQuery.toString() ? "?" + signinQuery.toString() : "");
 try {
   if (!code || !verifier) throw new Error("Verification link is missing required information.");
   const response = await nhost.auth.tokenExchange({ code, codeVerifier: verifier });
