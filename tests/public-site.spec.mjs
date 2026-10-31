@@ -464,4 +464,40 @@ test.describe("Mind Tests mobile viewport", () => {
       await context.close();
     }
   });
+
+
+  test("homepage remains mobile-stacked when a phone browser requests desktop layout", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 980, height: 844 },
+      screen: { width: 390, height: 844 },
+      deviceScaleFactor: 1,
+      isMobile: true,
+      hasTouch: true,
+    });
+    try {
+      const page = await context.newPage();
+      await assertPublicPage(page, "/");
+      const layout = await page.evaluate(() => {
+        const hero = document.querySelector(".hero-grid");
+        const featured = document.querySelector(".featured-panel");
+        const header = document.querySelector(".site-header");
+        return {
+          heroColumns: getComputedStyle(hero).gridTemplateColumns,
+          featuredColumns: getComputedStyle(featured).gridTemplateColumns,
+          navDisplay: getComputedStyle(header.querySelector(".nav")).display,
+          mobileDisplay: getComputedStyle(header.querySelector(".mobile")).display,
+          heroWidth: hero.getBoundingClientRect().width,
+          viewportWidth: document.documentElement.clientWidth,
+        };
+      });
+      expect(layout.heroColumns.trim().split(/\s+/)).toHaveLength(1);
+      expect(layout.featuredColumns.trim().split(/\s+/)).toHaveLength(1);
+      expect(layout.navDisplay).toBe("none");
+      expect(layout.mobileDisplay).not.toBe("none");
+      expect(layout.heroWidth).toBeLessThanOrEqual(layout.viewportWidth);
+    } finally {
+      await context.close();
+    }
+  });
+
 });
