@@ -54,6 +54,7 @@ jobs:
           grep -F 'document.getElementById("signin-link").href = "/auth/"' auth/signup/index.html
           grep -F 'verifyUrl.searchParams.set("returnTo", returnTo)' auth/auth.js
           grep -F 'callback.searchParams.set("returnTo", returnTo)' auth/verify/index.html
+          grep -F 'if (returnTo) signinQuery.set("returnTo", returnTo)' auth/verify/index.html
           grep -F 'obaiddoctrine://auth-success' auth/verify/index.html
           grep -F 'id="displayName"' auth/signup/index.html
           grep -F 'id="confirmPassword"' auth/signup/index.html
