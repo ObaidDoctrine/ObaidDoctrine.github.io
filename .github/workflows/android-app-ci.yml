@@ -63,7 +63,7 @@ jobs:
           grep -F 'generatePKCEPair()' auth/auth.js
           grep -F 'webView.loadUrl(verificationLink != null' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'path.equals("/") || path.isEmpty()' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
-          grep -F 'webView.loadUrl(HOME_URL);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'webView.clearCache(true);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'webView.loadUrl(HOME_URL);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'appendQueryParameter("returnTo", uri.toString())' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'target.searchParams.set("returnTo", returnTo)' auth/auth.js
