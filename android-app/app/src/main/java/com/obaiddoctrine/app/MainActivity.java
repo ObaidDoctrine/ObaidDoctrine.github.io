@@ -110,7 +110,8 @@ public class MainActivity extends Activity {
         Uri uri = intent.getData();
         if (!"https".equalsIgnoreCase(uri.getScheme())
                 || !SITE_HOST.equalsIgnoreCase(uri.getHost())
-                || !"/auth/verify/".equals(uri.getPath())
+                || !("/auth/verify/".equals(uri.getPath())
+                    || "/auth/reset-password/".equals(uri.getPath()))
                 || uri.getQueryParameter("code") == null
                 || uri.getQueryParameter("code").isEmpty()) {
             return null;
@@ -154,7 +155,9 @@ public class MainActivity extends Activity {
             String path = uri.getPath() == null ? "/" : uri.getPath();
             boolean authPage = path.equals("/auth/")
                     || path.startsWith("/auth/signup/")
-                    || path.startsWith("/auth/verify/");
+                    || path.startsWith("/auth/verify/")
+                    || path.startsWith("/auth/recovery/")
+                    || path.startsWith("/auth/reset-password/");
             // Legal documents must remain readable before registration/login.
             boolean legalPage = path.equals("/privacy-policy/")
                     || path.equals("/terms-and-conditions/");
