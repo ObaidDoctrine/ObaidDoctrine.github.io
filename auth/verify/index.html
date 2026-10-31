@@ -24,6 +24,7 @@ const nhost = createClient({ subdomain: "ctwtjtbtbujomdskcktc", region: "eu-cent
 const params = new URLSearchParams(location.search);
 const appMode = params.get("app") === "1";
 const code = params.get("code");
+const returnTo = params.get("returnTo");
 const verifier = localStorage.getItem("nhost_pkce_verifier");
 const status = document.getElementById("status");
 document.getElementById("signin-link").href = appMode ? "/auth/?app=1" : "/auth/";
@@ -34,9 +35,15 @@ try {
   if (!response.body?.session) throw new Error("Email verification did not establish an authenticated session.");
   status.textContent = "Email verified successfully. Opening OBAID DOCTRINE…";
   if (appMode) {
-    window.location.replace("obaiddoctrine://auth-success");
+    const callback = new URL("obaiddoctrine://auth-success");
+    if (returnTo) callback.searchParams.set("returnTo", returnTo);
+    window.location.replace(callback.toString());
   } else {
-    setTimeout(() => { location.href = "/auth/"; }, 800);
+    setTimeout(() => {
+      const target = new URL("/auth/", location.origin);
+      if (returnTo) target.searchParams.set("returnTo", returnTo);
+      location.href = target.toString();
+    }, 800);
   }
 } catch (error) {
   status.textContent = error?.body?.message || error?.message || "Email verification failed.";
