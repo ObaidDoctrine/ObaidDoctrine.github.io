@@ -61,3 +61,8 @@ jobs:
           grep -F 'generatePKCEPair()' auth/auth.js
           grep -F 'path.equals("/privacy-policy/")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'path.equals("/terms-and-conditions/")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'userPasswordReset' auth/auth.js
+          grep -F 'userEmailSendVerificationEmail' auth/auth.js
+          grep -F 'changePassword({ newPassword })' auth/auth.js
+          grep -F 'auth/reset-password/' android-app/app/src/main/AndroidManifest.xml
+          grep -F 'auth/recovery/' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
