@@ -29,8 +29,13 @@ a{color:#ffad75;font-weight:700}[hidden]{display:none!important}
 <p><a id="signin-link" href="/auth/">Back to sign in</a></p>
 </main>
 <script>
-const appMode=new URLSearchParams(location.search).get("app")==="1";
-document.getElementById("signin-link").href=appMode?"/auth/?app=1":"/auth/";
+const params=new URLSearchParams(location.search);
+const appMode=params.get("app")==="1";
+const returnTo=params.get("returnTo");
+const suffix=new URLSearchParams();
+if(appMode)suffix.set("app","1");
+if(returnTo)suffix.set("returnTo",returnTo);
+document.getElementById("signin-link").href="/auth/"+(suffix.toString()?"?"+suffix.toString():"");
 </script>
 <script type="module">
 import {completePasswordReset} from "/auth/auth.js";
@@ -45,7 +50,7 @@ form.addEventListener("submit",async event=>{
  if(password.value.length<12||password.value.length>50){show("Password must contain 12–50 characters.","error");password.focus();return}
  if(password.value!==confirm.value){show("The passwords do not match.","error");confirm.focus();return}
  button.disabled=true;show("Updating password…");
- try{await completePasswordReset(password.value);form.reset();show("Password updated. Please sign in with your new password.","success")}
+ try{await completePasswordReset(password.value);form.reset();show("Password updated. Please sign in with your new password.","success");if(appMode){window.location.replace("obaiddoctrine://logout");return}}
  catch(error){show(error?.body?.message||error?.message||"Password reset failed. Request a new reset email if this link has expired.","error");button.disabled=false}
 });
 </script></body></html>
