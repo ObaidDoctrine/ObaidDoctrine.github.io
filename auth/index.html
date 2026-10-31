@@ -59,12 +59,14 @@
 </div>
 <div id="auth-status" class="auth-status" role="status" aria-live="polite">Checking session…</div>
 <p class="auth-secondary"><a id="signup-link" href="/auth/signup/">Create a new account</a></p>
+<p class="auth-secondary"><a id="recovery-link" href="/auth/recovery/">Forgot password or need a new verification email?</a></p>
 <p class="auth-secondary"><a href="/">← Back to OBAID DOCTRINE</a></p>
 </section>
 </main>
 <script>
 const appMode = new URLSearchParams(location.search).get("app") === "1";
 document.getElementById("signup-link").href = appMode ? "/auth/signup/?app=1" : "/auth/signup/";
+document.getElementById("recovery-link").href = appMode ? "/auth/recovery/?app=1" : "/auth/recovery/";
 </script>
 <script type="module" src="/auth/auth.js"></script>
 </body>
