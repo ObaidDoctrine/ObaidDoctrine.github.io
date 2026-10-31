@@ -59,8 +59,12 @@ jobs:
           grep -F 'signUpWithEmail(email, password, displayName)' auth/signup/index.html
           grep -F 'options.displayName = displayName.trim().slice(0, 32)' auth/auth.js
           grep -F 'generatePKCEPair()' auth/auth.js
-          grep -F 'path.equals("/privacy-policy/")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
-          grep -F 'path.equals("/terms-and-conditions/")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'webView.loadUrl(verificationLink != null' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'path.equals("/") || path.isEmpty()' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'appendQueryParameter("returnTo", uri.toString())' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'target.searchParams.set("returnTo", returnTo)' auth/auth.js
+          test "$(grep -c 'export async function requestPasswordReset' auth/auth.js)" -eq 1
+          node --check auth/auth.js
           grep -F 'userPasswordReset' auth/auth.js
           grep -F 'userEmailSendVerificationEmail' auth/auth.js
           grep -F 'changePassword({ newPassword })' auth/auth.js
