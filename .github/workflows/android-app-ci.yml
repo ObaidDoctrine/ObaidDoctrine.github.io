@@ -66,3 +66,7 @@ jobs:
           grep -F 'changePassword({ newPassword })' auth/auth.js
           grep -F 'auth/reset-password/' android-app/app/src/main/AndroidManifest.xml
           grep -F 'auth/recovery/' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'requestPasswordReset' auth/recovery/index.html
+          grep -F 'resendVerificationEmail' auth/recovery/index.html
+          grep -F 'completePasswordReset' auth/reset-password/index.html
+          test -s auth/reset-password/index.html
