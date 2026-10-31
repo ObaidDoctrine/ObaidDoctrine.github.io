@@ -6,7 +6,9 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone"],
+  "display_override": [
+    "standalone"
+  ],
   "orientation": "portrait-primary",
   "background_color": "#FFFAF5",
   "theme_color": "#F47721",
@@ -14,10 +16,10 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/assets/brand-profile.png",
+      "src": "/assets/od-app-logo.svg",
       "sizes": "any",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
   "prefer_related_applications": false
