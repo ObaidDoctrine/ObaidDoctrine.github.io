@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         Uri verificationLink = getVerificationLink(getIntent());
         webView.loadUrl(verificationLink != null
                 ? verificationLink.toString()
-                : AUTH_URL);
+                : HOME_URL);
     }
 
     @Override
@@ -136,8 +136,15 @@ public class MainActivity extends Activity {
 
             if (AUTH_SUCCESS_HOST.equalsIgnoreCase(host)) {
                 authenticated = true;
+                String destination = uri.getQueryParameter("returnTo");
+                Uri safeDestination = destination == null ? null : Uri.parse(destination);
+                if (safeDestination == null
+                        || !"https".equalsIgnoreCase(safeDestination.getScheme())
+                        || !SITE_HOST.equalsIgnoreCase(safeDestination.getHost())) {
+                    safeDestination = Uri.parse(HOME_URL);
+                }
                 view.clearHistory();
-                view.loadUrl(HOME_URL);
+                view.loadUrl(safeDestination.toString());
                 return true;
             }
 
@@ -158,14 +165,14 @@ public class MainActivity extends Activity {
                     || path.startsWith("/auth/verify/")
                     || path.startsWith("/auth/recovery/")
                     || path.startsWith("/auth/reset-password/");
-            // Legal documents must remain readable before registration/login.
-            boolean legalPage = path.equals("/privacy-policy/")
-                    || path.equals("/terms-and-conditions/");
-
-            if (authPage || legalPage) return false;
+            // Only the public landing page is available without authentication.
+            if (authPage || path.equals("/") || path.isEmpty()) return false;
 
             view.stopLoading();
-            view.loadUrl(AUTH_URL);
+            Uri loginUrl = Uri.parse(AUTH_URL).buildUpon()
+                    .appendQueryParameter("returnTo", uri.toString())
+                    .build();
+            view.loadUrl(loginUrl.toString());
             return true;
         }
 
