@@ -208,3 +208,54 @@ export async function completePasswordReset(newPassword) {
   // Nhost revokes all existing sessions after a password change.
   nhost.clearSession();
 }
+
+
+export async function requestPasswordReset(email) {
+  const normalizedEmail = email.trim().toLowerCase();
+  if (!normalizedEmail) throw new Error("Enter your email address.");
+  const { verifier, challenge } = await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier_password_reset", verifier);
+  const redirectTo = new URL("/auth/reset-password/", window.location.origin);
+  if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  try {
+    return await nhost.auth.userPasswordReset({
+      email: normalizedEmail,
+      options: { redirectTo: redirectTo.toString() },
+      codeChallenge: challenge,
+    });
+  } catch (error) {
+    localStorage.removeItem("nhost_pkce_verifier_password_reset");
+    throw error;
+  }
+}
+
+export async function resendVerificationEmail(email) {
+  const normalizedEmail = email.trim().toLowerCase();
+  if (!normalizedEmail) throw new Error("Enter your email address.");
+  const { verifier, challenge } = await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier", verifier);
+  const redirectTo = new URL("/auth/verify/", window.location.origin);
+  if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  try {
+    return await nhost.auth.userEmailSendVerificationEmail({
+      email: normalizedEmail,
+      options: { redirectTo: redirectTo.toString() },
+      codeChallenge: challenge,
+    });
+  } catch (error) {
+    localStorage.removeItem("nhost_pkce_verifier");
+    throw error;
+  }
+}
+
+export async function completePasswordReset(newPassword) {
+  const code = new URLSearchParams(window.location.search).get("code");
+  const verifier = localStorage.getItem("nhost_pkce_verifier_password_reset");
+  if (!code || !verifier) {
+    throw new Error("This reset link is incomplete or expired. Request a new password reset email.");
+  }
+  await nhost.auth.tokenExchange({ code, codeVerifier: verifier });
+  localStorage.removeItem("nhost_pkce_verifier_password_reset");
+  await nhost.auth.changePassword({ newPassword });
+  nhost.clearSession();
+}
