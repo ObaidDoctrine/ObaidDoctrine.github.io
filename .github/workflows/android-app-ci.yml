@@ -44,12 +44,18 @@ jobs:
           path: android-app/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
-      - name: Verify app version and auth flow wiring
+      - name: Verify app version and authentication flow
         run: |
           set -euo pipefail
           grep -F 'versionCode 7' android-app/app/build.gradle
           grep -F 'versionName "1.0.7"' android-app/app/build.gradle
           grep -F 'AUTH_URL' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
           grep -F 'auth/signup/?app=1' auth/index.html
-          grep -F 'signin-link").href=appMode?"/auth/?app=1"' auth/signup/index.html
+          grep -F 'signin-link").href = appMode ? "/auth/?app=1"' auth/signup/index.html
           grep -F 'obaiddoctrine://auth-success' auth/verify/index.html
+          grep -F 'id="displayName"' auth/signup/index.html
+          grep -F 'id="confirmPassword"' auth/signup/index.html
+          grep -F 'id="termsAccepted"' auth/signup/index.html
+          grep -F 'signUpWithEmail(email, password, displayName)' auth/signup/index.html
+          grep -F 'options.displayName = displayName.trim().slice(0, 32)' auth/auth.js
+          grep -F 'generatePKCEPair()' auth/auth.js
