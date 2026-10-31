@@ -72,7 +72,6 @@ public class MainActivity extends Activity {
             @Override
             public void onReceivedSslError(
                     WebView view, SslErrorHandler handler, SslError error) {
-                // Never bypass certificate validation for the trusted app origin.
                 handler.cancel();
             }
         });
@@ -82,9 +81,43 @@ public class MainActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
 
-        // Always pass through the authentication gate on a fresh activity start.
         webView.clearHistory();
-        webView.loadUrl(AUTH_URL);
+        Uri verificationLink = getVerificationLink(getIntent());
+        webView.loadUrl(verificationLink != null
+                ? verificationLink.toString()
+                : AUTH_URL);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+        Uri verificationLink = getVerificationLink(intent);
+        if (verificationLink != null && webView != null) {
+            authenticated = false;
+            webView.stopLoading();
+            webView.clearHistory();
+            webView.loadUrl(verificationLink.toString());
+        }
+    }
+
+    // Accept only the site's own email-verification URL and require an auth code.
+    // Loading it in this WebView preserves the PKCE verifier stored during signup.
+    private Uri getVerificationLink(Intent intent) {
+        if (intent == null || intent.getData() == null) return null;
+
+        Uri uri = intent.getData();
+        if (!"https".equalsIgnoreCase(uri.getScheme())
+                || !SITE_HOST.equalsIgnoreCase(uri.getHost())
+                || !"/auth/verify/".equals(uri.getPath())
+                || uri.getQueryParameter("code") == null
+                || uri.getQueryParameter("code").isEmpty()) {
+            return null;
+        }
+
+        if ("1".equals(uri.getQueryParameter("app"))) return uri;
+        return uri.buildUpon().appendQueryParameter("app", "1").build();
     }
 
     private boolean handleNavigation(WebView view, Uri uri) {
@@ -130,7 +163,6 @@ public class MainActivity extends Activity {
             return true;
         }
 
-        // Only hand off standard web and communication links to other apps.
         if ("https".equalsIgnoreCase(scheme)
                 || "http".equalsIgnoreCase(scheme)
                 || "mailto".equalsIgnoreCase(scheme)
@@ -141,7 +173,6 @@ public class MainActivity extends Activity {
                 // No compatible external handler is installed.
             }
         }
-        // Unknown schemes (including file:, intent: and javascript:) are blocked.
         return true;
     }
 
