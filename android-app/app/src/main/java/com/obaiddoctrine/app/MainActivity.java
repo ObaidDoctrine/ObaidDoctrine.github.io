@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
         webView.stopLoading();
         webView.clearHistory();
         webView.clearCache(true);
-        webView.loadUrl(AUTH_URL);
+        webView.loadUrl(HOME_URL);
     }
 
     @Override
