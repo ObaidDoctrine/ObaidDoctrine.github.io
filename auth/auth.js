@@ -21,13 +21,17 @@ const logoutButton = document.getElementById("logout-button");
 const submitButton = document.getElementById("login-button");
 
 function setStatus(message, type = "") {
+  if (!statusEl) return;
   statusEl.textContent = message;
   statusEl.dataset.type = type;
 }
 
 function redirectIntoAndroidApp(callback) {
   if (APP_MODE) {
-    window.location.replace(callback);
+    const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+    const target = new URL(callback);
+    if (returnTo) target.searchParams.set("returnTo", returnTo);
+    window.location.replace(target.toString());
   }
 }
 
@@ -35,17 +39,17 @@ function renderSession(session) {
   const user = session?.user;
 
   if (user) {
-    formPanel.hidden = true;
-    sessionPanel.hidden = false;
-    userEmailEl.textContent = user.email || "Authenticated user";
+    if (formPanel) formPanel.hidden = true;
+    if (sessionPanel) sessionPanel.hidden = false;
+    if (userEmailEl) userEmailEl.textContent = user.email || "Authenticated user";
     setStatus("Session verified.", "success");
     redirectIntoAndroidApp(APP_CALLBACK);
     return;
   }
 
-  formPanel.hidden = false;
-  sessionPanel.hidden = true;
-  userEmailEl.textContent = "";
+  if (formPanel) formPanel.hidden = false;
+  if (sessionPanel) sessionPanel.hidden = true;
+  if (userEmailEl) userEmailEl.textContent = "";
   setStatus("Not signed in.");
 }
 
@@ -133,19 +137,83 @@ if (logoutButton) {
   });
 }
 
-restoreSession();
+if (form) restoreSession();
 
-export async function signUpWithEmail(email, password) {
+export async function signUpWithEmail(email, password, displayName = "") {
   const { verifier, challenge } = await generatePKCEPair();
 
   localStorage.setItem("nhost_pkce_verifier", verifier);
 
+  const verifyUrl = new URL("/auth/verify/", window.location.origin);
+  if (APP_MODE) verifyUrl.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) verifyUrl.searchParams.set("returnTo", returnTo);
+  const options = { redirectTo: verifyUrl.toString() };
+  if (displayName.trim()) {
+    options.displayName = displayName.trim().slice(0, 32);
+  }
+
   return nhost.auth.signUpEmailPassword({
     email,
     password,
-    options: {
-      redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
-    },
+    options,
     codeChallenge: challenge,
   });
+}
+
+
+export async function requestPasswordReset(email) {
+  const normalizedEmail = email.trim().toLowerCase();
+  if (!normalizedEmail) throw new Error("Enter your email address.");
+  const { verifier, challenge } = await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier_password_reset", verifier);
+  const redirectTo = new URL("/auth/reset-password/", window.location.origin);
+  if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) redirectTo.searchParams.set("returnTo", returnTo);
+  try {
+    return await nhost.auth.userPasswordReset({
+      email: normalizedEmail,
+      options: { redirectTo: redirectTo.toString() },
+      codeChallenge: challenge,
+    });
+  } catch (error) {
+    localStorage.removeItem("nhost_pkce_verifier_password_reset");
+    throw error;
+  }
+}
+
+export async function resendVerificationEmail(email) {
+  const normalizedEmail = email.trim().toLowerCase();
+  if (!normalizedEmail) throw new Error("Enter your email address.");
+  const { verifier, challenge } = await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier", verifier);
+  const redirectTo = new URL("/auth/verify/", window.location.origin);
+  if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) redirectTo.searchParams.set("returnTo", returnTo);
+  try {
+    return await nhost.auth.userEmailSendVerificationEmail({
+      email: normalizedEmail,
+      options: { redirectTo: redirectTo.toString() },
+      codeChallenge: challenge,
+    });
+  } catch (error) {
+    localStorage.removeItem("nhost_pkce_verifier");
+    throw error;
+  }
+}
+
+export async function completePasswordReset(newPassword) {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const verifier = localStorage.getItem("nhost_pkce_verifier_password_reset");
+  if (!code || !verifier) {
+    throw new Error("This reset link is incomplete or expired. Request a new password reset email.");
+  }
+  await nhost.auth.tokenExchange({ code, codeVerifier: verifier });
+  localStorage.removeItem("nhost_pkce_verifier_password_reset");
+  await nhost.auth.changePassword({ newPassword });
+  // Nhost revokes all existing sessions after a password change.
+  nhost.clearSession();
 }

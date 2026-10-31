@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Account Recovery | OBAID DOCTRINE</title><meta name="robots" content="noindex,nofollow">
+<style>
+:root{color-scheme:dark;--orange:#ff7a1a;--ink:#101010;--panel:#191919}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--ink);color:#f8f6f1;font:16px/1.6 system-ui,sans-serif}
+main{width:min(92%,540px);margin:0 auto;padding:48px 0}.brand{color:var(--orange);font-weight:900;letter-spacing:.08em;text-decoration:none}
+.card{margin-top:20px;padding:28px;background:var(--panel);border:1px solid #39332d;border-radius:22px}
+h1{font-size:clamp(2rem,7vw,3rem);line-height:1.05;color:#fff;margin:12px 0}
+h2{font-size:1.15rem;color:#ff9a50;margin:24px 0 8px}p{color:#c5c0b8}
+.field{display:grid;gap:7px;margin:16px 0}label{font-size:12px;font-weight:800;letter-spacing:.07em;color:#ff9a50}
+input{width:100%;padding:14px;border:1px solid #51473e;border-radius:12px;background:#101010;color:#fff;font:inherit}
+button{width:100%;padding:14px;border:0;border-radius:12px;background:var(--orange);color:#17110b;font-weight:900;cursor:pointer}
+button:disabled{opacity:.55}.status{min-height:24px;margin-top:12px;color:#ddd}
+.status[data-type="error"]{color:#ff9696}.status[data-type="success"]{color:#91dfaa}
+a{color:#ffad75;font-weight:700}
+</style></head>
+<body><main><a class="brand" href="/">OBAID DOCTRINE</a>
+<section class="card"><h1>Account recovery</h1>
+<p>Use the email address linked to your account. For your security, we do not reveal whether an email is registered.</p>
+<form id="reset-request"><h2>Reset your password</h2>
+<div class="field"><label for="reset-email">EMAIL ADDRESS</label><input id="reset-email" type="email" autocomplete="email" maxlength="254" required></div>
+<button id="reset-button" type="submit">Send password reset email</button></form>
+<form id="resend-form"><h2>Resend email verification</h2>
+<div class="field"><label for="verify-email">EMAIL ADDRESS</label><input id="verify-email" type="email" autocomplete="email" maxlength="254" required></div>
+<button id="verify-button" type="submit">Resend verification email</button></form>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<p><a id="signin-link" href="/auth/">Back to sign in</a></p></section></main>
+<script>
+const params=new URLSearchParams(location.search);
+const suffix=new URLSearchParams();
+if(params.get("app")==="1")suffix.set("app","1");
+const returnTo=params.get("returnTo");
+if(returnTo)suffix.set("returnTo",returnTo);
+document.getElementById("signin-link").href="/auth/"+(suffix.toString()?"?"+suffix.toString():"");
+</script>
+<script type="module">
+import {requestPasswordReset,resendVerificationEmail} from "/auth/auth.js";
+const status=document.getElementById("status");
+function show(message,type=""){status.textContent=message;status.dataset.type=type}
+function bind(formId,inputId,buttonId,action,success){
+const form=document.getElementById(formId),input=document.getElementById(inputId),button=document.getElementById(buttonId);
+form.addEventListener("submit",async event=>{event.preventDefault();if(button.disabled)return;
+if(!input.validity.valid){input.reportValidity();return}button.disabled=true;show("Sending request…");
+try{await action(input.value);show(success,"success");form.reset()}
+catch(error){console.error("Account recovery request failed:",error);show("We could not process this request right now. Please try again later.","error")}
+finally{button.disabled=false}});
+}
+bind("reset-request","reset-email","reset-button",requestPasswordReset,"If the address is eligible, a reset email has been requested. Check your inbox and spam folder.");
+bind("resend-form","verify-email","verify-button",resendVerificationEmail,"If verification is needed, a new email has been requested. Check your inbox and spam folder.");
+</script></body></html>
