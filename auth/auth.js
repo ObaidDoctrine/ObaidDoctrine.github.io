@@ -213,4 +213,3 @@ export async function completePasswordReset(newPassword) {
   // Nhost revokes all existing sessions after a password change.
   nhost.clearSession();
 }
-}
