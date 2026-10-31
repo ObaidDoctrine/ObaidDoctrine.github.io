@@ -169,6 +169,8 @@ export async function requestPasswordReset(email) {
   localStorage.setItem("nhost_pkce_verifier_password_reset", verifier);
   const redirectTo = new URL("/auth/reset-password/", window.location.origin);
   if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) redirectTo.searchParams.set("returnTo", returnTo);
   try {
     return await nhost.auth.userPasswordReset({
       email: normalizedEmail,
@@ -188,6 +190,8 @@ export async function resendVerificationEmail(email) {
   localStorage.setItem("nhost_pkce_verifier", verifier);
   const redirectTo = new URL("/auth/verify/", window.location.origin);
   if (APP_MODE) redirectTo.searchParams.set("app", "1");
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+  if (returnTo) redirectTo.searchParams.set("returnTo", returnTo);
   try {
     return await nhost.auth.userEmailSendVerificationEmail({
       email: normalizedEmail,
