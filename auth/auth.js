@@ -21,6 +21,7 @@ const logoutButton = document.getElementById("logout-button");
 const submitButton = document.getElementById("login-button");
 
 function setStatus(message, type = "") {
+  if (!statusEl) return;
   statusEl.textContent = message;
   statusEl.dataset.type = type;
 }
@@ -35,17 +36,17 @@ function renderSession(session) {
   const user = session?.user;
 
   if (user) {
-    formPanel.hidden = true;
-    sessionPanel.hidden = false;
-    userEmailEl.textContent = user.email || "Authenticated user";
+    if (formPanel) formPanel.hidden = true;
+    if (sessionPanel) sessionPanel.hidden = false;
+    if (userEmailEl) userEmailEl.textContent = user.email || "Authenticated user";
     setStatus("Session verified.", "success");
     redirectIntoAndroidApp(APP_CALLBACK);
     return;
   }
 
-  formPanel.hidden = false;
-  sessionPanel.hidden = true;
-  userEmailEl.textContent = "";
+  if (formPanel) formPanel.hidden = false;
+  if (sessionPanel) sessionPanel.hidden = true;
+  if (userEmailEl) userEmailEl.textContent = "";
   setStatus("Not signed in.");
 }
 
@@ -133,7 +134,9 @@ if (logoutButton) {
   });
 }
 
-restoreSession();
+// The shared module is also imported by the signup page. Only the login page
+// owns the session-panel UI, so restore/render it only when that form exists.
+if (form) restoreSession();
 
 export async function signUpWithEmail(email, password) {
   const { verifier, challenge } = await generatePKCEPair();
