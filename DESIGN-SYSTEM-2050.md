@@ -8,19 +8,19 @@
 - Main branch was re-checked before changes; implementation work is isolated on `design/2050-knowledge-platform`.
 
 ## Design concept
-Quiet Futurism for Knowledge:
-- ivory editorial canvas + deep botanical green structure + lime signal accent;
+Warm Editorial Knowledge System:
+- warm cream editorial canvas + charcoal structure + orange signal accent;
 - thin precision borders, layered surfaces and restrained depth instead of glassmorphism;
 - asymmetric editorial grids and a recurring Knowledge Card motif;
 - motion is short, purposeful and skipped/reduced for reduced-motion users;
 - content remains the dominant visual element.
 
 ## Core tokens
-- `--od-forest: #31543A`
-- `--od-lime: #B7D84B`
-- `--od-sage: #DCE8B5`
-- `--od-ivory: #FAFAF5`
-- `--od-muted: #6F756F`
+- `--od-forest: #171717`
+- `--od-lime: #F47721`
+- `--od-sage: #FFF0E5`
+- `--od-ivory: #FFFAF5`
+- `--od-muted: #665B53`
 - `--od-white: #FFFFFF`
 
 ## Signature system
