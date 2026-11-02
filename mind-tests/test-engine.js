@@ -1,5 +1,5 @@
 /* OBAID DOCTRINE — Mind Tests Engine
- * Version 2026-10-03
+ * Version 2026-11-02
  * Educational self-reflection only. No diagnosis, clinical scoring or fabricated norms.
  */
 (function(){
@@ -65,6 +65,15 @@ function injectStyles(){
 .od-evidence{margin-top:22px;padding:16px;border:1px solid #e4eaf3;border-radius:16px;background:#f8faff}.od-evidence ul{margin:.5rem 0 0;padding-inline-start:1.2rem}.od-evidence a{color:#c85a0b;font-weight:700}
 .od-test-note{margin-top:18px;padding:14px 16px;border-inline-start:4px solid #f47721;background:#fff8f2;border-radius:14px;color:#59655c;line-height:1.7}.od-test-share{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.od-test-share button,.od-test-share a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 13px;border:1px solid #f1c7a8;border-radius:999px;background:#fff8f2;color:#a84908;text-decoration:none;font:700 12px/1.4 Inter,Arial,sans-serif;cursor:pointer}
 body:has(#test){background:radial-gradient(ellipse at 85% 12%,rgba(244,119,33,.08),transparent 32%),#f7f8fc;color:#111b32}
+body:has(#test) .site-header{background:rgba(255,255,255,.94)!important;border-bottom:1px solid #e5e9f2!important;box-shadow:0 6px 24px rgba(16,30,58,.06)!important}
+body:has(#test) .site-header .brand{color:#171717!important}
+body:has(#test) .site-header .brand small{color:#667085!important}
+body:has(#test) .site-header .brand-mark{background:#f47721!important;color:#171717!important;border-color:#f47721!important}
+body:has(#test) .site-header nav a{color:#21324d!important}
+body:has(#test) .site-header nav a:hover,body:has(#test) .site-header nav a[aria-current="page"]{color:#c85a0b!important}
+body:has(#test) .content-wrap .btn{background:#fff8f2!important;border-color:#f1c7a8!important;color:#a84908!important;box-shadow:none!important}
+body:has(#test) .mind-test-actions .btn.primary{background:#f47721!important;border-color:#f47721!important;color:#171717!important;box-shadow:0 8px 22px rgba(244,119,33,.22)!important}
+body:has(#test) .test-question h2,body:has(#test) .mind-result h2,body:has(#test) .mind-result h3{color:#101d36!important}
 .site-header{background:rgba(255,255,255,.94);border-bottom:1px solid #e5e9f2;box-shadow:0 6px 24px rgba(16,30,58,.06)}
 .page-hero{position:relative;isolation:isolate;overflow:hidden;width:min(1240px,calc(100% - 32px));margin:24px auto 0;padding:clamp(28px,5vw,62px);border:0!important;border-radius:28px!important;background:radial-gradient(circle at 12% 18%,rgba(244,119,33,.24),transparent 27%),linear-gradient(125deg,#07172f 0%,#102d53 60%,#173a63 100%)!important;color:#fff!important;box-shadow:0 22px 52px rgba(12,31,60,.16)}
 .page-hero:after{content:"";position:absolute;z-index:-1;width:240px;height:240px;right:-90px;bottom:-140px;border:1px solid rgba(255,255,255,.18);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025)}
