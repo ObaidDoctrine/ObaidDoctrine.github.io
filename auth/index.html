@@ -59,7 +59,6 @@
 </div>
 <div id="auth-status" class="auth-status" role="status" aria-live="polite">Checking session…</div>
 <p class="auth-secondary"><a id="signup-link" href="/auth/signup/">Create a new account</a></p>
-<p class="auth-secondary"><a id="recovery-link" href="/auth/recovery/">Forgot password or need a new verification email?</a></p>
 <p class="auth-secondary"><a href="/">← Back to OBAID DOCTRINE</a></p>
 </section>
 </main>
@@ -71,7 +70,6 @@ if (appMode) suffix.set("app", "1");
 if (returnTo) suffix.set("returnTo", returnTo);
 const query = suffix.toString();
 document.getElementById("signup-link").href = "/auth/signup/" + (query ? "?" + query : "");
-document.getElementById("recovery-link").href = "/auth/recovery/" + (query ? "?" + query : "");
 </script>
 <script type="module" src="/auth/auth.js"></script>
 </body>
