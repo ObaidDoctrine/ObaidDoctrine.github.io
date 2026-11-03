@@ -79,3 +79,11 @@ This is an initial verified source audit plus a targeted content-quality correct
 - Used the existing Urdu topic guidance as a bilingual meaning and coverage reference; the Urdu text itself was not changed in this pass.
 - Re-fetched both pages after the update. Verified 100 topic cards and 10 category sections in each language, correct English/Urdu language-direction declarations, and three labelled guidance paragraphs in each of topics 81–90.
 - This remains an editorial consistency pass, not independent financial/legal advice certification, full source verification or a complete semantic parity audit. No production deployment was performed.
+
+## Follow-up pass: trusted source-map expansion
+
+- Expanded the visible source map on both English and Urdu pages with five additional direct resources: UN Statistics Division Minimum Set of Gender Indicators; UNESCO women-and-girls research/publications; Pakistan's National Strategy to Counter Technology-Facilitated Gender-Based Violence (published 16 April 2026); UN Women Data Hub publications; and United Nations Pakistan publications.
+- Opened and checked the source pages before adding them. The Pakistan strategy page identifies the Government of Pakistan Ministry of Human Rights and UNDP as developers and describes prevention, protection, redress and institutional coordination. UNESCO's resource page covers education, science/technology and gender-based violence; UN Statistics Division documents indicator themes and metadata; UN Women Data Hub lists research publications; UN Pakistan provides country publications.
+- The new links improve discovery and source relevance but are not yet attached to individual claims/cards. A page-level source map must not be represented as per-topic citation coverage.
+- English and Urdu source-map additions use the same five URLs; only link labels are translated. No statistics were copied into topic cards during this pass.
+- Structural re-fetch and link-list parity check remain required after the update. No production deployment was performed.
