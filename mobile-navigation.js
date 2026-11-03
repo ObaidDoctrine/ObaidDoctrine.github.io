@@ -126,10 +126,16 @@
     button.setAttribute("aria-expanded", "false");
     button.innerHTML = '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
 
-    const languageBar = document.createElement("div");
-    languageBar.className = "od-visible-language-switch";
-    languageBar.setAttribute("aria-label", "Choose language");
-    languageBar.innerHTML = '<a href="' + englishPath + '"' + (!isUrdu ? ' aria-current="page"' : '') + '>English</a><a href="' + urduPath + '"' + (isUrdu ? ' aria-current="page"' : '') + '>اردو</a>';
+    // Reuse the language switch already present in the site header.
+    // Inject a floating switch only on legacy pages that do not have one.
+    const hasNativeLanguageSwitch = !!document.querySelector(".site-header .lang, .site-header .od-language-switch");
+    let languageBar = null;
+    if (!hasNativeLanguageSwitch) {
+      languageBar = document.createElement("div");
+      languageBar.className = "od-visible-language-switch";
+      languageBar.setAttribute("aria-label", "Choose language");
+      languageBar.innerHTML = '<a href="' + englishPath + '"' + (!isUrdu ? ' aria-current="page"' : '') + '>English</a><a href="' + urduPath + '"' + (isUrdu ? ' aria-current="page"' : '') + '>اردو</a>';
+    }
 
     const overlay = document.createElement("div");
     overlay.className = "od-side-menu-overlay";
@@ -196,7 +202,7 @@
     `;
     document.head.appendChild(style);
     document.body.appendChild(button);
-    document.body.appendChild(languageBar);
+    if (languageBar) document.body.appendChild(languageBar);
     document.body.appendChild(overlay);
     document.body.appendChild(panel);
 
