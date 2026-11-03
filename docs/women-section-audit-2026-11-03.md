@@ -87,3 +87,7 @@ This is an initial verified source audit plus a targeted content-quality correct
 - The new links improve discovery and source relevance but are not yet attached to individual claims/cards. A page-level source map must not be represented as per-topic citation coverage.
 - English and Urdu source-map additions use the same five URLs; only link labels are translated. No statistics were copied into topic cards during this pass.
 - Structural re-fetch and link-list parity check remain required after the update. No production deployment was performed.
+
+## Bilingual parity pass — topics 11, 12, 13, 15 and 20 (3 November 2026)
+
+Compared the English and Urdu guidance for the first 20 topics. Updated Urdu topics 11, 12, 13, 15 and 20 to restore material points present in the English versions: career and structural constraints after marriage; caregiving/childbirth/illness-related career breaks; boundaries without undermining legitimate teamwork; unequal access to visibility and advancement in remote work; and unequal access to business finance/support plus basic unit-cost/revenue planning. Re-fetched the Urdu page after the edit and verified 100 topic cards remain and each of the five edited cards still contains exactly three labelled guidance paragraphs. This is a focused semantic-parity correction, not certification of all 100 bilingual pairs.
