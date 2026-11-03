@@ -25,15 +25,16 @@ Counts were derived from the two repository HTML files at audit time. The 100 ca
 2. Both pages have canonical URLs and reciprocal hreflang links.
 3. The pages provide a global source-map section, but the current markup does not provide per-topic inline numbered citations and a traceable article-specific reference list.
 4. The English page has no explicit publication/review-date fields in its current markup.
-5. Several English AI-related cards repeated the same wording in the “What to understand” and “Practical step” fields. The six affected cards (topics 71–76) were improved on this branch to give the practical-step field distinct, actionable guidance.
+5. The English AI-related cards (topics 71–76) had practical guidance that was too generic or repetitive relative to the topic. Their English practical steps were revised, and the corresponding Urdu practical steps were expanded to improve bilingual depth and provide more specific actions. This is a targeted content pass, not a full bilingual semantic review.
 6. These pages are large, single-file HTML documents with embedded CSS and content. Any further edits should remain scoped and preserve existing URLs, design dependencies and unrelated site sections.
 7. The current page's advertised “100-topic bilingual” description should not be interpreted as evidence that each card is a fully researched standalone article or that every topic has equivalent depth in both languages.
 
 ## Changes on this branch
 
 - Updated the English practical guidance for topics 71–76: AI literacy, AI-related job transitions, women in STEM and AI, algorithmic hiring, AI privacy, and digital identity protection.
+- Expanded the corresponding Urdu practical guidance for topics 71–76 to better match the actionable depth of the English version.
+- Re-fetched both files after the edits and verified that each still contains 100 topic cards, 10 category sections, and three guidance fields per card. This structural check does not establish full semantic parity or runtime correctness.
 - No production deployment was performed.
-- The Urdu file was not modified in this pass.
 - No medical or legal claim is certified as independently reviewed by this audit.
 
 ## Required next work
