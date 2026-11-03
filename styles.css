@@ -625,3 +625,7 @@ html[lang="ur"] body:not([data-design]) .ghost {
     min-height:230px;
   }
 }
+
+/* Tighten individual Mind Test hero icon line-box to keep the title within the verified header spacing. */
+body:has(#test) .page-hero .sa-icon{font-size:1.1rem !important;}
+@media(max-width:700px){body:has(#test) .page-hero .sa-icon{font-size:1rem !important;}}
