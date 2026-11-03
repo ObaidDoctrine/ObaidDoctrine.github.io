@@ -61,3 +61,12 @@ These are general guidance sources used to shape the targeted advice, not citati
 ## Status
 
 This is an initial verified source audit plus a targeted content-quality correction. It is not a completion certificate for the Women section.
+
+
+## Follow-up pass: topics 91–100
+
+- Reviewed the English and Urdu cards numbered 91–100. Urdu practical guidance was already topic-specific; English practical-step paragraphs repeated the preceding explanation in several cards.
+- Rewrote all three English guidance fields for topics 91–100 to distinguish context, practical actions and escalation/support. Topics include climate-related livelihoods, disaster preparedness, displacement, water and resource security, food security, humanitarian crises, recruitment fraud, urban safety, crisis misinformation and data literacy.
+- Guidance was informed by UN Women, UNDRR, UNHCR and UNDP Pakistan public resources. These general references do not constitute legal advice or topic-by-topic independent certification.
+- Re-fetched both pages after the edit. Structural checks: 100 cards and 10 category sections in each language; English remains `lang=en`/`dir=ltr`; Urdu remains `lang=ur`/`dir=rtl`; each card retains three labelled guidance paragraphs.
+- This pass does not complete the full bilingual semantic audit, does not add per-topic citations, and does not constitute browser/runtime testing. No production deployment was performed.
