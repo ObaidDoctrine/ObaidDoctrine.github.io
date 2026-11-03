@@ -70,3 +70,12 @@ This is an initial verified source audit plus a targeted content-quality correct
 - Guidance was informed by UN Women, UNDRR, UNHCR and UNDP Pakistan public resources. These general references do not constitute legal advice or topic-by-topic independent certification.
 - Re-fetched both pages after the edit. Structural checks: 100 cards and 10 category sections in each language; English remains `lang=en`/`dir=ltr`; Urdu remains `lang=ur`/`dir=rtl`; each card retains three labelled guidance paragraphs.
 - This pass does not complete the full bilingual semantic audit, does not add per-topic citations, and does not constitute browser/runtime testing. No production deployment was performed.
+
+
+## Follow-up pass: topics 81–90
+
+- Corrected English topics 81–90, replacing repeated or misplaced guidance with distinct topic-specific explanation, practical steps and support/escalation guidance.
+- Topics covered: salary negotiation, pay transparency, credit and debt, banking/payment fraud, investing, pensions, property/inheritance awareness, remittances, tax/self-employment and funding women-led businesses.
+- Used the existing Urdu topic guidance as a bilingual meaning and coverage reference; the Urdu text itself was not changed in this pass.
+- Re-fetched both pages after the update. Verified 100 topic cards and 10 category sections in each language, correct English/Urdu language-direction declarations, and three labelled guidance paragraphs in each of topics 81–90.
+- This remains an editorial consistency pass, not independent financial/legal advice certification, full source verification or a complete semantic parity audit. No production deployment was performed.
