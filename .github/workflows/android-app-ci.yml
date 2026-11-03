@@ -1,0 +1,86 @@
+name: Android App CI
+
+on:
+  pull_request:
+    paths:
+      - "android-app/**"
+      - "auth/**"
+      - ".github/workflows/android-app-ci.yml"
+  push:
+    branches:
+      - "feature/**"
+    paths:
+      - "android-app/**"
+      - "auth/**"
+      - ".github/workflows/android-app-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  debug-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v4
+        with:
+          packages: "platform-tools"
+      - name: Install Android SDK
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+      - name: Compile debug APK
+        working-directory: android-app
+        run: gradle clean :app:assembleDebug --no-daemon
+      - name: Upload debug APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: obaid-doctrine-android-debug-v1.0.7
+          path: android-app/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
+      - name: Verify app version and authentication flow
+        run: |
+          set -euo pipefail
+          grep -F 'versionCode 7' android-app/app/build.gradle
+          grep -F 'versionName "1.0.7"' android-app/app/build.gradle
+          grep -F 'AUTH_URL' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'document.getElementById("signup-link").href = "/auth/signup/"' auth/index.html
+          grep -F 'document.getElementById("signin-link").href = "/auth/"' auth/signup/index.html
+          grep -F 'verifyUrl.searchParams.set("returnTo", returnTo)' auth/auth.js
+          grep -F 'callback.searchParams.set("returnTo", returnTo)' auth/verify/index.html
+          grep -F 'if (returnTo) signinQuery.set("returnTo", returnTo)' auth/verify/index.html
+          grep -F 'obaiddoctrine://auth-success' auth/verify/index.html
+          grep -F 'id="displayName"' auth/signup/index.html
+          grep -F 'id="confirmPassword"' auth/signup/index.html
+          grep -F 'id="termsAccepted"' auth/signup/index.html
+          grep -F 'signUpWithEmail(email, password, displayName)' auth/signup/index.html
+          grep -F 'options.displayName = displayName.trim().slice(0, 32)' auth/auth.js
+          grep -F 'generatePKCEPair()' auth/auth.js
+          grep -F 'webView.loadUrl(verificationLink != null' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'path.equals("/") || path.isEmpty()' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'webView.clearCache(true);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'webView.loadUrl(HOME_URL);' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'appendQueryParameter("returnTo", uri.toString())' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'appendQueryParameter("app", "1")' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'if (authenticated) return false;' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'target.searchParams.set("returnTo", returnTo)' auth/auth.js
+          test "$(grep -c 'redirectTo.searchParams.set("returnTo", returnTo)' auth/auth.js)" -eq 2
+          grep -F 'suffix.set("returnTo",returnTo)' auth/recovery/index.html
+          grep -F 'window.location.replace("obaiddoctrine://logout")' auth/reset-password/index.html
+          test "$(grep -c 'export async function requestPasswordReset' auth/auth.js)" -eq 1
+          node --check auth/auth.js
+          grep -F 'userPasswordReset' auth/auth.js
+          grep -F 'userEmailSendVerificationEmail' auth/auth.js
+          grep -F 'changePassword({ newPassword })' auth/auth.js
+          grep -F 'auth/reset-password/' android-app/app/src/main/AndroidManifest.xml
+          grep -F 'auth/recovery/' android-app/app/src/main/java/com/obaiddoctrine/app/MainActivity.java
+          grep -F 'requestPasswordReset' auth/recovery/index.html
+          grep -F 'resendVerificationEmail' auth/recovery/index.html
+          grep -F 'completePasswordReset' auth/reset-password/index.html
+          test -s auth/reset-password/index.html

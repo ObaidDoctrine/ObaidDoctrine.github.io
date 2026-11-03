@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.obaiddoctrine.app",
+      "sha256_cert_fingerprints": [
+        "FA:57:48:3C:54:7F:27:D2:1D:92:7A:81:82:A9:7A:FB:BD:01:AF:5D:96:C4:CE:B5:83:A9:4A:CB:3D:16:8D:27"
+      ]
+    }
+  }
+]

@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "android-app/**"
+      - "auth/**"
       - ".github/workflows/android-aab.yml"
 
 jobs:

@@ -4,57 +4,53 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Email Verification | OBAID DOCTRINE</title>
 <meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{color-scheme:dark;--orange:#ff7a1a;--ink:#101010;--panel:#191919}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--ink);color:#f8f6f1;font:16px/1.6 system-ui,sans-serif}
+main{width:min(100%,520px);padding:32px;border:1px solid #34302b;border-radius:24px;background:var(--panel);box-shadow:0 18px 55px #0008}
+h1{margin:0 0 12px;color:var(--orange);font-size:clamp(2rem,7vw,3rem);line-height:1.05}p{color:#d0cbc4}a{color:#ff9a50;font-weight:700}
+</style>
 </head>
 <body>
 <main>
 <h1>Email Verification</h1>
-<p id="status">Verifying your email…</p>
-<p><a href="/auth/">Back to Sign In</a></p>
+<p id="status" role="status" aria-live="polite">Verifying your email…</p>
+<p><a id="signin-link" href="/auth/">Back to Sign In</a></p>
 </main>
 <script type="module">
 import { createClient } from "https://esm.sh/@nhost/nhost-js@4.8.0";
-
-const nhost = createClient({
-  subdomain: "ctwtjtbtbujomdskcktc",
-  region: "eu-central-1"
-});
-
+const nhost = createClient({ subdomain: "ctwtjtbtbujomdskcktc", region: "eu-central-1" });
 const params = new URLSearchParams(location.search);
 const appMode = params.get("app") === "1";
 const code = params.get("code");
+const returnTo = params.get("returnTo");
 const verifier = localStorage.getItem("nhost_pkce_verifier");
 const status = document.getElementById("status");
-
+const signinQuery = new URLSearchParams();
+if (appMode) signinQuery.set("app", "1");
+if (returnTo) signinQuery.set("returnTo", returnTo);
+document.getElementById("signin-link").href =
+  "/auth/" + (signinQuery.toString() ? "?" + signinQuery.toString() : "");
 try {
-  if (!code || !verifier) {
-    throw new Error("Verification link is missing required information.");
-  }
-
-  const response = await nhost.auth.tokenExchange({
-    code,
-    codeVerifier: verifier
-  });
-
+  if (!code || !verifier) throw new Error("Verification link is missing required information.");
+  const response = await nhost.auth.tokenExchange({ code, codeVerifier: verifier });
   localStorage.removeItem("nhost_pkce_verifier");
-
-  if (!response.body?.session) {
-    throw new Error("Email verification did not establish an authenticated session.");
-  }
-
+  if (!response.body?.session) throw new Error("Email verification did not establish an authenticated session.");
   status.textContent = "Email verified successfully. Opening OBAID DOCTRINE…";
-
   if (appMode) {
-    window.location.replace("obaiddoctrine://auth-success");
+    const callback = new URL("obaiddoctrine://auth-success");
+    if (returnTo) callback.searchParams.set("returnTo", returnTo);
+    window.location.replace(callback.toString());
   } else {
     setTimeout(() => {
-      location.href = "/auth/";
+      const target = new URL("/auth/", location.origin);
+      if (returnTo) target.searchParams.set("returnTo", returnTo);
+      location.href = target.toString();
     }, 800);
   }
 } catch (error) {
-  status.textContent =
-    error?.body?.message ||
-    error?.message ||
-    "Email verification failed.";
+  status.textContent = error?.body?.message || error?.message || "Email verification failed.";
 }
 </script>
 </body>

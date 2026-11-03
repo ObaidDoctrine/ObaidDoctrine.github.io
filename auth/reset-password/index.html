@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Choose a New Password | OBAID DOCTRINE</title><meta name="robots" content="noindex,nofollow">
+<style>
+:root{color-scheme:dark;--orange:#ff7a1a;--ink:#101010;--panel:#191919}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--ink);color:#f8f6f1;font:16px/1.6 system-ui,sans-serif}
+main{width:min(100%,520px);padding:30px;border:1px solid #39332d;border-radius:22px;background:var(--panel)}
+h1{color:var(--orange);font-size:clamp(2rem,7vw,3rem);line-height:1.05;margin:0 0 12px}
+p{color:#c5c0b8}.field{display:grid;gap:7px;margin:16px 0}
+label{font-size:12px;font-weight:800;color:#ff9a50}
+input{width:100%;padding:14px;border:1px solid #51473e;border-radius:12px;background:#101010;color:#fff;font:inherit}
+button{width:100%;padding:14px;border:0;border-radius:12px;background:var(--orange);color:#17110b;font-weight:900;cursor:pointer}
+button:disabled{opacity:.55}.status{min-height:24px;margin-top:12px;color:#ddd}
+.status[data-type="error"]{color:#ff9696}.status[data-type="success"]{color:#91dfaa}
+a{color:#ffad75;font-weight:700}[hidden]{display:none!important}
+</style>
+</head>
+<body><main>
+<h1>Choose a new password</h1>
+<p>Use a unique password with at least 12 characters. After changing it, sign in again with your new password.</p>
+<form id="new-password-form">
+<div class="field"><label for="password">NEW PASSWORD</label><input id="password" type="password" autocomplete="new-password" minlength="12" maxlength="50" required></div>
+<div class="field"><label for="confirm">CONFIRM NEW PASSWORD</label><input id="confirm" type="password" autocomplete="new-password" minlength="12" maxlength="50" required></div>
+<button id="save-button" type="submit">Update password</button>
+</form>
+<p id="status" class="status" role="status" aria-live="polite">Checking your secure reset link…</p>
+<p><a id="signin-link" href="/auth/">Back to sign in</a></p>
+</main>
+<script>
+const params=new URLSearchParams(location.search);
+const appMode=params.get("app")==="1";
+const returnTo=params.get("returnTo");
+const suffix=new URLSearchParams();
+if(appMode)suffix.set("app","1");
+if(returnTo)suffix.set("returnTo",returnTo);
+document.getElementById("signin-link").href="/auth/"+(suffix.toString()?"?"+suffix.toString():"");
+</script>
+<script type="module">
+import {completePasswordReset} from "/auth/auth.js";
+const form=document.getElementById("new-password-form"),password=document.getElementById("password"),confirm=document.getElementById("confirm"),button=document.getElementById("save-button"),status=document.getElementById("status");
+function show(message,type=""){status.textContent=message;status.dataset.type=type}
+const params=new URLSearchParams(location.search);
+if(!params.get("code")||!localStorage.getItem("nhost_pkce_verifier_password_reset")){
+ show("This reset link is incomplete or expired. Please request a new one.","error");button.disabled=true;
+}else{show("Secure reset link ready.")}
+form.addEventListener("submit",async event=>{
+ event.preventDefault();if(button.disabled)return;
+ if(password.value.length<12||password.value.length>50){show("Password must contain 12–50 characters.","error");password.focus();return}
+ if(password.value!==confirm.value){show("The passwords do not match.","error");confirm.focus();return}
+ button.disabled=true;show("Updating password…");
+ try{await completePasswordReset(password.value);form.reset();show("Password updated. Please sign in with your new password.","success");if(appMode){window.location.replace("obaiddoctrine://logout");return}}
+ catch(error){show(error?.body?.message||error?.message||"Password reset failed. Request a new reset email if this link has expired.","error");button.disabled=false}
+});
+</script></body></html>
