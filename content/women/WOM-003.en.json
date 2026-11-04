@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-003",
+  "language": "en",
+  "pairedTopicId": "WOM-003",
+  "title": "Fake accounts",
+  "subtitle": "A practical, evidence-informed guide to fake accounts.",
+  "slug": "fake-accounts",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand fake accounts, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What fake accounts are",
+      "level": 2,
+      "body": [
+        "A fake or deceptive account may use copied photos, misleading names, invented biographies or stolen identity details. Some are created for scams, harassment, impersonation, spam or coordinated manipulation. A pseudonym or anonymous profile is not automatically fraudulent; people may have legitimate privacy and safety reasons.\\n\\nLook for combinations of signals such as inconsistent details, copied images, unusual links, pressure to move conversations elsewhere, requests for money or verification codes. No single signal proves who operates an account."
+      ]
+    },
+    {
+      "heading": "Common scam patterns",
+      "level": 2,
+      "body": [
+        "Scammers may build trust quickly, pretend to share a mutual connection, offer a prize or job, claim an emergency or ask for a verification code. A compromised account belonging to someone you know can also send believable requests. Verify unexpected requests through a separate trusted channel.\\n\\nBe cautious with shortened links, attachments, QR codes and requests to install apps or share your screen. Never provide a one-time password, recovery code, banking PIN or password to an unexpected contact."
+      ]
+    },
+    {
+      "heading": "Check before responding",
+      "level": 2,
+      "body": [
+        "Open the platform directly rather than relying on a message link. Review profile history and consistency, and confirm claims independently. If an account represents a company, school, public office or charity, check the organisation’s official website or published contact details.\\n\\nAvoid publicly accusing someone based only on a profile screenshot. Accounts can be compromised and parody accounts may be clearly labelled. Focus on behaviour and verifiable evidence."
+      ]
+    },
+    {
+      "heading": "Protect your accounts",
+      "level": 2,
+      "body": [
+        "Use unique passwords, multi-factor authentication and current recovery details. Limit public visibility of your friends list, phone number, email, location and routines. Tell close contacts to verify unusual requests supposedly sent by you through another channel.\\n\\nIf your account may be compromised, use the platform’s official recovery process from a trusted device, revoke unknown sessions and warn contacts separately. Do not pay strangers who promise account recovery; recovery scams target distressed users."
+      ]
+    },
+    {
+      "heading": "Report and respond",
+      "level": 2,
+      "body": [
+        "If safe, save the account URL, username, messages and dates. Report the profile under the platform’s impersonation, scam or harassment category. Warn affected people privately and factually without forwarding suspicious links or exposing more personal information.\\n\\nIf money or banking details were shared, contact your bank or payment provider promptly through an independently verified number. For serious cybercrime in Pakistan, check current official NCCIA reporting options."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Anonymity and identity shielding",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/industry/tech-trends-and-challenges/anonymity",
+      "accessedDate": "2026-11-04",
+      "supports": "Fake and anonymous account abuse patterns."
+    },
+    {
+      "organization": "Federal Trade Commission",
+      "title": "How to recognize and avoid phishing scams",
+      "year": null,
+      "publisher": "Federal Trade Commission",
+      "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+      "accessedDate": "2026-11-04",
+      "supports": "Suspicious messages, links and requests for sensitive information."
+    },
+    {
+      "organization": "National Cyber Crime Investigation Agency (Pakistan)",
+      "title": "Cyber Harassment",
+      "year": null,
+      "publisher": "National Cyber Crime Investigation Agency (Pakistan)",
+      "url": "https://www.nccia.gov.pk/harrasment.php",
+      "accessedDate": "2026-11-04",
+      "supports": "Pakistan cyber-safety guidance."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-004"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
