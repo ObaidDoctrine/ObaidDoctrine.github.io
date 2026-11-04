@@ -48,7 +48,6 @@ import kotlinx.coroutines.launch
 import com.obaiddoctrine.app.content.BookmarkRepository
 import com.obaiddoctrine.app.auth.NhostAuthRepository
 import com.obaiddoctrine.app.auth.MfaRequiredException
-import com.obaiddoctrine.app.content.ArticleBookmark
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
