@@ -11,7 +11,7 @@ class MindTestScorerTest {
             MindTestQuestion("Q1", listOf("A", "B", "C"), listOf(0, 1, 1), listOf(1, 2, 3)),
             MindTestQuestion("Q2", listOf("A", "B"), null, null)
         ),
-        guidance = MindTestGuidance("Evidence", "Limits", emptyList(), emptyList())
+        guidance = MindTestGuidance("Evidence", "Limits", emptyList(), emptyList(), emptyList())
     )
 
     @Test fun usesMappingsAndMaximumAvailableWeights() {
