@@ -634,3 +634,6 @@ body:has(#test) .page-hero .sa-icon{font-size:1.1rem !important;}
 /* E2E correction: tighten only the self-awareness hero title baseline without changing hero padding. */
 body:has(#test) .page-hero h1{margin-top:-3px !important;}
 @media(max-width:700px){body:has(#test) .page-hero .sa-icon{margin-top:-5px !important;}}
+
+/* E2E mobile header spacing: measured icon offset was 10.27px (limit 10px); reduce mobile icon top margin by 2px. */
+@media(max-width:700px){body:has(#test) .page-hero .sa-icon{margin:-6px 6px 0 0 !important;}}
