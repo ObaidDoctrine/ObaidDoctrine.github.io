@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-006",
+  "language": "en",
+  "pairedTopicId": "WOM-006",
+  "title": "Deepfake awareness",
+  "subtitle": "A practical, evidence-informed guide to deepfake awareness.",
+  "slug": "deepfake-awareness",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand deepfake awareness, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What a deepfake is",
+      "level": 2,
+      "body": [
+        "A deepfake is synthetic or manipulated media created or altered with artificial intelligence or other digital tools. It may imitate a person’s face, voice or actions, or make it appear that someone said or did something they never did. Deepfakes can be used in entertainment, but also in fraud, misinformation, harassment and image-based abuse.\\n\\nNot every edited image is a deepfake, and not every synthetic image is harmful. Consider whether the media is presented honestly, whether it uses someone’s identity without permission and whether it is intended to deceive or harm."
+      ]
+    },
+    {
+      "heading": "Why visual clues are unreliable",
+      "level": 2,
+      "body": [
+        "Older advice points to strange blinking, distorted hands or mismatched lighting. Modern tools can reduce these clues, while ordinary compression, filters and poor recording can create similar artefacts. One visual detail or an AI-detector score is not proof that media is real or fake.\\n\\nVerification is stronger when it considers the original source, publication history, context, independent reporting and corroborating evidence. Be cautious when a dramatic clip appears only on anonymous accounts or is shared with urgent demands to forward it."
+      ]
+    },
+    {
+      "heading": "Verify before sharing",
+      "level": 2,
+      "body": [
+        "Pause before forwarding a surprising video or voice message. Search for the earliest available source, check whether reputable news organisations or official bodies have independently confirmed the event and compare the claim with reliable records. For urgent requests supposedly from family, call a number already saved rather than the number in the message.\\n\\nDo not upload private or intimate material to unknown detection websites; they may retain files or collect personal data. Use trusted reporting routes for sensitive content."
+      ]
+    },
+    {
+      "heading": "If you are targeted",
+      "level": 2,
+      "body": [
+        "If safe, preserve the URL, account name, date, threats and platform report number. Report the content under impersonation, harassment or non-consensual intimate imagery policies as appropriate. Do not repost the material to expose it, because this can amplify the harm.\\n\\nIf a deepfake is used to demand money, images or silence, avoid paying or sending more material. Tell a trusted person. If it involves a minor or sexual content involving a minor, do not download, copy or forward it; use appropriate official reporting channels."
+      ]
+    },
+    {
+      "heading": "Build digital resilience",
+      "level": 2,
+      "body": [
+        "Agree with family or colleagues on a verification phrase or callback method for unusual voice or video requests. Use multi-factor authentication and keep account recovery details secure. Organisations should require independent approval for payments or confidential disclosures rather than relying on a voice clip alone.\\n\\nDeepfake detection is an evolving field; no single tool guarantees accuracy. Be honest about uncertainty, avoid accusations without evidence and correct misinformation when reliable information becomes available."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "Federal Bureau of Investigation (FBI)",
+      "title": "Malicious Actors Manipulating Photos and Videos to Create Explicit Content and Sextortion Schemes",
+      "year": null,
+      "publisher": "Federal Bureau of Investigation (FBI)",
+      "url": "https://www.ic3.gov/PSA/2023/PSA230605",
+      "accessedDate": "2026-11-04",
+      "supports": "Deepfake misuse, sextortion and protective steps."
+    },
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Deepfakes",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/industry/tech-trends-and-challenges/deepfakes",
+      "accessedDate": "2026-11-04",
+      "supports": "Deepfake concepts and safety considerations."
+    },
+    {
+      "organization": "UNESCO",
+      "title": "Guidance for generative AI in education and research",
+      "year": null,
+      "publisher": "UNESCO",
+      "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research",
+      "accessedDate": "2026-11-04",
+      "supports": "Responsible understanding and use of generative AI."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
