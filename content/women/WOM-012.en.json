@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-012",
+  "language": "en",
+  "pairedTopicId": "WOM-012",
+  "title": "Returning to work",
+  "subtitle": "A practical guide to returning to work and sustainable working life.",
+  "slug": "returning-to-work",
+  "categoryId": "WOM-CAT-02",
+  "description": "Explore returning to work with practical, evidence-informed guidance on choices, planning, rights, skills and sustainable work.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "A return to work is a process",
+      "level": 2,
+      "body": [
+        "Returning after caregiving, study, illness, relocation or another break can involve practical and emotional adjustments. A career gap does not erase previous skills, experience or the ability to learn. Start by clarifying what kind of work, hours and conditions are realistic now.\\n\\nYou do not need to explain every personal detail of a career break. Prepare a concise, truthful description that focuses on what you are ready to contribute and any relevant learning or responsibilities undertaken during the break."
+      ]
+    },
+    {
+      "heading": "Take stock of skills and goals",
+      "level": 2,
+      "body": [
+        "List previous roles, achievements, transferable skills, qualifications and tools you can use. Identify what has changed in your field and which skills need updating. Ask former colleagues or mentors for feedback on your CV and target roles.\\n\\nSet a clear target: returning to the same profession, entering a related role, studying, taking temporary work or building a portfolio. A focused search is often easier to manage than applying randomly to every vacancy."
+      ]
+    },
+    {
+      "heading": "Refresh your professional profile",
+      "level": 2,
+      "body": [
+        "Update your CV, portfolio and professional profiles with accurate dates, outcomes and current contact information. Use a short career-break statement if it helps explain the timeline, but avoid apologising for caregiving or other legitimate life responsibilities.\\n\\nReconnect with professional networks respectfully. Ask for information or advice rather than assuming someone can secure a job. Keep a record of applications, follow-ups and interview learning."
+      ]
+    },
+    {
+      "heading": "Plan practical supports",
+      "level": 2,
+      "body": [
+        "Consider childcare, transport, equipment, internet access, working hours, health needs and household task-sharing. If possible, test the routine with a short course, volunteer project or part-time assignment before making a major commitment.\\n\\nFor remote roles, verify the employer, job description, payment process and contract. Be cautious of recruitment fees, requests for identity documents too early or offers that promise guaranteed income."
+      ]
+    },
+    {
+      "heading": "Prepare for interviews and negotiation",
+      "level": 2,
+      "body": [
+        "Practise a concise answer about your career break and examples that show readiness, problem-solving and current skills. Ask employers about onboarding, flexibility, performance expectations, benefits and any support relevant to the role.\\n\\nCompare the full offer—not only salary—including hours, commute, leave, safety, learning opportunities and job stability. Re-entering work is not a race; a sustainable role is more valuable than accepting unsafe or exploitative conditions."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is there one correct career path for everyone?",
+      "answer": "No. The right path depends on personal goals, resources, safety, care responsibilities and local opportunities."
+    },
+    {
+      "question": "Where can I confirm workplace rights in Pakistan?",
+      "answer": "Check current official federal or provincial labour and ombudsperson resources, or consult a qualified local lawyer."
+    }
+  ],
+  "references": [
+    {
+      "organization": "ILO",
+      "title": "Promoting gender equality for decent employment in Pakistan – Final Evaluation",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://webapps.ilo.org/ievaldiscovery/lessons/173552",
+      "accessedDate": "2026-11-04",
+      "supports": "Barriers and support needs for women entering and re-entering work."
+    },
+    {
+      "organization": "UN Women",
+      "title": "Country Fact Sheet: Pakistan",
+      "year": null,
+      "publisher": "UN Women",
+      "url": "https://data.unwomen.org/country/pakistan",
+      "accessedDate": "2026-11-04",
+      "supports": "Unpaid care work and gendered economic context."
+    },
+    {
+      "organization": "World Bank",
+      "title": "Women’s Economic Empowerment in Pakistan",
+      "year": null,
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099517505282516353/pdf/IDU-df476919-255b-46a3-afc2-4826ddd1f473.pdf",
+      "accessedDate": "2026-11-04",
+      "supports": "Skills, mentorship, digital work and employment pathways."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-013",
+    "WOM-014"
+  ],
+  "safetyNotice": "General educational information, not legal, financial or career-placement advice. Confirm employment rights and procedures with current local official sources."
+}
