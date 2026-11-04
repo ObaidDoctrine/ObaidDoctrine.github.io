@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-014",
+  "language": "en",
+  "pairedTopicId": "WOM-014",
+  "title": "Workplace harassment",
+  "subtitle": "A practical guide to workplace harassment and sustainable working life.",
+  "slug": "workplace-harassment",
+  "categoryId": "WOM-CAT-02",
+  "description": "Explore workplace harassment with practical, evidence-informed guidance on choices, planning, rights, skills and sustainable work.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "Recognise workplace harassment",
+      "level": 2,
+      "body": [
+        "Workplace harassment can include unwelcome conduct that humiliates, intimidates, threatens or creates a hostile working environment. It may be verbal, physical, visual, written or digital. Sexual harassment is one form, but harassment can also involve bullying, discriminatory treatment or repeated degrading behaviour.\\n\\nA disagreement, fair performance feedback or a reasonable work instruction is not automatically harassment. Context, power differences, repetition, severity and the effect on the person matter. Legal definitions and procedures depend on local law."
+      ]
+    },
+    {
+      "heading": "Examples and power dynamics",
+      "level": 2,
+      "body": [
+        "Examples may include unwanted sexual comments, requests or touching; repeated personal messages; threats linked to job benefits; humiliating remarks about gender or family status; sharing offensive material; or retaliation after someone raises a concern. Conduct can come from a manager, colleague, client or another person at work.\\n\\nPower differences can make it difficult to say no or report. A person may fear losing income, references, promotion or workplace safety. These concerns should be taken seriously and should not be used to blame the person affected."
+      ]
+    },
+    {
+      "heading": "Prioritise safety and keep a record",
+      "level": 2,
+      "body": [
+        "If safe, note dates, times, locations, exact words or actions, witnesses and any work-related consequences. Preserve relevant emails or messages in line with lawful workplace policy. Store records securely and avoid accessing another person’s account or confidential files.\\n\\nYou do not have to confront the person or gather more evidence if doing so feels unsafe. Seek support from a trusted colleague, designated safeguarding contact, union or specialist service."
+      ]
+    },
+    {
+      "heading": "Use workplace reporting routes",
+      "level": 2,
+      "body": [
+        "Review the employer’s harassment policy, complaint channel, inquiry process and protections against retaliation. A report can be made to the designated person, HR, inquiry committee, ombudsperson or other appropriate authority depending on the workplace and jurisdiction. Keep copies of submitted reports and responses.\\n\\nIf the person receiving complaints is involved, ask about an independent route. Employers should have clear prevention, reporting, impartial investigation and response procedures; an informal conversation may not be sufficient for serious conduct."
+      ]
+    },
+    {
+      "heading": "Support and legal information",
+      "level": 2,
+      "body": [
+        "Consider confidential counselling or worker-support services if the experience affects wellbeing. If there are threats, assault or immediate danger, contact local emergency services or appropriate authorities.\\n\\nIn Pakistan, workplace harassment procedures and applicable laws may depend on the employment setting and current amendments. Confirm the correct route with the relevant federal or provincial ombudsperson, official government resources or a qualified lawyer. This article is educational and requires qualified legal review before publication."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is there one correct career path for everyone?",
+      "answer": "No. The right path depends on personal goals, resources, safety, care responsibilities and local opportunities."
+    },
+    {
+      "question": "Where can I confirm workplace rights in Pakistan?",
+      "answer": "Check current official federal or provincial labour and ombudsperson resources, or consult a qualified local lawyer."
+    }
+  ],
+  "references": [
+    {
+      "organization": "ILO",
+      "title": "Guidelines for creating a work environment free from discrimination and harassment",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/publications/guidelines-creating-work-environment-free-discrimination-and-harassment",
+      "accessedDate": "2026-11-04",
+      "supports": "Prevention and response in workplaces."
+    },
+    {
+      "organization": "ILO",
+      "title": "Promoting gender equality for decent employment in Pakistan – Final Evaluation",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://webapps.ilo.org/ievaldiscovery/lessons/173552",
+      "accessedDate": "2026-11-04",
+      "supports": "Need for reporting, investigation and response systems in Pakistan."
+    },
+    {
+      "organization": "Associated Press of Pakistan",
+      "title": "Ombudsperson KP, UN Women launch toolkit on understanding & addressing harassment at workplace",
+      "year": null,
+      "publisher": "Associated Press of Pakistan",
+      "url": "https://www.app.com.pk/national/ombudsperson-kp-un-women-launch-toolkit-on-understanding-addressing-harassment-at-workplace/",
+      "accessedDate": "2026-11-04",
+      "supports": "Pakistan workplace harassment resources and redress toolkit."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-013"
+  ],
+  "safetyNotice": "General educational information, not legal, financial or career-placement advice. Confirm employment rights and procedures with current local official sources."
+}
