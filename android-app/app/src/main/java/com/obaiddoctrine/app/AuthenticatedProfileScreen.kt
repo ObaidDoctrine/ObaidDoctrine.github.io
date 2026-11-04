@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 internal fun AuthenticatedProfileScreen(
     padding: PaddingValues,
+    isUrdu: Boolean,
     email: String,
     errorMessage: String?,
     onSignOut: () -> Unit
@@ -30,9 +31,9 @@ internal fun AuthenticatedProfileScreen(
         modifier = Modifier.fillMaxSize().padding(padding).padding(24.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text("YOUR ACCOUNT", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
+        Text(if (isUrdu) "آپ کا اکاؤنٹ" else "YOUR ACCOUNT", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
         Spacer(Modifier.height(12.dp))
-        Text("Your Profile", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
+        Text(if (isUrdu) "آپ کا پروفائل" else "Your Profile", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(8.dp))
         Text(email, color = Color(0xFFB8B2AC), fontSize = 15.sp)
         if (!errorMessage.isNullOrBlank()) {
@@ -46,7 +47,7 @@ internal fun AuthenticatedProfileScreen(
             shape = RoundedCornerShape(15.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
         ) {
-            Text("SIGN OUT", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+            Text(if (isUrdu) "سائن آؤٹ" else "SIGN OUT", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
         }
     }
 }
