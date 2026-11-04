@@ -14,11 +14,14 @@ data class MindTestQuestion(
     val values: List<Int>?
 )
 
+data class MindTestReference(val title: String, val url: String)
+
 data class MindTestGuidance(
     val evidence: String,
     val limitations: String,
     val recommendations: List<String>,
-    val reflections: List<String>
+    val reflections: List<String>,
+    val references: List<MindTestReference>
 )
 
 data class MindTestDefinition(
@@ -76,7 +79,8 @@ class MindTestRepository(context: Context) {
             evidence = guidanceJson.optString("evidence"),
             limitations = guidanceJson.optString("limitations"),
             recommendations = guidanceJson.optJSONArray("recommendations").toStringListOrEmpty(),
-            reflections = guidanceJson.optJSONArray("reflections").toStringListOrEmpty()
+            reflections = guidanceJson.optJSONArray("reflections").toStringListOrEmpty(),
+            references = guidanceJson.optJSONArray("references").toReferenceList()
         )
         return MindTestDefinition(
             slug = json.getString("slug"),
@@ -96,4 +100,10 @@ class MindTestRepository(context: Context) {
 
     private fun JSONArray?.toStringListOrEmpty(): List<String> =
         this?.let { array -> (0 until array.length()).map { index -> array.getString(index) } } ?: emptyList()
+
+    private fun JSONArray?.toReferenceList(): List<MindTestReference> =
+        this?.let { array -> (0 until array.length()).map { index ->
+            val item = array.getJSONObject(index)
+            MindTestReference(item.optString("title"), item.optString("url"))
+        } } ?: emptyList()
 }
