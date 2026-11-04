@@ -63,7 +63,11 @@ try {
   status.textContent = "Email verified. Your account is ready.";
 
   if (appMode) {
-    window.location.replace("obaiddoctrine://auth-success");
+    const returnTo = safeReturnTo(params.get("returnTo"));
+    const callback = "obaiddoctrine://auth-success" + (returnTo
+      ? "?returnTo=" + encodeURIComponent(returnTo)
+      : "");
+    window.location.replace(callback);
   } else {
     const returnTo = safeReturnTo(params.get("returnTo"));
     const loginUrl = new URL("/auth/", location.origin);
