@@ -1,0 +1,100 @@
+{
+  "topicId": "WOM-018",
+  "pairedTopicId": "WOM-018",
+  "slug": "financial-literacy",
+  "categoryId": "WOM-CAT-02",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewer": null,
+  "readingMinutes": 9,
+  "reviewStatus": "editorial_review",
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-013"
+  ],
+  "language": "en",
+  "title": "Financial literacy",
+  "subtitle": "Understand everyday money decisions, financial services and common risks before choosing what is right for you.",
+  "description": "Financial literacy is the ability to understand money choices and use financial information when planning, saving, borrowing or considering investments. It can support greater control, but good decisions also depend on income, access, personal circumstances and trustworthy advice.",
+  "content": [
+    {
+      "heading": "What financial literacy means",
+      "level": 2,
+      "body": [
+        "Financial literacy is more than knowing how to open a bank account. It includes understanding income, spending, saving, borrowing, fees, inflation, risk, insurance and the basic features of financial products. It also means knowing what you do not understand and where to find reliable help.",
+        "Financial knowledge cannot remove every economic constraint. Low or irregular income, unpaid care responsibilities, limited access to services and unexpected costs can affect choices. The purpose is to make the best-informed decisions possible within real circumstances, not to blame people for financial hardship."
+      ]
+    },
+    {
+      "heading": "Know your financial position",
+      "level": 2,
+      "body": [
+        "Start by listing sources of income, regular essential costs, variable spending, debts and upcoming obligations. If income changes from month to month, use a cautious estimate based on actual past earnings rather than assuming every month will be the same.",
+        "Review account statements and payment records regularly. Keep personal and business transactions distinguishable where possible, and store financial documents securely. A simple written overview can help identify recurring fees, missed payments or spending patterns that need attention."
+      ]
+    },
+    {
+      "heading": "Understand accounts, payments and borrowing",
+      "level": 2,
+      "body": [
+        "Before opening an account or using a digital wallet, compare service charges, minimum balance rules, withdrawal limits, transaction limits, complaint channels and access to customer support. Never share a one-time password, PIN or full credentials with anyone claiming to be a bank representative.",
+        "Before borrowing, calculate the total amount repayable, not only the instalment. Check the interest or profit rate, fees, late-payment consequences, repayment dates, collateral requirements and whether the provider is authorised. Borrowing to repay another loan can deepen financial pressure if the underlying budget does not work."
+      ]
+    },
+    {
+      "heading": "Saving, risk and investment basics",
+      "level": 2,
+      "body": [
+        "Saving means setting aside money for a future need. A realistic emergency reserve can reduce the need to borrow after an unexpected expense, but the amount and pace depend on income and household obligations. Even a small, consistent amount may be useful when it is affordable.",
+        "Investing involves risk. Returns are not guaranteed, and higher promised returns often come with higher risk or may signal fraud. Understand how an investment works, how you can withdraw money, what fees apply and whether the provider is regulated. Do not invest money needed for essentials or under pressure from a salesperson, friend or online influencer."
+      ]
+    },
+    {
+      "heading": "Protect yourself and find reliable guidance",
+      "level": 2,
+      "body": [
+        "Treat guaranteed high returns, urgency, secrecy, referral rewards and requests to transfer money to personal accounts as warning signs. Verify a financial institution or investment provider through the relevant official regulator, not through links or certificates supplied by the promoter. Keep records of agreements and report suspected fraud through official channels.",
+        "In Pakistan, the State Bank of Pakistan publishes financial inclusion and financial education information, while the Securities and Exchange Commission of Pakistan provides investor-awareness material. For complex tax, debt, legal or investment decisions, seek advice from a qualified professional who explains fees, risks and conflicts of interest."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Should I invest before building savings?",
+      "answer": "There is no single rule for everyone. First consider essential expenses, high-cost debt, near-term obligations and whether you have any emergency buffer. Investments can lose value and should not replace money needed soon."
+    },
+    {
+      "question": "How can I recognise a suspicious investment offer?",
+      "answer": "Be cautious of guaranteed or unusually high returns, pressure to act immediately, secrecy, unlicensed providers and requests to pay into personal accounts. Independently verify the provider with the relevant regulator and do not rely only on testimonials."
+    }
+  ],
+  "references": [
+    {
+      "organization": "State Bank of Pakistan",
+      "title": "Banking on Equality Policy 2026 – Advancing Women’s Financial Inclusion",
+      "year": 2026,
+      "publisher": "SBP",
+      "url": "https://www.sbp.org.pk/circulars/acfid-circular-no-02-of-2026",
+      "supports": "Pakistan's current policy direction on women's access to financial services, financial literacy and awareness."
+    },
+    {
+      "organization": "State Bank of Pakistan",
+      "title": "Financial Literacy and National Financial Education Roadmap 2025–29",
+      "year": 2025,
+      "publisher": "SBP",
+      "url": "https://www.sbp.org.pk/financial-inclusion/sustainable-finance",
+      "supports": "SBP's national approach to financial education, consumer capability and informed use of financial services."
+    },
+    {
+      "organization": "Securities and Exchange Commission of Pakistan",
+      "title": "SECP Conducts Financial Literacy and Investor Awareness Session at PIDE",
+      "year": 2026,
+      "publisher": "SECP",
+      "url": "https://www.secp.gov.pk/media-center/press-releases/secp-press-release-dated-february-20-2026-secp-conducts-financial-literacy-and-investor-awareness-session-at-pide/",
+      "supports": "Investor education topics including budgeting, saving, risk-return trade-offs and identifying investment fraud."
+    }
+  ],
+  "safetyNotice": "This is general financial education, not personalised financial, legal, tax or investment advice. Financial products, protections and rules vary. Verify providers with the relevant regulator and consult a qualified professional before making complex or high-risk decisions."
+}
