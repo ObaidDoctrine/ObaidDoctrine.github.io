@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.obaiddoctrine.com/schemas/women-article.schema.json",
+  "title": "OBAID DOCTRINE Women Article",
+  "type": "object",
+  "required": ["topicId", "language", "title", "slug", "description", "content", "references", "publicationDate", "reviewStatus"],
+  "properties": {
+    "topicId": {"type": "string", "pattern": "^WOM-[0-9]{3}$"},
+    "language": {"enum": ["en", "ur"]},
+    "pairedTopicId": {"type": "string", "pattern": "^WOM-[0-9]{3}$"},
+    "title": {"type": "string", "minLength": 12},
+    "subtitle": {"type": "string"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "categoryId": {"type": "string"},
+    "description": {"type": "string", "minLength": 80},
+    "authorLabel": {"type": "string"},
+    "publicationDate": {"type": "string", "format": "date"},
+    "lastReviewedDate": {"type": ["string", "null"], "format": "date"},
+    "reviewStatus": {"enum": ["draft", "editorial_review", "qualified_review_required", "qualified_reviewed", "published"]},
+    "reviewer": {"type": ["object", "null"], "properties": {"name": {"type": "string"}, "qualification": {"type": "string"}, "approvalDate": {"type": "string", "format": "date"}}, "required": ["name", "qualification", "approvalDate"], "additionalProperties": false},
+    "readingMinutes": {"type": "integer", "minimum": 1},
+    "content": {"type": "array", "minItems": 5, "items": {"type": "object", "required": ["heading", "body"], "properties": {"heading": {"type": "string"}, "level": {"enum": [2, 3]}, "body": {"type": "array", "items": {"type": "string"}}, "list": {"type": "array", "items": {"type": "string"}}, "callout": {"enum": ["info", "safety", "urgent", "myth", "takeaway"]}}}},
+    "faqs": {"type": "array", "items": {"type": "object", "required": ["question", "answer"], "properties": {"question": {"type": "string"}, "answer": {"type": "string"}}}},
+    "references": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["organization", "title", "url"], "properties": {"organization": {"type": "string"}, "authors": {"type": "string"}, "title": {"type": "string"}, "year": {"type": ["integer", "null"]}, "publisher": {"type": "string"}, "doi": {"type": "string"}, "pmid": {"type": "string"}, "url": {"type": "string", "format": "uri"}, "accessedDate": {"type": "string", "format": "date"}, "supports": {"type": "string"}}}},
+    "relatedTopicIds": {"type": "array", "items": {"type": "string", "pattern": "^WOM-[0-9]{3}$"}},
+    "safetyNotice": {"type": "string"},
+    "canonicalPath": {"type": "string"},
+    "alternatePath": {"type": "string"}
+  },
+  "additionalProperties": false
+}
