@@ -61,7 +61,13 @@ private val MutedText = Color(0xFFB8B2AC)
 class NativeMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { DoctrineApp() }
+        setContent { DoctrineApp(initialAuthCode = intent?.data?.getQueryParameter("code")) }
+    }
+
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        recreate()
     }
 }
 
@@ -90,14 +96,30 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
     var selectedSection by remember { mutableIntStateOf(-1) }
     var session by remember { mutableStateOf<NhostAuthRepository.Session?>(null) }
     var authLoading by remember { mutableStateOf(true) }
-    var authMessage by remember { mutableStateOf<String?>(null) }\n    var authMessageIsError by remember { mutableStateOf(false) }
+    var authMessage by remember { mutableStateOf<String?>(null) }
+    var authMessageIsError by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
-        session = authRepository.restoreSession()
-        authLoading = false
+    LaunchedEffect(initialAuthCode) {
+        if (!initialAuthCode.isNullOrBlank()) {
+            authLoading = true
+            try {
+                session = authRepository.exchangeAuthorizationCode(initialAuthCode)
+                authMessage = "Your email is verified. Your account is ready."
+                authMessageIsError = false
+                selectedTab = 1
+            } catch (error: Exception) {
+                authMessage = error.message ?: "Unable to complete email verification."
+                authMessageIsError = true
+            } finally {
+                authLoading = false
+            }
+        } else {
+            session = authRepository.restoreSession()
+            authLoading = false
+        }
     }
 
     val isAuthenticated = session != null
@@ -132,7 +154,8 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
                 !isAuthenticated -> AuthScreen(
                     padding = padding,
-                    errorMessage = authMessage,
+                    statusMessage = authMessage,
+                    statusIsError = authMessageIsError,
                     onSignIn = { email, password ->
                         authMessage = null
                         scope.launch {
@@ -140,7 +163,26 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
                             try {
                                 session = authRepository.signIn(email, password)
                             } catch (error: Exception) {
-                                authError = error.message ?: "Unable to sign in. Please try again."
+                                authMessage = error.message ?: "Unable to sign in. Please try again."
+                                authMessageIsError = true
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    },
+                    onSignUp = { email, password, displayName ->
+                        authMessage = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                session = authRepository.signUp(email, password, displayName)
+                                if (session == null) {
+                                    authMessage = "Account created. Open the verification email on this device to finish setup."
+                                    authMessageIsError = false
+                                }
+                            } catch (error: Exception) {
+                                authMessage = error.message ?: "Unable to create your account. Please try again."
+                                authMessageIsError = true
                             } finally {
                                 authLoading = false
                             }
@@ -153,9 +195,9 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
                 else -> AuthenticatedProfileScreen(
                     padding = padding,
                     email = session?.user?.email.orEmpty(),
-                    errorMessage = authError,
+                    errorMessage = authMessage,
                     onSignOut = {
-                        authError = null
+                        authMessage = null
                         scope.launch {
                             authLoading = true
                             try {
