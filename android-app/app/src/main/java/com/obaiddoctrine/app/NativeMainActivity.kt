@@ -104,6 +104,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     var authMessageIsError by remember { mutableStateOf(false) }
     var passwordResetMode by remember { mutableStateOf(false) }
     var mfaRequired by remember { mutableStateOf(false) }
+    var selectedArticlePath by remember { mutableStateOf<String?>(null) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
@@ -130,8 +131,9 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     }
 
     val isAuthenticated = session != null
-    val tabs = listOf("Home", "Explore", "Library", "Profile")
-    val icons = listOf(Icons.Filled.Home, Icons.Filled.Explore, Icons.Filled.BookmarkBorder, Icons.Filled.PersonOutline)
+    val isUrdu = java.util.Locale.getDefault().language == "ur"
+    val tabs = listOf("Home", "Explore", "Articles", "Library", "Profile")
+    val icons = listOf(Icons.Filled.Home, Icons.Filled.Explore, Icons.Filled.MenuBook, Icons.Filled.BookmarkBorder, Icons.Filled.PersonOutline)
 
     MaterialTheme(colorScheme = darkColorScheme(
         primary = DoctrineOrange,
@@ -148,7 +150,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     tabs.forEachIndexed { index, label ->
                         NavigationBarItem(
                             selected = selectedTab == index,
-                            onClick = { selectedTab = index; selectedSection = -1 },
+                            onClick = { selectedTab = index; selectedSection = -1; selectedArticlePath = null },
                             icon = { androidx.compose.material3.Icon(icons[index], contentDescription = label) },
                             label = { Text(label) }
                         )
@@ -157,7 +159,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
             }
         ) { padding ->
             when {
-                selectedTab == 0 && selectedSection < 0 -> HomeScreen(padding, onSection = { selectedSection = it })
+                selectedTab == 0 && selectedSection < 0 && selectedArticlePath == null -> HomeScreen(padding, onSection = { selectedSection = it })
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
                 mfaRequired -> MfaScreen(
                     padding = padding,
@@ -260,9 +262,20 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                         }
                     }
                 )
+                selectedArticlePath != null -> ArticleReaderScreen(
+                    padding = padding,
+                    path = selectedArticlePath.orEmpty(),
+                    isUrdu = isUrdu,
+                    onBack = { selectedArticlePath = null }
+                )
                 selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding) { selectedSection = -1 }
                 selectedTab == 1 -> ExploreScreen(padding, onSection = { selectedSection = it })
-                selectedTab == 2 -> SimpleStateScreen("Your Library", "Your saved articles and learning resources will appear here.", padding)
+                selectedTab == 2 -> ArticleLibraryScreen(
+                    padding = padding,
+                    isUrdu = isUrdu,
+                    onOpenArticle = { selectedArticlePath = it }
+                )
+                selectedTab == 3 -> SimpleStateScreen("Your Library", "Your saved articles and learning resources will appear here.", padding)
                 else -> AuthenticatedProfileScreen(
                     padding = padding,
                     email = session?.user?.email.orEmpty(),
