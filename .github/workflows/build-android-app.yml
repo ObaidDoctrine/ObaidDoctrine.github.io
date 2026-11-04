@@ -129,7 +129,7 @@ jobs:
           tag_name: v1.0.7
           name: Obaid Doctrine Android App v1.0.7
           body: |
-            Official Obaid Doctrine Android App — Version 1.0.6
+            Official Obaid Doctrine Android App — Version 1.0.7
 
             Package: com.obaiddoctrine.app
             Minimum Android version: Android 6.0 (API 23)
@@ -147,7 +147,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.7.APK"
+          git rm -f --ignore-unmatch "Obaid_Doctrine__v1.0.3.APK" "Obaid_Doctrine__v1.0.6.APK" "Obaid_Doctrine__v1.0.6.apk"
           git add "Obaid_Doctrine__v1.0.7.apk"
 
           if git diff --cached --quiet; then
