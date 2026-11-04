@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-015",
+  "language": "en",
+  "pairedTopicId": "WOM-015",
+  "title": "Remote work",
+  "subtitle": "A practical, evidence-informed guide for informed and sustainable decisions.",
+  "slug": "remote-work",
+  "categoryId": "WOM-CAT-02",
+  "description": "What to understand: Remote work can improve flexibility for some people but can also blur work-life boundaries, increase isolation or create unequal access to visibility and opportunities. Practical step: Set a defined workspace or work period where possible, use clear communication norms and track workload and outcomes rather than staying constantly online. When to seek help: Seek workplace support when remote arrangements create excessive workload, discriminatory treatment, privacy risks or un",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "Understand remote work",
+      "level": 2,
+      "body": [
+        "Remote work changes where work is performed, not the need for clear expectations, fair treatment and healthy working conditions. It may offer flexibility for some people, while others experience isolation, blurred boundaries or reduced access to informal learning and promotion. The effect depends on the role, home environment, technology and management practices."
+      ]
+    },
+    {
+      "heading": "Agree on expectations",
+      "level": 2,
+      "body": [
+        "Before accepting or changing a remote arrangement, clarify working hours, response-time expectations, deliverables, supervision, equipment, internet costs, data security and how performance will be assessed. Ask how meetings, training and promotion opportunities will remain accessible."
+      ]
+    },
+    {
+      "heading": "Protect time and wellbeing",
+      "level": 2,
+      "body": [
+        "Set a realistic start and finish time, take breaks and use a dedicated workspace if available. Keep work messages out of rest periods where possible. Plan regular contact with colleagues and tell a manager early if workload, isolation or caregiving demands are becoming unsustainable."
+      ]
+    },
+    {
+      "heading": "Privacy and safe working",
+      "level": 2,
+      "body": [
+        "Use approved devices and secure connections, lock screens and keep confidential work away from shared household spaces. Do not share passwords or client information. Check employer policy before recording meetings or using monitoring software; remote work does not remove privacy obligations."
+      ]
+    },
+    {
+      "heading": "Review the arrangement",
+      "level": 2,
+      "body": [
+        "Review workload, outcomes, inclusion and wellbeing after an agreed period. If remote work creates discrimination, excessive hours, unsafe conditions or privacy risks, document the issue and use the appropriate workplace channel. Employment rights and reimbursement rules depend on local law and contract."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the first practical step for remote work?",
+      "answer": "Remote work changes where work is performed, not the need for clear expectations, fair treatment and healthy working conditions."
+    },
+    {
+      "question": "When should I seek professional advice?",
+      "answer": "Seek qualified local advice when legal, financial, safety or other high-stakes decisions depend on your individual circumstances."
+    }
+  ],
+  "references": [
+    {
+      "organization": "ILO",
+      "title": "Working from home: From invisibility to decent work",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/publications/working-home-invisibility-decent-work",
+      "accessedDate": "2026-11-04",
+      "supports": "Remote work conditions and decent-work principles."
+    },
+    {
+      "organization": "WHO",
+      "title": "Mental health at work",
+      "year": null,
+      "publisher": "WHO",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work",
+      "accessedDate": "2026-11-04",
+      "supports": "Workplace factors that support or harm mental wellbeing."
+    },
+    {
+      "organization": "UN Women",
+      "title": "Pakistan country fact sheet",
+      "year": null,
+      "publisher": "UN Women",
+      "url": "https://data.unwomen.org/country/pakistan",
+      "accessedDate": "2026-11-04",
+      "supports": "Gendered unpaid care and work context in Pakistan."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-013"
+  ],
+  "safetyNotice": "General educational information, not individual legal, financial, medical or professional advice. Check current local requirements and consult a qualified professional for high-stakes decisions."
+}
