@@ -46,6 +46,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import kotlinx.coroutines.launch
 import com.obaiddoctrine.app.auth.NhostAuthRepository
+import com.obaiddoctrine.app.auth.MfaRequiredException
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -102,6 +103,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     var authMessage by remember { mutableStateOf<String?>(null) }
     var authMessageIsError by remember { mutableStateOf(false) }
     var passwordResetMode by remember { mutableStateOf(false) }
+    var mfaRequired by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
@@ -157,6 +159,26 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
             when {
                 selectedTab == 0 && selectedSection < 0 -> HomeScreen(padding, onSection = { selectedSection = it })
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
+                mfaRequired -> MfaScreen(
+                    padding = padding,
+                    statusMessage = authMessage,
+                    statusIsError = authMessageIsError,
+                    onVerify = { otp ->
+                        authMessage = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                session = authRepository.verifyMfaTotp(otp)
+                                mfaRequired = false
+                            } catch (error: Exception) {
+                                authMessage = error.message ?: "Unable to verify the authenticator code."
+                                authMessageIsError = true
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    }
+                )
                 passwordResetMode -> PasswordResetScreen(
                     padding = padding,
                     statusMessage = authMessage,
@@ -191,6 +213,10 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                             authLoading = true
                             try {
                                 session = authRepository.signIn(email, password)
+                            } catch (_: MfaRequiredException) {
+                                mfaRequired = true
+                                authMessage = "Two-factor authentication is enabled for this account."
+                                authMessageIsError = false
                             } catch (error: Exception) {
                                 authMessage = error.message ?: "Unable to sign in. Please try again."
                                 authMessageIsError = true
