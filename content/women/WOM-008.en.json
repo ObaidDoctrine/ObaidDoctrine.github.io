@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-008",
+  "language": "en",
+  "pairedTopicId": "WOM-008",
+  "title": "Account security",
+  "subtitle": "A practical, evidence-informed guide to account security.",
+  "slug": "account-security",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand account security, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "Why account security matters",
+      "level": 2,
+      "body": [
+        "Email, social media, banking, cloud storage and messaging accounts contain personal information and may provide access to other services. If one account is compromised, an attacker may reset passwords elsewhere, impersonate you or access private conversations and files.\\n\\nSecurity is not a one-time setting. It is a set of habits: unique credentials, current recovery methods, awareness of suspicious prompts and regular activity checks. The aim is to reduce risk, not promise an account can never be breached."
+      ]
+    },
+    {
+      "heading": "Use unique passwords",
+      "level": 2,
+      "body": [
+        "Use a different password or passphrase for every important account. A reputable password manager can generate and store long, unique passwords so you do not need to reuse or memorise them all. Avoid birthdays, names, phone numbers and predictable patterns.\\n\\nNever share passwords or one-time codes with an unexpected contact, even if they claim to be platform support, a bank employee or a friend. Legitimate support should not ask you to reveal your full password or authentication code in a chat."
+      ]
+    },
+    {
+      "heading": "Enable multi-factor authentication",
+      "level": 2,
+      "body": [
+        "Multi-factor authentication adds another check beyond the password, such as an authenticator app, security key or one-time code. Where available, prefer phishing-resistant options such as passkeys or security keys. An authenticator app is generally stronger than relying only on SMS, though any available MFA is usually better than none.\\n\\nKeep backup codes in a secure place separate from your sign-in device. Review trusted devices and remove ones you no longer control. Do not approve a sign-in prompt you did not initiate."
+      ]
+    },
+    {
+      "heading": "Secure recovery and review activity",
+      "level": 2,
+      "body": [
+        "Make sure the recovery email and phone number belong to you and are protected. Check recent sign-ins, active sessions, connected apps, forwarding rules and account permissions. Remove unfamiliar devices or apps and change credentials if you find activity you cannot explain.\\n\\nIf you suspect someone monitors your device or may retaliate when access changes, plan from a safer device and get specialist help before taking visible steps. For work or shared accounts, follow the organisation’s security process."
+      ]
+    },
+    {
+      "heading": "After suspected compromise",
+      "level": 2,
+      "body": [
+        "Use the service’s official recovery page reached independently, change the affected and any reused passwords, revoke unknown sessions, check recovery details and enable MFA. Warn contacts if your account may have sent suspicious messages. Contact your bank if financial information or transactions may be affected.\\n\\nBe wary of recovery scams that demand payment, remote access or more passwords. Use official support channels and preserve relevant alerts. For serious crime or financial loss, contact the appropriate local authority and financial provider."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "title": "Use Strong Passwords",
+      "year": null,
+      "publisher": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "url": "https://www.cisa.gov/secure-our-world/use-strong-passwords",
+      "accessedDate": "2026-11-04",
+      "supports": "Unique passwords and password managers."
+    },
+    {
+      "organization": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "title": "Implementing Phishing-Resistant MFA",
+      "year": null,
+      "publisher": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "url": "https://www.cisa.gov/resources-tools/resources/implementing-phishing-resistant-mfa",
+      "accessedDate": "2026-11-04",
+      "supports": "Multi-factor and phishing-resistant authentication."
+    },
+    {
+      "organization": "National Cyber Security Centre (UK)",
+      "title": "Turn on 2-step verification",
+      "year": null,
+      "publisher": "National Cyber Security Centre (UK)",
+      "url": "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/turn-on-2-step-verification",
+      "accessedDate": "2026-11-04",
+      "supports": "Practical account security guidance."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
