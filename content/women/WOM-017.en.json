@@ -1,0 +1,100 @@
+{
+  "topicId": "WOM-017",
+  "pairedTopicId": "WOM-017",
+  "slug": "digital-skills",
+  "categoryId": "WOM-CAT-02",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 8,
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-013"
+  ],
+  "language": "en",
+  "title": "Digital skills",
+  "subtitle": "A practical roadmap for learning technology with confidence, safety and purpose.",
+  "description": "Digital skills help people use technology to communicate, learn, solve problems and access work opportunities. The most useful learning plan starts with a clear goal, builds core confidence and demonstrates ability through practical projects.",
+  "content": [
+    {
+      "heading": "What digital skills include",
+      "level": 2,
+      "body": [
+        "Digital skills are the abilities needed to use devices, software and online services effectively. They include everyday tasks such as managing files, using email, searching for reliable information and joining online meetings, as well as specialist abilities such as graphic design, spreadsheets, coding, digital marketing and data analysis.",
+        "Digital confidence also includes knowing when a tool is unsuitable, checking information before sharing it and understanding how personal data may be collected. The right combination depends on the work, study or personal task you want to do."
+      ]
+    },
+    {
+      "heading": "Start with a clear goal",
+      "level": 2,
+      "body": [
+        "Choose a realistic outcome before choosing a course. For example, you might want to prepare professional documents, manage a small business page, teach online, analyse sales in a spreadsheet or apply for remote work.",
+        "Look at a few genuine job or client requirements in your intended field. Note the tools and abilities that appear repeatedly, then select one skill to learn first. Avoid paying for an expensive course until you have checked its syllabus, instructor, independent reviews and refund terms."
+      ]
+    },
+    {
+      "heading": "Build core digital confidence",
+      "level": 2,
+      "body": [
+        "Practise device basics, file organisation, email etiquette, document editing, video calls and safe web searches. Learn to create strong unique passwords, use multi-factor authentication where available, recognise suspicious links and keep software updated.",
+        "Develop information literacy: compare claims with reliable sources, check dates and authors, distinguish advertising from independent information and be cautious with AI-generated answers. Do not upload confidential work, identity documents or private information to tools unless you understand their privacy terms and have permission."
+      ]
+    },
+    {
+      "heading": "Learn by making something",
+      "level": 2,
+      "body": [
+        "Use a small project to turn lessons into evidence. Examples include a sample budget spreadsheet, a one-page portfolio, a practice presentation, a simple website, a product catalogue or a short research summary. Use fictional or non-sensitive data in practice projects.",
+        "Keep a record of what you made, which tools you used and what problem the project solves. Ask a knowledgeable person to review it. A clear portfolio can help explain your abilities, but it does not guarantee employment or income."
+      ]
+    },
+    {
+      "heading": "Choose learning resources carefully",
+      "level": 2,
+      "body": [
+        "Compare free and paid learning options from recognised educational institutions, public programmes and established professional platforms. Check whether lessons are current, accessible on your device and available in a language you understand. In Pakistan, local training initiatives may offer relevant digital-skills pathways; verify current eligibility, dates and fees directly with the provider.",
+        "Set a manageable routine, such as several focused practice sessions each week. Revisit skills as tools change, and protect time for rest and other responsibilities. If you are learning for a particular role, ask employers or experienced workers which practical abilities matter most."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do I need to learn coding to become digitally skilled?",
+      "answer": "No. Coding is valuable for some roles, but many jobs need other abilities such as communication, spreadsheets, design, online research, digital customer service or secure use of workplace tools. Start with the skills connected to your goal."
+    },
+    {
+      "question": "Are online certificates enough to get a job?",
+      "answer": "A certificate can show that you completed a course, but it does not prove every practical ability or guarantee work. Combine learning with projects, relevant experience and clear examples of what you can do."
+    }
+  ],
+  "references": [
+    {
+      "organization": "UNESCO Institute for Statistics",
+      "title": "A Global Framework of Reference on Digital Literacy Skills for Indicator 4.4.2",
+      "year": 2018,
+      "publisher": "UNESCO",
+      "url": "https://uis.unesco.org/sites/default/files/documents/ip51-global-framework-reference-digital-literacy-skills-2018-en.pdf",
+      "supports": "Provides a structured framework for understanding digital literacy beyond basic device use."
+    },
+    {
+      "organization": "United Nations Development Programme Pakistan",
+      "title": "Digitalisation and Women in Pakistan",
+      "year": 2023,
+      "publisher": "UNDP Pakistan and National Commission on the Status of Women",
+      "url": "https://www.undp.org/sites/g/files/zskgke326/files/2023-07/digitalisation_women_in_pakistan_-_ncsw_report_2023.pdf",
+      "supports": "Pakistan-focused evidence on women's access to and participation in digitalisation."
+    },
+    {
+      "organization": "Pakistan Home-based Women Workers Federation",
+      "title": "Digital Skills Programme",
+      "year": null,
+      "publisher": "PHWO",
+      "url": "https://phwo.org/programmes/digital-skills/",
+      "supports": "An example of locally relevant digital-skills programming; current availability should be checked with the provider."
+    }
+  ],
+  "safetyNotice": "Protect passwords, identity documents, financial details and private images. Use trusted networks and official learning providers; verify course fees and job offers before paying. This article is general educational guidance, not a guarantee of employment."
+}
