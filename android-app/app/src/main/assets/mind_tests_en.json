@@ -148,6 +148,16 @@
         "reflections": [
           "What happens to my communication when I feel rushed or misunderstood?",
           "Which part is harder for me: listening, expressing, or asking clearly?"
+        ],
+        "references": [
+          {
+            "title": "APA/AERA/NCME testing standards",
+            "url": "https://www.apa.org/science/programs/testing/standards?clearcache=true"
+          },
+          {
+            "title": "Assertive communication systematic review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28964979/"
+          }
         ]
       }
     },
@@ -296,6 +306,16 @@
         "reflections": [
           "Do I tend to pursue, pause, withdraw, or problem-solve first?",
           "What helps me return to a difficult conversation constructively?"
+        ],
+        "references": [
+          {
+            "title": "Relationship conflict meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21553964/"
+          },
+          {
+            "title": "APA/AERA/NCME testing standards",
+            "url": "https://www.apa.org/science/programs/testing/standards?clearcache=true"
+          }
         ]
       }
     },
@@ -494,6 +514,20 @@
         "reflections": [
           "What evidence would actually make me change my mind?",
           "Do I confuse feeling confident with having strong evidence?"
+        ],
+        "references": [
+          {
+            "title": "Metacognition in human decision-making",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22492749/"
+          },
+          {
+            "title": "Metacognition and confidence review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37722748/"
+          },
+          {
+            "title": "Judgment and decision making review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31337275/"
+          }
         ]
       }
     },
@@ -642,6 +676,20 @@
         "reflections": [
           "Which emotions do I notice quickly, and which do I understand only later?",
           "What usually happens between feeling an emotion and choosing how to respond?"
+        ],
+        "references": [
+          {
+            "title": "EI measurement review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31191383/"
+          },
+          {
+            "title": "EI meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31829667/"
+          },
+          {
+            "title": "Emotion regulation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24897894/"
+          }
         ]
       }
     },
@@ -790,6 +838,20 @@
         "reflections": [
           "Which goals feel personally meaningful rather than merely expected?",
           "What kind of support makes action easier without taking away my sense of ownership?"
+        ],
+        "references": [
+          {
+            "title": "Self-determined motivation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29048175/"
+          },
+          {
+            "title": "Student motivation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33593153/"
+          },
+          {
+            "title": "Basic-need support meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38635183/"
+          }
         ]
       }
     },
@@ -1042,6 +1104,20 @@
         "reflections": [
           "Where does my usual pattern change because the situation changes?",
           "Which tendency helps me in one context but creates friction in another?"
+        ],
+        "references": [
+          {
+            "title": "Big Five quantitative synthesis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34687041/"
+          },
+          {
+            "title": "Big Five metasynthesis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28277701/"
+          },
+          {
+            "title": "Big Five and well-being meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31944795/"
+          }
         ]
       }
     },
@@ -1190,6 +1266,16 @@
         "reflections": [
           "How do I show another person that I understood them?",
           "What makes repair easier or harder after a misunderstanding?"
+        ],
+        "references": [
+          {
+            "title": "Relationship education communication meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19364214/"
+          },
+          {
+            "title": "Relationship conflict meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21553964/"
+          }
         ]
       }
     },
@@ -1388,6 +1474,20 @@
         "reflections": [
           "What helps me recover enough to think clearly after a setback?",
           "Which resources do I already have but do not consistently use?"
+        ],
+        "references": [
+          {
+            "title": "Integrative resilience review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26748456/"
+          },
+          {
+            "title": "Dynamic resilience review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30126047/"
+          },
+          {
+            "title": "2024 dynamic adaptational process theory",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39531707/"
+          }
         ]
       }
     },
@@ -1536,6 +1636,16 @@
         "reflections": [
           "Which self-beliefs have I actually checked against evidence?",
           "What patterns do I notice only after someone gives me feedback?"
+        ],
+        "references": [
+          {
+            "title": "Metacognition and confidence review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37722748/"
+          },
+          {
+            "title": "Metacognition in decision-making",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22492749/"
+          }
         ]
       }
     },
@@ -1734,6 +1844,20 @@
         "reflections": [
           "What signs tell me that pressure is beginning to affect my thinking or behavior?",
           "Which coping responses help me address the situation rather than only distract from it?"
+        ],
+        "references": [
+          {
+            "title": "Lazarus stress and coping review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/10892209/"
+          },
+          {
+            "title": "Stressful encounter, appraisal and coping",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/3712234/"
+          },
+          {
+            "title": "Emotion regulation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24897894/"
+          }
         ]
       }
     }
