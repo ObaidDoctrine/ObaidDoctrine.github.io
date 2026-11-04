@@ -208,22 +208,37 @@ internal fun MindTestRunnerScreen(
                 }
             }
         } else {
-            val results = repository.score(currentTest, answers)
+            val results = repository.score(currentTest, answers).sortedByDescending { it.score }
+            val leading = results.firstOrNull()
             item {
-                Text(if (isUrdu) "آپ کے جوابات کا خلاصہ" else "Your response patterns", color = DoctrineCream, fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
+                Text(if (isUrdu) "آپ کا تعلیمی نتیجہ" else "Your educational reflection result", color = DoctrineCream, fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    if (isUrdu) "یہ تناسب صرف آپ کے منتخب کردہ جوابات کی تقسیم دکھاتے ہیں؛ انہیں diagnosis، clinical score یا مستقل شخصیت کا فیصلہ نہ سمجھیں۔"
-                    else "These percentages show how your selected answers map to the questionnaire dimensions. They are not a diagnosis, clinical score or fixed personality label.",
+                    if (isUrdu) "آپ کے جوابات میں یہ رجحان سب سے زیادہ نمایاں رہا۔"
+                    else "This was the most represented response tendency in your answers.",
                     color = MutedText, fontSize = 13.sp, lineHeight = 20.sp
                 )
+            }
+            if (leading != null) {
+                item {
+                    Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF33251C)), shape = RoundedCornerShape(16.dp)) {
+                        Column(Modifier.padding(17.dp)) {
+                            Text(leading.label, color = DoctrineOrange, fontSize = 19.sp, fontWeight = FontWeight.ExtraBold)
+                            Spacer(Modifier.height(8.dp))
+                            Text(leading.description, color = DoctrineCream, fontSize = 14.sp, lineHeight = 22.sp)
+                        }
+                    }
+                }
+            }
+            item {
+                Text(if (isUrdu) "مکمل جواب پروفائل" else "Your response profile", color = DoctrineCream, fontSize = 19.sp, fontWeight = FontWeight.Bold)
             }
             items(results, key = { it.label }) { result ->
                 Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF252525)), shape = RoundedCornerShape(16.dp)) {
                     Column(Modifier.padding(16.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(result.label, color = DoctrineCream, fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-                            Text("${result.percentage}%", color = DoctrineOrange, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                            Text("${result.score} / ${result.maximum}", color = DoctrineOrange, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                         }
                         Spacer(Modifier.height(9.dp))
                         Box(Modifier.fillMaxWidth().height(7.dp).background(Color(0xFF3A3A3A), RoundedCornerShape(99.dp))) {
