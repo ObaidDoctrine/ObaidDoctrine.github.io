@@ -36,10 +36,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.launch
+import com.obaiddoctrine.app.auth.NhostAuthRepository
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -82,6 +88,19 @@ private val sections = listOf(
 private fun DoctrineApp() {
     var selectedTab by remember { mutableIntStateOf(0) }
     var selectedSection by remember { mutableIntStateOf(-1) }
+    var session by remember { mutableStateOf<NhostAuthRepository.Session?>(null) }
+    var authLoading by remember { mutableStateOf(true) }
+    var authError by remember { mutableStateOf<String?>(null) }
+    val context = LocalContext.current
+    val authRepository = remember { NhostAuthRepository(context) }
+    val scope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        session = authRepository.restoreSession()
+        authLoading = false
+    }
+
+    val isAuthenticated = session != null
     val tabs = listOf("Home", "Explore", "Library", "Profile")
     val icons = listOf(Icons.Filled.Home, Icons.Filled.Explore, Icons.Filled.BookmarkBorder, Icons.Filled.PersonOutline)
 
@@ -109,11 +128,33 @@ private fun DoctrineApp() {
             }
         ) { padding ->
             when {
+                selectedTab == 0 && selectedSection < 0 -> HomeScreen(padding, onSection = { selectedSection = it })
+                authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
+                !isAuthenticated -> AuthScreen(
+                    padding = padding,
+                    errorMessage = authError,
+                    onSignIn = { email, password ->
+                        authError = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                session = authRepository.signIn(email, password)
+                            } catch (error: Exception) {
+                                authError = error.message ?: "Unable to sign in. Please try again."
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    }
+                )
                 selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding) { selectedSection = -1 }
-                selectedTab == 0 -> HomeScreen(padding, onSection = { selectedSection = it })
                 selectedTab == 1 -> ExploreScreen(padding, onSection = { selectedSection = it })
                 selectedTab == 2 -> SimpleStateScreen("Your Library", "Your saved articles and learning resources will appear here.", padding)
-                else -> SimpleStateScreen("Your Profile", "Sign in and account management will be connected to the existing OBAID DOCTRINE account system.", padding)
+                else -> SimpleStateScreen(
+                    "Your Profile",
+                    "Signed in as ${session?.user?.email ?: ""}.",
+                    padding
+                )
             }
         }
     }
