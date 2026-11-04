@@ -34,7 +34,8 @@ try {
   // Pass only the short-lived authorization code to the app; never expose tokens in a deep link.
   if (appMode && nativeMode) {
     status.textContent = "Email verified. Returning securely to OBAID DOCTRINE…";
-    location.replace("obaiddoctrine://auth-success?code=" + encodeURIComponent(code));
+    const flow = params.get("flow") === "reset" ? "&flow=reset" : "";
+    location.replace("obaiddoctrine://auth-success?code=" + encodeURIComponent(code) + flow);
   } else {
     const verifier = localStorage.getItem("nhost_pkce_verifier");
     if (!verifier) throw new Error("Verification session has expired. Please restart registration.");
