@@ -44,6 +44,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import kotlinx.coroutines.launch
 import com.obaiddoctrine.app.content.BookmarkRepository
 import com.obaiddoctrine.app.auth.NhostAuthRepository
@@ -135,10 +138,17 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     }
 
     val isAuthenticated = session != null
-    val isUrdu = java.util.Locale.getDefault().language == "ur"
-    val tabs = listOf("Home", "Explore", "Articles", "Library", "Profile")
+    var isUrdu by remember {
+        mutableStateOf(
+            context.getSharedPreferences("od_app_preferences", android.content.Context.MODE_PRIVATE)
+                .getBoolean("language_urdu", java.util.Locale.getDefault().language == "ur")
+        )
+    }
+    val tabs = if (isUrdu) listOf("ہوم", "دریافت", "مضامین", "لائبریری", "پروفائل")
+        else listOf("Home", "Explore", "Articles", "Library", "Profile")
     val icons = listOf(Icons.Filled.Home, Icons.Filled.Explore, Icons.Filled.MenuBook, Icons.Filled.BookmarkBorder, Icons.Filled.PersonOutline)
 
+    CompositionLocalProvider(LocalLayoutDirection provides if (isUrdu) LayoutDirection.Rtl else LayoutDirection.Ltr) {
     MaterialTheme(colorScheme = darkColorScheme(
         primary = DoctrineOrange,
         onPrimary = DoctrineInk,
@@ -149,6 +159,25 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     )) {
         Scaffold(
             containerColor = DoctrineInk,
+            topBar = {
+                Row(
+                    modifier = Modifier.fillMaxWidth().background(DoctrineInk).padding(horizontal = 20.dp, vertical = 12.dp),
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        if (isUrdu) "English  |  اردو ✓" else "EN  |  اردو",
+                        color = DoctrineOrange,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 12.sp,
+                        modifier = Modifier.clickable {
+                            isUrdu = !isUrdu
+                            context.getSharedPreferences("od_app_preferences", android.content.Context.MODE_PRIVATE)
+                                .edit().putBoolean("language_urdu", isUrdu).apply()
+                        }.padding(8.dp)
+                    )
+                }
+            },
             bottomBar = {
                 NavigationBar(containerColor = Color(0xFF202020), contentColor = DoctrineCream) {
                     tabs.forEachIndexed { index, label ->
@@ -163,7 +192,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
             }
         ) { padding ->
             when {
-                selectedTab == 0 && selectedSection < 0 && selectedArticlePath == null -> HomeScreen(padding, onSection = { selectedSection = it })
+                selectedTab == 0 && selectedSection < 0 && selectedArticlePath == null -> HomeScreen(padding, isUrdu, onSection = { selectedSection = it })
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
                 mfaRequired -> MfaScreen(
                     padding = padding,
@@ -322,10 +351,11 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
             }
         }
     }
+    }
 }
 
 @Composable
-private fun HomeScreen(padding: PaddingValues, onSection: (Int) -> Unit) {
+private fun HomeScreen(padding: PaddingValues, isUrdu: Boolean, onSection: (Int) -> Unit) {
     LazyColumn(
         modifier = Modifier.fillMaxSize().padding(padding),
         contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 28.dp),
@@ -338,7 +368,7 @@ private fun HomeScreen(padding: PaddingValues, onSection: (Int) -> Unit) {
                 }
                 Column(Modifier.padding(start = 12.dp)) {
                     Text("OBAID DOCTRINE", color = DoctrineCream, fontWeight = FontWeight.Bold, letterSpacing = 1.4.sp)
-                    Text("Psychology • Knowledge • Growth", color = MutedText, fontSize = 11.sp)
+                    Text(if (isUrdu) "نفسیات • علم • ترقی" else "Psychology • Knowledge • Growth", color = MutedText, fontSize = 11.sp)
                 }
             }
         }
@@ -349,26 +379,26 @@ private fun HomeScreen(padding: PaddingValues, onSection: (Int) -> Unit) {
                     shape = RoundedCornerShape(26.dp)
                 ).padding(22.dp)
             ) {
-                Text("BETTER MIND.", color = DoctrineOrange, fontSize = 13.sp, fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
+                Text(if (isUrdu) "بہتر ذہن۔" else "BETTER MIND.", color = DoctrineOrange, fontSize = 13.sp, fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
                 Text("BETTER CHARACTER.\nBETTER LIFE.", color = DoctrineCream, fontSize = 29.sp, lineHeight = 35.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(10.dp))
-                Text("Explore the science of the mind, human behaviour and meaningful living.", color = MutedText, fontSize = 14.sp, lineHeight = 21.sp)
+                Text(if (isUrdu) "ذہن، انسانی رویّوں اور بامقصد زندگی کے علم کو دریافت کریں۔" else "Explore the science of the mind, human behaviour and meaningful living.", color = MutedText, fontSize = 14.sp, lineHeight = 21.sp)
                 Spacer(Modifier.height(18.dp))
-                Text("EXPLORE KNOWLEDGE  →", color = DoctrineOrange, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                Text(if (isUrdu) "علم دریافت کریں  ←" else "EXPLORE KNOWLEDGE  →", color = DoctrineOrange, fontWeight = FontWeight.Bold, fontSize = 12.sp)
             }
         }
         item {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text("Explore your mind", color = DoctrineCream, fontSize = 21.sp, fontWeight = FontWeight.Bold)
+                Text(if (isUrdu) "اپنے ذہن کو سمجھیں" else "Explore your mind", color = DoctrineCream, fontSize = 21.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.weight(1f))
-                Text("ALL TOPICS", color = DoctrineOrange, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(if (isUrdu) "تمام موضوعات" else "ALL TOPICS", color = DoctrineOrange, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
         }
         items(sections.take(4).withIndex().toList()) { (index, section) ->
             SectionCard(section) { onSection(index) }
         }
         item {
-            Text("Discover more", color = DoctrineCream, fontSize = 21.sp, fontWeight = FontWeight.Bold)
+            Text(if (isUrdu) "مزید دریافت کریں" else "Discover more", color = DoctrineCream, fontSize = 21.sp, fontWeight = FontWeight.Bold)
         }
         items(sections.drop(4).withIndex().toList()) { (offset, section) ->
             SectionCard(section) { onSection(offset + 4) }
