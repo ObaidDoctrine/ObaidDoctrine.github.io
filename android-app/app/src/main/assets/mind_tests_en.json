@@ -136,7 +136,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong construct literature; original questionnaire, not psychometrically validated.",
+        "limitations": "Self-report responses can be affected by context and social desirability. Communication behavior varies by relationship, power, culture and situation.",
+        "recommendations": [
+          "When a conversation matters, state the specific point you want understood before adding explanations.",
+          "Practice reflecting the other person's main point before responding with your own view.",
+          "Use a clear request and describe the situation without labeling the other person's character."
+        ],
+        "reflections": [
+          "What happens to my communication when I feel rushed or misunderstood?",
+          "Which part is harder for me: listening, expressing, or asking clearly?"
+        ]
+      }
     },
     {
       "slug": "conflict-style",
@@ -271,7 +284,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong relationship/conflict literature; original educational questionnaire.",
+        "limitations": "Conflict behavior is highly context-dependent. This tool does not assess abuse, coercive control, safety or relationship quality.",
+        "recommendations": [
+          "Separate the problem from the person: describe the specific behavior or decision at issue.",
+          "Before defending your position, identify one part of the other person's perspective that you genuinely understand.",
+          "If emotions are too high for productive discussion, agree on a specific time to return to the issue rather than disappearing indefinitely."
+        ],
+        "reflections": [
+          "Do I tend to pursue, pause, withdraw, or problem-solve first?",
+          "What helps me return to a difficult conversation constructively?"
+        ]
+      }
     },
     {
       "slug": "decision-making-style",
@@ -456,7 +482,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong theoretical/review literature; original educational questionnaire.",
+        "limitations": "Good decisions depend on domain knowledge, stakes, time, available evidence and consequences. A self-report profile does not measure decision accuracy.",
+        "recommendations": [
+          "For high-stakes choices, write down the evidence that could genuinely change your decision before choosing.",
+          "Separate confidence from certainty: note what you know, what you infer and what remains unknown.",
+          "After an important decision, review the outcome for learning rather than judging yourself solely by whether it worked."
+        ],
+        "reflections": [
+          "What evidence would actually make me change my mind?",
+          "Do I confuse feeling confident with having strong evidence?"
+        ]
+      }
     },
     {
       "slug": "emotional-intelligence",
@@ -591,7 +630,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong research literature but multiple competing EI models exist; this is an original self-reflection tool, not an EI ability test.",
+        "limitations": "Self-report cannot establish ability EI or clinical emotional functioning. Emotional responses are context-dependent.",
+        "recommendations": [
+          "Name the emotion and the situation separately: 'I feel frustrated' is different from 'this person is frustrating.'",
+          "Before reacting, identify what the emotion is signaling and what action would fit the situation.",
+          "When another person is emotional, first clarify what they need—listening, information, space or practical help."
+        ],
+        "reflections": [
+          "Which emotions do I notice quickly, and which do I understand only later?",
+          "What usually happens between feeling an emotion and choosing how to respond?"
+        ]
+      }
     },
     {
       "slug": "motivation-goals",
@@ -726,7 +778,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong motivation literature; original educational questionnaire.",
+        "limitations": "Motivation changes across tasks, environments, resources and relationships. This is not a measure of academic or occupational performance.",
+        "recommendations": [
+          "Connect a difficult goal to a value that matters to you rather than relying only on pressure or rewards.",
+          "Break a vague goal into one observable next action and decide when and where it will happen.",
+          "Track progress in a way that shows learning and competence, not only final outcomes."
+        ],
+        "reflections": [
+          "Which goals feel personally meaningful rather than merely expected?",
+          "What kind of support makes action easier without taking away my sense of ownership?"
+        ]
+      }
     },
     {
       "slug": "personality-traits",
@@ -965,7 +1030,20 @@
             4
           ]
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Very strong construct literature; this short original reflection is not a validated Big Five inventory and has no norms.",
+        "limitations": "Personality traits describe tendencies, not fixed identities. Two items per trait cannot provide the precision of established inventories.",
+        "recommendations": [
+          "Interpret trait tendencies as context-sensitive patterns rather than labels or strengths/weaknesses in themselves.",
+          "Compare your responses across situations; a trait tendency does not mean you behave the same way everywhere.",
+          "Use the result to choose one environment or habit that fits your current preferences rather than trying to change your identity."
+        ],
+        "reflections": [
+          "Where does my usual pattern change because the situation changes?",
+          "Which tendency helps me in one context but creates friction in another?"
+        ]
+      }
     },
     {
       "slug": "relationship-communication",
@@ -1100,7 +1178,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong relationship-communication literature; original educational questionnaire.",
+        "limitations": "This tool does not assess relationship satisfaction, abuse, coercion, compatibility or safety.",
+        "recommendations": [
+          "Use specific observations and requests when raising a concern instead of global labels such as 'always' or 'never'.",
+          "Show responsiveness by acknowledging the other person's experience before moving to your own explanation.",
+          "After a misunderstanding, return to the issue and clarify what each person understood rather than trying to win the argument."
+        ],
+        "reflections": [
+          "How do I show another person that I understood them?",
+          "What makes repair easier or harder after a misunderstanding?"
+        ]
+      }
     },
     {
       "slug": "resilience-adaptability",
@@ -1285,7 +1376,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong and evolving resilience literature; original educational questionnaire.",
+        "limitations": "Resilience is not a fixed trait or guarantee of recovery. Context, resources and severity of adversity matter.",
+        "recommendations": [
+          "After a setback, protect enough recovery time to think clearly before demanding more from yourself.",
+          "When a strategy stops working, change the strategy while keeping the underlying goal in view.",
+          "Identify practical and social resources early rather than treating help-seeking as failure."
+        ],
+        "reflections": [
+          "What helps me recover enough to think clearly after a setback?",
+          "Which resources do I already have but do not consistently use?"
+        ]
+      }
     },
     {
       "slug": "self-awareness",
@@ -1420,7 +1524,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong conceptual and metacognitive literature; original educational questionnaire.",
+        "limitations": "Self-report awareness is not the same as objective accuracy. People can be confident about a self-judgment and still be mistaken.",
+        "recommendations": [
+          "When making a self-judgment, separate observation from interpretation: record what happened before deciding what it means.",
+          "Check important beliefs against evidence or feedback rather than relying only on how convincing they feel.",
+          "Notice repeated triggers and responses across several situations before drawing a conclusion about yourself."
+        ],
+        "reflections": [
+          "Which self-beliefs have I actually checked against evidence?",
+          "What patterns do I notice only after someone gives me feedback?"
+        ]
+      }
     },
     {
       "slug": "stress-response",
@@ -1605,7 +1722,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong stress-and-coping literature; original educational questionnaire.",
+        "limitations": "This does not screen for anxiety, depression, PTSD or any other disorder. Stress responses vary with severity, duration, health, environment and available support.",
+        "recommendations": [
+          "When pressure rises, identify what is controllable, what is not, and what the next useful action is.",
+          "Use recovery as part of coping: sleep, pauses, movement, social connection or other healthy routines can create space for regulation.",
+          "Match coping to the problem: change what can be changed and use emotional support when the situation cannot be immediately solved."
+        ],
+        "reflections": [
+          "What signs tell me that pressure is beginning to affect my thinking or behavior?",
+          "Which coping responses help me address the situation rather than only distract from it?"
+        ]
+      }
     }
   ]
 }
