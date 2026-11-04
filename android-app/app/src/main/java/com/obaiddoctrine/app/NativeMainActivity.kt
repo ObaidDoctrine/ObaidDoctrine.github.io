@@ -105,6 +105,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     var passwordResetMode by remember { mutableStateOf(false) }
     var mfaRequired by remember { mutableStateOf(false) }
     var selectedArticlePath by remember { mutableStateOf<String?>(null) }
+    var selectedTestSlug by remember { mutableStateOf<String?>(null) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
@@ -150,7 +151,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     tabs.forEachIndexed { index, label ->
                         NavigationBarItem(
                             selected = selectedTab == index,
-                            onClick = { selectedTab = index; selectedSection = -1; selectedArticlePath = null },
+                            onClick = { selectedTab = index; selectedSection = -1; selectedArticlePath = null; selectedTestSlug = null },
                             icon = { androidx.compose.material3.Icon(icons[index], contentDescription = label) },
                             label = { Text(label) }
                         )
@@ -267,6 +268,17 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     path = selectedArticlePath.orEmpty(),
                     isUrdu = isUrdu,
                     onBack = { selectedArticlePath = null }
+                )
+                selectedTestSlug != null -> MindTestRunnerScreen(
+                    padding = padding,
+                    slug = selectedTestSlug.orEmpty(),
+                    isUrdu = isUrdu,
+                    onBack = { selectedTestSlug = null }
+                )
+                selectedSection == 6 -> MindTestsLibraryScreen(
+                    padding = padding,
+                    isUrdu = isUrdu,
+                    onOpenTest = { selectedTestSlug = it }
                 )
                 selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding) { selectedSection = -1 }
                 selectedTab == 1 -> ExploreScreen(padding, onSection = { selectedSection = it })
