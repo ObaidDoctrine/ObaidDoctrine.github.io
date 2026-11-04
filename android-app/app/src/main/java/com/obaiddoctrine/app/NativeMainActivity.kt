@@ -150,10 +150,25 @@ private fun DoctrineApp() {
                 selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding) { selectedSection = -1 }
                 selectedTab == 1 -> ExploreScreen(padding, onSection = { selectedSection = it })
                 selectedTab == 2 -> SimpleStateScreen("Your Library", "Your saved articles and learning resources will appear here.", padding)
-                else -> SimpleStateScreen(
-                    "Your Profile",
-                    "Signed in as ${session?.user?.email ?: ""}.",
-                    padding
+                else -> AuthenticatedProfileScreen(
+                    padding = padding,
+                    email = session?.user?.email.orEmpty(),
+                    errorMessage = authError,
+                    onSignOut = {
+                        authError = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                authRepository.signOut()
+                                session = null
+                                selectedSection = -1
+                            } catch (error: Exception) {
+                                authError = error.message ?: "Unable to sign out. Please try again."
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    }
                 )
             }
         }
