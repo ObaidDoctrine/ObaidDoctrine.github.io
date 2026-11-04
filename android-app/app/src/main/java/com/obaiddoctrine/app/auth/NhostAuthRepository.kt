@@ -77,6 +77,35 @@ class NhostAuthRepository(context: Context) {
         }
     }
 
+    suspend fun requestPasswordReset(email: String) = withContext(Dispatchers.IO) {
+        require(email.isNotBlank()) { "Enter your account email address." }
+        val verifier = newCodeVerifier()
+        val challenge = Base64.encodeToString(
+            MessageDigest.getInstance("SHA-256").digest(verifier.toByteArray(Charsets.US_ASCII)),
+            Base64.URL_SAFE or Base64.NO_WRAP or Base64.NO_PADDING
+        )
+        tokenStore.savePkceVerifier(verifier)
+        try {
+            post(
+                "/user/password/reset",
+                JSONObject()
+                    .put("email", email.trim())
+                    .put("options", JSONObject().put("redirectTo", "https://www.obaiddoctrine.com/auth/verify/?app=1&native=1&flow=reset"))
+                    .put("codeChallenge", challenge)
+            )
+        } catch (error: Exception) {
+            tokenStore.clearPkceVerifier()
+            throw error
+        }
+    }
+
+    suspend fun changePassword(newPassword: String) = withContext(Dispatchers.IO) {
+        require(newPassword.length in 3..50) { "Password must contain between 3 and 50 characters." }
+        val session = tokenStore.read() ?: throw AuthException("Your password reset session has expired. Please request a new link.")
+        post("/user/password", JSONObject().put("newPassword", newPassword), session.accessToken)
+        tokenStore.clear()
+    }
+
     suspend fun exchangeAuthorizationCode(code: String): Session = withContext(Dispatchers.IO) {
         require(code.isNotBlank()) { "The email verification link is incomplete." }
         val verifier = tokenStore.readPkceVerifier()
@@ -138,7 +167,7 @@ class NhostAuthRepository(context: Context) {
         return Session(access, refresh, json.optString("refreshTokenId").ifBlank { refresh }, user)
     }
 
-    private fun post(path: String, body: JSONObject): JSONObject {
+    private fun post(path: String, body: JSONObject, accessToken: String? = null): JSONObject {
         val connection = (URL(AUTH_BASE_URL + path).openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             connectTimeout = 15_000
@@ -146,6 +175,7 @@ class NhostAuthRepository(context: Context) {
             doOutput = true
             setRequestProperty("Content-Type", "application/json")
             setRequestProperty("Accept", "application/json")
+            if (!accessToken.isNullOrBlank()) setRequestProperty("Authorization", "Bearer $accessToken")
         }
         try {
             connection.outputStream.use { it.write(body.toString().toByteArray(Charsets.UTF_8)) }
