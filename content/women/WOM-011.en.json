@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-011",
+  "language": "en",
+  "pairedTopicId": "WOM-011",
+  "title": "Career after marriage",
+  "subtitle": "A practical guide to career after marriage and sustainable working life.",
+  "slug": "career-after-marriage",
+  "categoryId": "WOM-CAT-02",
+  "description": "Explore career after marriage with practical, evidence-informed guidance on choices, planning, rights, skills and sustainable work.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "Career decisions after marriage",
+      "level": 2,
+      "body": [
+        "Marriage can change household routines, location, finances, care responsibilities and family expectations. It does not automatically end a person’s professional goals or determine which choices are right. A useful starting point is to identify what the individual wants, what resources are available and which constraints are negotiable.\\n\\nAvoid treating paid work as the only valuable contribution or assuming that every household has the same arrangement. Unpaid care and domestic work also have economic value, even when they are not paid."
+      ]
+    },
+    {
+      "heading": "Discuss expectations clearly",
+      "level": 2,
+      "body": [
+        "Talk about working hours, commuting, childcare, household tasks, financial contributions, privacy and support. Use specific examples rather than general promises: who handles a sick-child day, what happens during a deadline, and how will decisions be revisited?\\n\\nA fair conversation allows both partners to express preferences and concerns. If a discussion involves intimidation, threats or control over money, movement or communication, consider confidential specialist support rather than treating it as an ordinary disagreement."
+      ]
+    },
+    {
+      "heading": "Map practical options",
+      "level": 2,
+      "body": [
+        "List possible work arrangements: continuing in the same role, changing hours, remote or hybrid work, further study, a career break with a return plan, or self-employment. Compare each option by income, skills, travel, safety, benefits, care needs and long-term progression.\\n\\nDo not assume remote work is automatically flexible or safe. Check actual hours, employer expectations, internet access, equipment, payment arrangements and boundaries between paid work and domestic responsibilities."
+      ]
+    },
+    {
+      "heading": "Protect professional continuity",
+      "level": 2,
+      "body": [
+        "Keep copies of qualifications, employment records, references and a current CV in a secure place. Maintain relevant skills through short courses, professional networks or occasional projects when practical. Agree on realistic time for learning and work rather than relying on spare time that may never appear.\\n\\nIf relocating, research the local labour market, credential recognition, transport and legal work requirements before making commitments. Seek advice from trusted career services or professional associations."
+      ]
+    },
+    {
+      "heading": "Build a shared, revisable plan",
+      "level": 2,
+      "body": [
+        "A practical plan might include a three-month goal, a weekly schedule, a household task-sharing agreement and a review date. Track progress without treating a change in circumstances as failure. Career paths can pause, shift or restart.\\n\\nThe final decision belongs to the person whose career it is. Supportive relationships make space for informed choice, dignity and financial understanding; no single model fits every family."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is there one correct career path for everyone?",
+      "answer": "No. The right path depends on personal goals, resources, safety, care responsibilities and local opportunities."
+    },
+    {
+      "question": "Where can I confirm workplace rights in Pakistan?",
+      "answer": "Check current official federal or provincial labour and ombudsperson resources, or consult a qualified local lawyer."
+    }
+  ],
+  "references": [
+    {
+      "organization": "UN Women",
+      "title": "Country Fact Sheet: Pakistan",
+      "year": null,
+      "publisher": "UN Women",
+      "url": "https://data.unwomen.org/country/pakistan",
+      "accessedDate": "2026-11-04",
+      "supports": "Gendered unpaid care and economic participation context."
+    },
+    {
+      "organization": "World Bank",
+      "title": "Women’s Economic Empowerment in Pakistan",
+      "year": null,
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099517505282516353/pdf/IDU-df476919-255b-46a3-afc2-4826ddd1f473.pdf",
+      "accessedDate": "2026-11-04",
+      "supports": "Digital work, flexibility and barriers to women's work."
+    },
+    {
+      "organization": "ILO",
+      "title": "Mind the gap: Why women in Pakistan earn less than men and what we can do about it",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/publications/mind-gap-why-women-pakistan-earn-less-men-and-what-we-can-do-about-it",
+      "accessedDate": "2026-11-04",
+      "supports": "Workplace inequality and decent work context."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-012",
+    "WOM-013",
+    "WOM-014"
+  ],
+  "safetyNotice": "General educational information, not legal, financial or career-placement advice. Confirm employment rights and procedures with current local official sources."
+}
