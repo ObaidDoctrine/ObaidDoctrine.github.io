@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-005",
+  "language": "en",
+  "pairedTopicId": "WOM-005",
+  "title": "Image-based abuse",
+  "subtitle": "A practical, evidence-informed guide to image-based abuse.",
+  "slug": "image-based-abuse",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand image-based abuse, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What image-based abuse includes",
+      "level": 2,
+      "body": [
+        "Image-based abuse involves creating, obtaining, sharing or threatening to share intimate images or videos without the person’s consent. It may include secretly recorded material, images shared beyond the audience originally agreed, or digitally altered images that falsely depict someone in an intimate situation.\\n\\nConsent to create or send an image does not mean consent for another person to publish, forward, threaten or use it to control the person. Legal definitions vary, so seek local advice for a specific case."
+      ]
+    },
+    {
+      "heading": "Consent and responsibility",
+      "level": 2,
+      "body": [
+        "A person is not responsible for another person’s decision to misuse an image. Blaming, shaming or pressuring the person affected can deepen harm and discourage help-seeking. Responsibility lies with the person who creates, shares or threatens to share material without consent.\\n\\nAn image may be real, altered, AI-generated or falsely attributed. Do not forward it to verify it or show it to others; doing so can increase the harm."
+      ]
+    },
+    {
+      "heading": "Respond safely",
+      "level": 2,
+      "body": [
+        "If safe, record the account name, profile or post URL, date, threats, demands and platform report numbers. Preserve relevant context but avoid downloading or redistributing intimate material. Never save or forward sexual imagery of anyone under 18; seek specialist or official guidance.\\n\\nIf someone demands money, more images or contact, do not assume compliance will stop the threats. Avoid negotiating alone and ask a trusted person or specialist service to help plan next steps."
+      ]
+    },
+    {
+      "heading": "Report and request removal",
+      "level": 2,
+      "body": [
+        "Report the content under the platform’s intimate-image, harassment or non-consensual content policy. Use the current removal process and keep the case number. Specialist removal pathways exist in some jurisdictions; eligibility depends on age, location and content type.\\n\\nReview account privacy, sessions, recovery options and cloud sharing. Change exposed passwords from a safer device and enable multi-factor authentication. If device monitoring is possible, seek advice before changes that may alert the other person."
+      ]
+    },
+    {
+      "heading": "Support and urgent safety",
+      "level": 2,
+      "body": [
+        "Seek support from someone you trust and a service experienced in sexual violence, technology-facilitated abuse or victim support. You deserve help regardless of how an image was created or originally shared. Include offline safety if threats mention your home, work or school.\\n\\nFor immediate danger, contact local emergency services. In Pakistan, ask NCCIA or a qualified local lawyer about current reporting and legal options. This sensitive topic requires qualified safeguarding review before publication."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Image-based abuse",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/image-based-abuse",
+      "accessedDate": "2026-11-04",
+      "supports": "Definitions, response and removal support."
+    },
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Dealing with sexual extortion",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/image-based-abuse/deal-with-sextortion",
+      "accessedDate": "2026-11-04",
+      "supports": "Evidence, reporting and survivor support."
+    },
+    {
+      "organization": "UN Women",
+      "title": "Online safety 101: What every woman and girl should know",
+      "year": null,
+      "publisher": "UN Women",
+      "url": "https://chile.unwomen.org/en/articles/explainer/online-safety-101-what-every-woman-and-girl-should-know",
+      "accessedDate": "2026-11-04",
+      "supports": "Women’s online safety and response context."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
