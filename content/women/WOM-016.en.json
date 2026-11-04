@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-016",
+  "language": "en",
+  "pairedTopicId": "WOM-016",
+  "title": "Freelancing basics",
+  "subtitle": "A realistic guide to independent work, client agreements and income management.",
+  "slug": "freelancing-basics",
+  "categoryId": "WOM-CAT-02",
+  "description": "Freelancing can offer flexibility and access to clients beyond one location, but it also shifts responsibility for finding work, contracts, payment, taxes and time off to the worker.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 8,
+  "content": [
+    {
+      "heading": "Understand freelancing",
+      "level": 2,
+      "body": [
+        "Freelancing means providing a service to clients under a project, assignment or contract rather than relying on one conventional employer. It may offer control over the type of work and schedule, but income can fluctuate and there may be gaps between projects. A freelancer is responsible for finding clients, agreeing terms, delivering work, following up on invoices and planning for periods without paid assignments."
+      ]
+    },
+    {
+      "heading": "Choose a service people need",
+      "level": 2,
+      "body": [
+        "Begin with a service that matches your current abilities and solves a specific customer problem. Examples may include writing, translation, design, bookkeeping, tutoring, research assistance or software work. Define what you will deliver, who is likely to need it, how long it takes and what is not included. Start with a manageable offer rather than claiming expertise you do not yet have."
+      ]
+    },
+    {
+      "heading": "Build trust and agree terms in writing",
+      "level": 2,
+      "body": [
+        "Prepare a small portfolio using your own work or material you have permission to share. Before accepting a project, confirm scope, deadlines, milestones, number of revisions, payment amount and currency, payment schedule, ownership of the finished work and how either side can end the agreement. Keep copies of proposals, messages, approvals and invoices. For substantial projects, consider staged payments and obtain local legal advice if the contract is unclear."
+      ]
+    },
+    {
+      "heading": "Avoid scams and protect accounts",
+      "level": 2,
+      "body": [
+        "Be wary of offers that require an upfront fee to unlock a job, promise guaranteed high earnings, ask you to receive and forward money, request passwords or one-time codes, or pressure you to install unfamiliar software. Verify the client through independent channels. Use strong unique passwords and multi-factor authentication, and do not send identity documents or banking details unless the need and recipient are verified."
+      ]
+    },
+    {
+      "heading": "Manage income, tax and wellbeing",
+      "level": 2,
+      "body": [
+        "Track paid and unpaid invoices, expenses, platform charges and time spent. Plan for irregular income and set aside money for taxes or required contributions after checking current local rules. Do not assume a platform handles every tax or legal obligation. Set working hours, rest periods and realistic client limits. For cross-border payments, registration, tax or contract disputes, consult a qualified local professional."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is freelancing guaranteed income?",
+      "answer": "No. Projects and payments can be irregular. Treat earnings as uncertain, check a client before committing time, and plan for gaps between assignments."
+    },
+    {
+      "question": "Should I work without a written agreement?",
+      "answer": "For even a small assignment, confirm the scope, deadline, price and payment terms in a durable written message. For higher-value or complex work, use a suitable contract and seek qualified advice."
+    }
+  ],
+  "references": [
+    {
+      "organization": "ILO",
+      "title": "Digital labour platforms",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/topics-and-sectors/digital-labour-platforms",
+      "accessedDate": "2026-11-04",
+      "supports": "Evidence and policy context on platform-based work."
+    },
+    {
+      "organization": "World Bank",
+      "title": "Working Without Borders: The Promise and Peril of Online Gig Work",
+      "year": null,
+      "publisher": "World Bank",
+      "url": "https://thedocs.worldbank.org/en/doc/072814bbbb56aebd4db387154c3df3a5-0460012023/original/Working-Without-Boarders-Online-Gig-Work-OVERVIEW.pdf",
+      "accessedDate": "2026-11-04",
+      "supports": "Opportunities and risks in online gig work."
+    },
+    {
+      "organization": "Federal Trade Commission",
+      "title": "How to avoid work-from-home job scams",
+      "year": null,
+      "publisher": "Federal Trade Commission",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2025/06/how-avoid-work-home-job-scams",
+      "accessedDate": "2026-11-04",
+      "supports": "Warning signs of fraudulent remote-work offers."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-015",
+    "WOM-017",
+    "WOM-018"
+  ],
+  "safetyNotice": "General educational information, not legal, tax, investment or career-placement advice. Confirm current local requirements and seek qualified professional advice for individual decisions."
+}
