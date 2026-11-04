@@ -8,6 +8,7 @@ const nhost = createClient({
 
 const params = new URLSearchParams(window.location.search);
 const APP_MODE = params.get("app") === "1";
+const APP_MANAGE_MODE = APP_MODE && params.get("manage") === "1";
 const APP_CALLBACK = "obaiddoctrine://auth-success";
 const LOGOUT_CALLBACK = "obaiddoctrine://logout";
 
@@ -25,7 +26,13 @@ function getSafeReturnTo(value = params.get("returnTo")) {
 
 function continueAfterLogin() {
   if (APP_MODE) {
-    window.location.replace(APP_CALLBACK);
+    // Keep the native Account screen visible so the user can sign out.
+    if (APP_MANAGE_MODE) return;
+    const destination = getSafeReturnTo();
+    const callback = APP_CALLBACK + (destination
+      ? "?returnTo=" + encodeURIComponent(destination)
+      : "");
+    window.location.replace(callback);
     return;
   }
   const destination = getSafeReturnTo();
@@ -41,6 +48,7 @@ const sessionPanel = document.getElementById("session-panel");
 const userEmailEl = document.getElementById("user-email");
 const logoutButton = document.getElementById("logout-button");
 const submitButton = document.getElementById("login-button");
+const signupLink = document.getElementById("signup-link");
 
 function setStatus(message, type = "") {
   if (!statusEl) return;
@@ -55,6 +63,7 @@ function renderSession(session) {
     if (formPanel) formPanel.hidden = true;
     if (sessionPanel) sessionPanel.hidden = false;
     if (userEmailEl) userEmailEl.textContent = user.email || "Authenticated user";
+    if (signupLink) signupLink.hidden = true;
     setStatus("Session verified.", "success");
     continueAfterLogin();
     return;
@@ -63,6 +72,7 @@ function renderSession(session) {
   if (formPanel) formPanel.hidden = false;
   if (sessionPanel) sessionPanel.hidden = true;
   if (userEmailEl) userEmailEl.textContent = "";
+  if (signupLink) signupLink.hidden = false;
   setStatus("Not signed in.");
 }
 
