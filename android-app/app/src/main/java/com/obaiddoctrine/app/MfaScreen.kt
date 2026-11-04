@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 internal fun MfaScreen(
     padding: PaddingValues,
+    isUrdu: Boolean,
     statusMessage: String?,
     statusIsError: Boolean,
     onVerify: (String) -> Unit
@@ -39,18 +40,18 @@ internal fun MfaScreen(
         Modifier.fillMaxSize().padding(padding).padding(horizontal = 24.dp, vertical = 28.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text("ACCOUNT SECURITY", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
+        Text(if (isUrdu) "اکاؤنٹ کی سکیورٹی" else "ACCOUNT SECURITY", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
         Spacer(Modifier.height(12.dp))
-        Text("Verify it’s you.", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
+        Text(if (isUrdu) "اپنی شناخت کی تصدیق کریں۔" else "Verify it’s you.", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(10.dp))
-        Text("Enter the current code from your authenticator app to complete sign in.", color = Color(0xFFB8B2AC), fontSize = 14.sp, lineHeight = 21.sp)
+        Text(if (isUrdu) "سائن اِن مکمل کرنے کے لیے اپنی Authenticator ایپ کا موجودہ کوڈ درج کریں۔" else "Enter the current code from your authenticator app to complete sign in.", color = Color(0xFFB8B2AC), fontSize = 14.sp, lineHeight = 21.sp)
         Spacer(Modifier.height(24.dp))
         OutlinedTextField(
             value = otp,
             onValueChange = { value -> otp = value.filter(Char::isDigit).take(8) },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
-            label = { Text("Authenticator code") },
+            label = { Text(if (isUrdu) "Authenticator کوڈ" else "Authenticator code") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
             shape = RoundedCornerShape(14.dp),
             colors = OutlinedTextFieldDefaults.colors(
@@ -74,7 +75,7 @@ internal fun MfaScreen(
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
         ) {
-            Text("VERIFY & SIGN IN", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+            Text(if (isUrdu) "تصدیق کرکے سائن اِن کریں" else "VERIFY & SIGN IN", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
         }
     }
 }
