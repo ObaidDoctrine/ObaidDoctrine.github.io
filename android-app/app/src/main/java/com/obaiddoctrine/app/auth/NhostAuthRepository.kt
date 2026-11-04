@@ -10,6 +10,8 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.security.KeyStore
+import java.security.MessageDigest
+import java.security.SecureRandom
 import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
@@ -18,27 +20,75 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * Nhost email/password session client.
- * Tokens are encrypted with an Android Keystore AES-GCM key before persistence.
- * Passwords are never stored.
+ * Native Nhost email/password client.
+ * Session tokens and pending PKCE verifier are encrypted with an Android Keystore AES-GCM key.
+ * Passwords are never persisted.
  */
 class NhostAuthRepository(context: Context) {
-    private val appContext = context.applicationContext
-    private val tokenStore = SecureSessionStore(appContext)
+    private val tokenStore = SecureSessionStore(context.applicationContext)
 
     data class User(val id: String, val email: String, val displayName: String)
     data class Session(val accessToken: String, val refreshToken: String, val refreshTokenId: String, val user: User)
 
     suspend fun signIn(email: String, password: String): Session = withContext(Dispatchers.IO) {
         require(email.isNotBlank() && password.isNotBlank()) { "Enter your email and password." }
+        val response = post("/signin/email-password", JSONObject().put("email", email.trim()).put("password", password))
+        val sessionJson = response.optJSONObject("session")
+            ?: throw AuthException("This account requires an additional MFA verification step, which is not yet available in the app.")
+        val session = parseSession(sessionJson)
+        tokenStore.save(session)
+        session
+    }
+
+    suspend fun signUp(email: String, password: String, displayName: String): Session? = withContext(Dispatchers.IO) {
+        require(email.isNotBlank() && password.length >= 3) { "Enter a valid email and password." }
+        require(displayName.isNotBlank() && displayName.length <= 32) { "Enter your name (up to 32 characters)." }
+        val verifier = newCodeVerifier()
+        val challenge = Base64.encodeToString(
+            MessageDigest.getInstance("SHA-256").digest(verifier.toByteArray(Charsets.US_ASCII)),
+            Base64.URL_SAFE or Base64.NO_WRAP or Base64.NO_PADDING
+        )
+        tokenStore.savePkceVerifier(verifier)
+        try {
+            val options = JSONObject()
+                .put("displayName", displayName.trim())
+                .put("locale", "en")
+                .put("redirectTo", "https://www.obaiddoctrine.com/auth/verify/?app=1&native=1")
+            val response = post(
+                "/signup/email-password",
+                JSONObject()
+                    .put("email", email.trim())
+                    .put("password", password)
+                    .put("options", options)
+                    .put("codeChallenge", challenge)
+            )
+            val sessionJson = response.optJSONObject("session")
+            if (sessionJson == null) {
+                null // Email verification is required; the verifier remains encrypted until callback.
+            } else {
+                val session = parseSession(sessionJson)
+                tokenStore.clearPkceVerifier()
+                tokenStore.save(session)
+                session
+            }
+        } catch (error: Exception) {
+            tokenStore.clearPkceVerifier()
+            throw error
+        }
+    }
+
+    suspend fun exchangeAuthorizationCode(code: String): Session = withContext(Dispatchers.IO) {
+        require(code.isNotBlank()) { "The email verification link is incomplete." }
+        val verifier = tokenStore.readPkceVerifier()
+            ?: throw AuthException("The secure verification request expired. Please register again or sign in.")
         val response = post(
-            "/signin/email-password",
-            JSONObject().put("email", email.trim()).put("password", password)
+            "/token/exchange",
+            JSONObject().put("code", code).put("codeVerifier", verifier)
         )
         val sessionJson = response.optJSONObject("session")
-            ?: throw AuthException("Additional verification may be required. MFA is not yet supported in this app.")
+            ?: throw AuthException("Email verification did not return a session.")
         val session = parseSession(sessionJson)
-        if (session.user.email.isBlank()) throw AuthException("The account response was incomplete.")
+        tokenStore.clearPkceVerifier()
         tokenStore.save(session)
         session
     }
@@ -50,18 +100,24 @@ class NhostAuthRepository(context: Context) {
             val refreshed = parseSession(response)
             tokenStore.save(refreshed)
             refreshed
+        } catch (error: AuthException) {
+            if (error.errorCode == "invalid-refresh-token" || error.statusCode == 401) {
+                tokenStore.clear()
+                null
+            } else {
+                // Keep the encrypted session during temporary server/network failures.
+                saved
+            }
         } catch (_: Exception) {
-            tokenStore.clear()
-            null
+            // Offline or transient IO failure must not erase a valid saved session.
+            saved
         }
     }
 
     suspend fun signOut() = withContext(Dispatchers.IO) {
         val saved = tokenStore.read()
         try {
-            if (saved != null) {
-                post("/signout", JSONObject().put("refreshToken", saved.refreshTokenId))
-            }
+            if (saved != null) post("/signout", JSONObject().put("refreshToken", saved.refreshTokenId))
         } finally {
             tokenStore.clear()
         }
@@ -95,12 +151,14 @@ class NhostAuthRepository(context: Context) {
             connection.outputStream.use { it.write(body.toString().toByteArray(Charsets.UTF_8)) }
             val status = connection.responseCode
             val stream = if (status in 200..299) connection.inputStream else connection.errorStream
-            val payload = stream?.use { input ->
-                BufferedReader(InputStreamReader(input, Charsets.UTF_8)).readText()
-            }.orEmpty()
+            val payload = stream?.use { input -> BufferedReader(InputStreamReader(input, Charsets.UTF_8)).readText() }.orEmpty()
             val json = if (payload.isBlank()) JSONObject() else JSONObject(payload)
             if (status !in 200..299) {
-                throw AuthException(json.optString("message").ifBlank { "Authentication failed. Please try again." })
+                throw AuthException(
+                    json.optString("message").ifBlank { "Authentication request failed. Please try again." },
+                    status,
+                    json.optString("error")
+                )
             }
             return json
         } finally {
@@ -108,13 +166,22 @@ class NhostAuthRepository(context: Context) {
         }
     }
 
+    private fun newCodeVerifier(): String {
+        val bytes = ByteArray(32)
+        SecureRandom().nextBytes(bytes)
+        return Base64.encodeToString(bytes, Base64.URL_SAFE or Base64.NO_WRAP or Base64.NO_PADDING)
+    }
+
     companion object {
-        // Existing OBAID DOCTRINE Nhost project, same project as the website auth client.
         private const val AUTH_BASE_URL = "https://ctwtjtbtbujomdskcktc.auth.eu-central-1.nhost.run/v1"
     }
 }
 
-class AuthException(message: String) : Exception(message)
+class AuthException(
+    message: String,
+    val statusCode: Int? = null,
+    val errorCode: String? = null
+) : Exception(message)
 
 private class SecureSessionStore(context: Context) {
     private val prefs = context.getSharedPreferences("od_secure_session", Context.MODE_PRIVATE)
@@ -129,37 +196,18 @@ private class SecureSessionStore(context: Context) {
             .put("email", session.user.email)
             .put("displayName", session.user.displayName)
             .toString()
-        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-        cipher.init(Cipher.ENCRYPT_MODE, getOrCreateKey())
-        val encrypted = cipher.doFinal(json.toByteArray(Charsets.UTF_8))
-        val iv = Base64.encodeToString(cipher.iv, Base64.NO_WRAP)
-        val data = Base64.encodeToString(encrypted, Base64.NO_WRAP)
-        check(prefs.edit().putString("iv", iv).putString("data", data).commit()) {
-            "Could not securely save the session."
-        }
+        saveEncrypted("session", json)
     }
 
     fun read(): NhostAuthRepository.Session? {
-        val ivValue = prefs.getString("iv", null) ?: return null
-        val dataValue = prefs.getString("data", null) ?: return null
+        val plain = readEncrypted("session") ?: return null
         return try {
-            val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-            cipher.init(
-                Cipher.DECRYPT_MODE,
-                getOrCreateKey(),
-                GCMParameterSpec(128, Base64.decode(ivValue, Base64.NO_WRAP))
-            )
-            val plain = cipher.doFinal(Base64.decode(dataValue, Base64.NO_WRAP))
-            val json = JSONObject(String(plain, Charsets.UTF_8))
+            val json = JSONObject(plain)
             NhostAuthRepository.Session(
                 json.getString("accessToken"),
                 json.getString("refreshToken"),
                 json.optString("refreshTokenId").ifBlank { json.getString("refreshToken") },
-                NhostAuthRepository.User(
-                    json.optString("id"),
-                    json.optString("email"),
-                    json.optString("displayName")
-                )
+                NhostAuthRepository.User(json.optString("id"), json.optString("email"), json.optString("displayName"))
             )
         } catch (_: Exception) {
             clear()
@@ -167,8 +215,38 @@ private class SecureSessionStore(context: Context) {
         }
     }
 
+    fun savePkceVerifier(verifier: String) = saveEncrypted("pkce", verifier)
+    fun readPkceVerifier(): String? = readEncrypted("pkce")
+    fun clearPkceVerifier() {
+        prefs.edit().remove("pkce_iv").remove("pkce_data").commit()
+    }
+
+    private fun saveEncrypted(prefix: String, value: String) {
+        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+        cipher.init(Cipher.ENCRYPT_MODE, getOrCreateKey())
+        val encrypted = cipher.doFinal(value.toByteArray(Charsets.UTF_8))
+        val iv = Base64.encodeToString(cipher.iv, Base64.NO_WRAP)
+        val data = Base64.encodeToString(encrypted, Base64.NO_WRAP)
+        check(prefs.edit().putString("${prefix}_iv", iv).putString("${prefix}_data", data).commit()) {
+            "Could not securely save authentication data."
+        }
+    }
+
+    private fun readEncrypted(prefix: String): String? {
+        val ivValue = prefs.getString("${prefix}_iv", null) ?: return null
+        val dataValue = prefs.getString("${prefix}_data", null) ?: return null
+        return try {
+            val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+            cipher.init(Cipher.DECRYPT_MODE, getOrCreateKey(), GCMParameterSpec(128, Base64.decode(ivValue, Base64.NO_WRAP)))
+            String(cipher.doFinal(Base64.decode(dataValue, Base64.NO_WRAP)), Charsets.UTF_8)
+        } catch (_: Exception) {
+            if (prefix == "session") clear() else clearPkceVerifier()
+            null
+        }
+    }
+
     fun clear() {
-        prefs.edit().clear().commit()
+        prefs.edit().remove("session_iv").remove("session_data").commit()
     }
 
     private fun getOrCreateKey(): SecretKey {
@@ -176,10 +254,7 @@ private class SecureSessionStore(context: Context) {
         (keyStore.getKey(alias, null) as? SecretKey)?.let { return it }
         val generator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
         generator.init(
-            KeyGenParameterSpec.Builder(
-                alias,
-                KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-            )
+            KeyGenParameterSpec.Builder(alias, KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
                 .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                 .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
                 .setRandomizedEncryptionRequired(true)
