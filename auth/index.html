@@ -24,6 +24,8 @@
 .auth-button:disabled{opacity:.55;cursor:wait}
 .auth-secondary{margin-top:16px}
 .auth-secondary a{color:#ff9a50;font-weight:800}
+#signup-link{display:block;padding:14px 16px;border:1px solid #ff7a1a;border-radius:12px;text-align:center;text-decoration:none;background:rgba(255,122,26,.08)}
+#signup-link:focus-visible{outline:2px solid #ff9a50;outline-offset:3px}
 .auth-status{min-height:24px;margin-top:18px;font-size:14px;color:#ddd}
 .auth-status[data-type="error"]{color:#ff8b8b}
 .auth-status[data-type="success"]{color:#8bd5a5}
@@ -58,7 +60,7 @@
 <div class="auth-secondary"><button id="logout-button" class="auth-button" type="button">Sign Out</button></div>
 </div>
 <div id="auth-status" class="auth-status" role="status" aria-live="polite">Checking session…</div>
-<p class="auth-secondary"><a id="signup-link" href="/auth/signup/">Create a new account</a></p>
+<p class="auth-secondary"><a id="signup-link" href="/auth/signup/">Create Account · Sign Up</a></p>
 <p class="auth-secondary"><a href="/">← Back to OBAID DOCTRINE</a></p>
 </section>
 </main>
