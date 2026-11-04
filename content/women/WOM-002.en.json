@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-002",
+  "language": "en",
+  "pairedTopicId": "WOM-002",
+  "title": "Cyberstalking",
+  "subtitle": "A practical, evidence-informed guide to cyberstalking.",
+  "slug": "cyberstalking",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand cyberstalking, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What cyberstalking means",
+      "level": 2,
+      "body": [
+        "Cyberstalking is a pattern of using digital tools to monitor, contact, threaten or intimidate someone in unwanted ways that create fear, distress or disruption. It may involve repeated messages, location tracking, account access, impersonation or using new accounts after being blocked.\\n\\nNot every online disagreement is stalking. Consider the pattern, persistence, threats, attempts to control you and whether the person appears to know information they should not have. Legal definitions vary by country."
+      ]
+    },
+    {
+      "heading": "Warning signs",
+      "level": 2,
+      "body": [
+        "Possible signs include repeated contact across platforms, messages referring to private movements, unexplained login alerts, unwanted location sharing, threats to publish private details or a person appearing offline after monitoring online activity. A single sign may have another explanation; patterns and context matter.\\n\\nDigital abuse can happen alongside controlling behaviour in an offline relationship. Avoid trying to investigate or confront the person alone if doing so could increase risk."
+      ]
+    },
+    {
+      "heading": "Document safely",
+      "level": 2,
+      "body": [
+        "If safe, keep a dated log with account names, profile links, message URLs, dates, times and platform report numbers. Preserve messages and screenshots with enough context to show the sequence. Store copies somewhere the other person cannot access.\\n\\nDo not risk your safety to gather more proof. If you suspect device monitoring, use a safer device and seek specialist advice before changing settings, because sudden changes may alert the person. Never save or forward sexual imagery of anyone under 18."
+      ]
+    },
+    {
+      "heading": "Reduce access",
+      "level": 2,
+      "body": [
+        "Review account recovery details, active sessions, connected apps, location sharing, shared devices and cloud access. Change passwords from a safer device, use unique passphrases and enable multi-factor authentication.\\n\\nWhen safe, report the accounts and behaviour to the platform, then use blocking or restricting tools. If you share a home, finances or devices with the person, plan changes with a specialist rather than assuming one technical setting will remove the risk."
+      ]
+    },
+    {
+      "heading": "Support and safety",
+      "level": 2,
+      "body": [
+        "Tell someone you trust and consider a domestic-abuse, cyber-safety or victim-support service. If there are credible threats, location tracking or attempts to approach you offline, seek local specialist and legal advice.\\n\\nIf physical harm may be imminent, move to a safer place and contact local emergency services. In Pakistan, confirm current reporting routes with NCCIA or a qualified local lawyer; procedures and laws can change."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Unwanted or unsafe contact",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/staying-safe/unwanted-contact",
+      "accessedDate": "2026-11-04",
+      "supports": "Safe response, evidence, reporting and unwanted-contact reduction."
+    },
+    {
+      "organization": "Police.uk",
+      "title": "Digital domestic abuse",
+      "year": null,
+      "publisher": "Police.uk",
+      "url": "https://www.police.uk/advice/advice-and-information/daa/domestic-abuse/digital-domestic-abuse/",
+      "accessedDate": "2026-11-04",
+      "supports": "Technology-facilitated monitoring, stalking and coercive digital behaviour."
+    },
+    {
+      "organization": "National Cyber Crime Investigation Agency (Pakistan)",
+      "title": "Cyber Harassment",
+      "year": null,
+      "publisher": "National Cyber Crime Investigation Agency (Pakistan)",
+      "url": "https://www.nccia.gov.pk/harrasment.php",
+      "accessedDate": "2026-11-04",
+      "supports": "Pakistan-specific official cyber-harassment information."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-003",
+    "WOM-004"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
