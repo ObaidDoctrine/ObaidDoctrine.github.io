@@ -1,0 +1,100 @@
+{
+  "topicId": "WOM-020",
+  "pairedTopicId": "WOM-020",
+  "slug": "starting-a-small-business",
+  "categoryId": "WOM-CAT-02",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewer": null,
+  "readingMinutes": 9,
+  "reviewStatus": "editorial_review",
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-013"
+  ],
+  "language": "en",
+  "title": "Starting a small business",
+  "subtitle": "A grounded first-step guide to testing an idea, understanding costs and building a responsible business.",
+  "description": "Starting a small business involves more than choosing a product or opening a social media page. It requires understanding a customer need, testing demand, calculating costs, keeping records and checking legal requirements. A careful small experiment can help reduce avoidable risk before larger commitments.",
+  "content": [
+    {
+      "heading": "Start with a customer problem",
+      "level": 2,
+      "body": [
+        "Begin by identifying a specific group of people and a problem they want solved. A business idea becomes more useful when it describes who the customer is, what they need and why your product or service may help. Do not assume that interest from friends or social media likes proves that people will pay.",
+        "Talk to potential customers, observe existing alternatives and ask what they currently use, what frustrates them and what they would reasonably pay. Treat feedback as evidence to learn from, not as a promise of future sales."
+      ]
+    },
+    {
+      "heading": "Test the idea before investing heavily",
+      "level": 2,
+      "body": [
+        "Create a simple, low-cost test: a sample product, a small batch, a service trial or a clear description of the offer. Set a limit on how much time and money you can afford to risk. Avoid renting premises, buying large stock or borrowing heavily before there is evidence of demand.",
+        "Record the results. Note how many people asked for details, placed an order, paid, returned or recommended the offer. A few genuine paid orders may teach more than a large number of informal compliments, but small tests still cannot guarantee long-term demand."
+      ]
+    },
+    {
+      "heading": "Calculate prices and cash needs",
+      "level": 2,
+      "body": [
+        "List direct costs such as materials, packaging, delivery, platform charges and payment fees. Add a fair estimate for your time, overheads, repairs, taxes and possible returns. Compare the total cost with the price customers are willing to pay. Revenue is not the same as profit, and a business can appear busy while still losing money.",
+        "Prepare a basic cash-flow view showing when money is expected to arrive and when bills must be paid. Keep personal and business money records separate where possible. Do not use household essential funds or take a loan unless you understand the repayment schedule, total cost and downside if sales are slower than expected."
+      ]
+    },
+    {
+      "heading": "Choose an appropriate structure and keep records",
+      "level": 2,
+      "body": [
+        "The right legal and tax arrangements depend on the type, size and location of the business. Before trading, check current registration, licensing, tax, consumer protection, employment and local authority requirements with official Pakistani sources or a qualified adviser. A company, partnership and sole-proprietor arrangement can have different obligations; do not rely on a generic online checklist as legal advice.",
+        "Keep dated records of sales, purchases, invoices, contracts, stock and business expenses. Write down agreements with suppliers and customers, including delivery dates, payment terms, refunds and responsibilities. Protect customer information and use secure payment and account practices."
+      ]
+    },
+    {
+      "heading": "Build support and grow at a manageable pace",
+      "level": 2,
+      "body": [
+        "Identify what support you need: business planning, bookkeeping, marketing, digital sales, mentoring, finance or legal guidance. In Pakistan, SMEDA, the State Bank of Pakistan and Pakistan Single Window publish resources or initiatives relevant to small and women-led businesses. Programmes, eligibility and funding availability can change, so verify current details directly with the provider.",
+        "Review sales, costs, customer feedback and your own capacity before expanding. Growth can mean improving quality, repeat orders or a more reliable process—not only taking on debt or opening another location. Seek qualified advice before major contracts, regulated activities, hiring staff or borrowing substantial sums."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do I need a registered company before testing a business idea?",
+      "answer": "Not every early idea test requires forming a company, but requirements depend on the activity, location and how you trade. Before taking orders or operating at scale, check current registration, tax, licensing and consumer rules with official sources or a qualified adviser."
+    },
+    {
+      "question": "Where can women entrepreneurs in Pakistan find support?",
+      "answer": "Potential starting points include SMEDA business-development resources, SBP information on women's access to finance and Pakistan Single Window's Khadijah programme. Availability, eligibility and terms vary, so confirm current details with each official provider."
+    }
+  ],
+  "references": [
+    {
+      "organization": "State Bank of Pakistan",
+      "title": "Women Entrepreneurs Finance Code",
+      "year": 2025,
+      "publisher": "SBP",
+      "url": "https://www.sbp.org.pk/our-operations/financial-inclusion/women-entrepreneurs-finance-code",
+      "supports": "Pakistan's participation in the WE Finance Code and efforts to improve finance for women-led MSMEs."
+    },
+    {
+      "organization": "Board of Investment, Government of Pakistan",
+      "title": "Starting Business",
+      "year": null,
+      "publisher": "Board of Investment",
+      "url": "https://invest.gov.pk/starting-business",
+      "supports": "Official overview of business start-up and company registration processes; fees and procedures should be rechecked before acting."
+    },
+    {
+      "organization": "Pakistan Single Window",
+      "title": "Khadijah – The Women Entrepreneurship Program",
+      "year": null,
+      "publisher": "PSW",
+      "url": "https://www.psw.gov.pk/khadijah-program",
+      "supports": "Women-focused entrepreneurship capacity building, mentorship, digital readiness and business planning support."
+    }
+  ],
+  "safetyNotice": "This is general educational information, not legal, tax, investment or personalised business advice. Registration, tax and licensing requirements depend on your activity and location and may change. Verify current requirements with official Pakistani authorities or a qualified professional before making commitments."
+}
