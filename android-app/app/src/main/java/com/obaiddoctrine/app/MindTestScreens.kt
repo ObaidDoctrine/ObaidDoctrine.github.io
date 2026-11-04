@@ -249,6 +249,23 @@ internal fun MindTestRunnerScreen(
                 }
             }
             item {
+                Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF202B35)), shape = RoundedCornerShape(16.dp)) {
+                    Column(Modifier.padding(17.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(if (isUrdu) "تحقیقی بنیاد اور حدود" else "EVIDENCE & LIMITATIONS", color = DoctrineOrange, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
+                        if (currentTest.guidance.evidence.isNotBlank()) Text(currentTest.guidance.evidence, color = DoctrineCream, fontSize = 13.sp, lineHeight = 20.sp)
+                        if (currentTest.guidance.limitations.isNotBlank()) Text((if (isUrdu) "اہم حدود: " else "Limitations: ") + currentTest.guidance.limitations, color = MutedText, fontSize = 12.sp, lineHeight = 19.sp)
+                        if (currentTest.guidance.recommendations.isNotEmpty()) {
+                            Text(if (isUrdu) "عملی اگلے قدم" else "PRACTICAL NEXT STEPS", color = DoctrineOrange, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                            currentTest.guidance.recommendations.forEachIndexed { itemIndex, item -> Text("${itemIndex + 1}. $item", color = DoctrineCream, fontSize = 13.sp, lineHeight = 20.sp) }
+                        }
+                        if (currentTest.guidance.reflections.isNotEmpty()) {
+                            Text(if (isUrdu) "غور و فکر کے سوالات" else "REFLECTION QUESTIONS", color = DoctrineOrange, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                            currentTest.guidance.reflections.forEachIndexed { itemIndex, item -> Text("${itemIndex + 1}. $item", color = DoctrineCream, fontSize = 13.sp, lineHeight = 20.sp) }
+                        }
+                    }
+                }
+            }
+            item {
                 Button(
                     onClick = {
                         answers = List(10) { -1 }
