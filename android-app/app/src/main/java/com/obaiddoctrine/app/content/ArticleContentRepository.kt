@@ -66,8 +66,8 @@ class ArticleContentRepository {
                     output += ArticleBlock(if (isCallout) ArticleBlockType.CALLOUT else ArticleBlockType.PARAGRAPH, text)
                 }
             }
-            "ul" -> element.select("> li").forEach { output += ArticleBlock(ArticleBlockType.BULLET, it.text()) }
-            "ol" -> element.select("> li").forEach { output += ArticleBlock(ArticleBlockType.NUMBERED, it.text()) }
+            "ul" -> element.children().filter { it.tagName() == "li" }.forEach { output += ArticleBlock(ArticleBlockType.BULLET, it.text()) }
+            "ol" -> element.children().filter { it.tagName() == "li" }.forEach { output += ArticleBlock(ArticleBlockType.NUMBERED, it.text()) }
             "li" -> output += ArticleBlock(ArticleBlockType.BULLET, element.text())
             "script", "style", "nav", "footer", "form" -> Unit
             else -> element.children().forEach { appendBlocks(it, output) }
