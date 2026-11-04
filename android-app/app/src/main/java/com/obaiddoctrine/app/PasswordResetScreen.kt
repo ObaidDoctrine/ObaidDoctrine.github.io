@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 internal fun PasswordResetScreen(
     padding: PaddingValues,
+    isUrdu: Boolean,
     statusMessage: String?,
     statusIsError: Boolean,
     onSubmit: (String) -> Unit
@@ -39,22 +40,22 @@ internal fun PasswordResetScreen(
         Modifier.fillMaxSize().padding(padding).padding(horizontal = 24.dp, vertical = 28.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text("ACCOUNT SECURITY", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
+        Text(if (isUrdu) "اکاؤنٹ کی سکیورٹی" else "ACCOUNT SECURITY", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
         Spacer(Modifier.height(12.dp))
-        Text("Set a new password.", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
+        Text(if (isUrdu) "نیا پاس ورڈ مقرر کریں۔" else "Set a new password.", color = Color(0xFFFFF3E8), fontSize = 29.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(10.dp))
-        Text("Choose a new password for your OBAID DOCTRINE account.", color = Color(0xFFB8B2AC), fontSize = 14.sp)
+        Text(if (isUrdu) "اپنے OBAID DOCTRINE اکاؤنٹ کے لیے نیا پاس ورڈ منتخب کریں۔" else "Choose a new password for your OBAID DOCTRINE account.", color = Color(0xFFB8B2AC), fontSize = 14.sp)
         Spacer(Modifier.height(24.dp))
         OutlinedTextField(
             value = password, onValueChange = { password = it }, modifier = Modifier.fillMaxWidth(),
-            singleLine = true, label = { Text("New password") },
+            singleLine = true, label = { Text(if (isUrdu) "نیا پاس ورڈ" else "New password") },
             visualTransformation = PasswordVisualTransformation(), shape = RoundedCornerShape(14.dp),
             colors = resetFieldColors()
         )
         Spacer(Modifier.height(12.dp))
         OutlinedTextField(
             value = confirm, onValueChange = { confirm = it }, modifier = Modifier.fillMaxWidth(),
-            singleLine = true, label = { Text("Confirm new password") },
+            singleLine = true, label = { Text(if (isUrdu) "نئے پاس ورڈ کی تصدیق کریں" else "Confirm new password") },
             visualTransformation = PasswordVisualTransformation(), shape = RoundedCornerShape(14.dp),
             colors = resetFieldColors()
         )
@@ -70,7 +71,7 @@ internal fun PasswordResetScreen(
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
         ) {
-            Text("UPDATE PASSWORD", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+            Text(if (isUrdu) "پاس ورڈ اپ ڈیٹ کریں" else "UPDATE PASSWORD", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
         }
     }
 }
