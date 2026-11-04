@@ -61,7 +61,10 @@ private val MutedText = Color(0xFFB8B2AC)
 class NativeMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { DoctrineApp(initialAuthCode = intent?.data?.getQueryParameter("code")) }
+        setContent { DoctrineApp(
+            initialAuthCode = intent?.data?.getQueryParameter("code"),
+            initialAuthFlow = intent?.data?.getQueryParameter("flow")
+        ) }
     }
 
     override fun onNewIntent(intent: android.content.Intent) {
@@ -91,22 +94,24 @@ private val sections = listOf(
 )
 
 @Composable
-private fun DoctrineApp(initialAuthCode: String? = null) {
+private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String? = null) {
     var selectedTab by remember { mutableIntStateOf(0) }
     var selectedSection by remember { mutableIntStateOf(-1) }
     var session by remember { mutableStateOf<NhostAuthRepository.Session?>(null) }
     var authLoading by remember { mutableStateOf(true) }
     var authMessage by remember { mutableStateOf<String?>(null) }
     var authMessageIsError by remember { mutableStateOf(false) }
+    var passwordResetMode by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(initialAuthCode) {
+    LaunchedEffect(initialAuthCode, initialAuthFlow) {
         if (!initialAuthCode.isNullOrBlank()) {
             authLoading = true
             try {
                 session = authRepository.exchangeAuthorizationCode(initialAuthCode)
+                passwordResetMode = initialAuthFlow == "reset"
                 authMessage = "Your email is verified. Your account is ready."
                 authMessageIsError = false
                 selectedTab = 1
@@ -152,6 +157,30 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
             when {
                 selectedTab == 0 && selectedSection < 0 -> HomeScreen(padding, onSection = { selectedSection = it })
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
+                passwordResetMode -> PasswordResetScreen(
+                    padding = padding,
+                    statusMessage = authMessage,
+                    statusIsError = authMessageIsError,
+                    onSubmit = { newPassword ->
+                        authMessage = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                authRepository.changePassword(newPassword)
+                                session = null
+                                passwordResetMode = false
+                                authMessage = "Password updated. Please sign in with your new password."
+                                authMessageIsError = false
+                                selectedTab = 1
+                            } catch (error: Exception) {
+                                authMessage = error.message ?: "Unable to update your password."
+                                authMessageIsError = true
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    }
+                )
                 !isAuthenticated -> AuthScreen(
                     padding = padding,
                     statusMessage = authMessage,
@@ -164,6 +193,22 @@ private fun DoctrineApp(initialAuthCode: String? = null) {
                                 session = authRepository.signIn(email, password)
                             } catch (error: Exception) {
                                 authMessage = error.message ?: "Unable to sign in. Please try again."
+                                authMessageIsError = true
+                            } finally {
+                                authLoading = false
+                            }
+                        }
+                    },
+                    onPasswordReset = { email ->
+                        authMessage = null
+                        scope.launch {
+                            authLoading = true
+                            try {
+                                authRepository.requestPasswordReset(email)
+                                authMessage = "If this email belongs to an account, a password reset link will be sent."
+                                authMessageIsError = false
+                            } catch (error: Exception) {
+                                authMessage = error.message ?: "Unable to request a password reset."
                                 authMessageIsError = true
                             } finally {
                                 authLoading = false
