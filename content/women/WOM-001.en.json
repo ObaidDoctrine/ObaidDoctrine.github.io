@@ -1,0 +1,121 @@
+{
+  "topicId": "WOM-001",
+  "language": "en",
+  "pairedTopicId": "WOM-001",
+  "title": "Online Harassment: Recognising Abuse and Protecting Your Safety",
+  "subtitle": "A practical, evidence-informed guide to unwanted online behaviour, documentation, reporting and support.",
+  "slug": "online-harassment",
+  "categoryId": "WOM-CAT-01",
+  "description": "Learn how to recognise online harassment, document repeated unwanted contact, use platform safety tools and seek trusted support without blaming yourself or taking unsafe risks.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What online harassment can look like",
+      "level": 2,
+      "body": [
+        "Online harassment is a broad description of unwanted digital behaviour that intimidates, humiliates, threatens, targets or repeatedly disturbs another person. It can happen through social networks, messaging apps, email, gaming spaces, forums or other online services. Examples may include repeated unwanted messages, abusive comments, threats, impersonation, coordinated pile-ons, sharing personal information without permission, or attempts to monitor someone’s digital activity.",
+        "A single unpleasant disagreement is not automatically harassment. Context matters: the content, frequency, power relationship, whether contact continues after a clear request to stop, and whether the behaviour creates fear or interferes with daily life. A pattern may be more revealing than one isolated message. The meaning and seriousness of conduct also depend on local law and the platform’s rules."
+      ]
+    },
+    {
+      "heading": "Understand the impact without blaming yourself",
+      "level": 2,
+      "body": [
+        "Being targeted online can affect concentration, sleep, confidence, relationships, education and work. A person may feel anxious about opening an app, posting publicly or being recognised offline. These reactions do not mean that the target is weak or responsible for the abuse. Responsibility belongs to the person choosing to harass, threaten or expose someone.",
+        "People respond differently. Some want to report immediately; others need time, privacy or help from someone they trust. There is no single correct emotional response. You can choose the steps that fit your circumstances and safety."
+      ]
+    },
+    {
+      "heading": "Preserve useful evidence safely",
+      "level": 2,
+      "body": [
+        "If it is safe to do so, keep a record before deleting messages or blocking an account. Save the platform name, the exact profile or post URL, usernames or account identifiers, dates and times, and screenshots that show enough surrounding context to make the sequence understandable. A short timeline can help show repetition, escalation or contact that continued after you asked for it to stop.",
+        "Keep original files where appropriate and store copies somewhere the person targeting you cannot access. Do not put yourself at risk to collect evidence. If you suspect that another person can monitor your device, accounts or shared cloud storage, use a safer device or ask a specialist support worker to help plan a safe approach.",
+        "Important child-safety exception: do not download, copy, forward or capture sexual images or videos of anyone under 18. Seek appropriate specialist or official guidance instead. Evidence collection should never create another safety or legal risk."
+      ],
+      "callout": "safety"
+    },
+    {
+      "heading": "Use platform tools and strengthen account security",
+      "level": 2,
+      "body": [
+        "After preserving evidence when safe, use the service’s report tools for the specific messages, posts, profiles or accounts involved. Blocking, restricting, muting or filtering can reduce unwanted contact. The exact options differ by platform, so use the service’s current help centre and keep any report reference or confirmation.",
+        "Review who can message, tag, mention or find you; limit public visibility of personal details; check active login sessions and connected apps; and change reused or exposed passwords. A password manager and multi-factor authentication can make account access harder for someone else. Review location sharing and shared devices if there is a reason to believe someone is monitoring you.",
+        "Do not feel obliged to argue with an abusive account or publicly answer every accusation. Engagement can sometimes increase exposure. Ask a trusted person to help review settings or manage reports if the process feels overwhelming."
+      ]
+    },
+    {
+      "heading": "When and how to seek support",
+      "level": 2,
+      "body": [
+        "Tell a trusted friend, family member, colleague, teacher or support organisation what is happening. You can share a concise timeline and the evidence you feel safe sharing. If the harassment involves credible threats, stalking, extortion, exposure of private information, impersonation linked to fraud, or attempts to locate you offline, consider seeking specialist cyber-safety or legal support in your jurisdiction.",
+        "If you believe there is an immediate risk of physical harm, prioritise getting to a safer place and contacting local emergency services or a trusted local crisis-support service. Do not wait to finish documenting the abuse before seeking urgent help.",
+        "For people in Pakistan, reporting routes and legal options can change. Check current information directly with the relevant official Pakistani cybercrime authority or a qualified local lawyer before relying on a legal claim, deadline or procedure. This article does not determine whether a particular incident meets a legal threshold."
+      ],
+      "callout": "urgent"
+    },
+    {
+      "heading": "A realistic personal response plan",
+      "level": 2,
+      "body": [
+        "Choose one safe first step rather than trying to solve everything at once. For example: tell one trusted person; preserve a small set of key links and screenshots; report the most harmful content; review account access; or arrange a consultation with a specialist. If an action could alert the person targeting you or increase danger, pause and get safety advice first.",
+        "Revisit the plan as the situation changes. You may decide to reduce public posting temporarily, ask someone else to monitor incoming messages, or take a break from a platform. These are personal choices, not admissions of fault. Support should respect your privacy, autonomy and pace."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Should I block the person immediately?",
+      "answer": "Blocking can be useful, but if it is safe and you may need to report the conduct, first preserve essential details such as the profile URL, messages, dates and times. If keeping contact open creates danger or distress, prioritise safety and seek help with documentation where possible."
+    },
+    {
+      "question": "Is one offensive comment always online harassment?",
+      "answer": "Not necessarily. Context, repetition, threats, targeting, impact and applicable platform rules or local law matter. A single threat or exposure of private information may still be serious even without repetition."
+    },
+    {
+      "question": "What if I am worried someone can access my phone?",
+      "answer": "Avoid changing settings in a way that could alert a person who may be monitoring you. Consider using a safer device and contacting a trusted specialist support service to plan account and device security."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner (Australia)",
+      "title": "How to collect evidence",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/report/how-to-collect-evidence",
+      "accessedDate": "2026-11-04",
+      "supports": "Evidence details, context, URLs, account identifiers and safety cautions."
+    },
+    {
+      "organization": "eSafety Commissioner (Australia)",
+      "title": "Unwanted or unsafe contact",
+      "year": 2026,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/staying-safe/unwanted-contact",
+      "accessedDate": "2026-11-04",
+      "supports": "Practical response steps for unwanted contact, evidence preservation and platform reporting."
+    },
+    {
+      "organization": "UN Women",
+      "title": "Online safety 101: What every woman and girl should know",
+      "year": 2025,
+      "publisher": "UN Women",
+      "url": "https://chile.unwomen.org/en/articles/explainer/online-safety-101-what-every-woman-and-girl-should-know",
+      "accessedDate": "2026-11-04",
+      "supports": "Online abuse patterns and practical block, report, evidence and trusted-support guidance."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-002",
+    "WOM-003",
+    "WOM-004"
+  ],
+  "safetyNotice": "This article is general educational information, not legal advice, counselling or emergency support. If you face immediate danger, contact local emergency services or a trusted local support organisation. Use evidence-collection steps only when safe."
+}
