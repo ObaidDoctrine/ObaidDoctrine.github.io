@@ -54,10 +54,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-private val DoctrineOrange = Color(0xFFF47721)
-private val DoctrineCream = Color(0xFFFFF3E8)
-private val DoctrineInk = Color(0xFF171717)
-private val MutedText = Color(0xFFB8B2AC)
+internal val DoctrineOrange = Color(0xFFF47721)
+internal val DoctrineCream = Color(0xFFFFF3E8)
+internal val DoctrineInk = Color(0xFF171717)
+internal val MutedText = Color(0xFFB8B2AC)
 
 class NativeMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
