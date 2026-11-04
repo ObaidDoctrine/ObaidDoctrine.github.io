@@ -198,6 +198,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
                 mfaRequired -> MfaScreen(
                     padding = padding,
+                    isUrdu = isUrdu,
                     statusMessage = authMessage,
                     statusIsError = authMessageIsError,
                     onVerify = { otp ->
@@ -218,6 +219,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                 )
                 passwordResetMode -> PasswordResetScreen(
                     padding = padding,
+                    isUrdu = isUrdu,
                     statusMessage = authMessage,
                     statusIsError = authMessageIsError,
                     onSubmit = { newPassword ->
@@ -242,6 +244,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                 )
                 !isAuthenticated -> AuthScreen(
                     padding = padding,
+                    isUrdu = isUrdu,
                     statusMessage = authMessage,
                     statusIsError = authMessageIsError,
                     onSignIn = { email, password ->
@@ -332,6 +335,7 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                 )
                 else -> AuthenticatedProfileScreen(
                     padding = padding,
+                    isUrdu = isUrdu,
                     email = session?.user?.email.orEmpty(),
                     errorMessage = authMessage,
                     onSignOut = {
@@ -416,8 +420,8 @@ private fun ExploreScreen(padding: PaddingValues, isUrdu: Boolean, onSection: (I
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         item {
-            Text("Explore", color = DoctrineCream, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-            Text("Choose a knowledge space to begin.", color = MutedText)
+            Text(if (isUrdu) "دریافت کریں" else "Explore", color = DoctrineCream, fontSize = 30.sp, fontWeight = FontWeight.Bold)
+            Text(if (isUrdu) "آغاز کے لیے علم کا کوئی شعبہ منتخب کریں۔" else "Choose a knowledge space to begin.", color = MutedText)
             Spacer(Modifier.height(10.dp))
         }
         items(sections.withIndex().toList()) { (index, section) -> SectionCard(section, isUrdu) { onSection(index) } }
