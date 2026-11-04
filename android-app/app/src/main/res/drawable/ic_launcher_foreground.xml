@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:insetLeft="21dp"
-    android:insetTop="21dp"
-    android:insetRight="21dp"
-    android:insetBottom="21dp">
-    <bitmap
-        android:src="@drawable/brand_profile_source"
-        android:gravity="fill" />
-</inset>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M54,18 C34,18 20,32 20,52 C20,73 35,89 54,89 C73,89 88,73 88,52 C88,32 74,18 54,18 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,38 L48,66 L55,66 L55,54 L67,54 L67,47 L55,47 L55,38 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,61 L76,61 L76,68 L66,68 Z" />
+</vector>
