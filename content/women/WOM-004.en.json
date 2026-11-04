@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-004",
+  "language": "en",
+  "pairedTopicId": "WOM-004",
+  "title": "Impersonation",
+  "subtitle": "A practical, evidence-informed guide to impersonation.",
+  "slug": "impersonation",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand impersonation, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What impersonation means",
+      "level": 2,
+      "body": [
+        "Online impersonation occurs when someone presents themselves as you or another person, business or organisation without permission in a way that may mislead others. They may copy a name, photograph, biography or posts to contact friends, damage a reputation or obtain money or information.\\n\\nNot every parody, fan or clearly fictional account is deceptive impersonation. Consider whether the account misrepresents identity, whether people could reasonably be misled and whether it is being used to cause harm or obtain something."
+      ]
+    },
+    {
+      "heading": "How harm can occur",
+      "level": 2,
+      "body": [
+        "A fake profile may ask friends for money, spread false statements, send harmful links or make it appear that you said or did something you did not. Even a small audience can create stress and damage trust.\\n\\nIf a real account has been taken over, messages may come from a familiar profile. Confirm unusual requests by calling a number you already trust rather than replying to the suspicious message."
+      ]
+    },
+    {
+      "heading": "Preserve evidence",
+      "level": 2,
+      "body": [
+        "Save the profile URL, username, screenshots, relevant messages, dates and any transaction details. Record the platform’s report reference. Avoid resharing the fake profile publicly if doing so would amplify it or expose private information.\\n\\nWarn affected contacts through a separate channel. Explain that the account is not yours, ask them not to send money or codes and direct them to your authentic profile or verified contact route."
+      ]
+    },
+    {
+      "heading": "Report and recover",
+      "level": 2,
+      "body": [
+        "Use the platform’s impersonation reporting process and provide the information it requests. If your own account was accessed, use the official recovery page, revoke unknown sessions, change reused passwords and enable multi-factor authentication. Check recovery email and phone details for changes.\\n\\nDo not trust unsolicited messages from people claiming they can remove a fake account for a fee. Reach platform support independently. If impersonation is linked to fraud or financial loss, contact your bank and the relevant local authority."
+      ]
+    },
+    {
+      "heading": "Protect reputation and seek help",
+      "level": 2,
+      "body": [
+        "A short correction to people directly affected may be more useful than a prolonged public argument that spreads the false content further. Keep records of continuing harm and seek legal advice if the situation has serious consequences.\\n\\nIn Pakistan, reporting routes and legal remedies depend on the facts and current law. Confirm procedures with NCCIA or a qualified local lawyer. This article does not determine whether a particular profile breaks a law."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Taking action",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/women/women-in-the-spotlight/take-action",
+      "accessedDate": "2026-11-04",
+      "supports": "Impersonation accounts, evidence, reporting and support."
+    },
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Anonymity and identity shielding",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/industry/tech-trends-and-challenges/anonymity",
+      "accessedDate": "2026-11-04",
+      "supports": "Fake-account misuse and reporting considerations."
+    },
+    {
+      "organization": "National Cyber Crime Investigation Agency (Pakistan)",
+      "title": "Cyber Harassment",
+      "year": null,
+      "publisher": "National Cyber Crime Investigation Agency (Pakistan)",
+      "url": "https://www.nccia.gov.pk/harrasment.php",
+      "accessedDate": "2026-11-04",
+      "supports": "Official Pakistan cyber-harassment awareness."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
