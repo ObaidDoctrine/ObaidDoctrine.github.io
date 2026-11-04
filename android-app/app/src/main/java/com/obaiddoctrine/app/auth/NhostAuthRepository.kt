@@ -182,7 +182,7 @@ class NhostAuthRepository(context: Context) {
             val status = connection.responseCode
             val stream = if (status in 200..299) connection.inputStream else connection.errorStream
             val payload = stream?.use { input -> BufferedReader(InputStreamReader(input, Charsets.UTF_8)).readText() }.orEmpty()
-            val json = if (payload.isBlank()) JSONObject() else JSONObject(payload)
+            val json = if (payload.trim().startsWith("{")) JSONObject(payload) else JSONObject()
             if (status !in 200..299) {
                 throw AuthException(
                     json.optString("message").ifBlank { "Authentication request failed. Please try again." },
