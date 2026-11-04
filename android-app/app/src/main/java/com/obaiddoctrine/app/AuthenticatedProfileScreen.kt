@@ -9,10 +9,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -25,8 +31,46 @@ internal fun AuthenticatedProfileScreen(
     isUrdu: Boolean,
     email: String,
     errorMessage: String?,
-    onSignOut: () -> Unit
+    onSignOut: () -> Unit,
+    onOpenAccountDeletion: () -> Unit
 ) {
+    // External deletion request is user-initiated and never deletes an account in-app.
+    var showDeletionConfirmation by remember { mutableStateOf(false) }
+
+    if (showDeletionConfirmation) {
+        AlertDialog(
+            onDismissRequest = { showDeletionConfirmation = false },
+            title = {
+                Text(if (isUrdu) "اکاؤنٹ حذف کرنے کی درخواست" else "Request account deletion")
+            },
+            text = {
+                Text(
+                    if (isUrdu) {
+                        "آپ کو OBAID DOCTRINE کی محفوظ ویب سائٹ پر بھیجا جائے گا، جہاں آپ اکاؤنٹ حذف کرنے کی درخواست جمع کر سکتے ہیں۔ یہ عمل فوری یا خودکار نہیں؛ درخواست کی تصدیق اور حذف کرنے کا عمل ویب سائٹ پر دی گئی ہدایات کے مطابق ہوگا۔"
+                    } else {
+                        "You will be taken to the OBAID DOCTRINE account-deletion page to submit a request. This does not delete your account immediately or automatically; the request will be reviewed and processed according to the instructions on that page."
+                    }
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeletionConfirmation = false
+                    onOpenAccountDeletion()
+                }) {
+                    Text(if (isUrdu) "آگے بڑھیں" else "CONTINUE", color = Color(0xFFF47721))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeletionConfirmation = false }) {
+                    Text(if (isUrdu) "منسوخ کریں" else "CANCEL", color = Color(0xFFB8B2AC))
+                }
+            },
+            containerColor = Color(0xFF252525),
+            titleContentColor = Color(0xFFFFF3E8),
+            textContentColor = Color(0xFFB8B2AC)
+        )
+    }
+
     Column(
         modifier = Modifier.fillMaxSize().padding(padding).padding(24.dp),
         verticalArrangement = Arrangement.Center
@@ -48,6 +92,18 @@ internal fun AuthenticatedProfileScreen(
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
         ) {
             Text(if (isUrdu) "سائن آؤٹ" else "SIGN OUT", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+        }
+        Spacer(Modifier.height(14.dp))
+        TextButton(
+            onClick = { showDeletionConfirmation = true },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                if (isUrdu) "اکاؤنٹ حذف کرنے کی درخواست" else "REQUEST ACCOUNT DELETION",
+                color = Color(0xFFFF9B9B),
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 0.5.sp
+            )
         }
     }
 }
