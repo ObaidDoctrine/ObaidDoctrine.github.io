@@ -1,5 +1,6 @@
 package com.obaiddoctrine.app
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -30,12 +30,15 @@ import androidx.compose.ui.unit.sp
 @Composable
 internal fun AuthScreen(
     padding: PaddingValues,
-    errorMessage: String?,
-    onSignIn: (String, String) -> Unit
+    statusMessage: String?,
+    statusIsError: Boolean,
+    onSignIn: (String, String) -> Unit,
+    onSignUp: (String, String, String) -> Unit
 ) {
+    var isSignUp by remember { mutableStateOf(false) }
+    var displayName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var submitting by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 24.dp, vertical = 28.dp),
@@ -43,59 +46,69 @@ internal fun AuthScreen(
     ) {
         Text("YOUR KNOWLEDGE JOURNEY", color = Color(0xFFF47721), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.8.sp)
         Spacer(Modifier.height(12.dp))
-        Text("Welcome back.", color = Color(0xFFFFF3E8), fontSize = 30.sp, fontWeight = FontWeight.ExtraBold)
+        Text(if (isSignUp) "Create your account." else "Welcome back.", color = Color(0xFFFFF3E8), fontSize = 30.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(8.dp))
-        Text("Sign in with your existing OBAID DOCTRINE account to unlock the app.", color = Color(0xFFB8B2AC), fontSize = 14.sp, lineHeight = 21.sp)
-        Spacer(Modifier.height(28.dp))
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-            label = { Text("Email address") },
-            shape = RoundedCornerShape(14.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedTextColor = Color(0xFFFFF3E8),
-                unfocusedTextColor = Color(0xFFFFF3E8),
-                focusedBorderColor = Color(0xFFF47721),
-                unfocusedBorderColor = Color(0xFF5B554F),
-                focusedLabelColor = Color(0xFFF47721),
-                unfocusedLabelColor = Color(0xFFB8B2AC)
-            )
+        Text(
+            if (isSignUp) "Join OBAID DOCTRINE. Your email must be verified before protected areas unlock."
+            else "Sign in with your existing OBAID DOCTRINE account to unlock the app.",
+            color = Color(0xFFB8B2AC), fontSize = 14.sp, lineHeight = 21.sp
         )
-        Spacer(Modifier.height(14.dp))
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-            label = { Text("Password") },
-            visualTransformation = PasswordVisualTransformation(),
-            shape = RoundedCornerShape(14.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedTextColor = Color(0xFFFFF3E8),
-                unfocusedTextColor = Color(0xFFFFF3E8),
-                focusedBorderColor = Color(0xFFF47721),
-                unfocusedBorderColor = Color(0xFF5B554F),
-                focusedLabelColor = Color(0xFFF47721),
-                unfocusedLabelColor = Color(0xFFB8B2AC)
+        Spacer(Modifier.height(24.dp))
+        if (isSignUp) {
+            OutlinedTextField(
+                value = displayName, onValueChange = { displayName = it }, modifier = Modifier.fillMaxWidth(),
+                singleLine = true, label = { Text("Your name") }, shape = RoundedCornerShape(14.dp),
+                colors = fieldColors()
             )
-        )
-        if (!errorMessage.isNullOrBlank()) {
             Spacer(Modifier.height(12.dp))
-            Text(errorMessage, color = Color(0xFFFF9B9B), fontSize = 13.sp)
         }
-        Spacer(Modifier.height(22.dp))
+        OutlinedTextField(
+            value = email, onValueChange = { email = it }, modifier = Modifier.fillMaxWidth(),
+            singleLine = true, label = { Text("Email address") }, shape = RoundedCornerShape(14.dp),
+            colors = fieldColors()
+        )
+        Spacer(Modifier.height(12.dp))
+        OutlinedTextField(
+            value = password, onValueChange = { password = it }, modifier = Modifier.fillMaxWidth(),
+            singleLine = true, label = { Text(if (isSignUp) "Create password" else "Password") },
+            visualTransformation = PasswordVisualTransformation(), shape = RoundedCornerShape(14.dp),
+            colors = fieldColors()
+        )
+        if (!statusMessage.isNullOrBlank()) {
+            Spacer(Modifier.height(12.dp))
+            Text(statusMessage, color = if (statusIsError) Color(0xFFFF9B9B) else Color(0xFF9AD7A8), fontSize = 13.sp, lineHeight = 19.sp)
+        }
+        Spacer(Modifier.height(20.dp))
         Button(
-            onClick = { onSignIn(email.trim(), password) },
-            enabled = email.isNotBlank() && password.isNotBlank() && !submitting,
+            onClick = {
+                if (isSignUp) onSignUp(email.trim(), password, displayName.trim())
+                else onSignIn(email.trim(), password)
+            },
+            enabled = email.isNotBlank() && password.length >= 3 && (!isSignUp || displayName.isNotBlank()),
             modifier = Modifier.fillMaxWidth().height(54.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
         ) {
-            Text("SIGN IN", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+            Text(if (isSignUp) "CREATE ACCOUNT" else "SIGN IN", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
         }
+        Spacer(Modifier.height(16.dp))
+        Text(
+            if (isSignUp) "Already have an account? Sign in"
+            else "New to OBAID DOCTRINE? Create an account",
+            color = Color(0xFFFF9B45), fontSize = 13.sp, fontWeight = FontWeight.Bold,
+            modifier = Modifier.clickable { isSignUp = !isSignUp }
+        )
         Spacer(Modifier.height(16.dp))
         Text("Your Home remains open without signing in. Other app sections require an account.", color = Color(0xFFB8B2AC), fontSize = 12.sp, lineHeight = 18.sp)
     }
 }
+
+@Composable
+private fun fieldColors() = OutlinedTextFieldDefaults.colors(
+    focusedTextColor = Color(0xFFFFF3E8),
+    unfocusedTextColor = Color(0xFFFFF3E8),
+    focusedBorderColor = Color(0xFFF47721),
+    unfocusedBorderColor = Color(0xFF5B554F),
+    focusedLabelColor = Color(0xFFF47721),
+    unfocusedLabelColor = Color(0xFFB8B2AC)
+)
