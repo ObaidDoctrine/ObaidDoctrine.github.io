@@ -85,7 +85,7 @@ internal fun AuthScreen(
                 if (isSignUp) onSignUp(email.trim(), password, displayName.trim())
                 else onSignIn(email.trim(), password)
             },
-            enabled = email.isNotBlank() && password.length >= 3 && (!isSignUp || displayName.isNotBlank()),
+            enabled = email.isNotBlank() && password.length in 3..50 && (!isSignUp || displayName.isNotBlank()),
             modifier = Modifier.fillMaxWidth().height(54.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF47721), contentColor = Color(0xFF171717))
@@ -97,7 +97,7 @@ internal fun AuthScreen(
             Text(
                 "Forgot password? Send reset link",
                 color = Color(0xFFFF9B45), fontSize = 13.sp, fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { if (email.isNotBlank()) onPasswordReset(email.trim()) }
+                modifier = Modifier.clickable { onPasswordReset(email.trim()) }
             )
             Spacer(Modifier.height(12.dp))
         }
