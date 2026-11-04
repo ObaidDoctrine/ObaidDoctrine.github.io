@@ -34,7 +34,8 @@ internal fun AuthenticatedProfileScreen(
     onSignOut: () -> Unit,
     onOpenAccountDeletion: () -> Unit
 ) {
-    // External deletion request is user-initiated and never deletes an account in-app.\n    var showDeletionConfirmation by remember { mutableStateOf(false) }
+    // External deletion request is user-initiated and never deletes an account in-app.
+    var showDeletionConfirmation by remember { mutableStateOf(false) }
 
     if (showDeletionConfirmation) {
         AlertDialog(
