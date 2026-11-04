@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-013",
+  "language": "en",
+  "pairedTopicId": "WOM-013",
+  "title": "Workplace boundaries",
+  "subtitle": "A practical guide to workplace boundaries and sustainable working life.",
+  "slug": "workplace-boundaries",
+  "categoryId": "WOM-CAT-02",
+  "description": "Explore workplace boundaries with practical, evidence-informed guidance on choices, planning, rights, skills and sustainable work.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What workplace boundaries are",
+      "level": 2,
+      "body": [
+        "Workplace boundaries are clear expectations about time, responsibilities, communication, privacy and respectful behaviour. They help people understand what is part of a role, when availability is expected and how colleagues should interact. Boundaries are not a refusal to cooperate; they support sustainable and professional work.\\n\\nHealthy boundaries should apply fairly across roles and seniority levels. A worker should not be expected to accept humiliation, intrusive personal questions or unpaid work simply to appear committed."
+      ]
+    },
+    {
+      "heading": "Set expectations early",
+      "level": 2,
+      "body": [
+        "Clarify your role, priorities, deadlines, decision authority and preferred communication channels. Ask which tasks are urgent and how priorities should be reset when new work arrives. Written summaries can reduce misunderstandings.\\n\\nFor working hours, explain availability and response times. If your role requires occasional flexibility, agree on how it will be compensated or balanced. Avoid promising constant availability if it is not realistic."
+      ]
+    },
+    {
+      "heading": "Communicate respectfully and firmly",
+      "level": 2,
+      "body": [
+        "Use calm, specific language: describe the request, explain the limit and offer a workable alternative where appropriate. For example, you might say that you can complete one of two urgent tasks today and ask which should take priority.\\n\\nKeep a record of repeated boundary violations, particularly where they involve threats, discrimination, harassment or retaliation. Documentation should be factual and stored securely."
+      ]
+    },
+    {
+      "heading": "Digital and personal boundaries",
+      "level": 2,
+      "body": [
+        "Decide when work messages will be checked, what information belongs in work channels and which personal details you prefer not to share. Use approved tools and follow workplace policies for confidential data. Do not send sensitive work files to personal accounts for convenience.\\n\\nIf a colleague repeatedly contacts you outside agreed hours or uses personal channels in an uncomfortable way, state your preference and use formal support if the behaviour continues."
+      ]
+    },
+    {
+      "heading": "When a boundary is ignored",
+      "level": 2,
+      "body": [
+        "If safe, raise the issue with a manager, HR contact, union representative or designated workplace support person. Ask about the organisation’s policy and complaint process. Where the manager is involved, seek an alternative reporting route.\\n\\nA boundary discussion is not enough where there are threats, harassment, discrimination or safety risks. Consider formal advice and local legal support. In Pakistan, employment protections and complaint mechanisms vary; confirm current procedures with an official ombudsperson or qualified lawyer."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is there one correct career path for everyone?",
+      "answer": "No. The right path depends on personal goals, resources, safety, care responsibilities and local opportunities."
+    },
+    {
+      "question": "Where can I confirm workplace rights in Pakistan?",
+      "answer": "Check current official federal or provincial labour and ombudsperson resources, or consult a qualified local lawyer."
+    }
+  ],
+  "references": [
+    {
+      "organization": "ILO",
+      "title": "Guidelines for creating a work environment free from discrimination and harassment",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/publications/guidelines-creating-work-environment-free-discrimination-and-harassment",
+      "accessedDate": "2026-11-04",
+      "supports": "Workplace discrimination and prevention practices."
+    },
+    {
+      "organization": "ILO",
+      "title": "Mind the gap: Why women in Pakistan earn less than men and what we can do about it",
+      "year": null,
+      "publisher": "ILO",
+      "url": "https://www.ilo.org/publications/mind-gap-why-women-pakistan-earn-less-men-and-what-we-can-do-about-it",
+      "accessedDate": "2026-11-04",
+      "supports": "Decent work, fairness and workplace inequality."
+    },
+    {
+      "organization": "UN Women",
+      "title": "Country Fact Sheet: Pakistan",
+      "year": null,
+      "publisher": "UN Women",
+      "url": "https://data.unwomen.org/country/pakistan",
+      "accessedDate": "2026-11-04",
+      "supports": "Unpaid care responsibilities and work participation."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-011",
+    "WOM-012",
+    "WOM-014"
+  ],
+  "safetyNotice": "General educational information, not legal, financial or career-placement advice. Confirm employment rights and procedures with current local official sources."
+}
