@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-007",
+  "language": "en",
+  "pairedTopicId": "WOM-007",
+  "title": "Blackmail & sextortion",
+  "subtitle": "A practical, evidence-informed guide to blackmail & sextortion.",
+  "slug": "blackmail-and-sextortion",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand blackmail & sextortion, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What sextortion means",
+      "level": 2,
+      "body": [
+        "Sextortion is coercion in which someone threatens to share intimate images, videos or fabricated material unless the target pays money, sends more content, continues contact or does something else. The threat may involve real images, stolen content, recordings, edited media or claims that a device has been hacked.\\n\\nThe blackmailer may be a stranger, fake romantic contact, acquaintance or someone using a compromised account. A frightening threat does not prove that the sender has the access or control they claim."
+      ]
+    },
+    {
+      "heading": "Recognise pressure tactics",
+      "level": 2,
+      "body": [
+        "Warning signs include a conversation becoming sexual very quickly, pressure to move to a private app, requests for intimate images, threats to contact family or colleagues, countdowns, demands for gift cards or cryptocurrency, or claims that a device has been hacked.\\n\\nSome messages use an old password or public details to appear credible. This information may come from an unrelated data breach or public profile. Do not assume the sender controls your camera, files or contacts solely because they mention personal details."
+      ]
+    },
+    {
+      "heading": "Do not let panic decide",
+      "level": 2,
+      "body": [
+        "Paying, sending more images or complying does not guarantee the blackmailer will stop and may lead to further demands. Avoid negotiating alone, threatening the person back or clicking links they send. If you have paid, contact your bank or payment provider promptly through an independently verified channel.\\n\\nYou are not to blame for another person’s threats or misuse of an image. Tell someone trustworthy. If the target is a child or young person, involve a safe adult and appropriate specialist services without blaming or punishing the child."
+      ]
+    },
+    {
+      "heading": "Preserve and report safely",
+      "level": 2,
+      "body": [
+        "If safe, keep usernames, profile URLs, messages, demands, payment details, dates, times and report numbers. Do not forward intimate images to friends or upload them to third-party services. Never download, copy or forward sexual images of anyone under 18; seek official specialist guidance.\\n\\nReport the account and threats to the platform. Use appropriate local cybercrime or police channels for serious threats, extortion or financial loss. Secure accounts from a safer device and review recovery details and active sessions."
+      ]
+    },
+    {
+      "heading": "Support and urgent risk",
+      "level": 2,
+      "body": [
+        "Ask a trusted support person or specialist service to help decide what to do next. If threats include physical approach, stalking, disclosure of your address or immediate danger, prioritise offline safety and contact local emergency services.\\n\\nIn Pakistan, seek current guidance from NCCIA and a qualified local lawyer where legal options are needed. This topic requires qualified safeguarding review before publication; this is not legal, mental-health or emergency advice."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Dealing with sexual extortion",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/image-based-abuse/deal-with-sextortion",
+      "accessedDate": "2026-11-04",
+      "supports": "Warning signs, non-payment, evidence and reporting."
+    },
+    {
+      "organization": "National Crime Agency (UK)",
+      "title": "Sextortion",
+      "year": null,
+      "publisher": "National Crime Agency (UK)",
+      "url": "https://www.nationalcrimeagency.gov.uk/what-we-do/crime-threats/kidnap-and-extortion/sextortion",
+      "accessedDate": "2026-11-04",
+      "supports": "Sextortion patterns and protective guidance."
+    },
+    {
+      "organization": "Federal Bureau of Investigation (FBI)",
+      "title": "Sextortion",
+      "year": null,
+      "publisher": "Federal Bureau of Investigation (FBI)",
+      "url": "https://www.fbi.gov/how-we-can-help-you/common-frauds-and-scams/sextortion",
+      "accessedDate": "2026-11-04",
+      "supports": "Victim support and online safety."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
