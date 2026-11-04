@@ -27,7 +27,7 @@ class NhostAuthRepository(context: Context) {
     private val tokenStore = SecureSessionStore(appContext)
 
     data class User(val id: String, val email: String, val displayName: String)
-    data class Session(val accessToken: String, val refreshToken: String, val user: User)
+    data class Session(val accessToken: String, val refreshToken: String, val refreshTokenId: String, val user: User)
 
     suspend fun signIn(email: String, password: String): Session = withContext(Dispatchers.IO) {
         require(email.isNotBlank() && password.isNotBlank()) { "Enter your email and password." }
@@ -60,7 +60,7 @@ class NhostAuthRepository(context: Context) {
         val saved = tokenStore.read()
         try {
             if (saved != null) {
-                post("/signout", JSONObject().put("refreshToken", saved.refreshToken))
+                post("/signout", JSONObject().put("refreshToken", saved.refreshTokenId))
             }
         } finally {
             tokenStore.clear()
@@ -79,7 +79,7 @@ class NhostAuthRepository(context: Context) {
         val access = json.optString("accessToken")
         val refresh = json.optString("refreshToken")
         if (access.isBlank() || refresh.isBlank()) throw AuthException("Nhost did not return a complete session.")
-        return Session(access, refresh, user)
+        return Session(access, refresh, json.optString("refreshTokenId").ifBlank { refresh }, user)
     }
 
     private fun post(path: String, body: JSONObject): JSONObject {
@@ -124,6 +124,7 @@ private class SecureSessionStore(context: Context) {
         val json = JSONObject()
             .put("accessToken", session.accessToken)
             .put("refreshToken", session.refreshToken)
+            .put("refreshTokenId", session.refreshTokenId)
             .put("id", session.user.id)
             .put("email", session.user.email)
             .put("displayName", session.user.displayName)
@@ -153,6 +154,7 @@ private class SecureSessionStore(context: Context) {
             NhostAuthRepository.Session(
                 json.getString("accessToken"),
                 json.getString("refreshToken"),
+                json.optString("refreshTokenId").ifBlank { json.getString("refreshToken") },
                 NhostAuthRepository.User(
                     json.optString("id"),
                     json.optString("email"),
