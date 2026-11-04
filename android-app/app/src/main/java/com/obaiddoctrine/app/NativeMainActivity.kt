@@ -45,8 +45,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import kotlinx.coroutines.launch
+import com.obaiddoctrine.app.content.BookmarkRepository
 import com.obaiddoctrine.app.auth.NhostAuthRepository
 import com.obaiddoctrine.app.auth.MfaRequiredException
+import com.obaiddoctrine.app.content.ArticleBookmark
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -108,6 +110,8 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
     var selectedTestSlug by remember { mutableStateOf<String?>(null) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
+    val bookmarkRepository = remember { BookmarkRepository(context) }
+    var bookmarks by remember { mutableStateOf(bookmarkRepository.getAll()) }
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(initialAuthCode, initialAuthFlow) {
@@ -267,6 +271,8 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     padding = padding,
                     path = selectedArticlePath.orEmpty(),
                     isUrdu = isUrdu,
+                    isBookmarked = bookmarks.any { it.path == selectedArticlePath },
+                    onToggleBookmark = { bookmark -> bookmarkRepository.toggle(bookmark); bookmarks = bookmarkRepository.getAll() },
                     onBack = { selectedArticlePath = null }
                 )
                 selectedTestSlug != null -> MindTestRunnerScreen(
@@ -287,7 +293,13 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     isUrdu = isUrdu,
                     onOpenArticle = { selectedArticlePath = it }
                 )
-                selectedTab == 3 -> SimpleStateScreen("Your Library", "Your saved articles and learning resources will appear here.", padding)
+                selectedTab == 3 -> SavedArticlesScreen(
+                    padding = padding,
+                    bookmarks = bookmarks,
+                    isUrdu = isUrdu,
+                    onOpenArticle = { selectedArticlePath = it },
+                    onRemoveBookmark = { path -> bookmarkRepository.remove(path); bookmarks = bookmarkRepository.getAll() }
+                )
                 else -> AuthenticatedProfileScreen(
                     padding = padding,
                     email = session?.user?.email.orEmpty(),
