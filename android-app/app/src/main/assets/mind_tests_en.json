@@ -1,0 +1,1865 @@
+{
+  "version": "2026-11-02",
+  "language": "en",
+  "educationalOnly": true,
+  "tests": [
+    {
+      "slug": "communication-style",
+      "title": "How do you communicate under everyday pressure?",
+      "intro": "Answer 10 situations. Choose the response most like you. This tool explores four broad tendencies: clarity, listening, assertiveness and collaborative communication.",
+      "dimensions": [
+        {
+          "label": "Clear Expression",
+          "description": "You tend to value clear, specific expression. A useful strength is making your message understandable without unnecessary ambiguity."
+        },
+        {
+          "label": "Active Listening",
+          "description": "You tend to prioritize listening and understanding before responding. A useful strength is checking meaning rather than relying on assumptions."
+        },
+        {
+          "label": "Respectful Assertiveness",
+          "description": "You tend to express needs, limits and disagreement while trying to respect the other person. Assertiveness is not the same as aggression."
+        },
+        {
+          "label": "Collaborative Communication",
+          "description": "You tend to connect viewpoints and look for workable shared solutions. This can be especially useful when people have different needs or interpretations."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When I need something from another person, I usually…",
+          "options": [
+            "State clearly what I need and why.",
+            "First make sure I understand their side.",
+            "Ask directly while respecting their right to say no.",
+            "Look for a solution that works for both of us."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone is explaining something important, I usually…",
+          "options": [
+            "Ask focused questions if something is unclear.",
+            "Give them space to finish and listen carefully.",
+            "Share my view after I understand the main point.",
+            "Summarize what I heard so we can check our understanding."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I disagree with someone, I tend to…",
+          "options": [
+            "Explain my position clearly.",
+            "Try to understand how they reached theirs.",
+            "Express disagreement without attacking the person.",
+            "Look for the part of each viewpoint that can move the conversation forward."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When a conversation becomes tense, I usually…",
+          "options": [
+            "Say what the actual issue is.",
+            "Slow down and listen before responding.",
+            "State my boundary calmly if needed.",
+            "Help shift the discussion toward a workable next step."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If someone asks me to do something unreasonable, I usually…",
+          "options": [
+            "Explain clearly what I can and cannot do.",
+            "Ask questions before deciding how to respond.",
+            "Say no respectfully when necessary.",
+            "Offer an alternative that is realistic for both sides."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I realize I may have misunderstood someone, I…",
+          "options": [
+            "Ask for clarification instead of guessing.",
+            "Listen again to their exact meaning.",
+            "Admit the misunderstanding directly.",
+            "Restate what I think they mean and invite correction."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When giving feedback, I usually…",
+          "options": [
+            "Describe the specific behavior or issue.",
+            "Consider the other person's perspective.",
+            "Be honest without using insults or blame.",
+            "Discuss a constructive next step."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone criticizes me, I try to…",
+          "options": [
+            "Ask what specifically they mean.",
+            "Listen for information before defending myself.",
+            "Respond to the point without attacking back.",
+            "Separate useful feedback from the emotion of the moment."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "During group conversations, I tend to…",
+          "options": [
+            "Make my point clearly and briefly.",
+            "Notice who has not had a chance to speak.",
+            "Speak up without trying to dominate.",
+            "Help connect different ideas."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I am upset, before sending a message I usually…",
+          "options": [
+            "Make sure the main point is clear.",
+            "Read it again from the other person's perspective.",
+            "Pause if I might say something I will regret.",
+            "Think about what outcome I want from the conversation."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong construct literature; original questionnaire, not psychometrically validated.",
+        "limitations": "Self-report responses can be affected by context and social desirability. Communication behavior varies by relationship, power, culture and situation.",
+        "recommendations": [
+          "When a conversation matters, state the specific point you want understood before adding explanations.",
+          "Practice reflecting the other person's main point before responding with your own view.",
+          "Use a clear request and describe the situation without labeling the other person's character."
+        ],
+        "reflections": [
+          "What happens to my communication when I feel rushed or misunderstood?",
+          "Which part is harder for me: listening, expressing, or asking clearly?"
+        ],
+        "references": [
+          {
+            "title": "APA/AERA/NCME testing standards",
+            "url": "https://www.apa.org/science/programs/testing/standards?clearcache=true"
+          },
+          {
+            "title": "Assertive communication systematic review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28964979/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "conflict-style",
+      "title": "How do you usually respond when disagreement gets difficult?",
+      "intro": "Explore 10 everyday conflict situations. The questions look at staying engaged, understanding perspectives, expressing your position and moving toward workable next steps.",
+      "dimensions": [
+        {
+          "label": "Stay Engaged",
+          "description": "You tend to keep the conversation open and attentive. Active listening can help clarify what is actually being disputed."
+        },
+        {
+          "label": "Perspective Taking",
+          "description": "You tend to consider the other person's viewpoint and experience. Research on conflict communication links communicated perspective-taking with less defensive responses in some settings."
+        },
+        {
+          "label": "Clear Assertiveness",
+          "description": "You tend to express your own position clearly while trying to avoid personal attacks. Research has examined I-language and communicating perspective as ways of reducing perceived hostility in conflict openings."
+        },
+        {
+          "label": "Problem Solving",
+          "description": "You tend to move toward concrete next steps and workable agreements. Conflict research also emphasizes that the usefulness of a communication approach depends on the issue and context."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When a disagreement starts becoming tense, I usually…",
+          "options": [
+            "Stay present and try to keep the discussion focused.",
+            "Pause and try to understand what the other person is experiencing.",
+            "Clearly explain what I need without attacking the person.",
+            "Look for a practical next step we can both work with."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I strongly disagree with someone, I tend to…",
+          "options": [
+            "Keep listening even when I disagree.",
+            "Ask what might make their position reasonable to them.",
+            "State my own view directly and respectfully.",
+            "Search for a solution that addresses the main issue."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If I feel misunderstood during conflict, I usually…",
+          "options": [
+            "Ask questions before assuming what they meant.",
+            "Try to understand how my words may have been heard.",
+            "Clarify my position using specific examples.",
+            "Suggest a concrete way to resolve the misunderstanding."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When emotions rise, I am most likely to…",
+          "options": [
+            "Stay engaged while slowing the conversation down.",
+            "Notice the other person's emotional perspective.",
+            "Use clear 'I' language to describe my experience.",
+            "Suggest a pause or a next step that prevents escalation."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone blames me, I usually…",
+          "options": [
+            "Listen for the specific problem underneath the blame.",
+            "Consider why they may be feeling that way.",
+            "Respond to the issue without accepting unfair personal labels.",
+            "Bring the conversation back to what can actually be changed."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I think the other person is wrong, I try to…",
+          "options": [
+            "Make sure I understand their actual point first.",
+            "Consider the information or experience behind their view.",
+            "Explain why I see the situation differently.",
+            "Identify any part of the problem where we can agree."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If an argument keeps repeating, I tend to…",
+          "options": [
+            "Stay curious about what has not been understood.",
+            "Look for the pattern in both people's reactions.",
+            "Name the recurring issue clearly and respectfully.",
+            "Work toward a specific agreement or change."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I need something from someone after a disagreement, I…",
+          "options": [
+            "Listen to their concerns before making the request.",
+            "Consider how the request may affect them.",
+            "Say clearly what I need and why.",
+            "Suggest a realistic way to make it happen."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I realize I contributed to a conflict, I…",
+          "options": [
+            "Stay engaged rather than avoiding the topic.",
+            "Try to understand the impact on the other person.",
+            "Acknowledge my part directly.",
+            "Focus on what I can do differently next time."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When the other person becomes defensive, I usually…",
+          "options": [
+            "Ask a clarifying question and listen.",
+            "Try to understand what they may be protecting or worried about.",
+            "Adjust my wording while keeping my point clear.",
+            "Look for a calmer, more specific way forward."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong relationship/conflict literature; original educational questionnaire.",
+        "limitations": "Conflict behavior is highly context-dependent. This tool does not assess abuse, coercive control, safety or relationship quality.",
+        "recommendations": [
+          "Separate the problem from the person: describe the specific behavior or decision at issue.",
+          "Before defending your position, identify one part of the other person's perspective that you genuinely understand.",
+          "If emotions are too high for productive discussion, agree on a specific time to return to the issue rather than disappearing indefinitely."
+        ],
+        "reflections": [
+          "Do I tend to pursue, pause, withdraw, or problem-solve first?",
+          "What helps me return to a difficult conversation constructively?"
+        ],
+        "references": [
+          {
+            "title": "Relationship conflict meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21553964/"
+          },
+          {
+            "title": "APA/AERA/NCME testing standards",
+            "url": "https://www.apa.org/science/programs/testing/standards?clearcache=true"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "decision-making-style",
+      "title": "How Do You Approach Decisions?",
+      "intro": "Answer 10 everyday scenarios. Notice whether you tend to gather evidence, reflect before acting, choose a practical step, or adapt as new information appears.",
+      "dimensions": [
+        {
+          "label": "Evidence & Analysis",
+          "description": "You often prefer relevant information, comparison and visible reasoning before choosing."
+        },
+        {
+          "label": "Reflection & Confidence",
+          "description": "You often pause to examine assumptions, confidence and possible consequences."
+        },
+        {
+          "label": "Practical Action",
+          "description": "You often favor a workable next step, learn from feedback and adjust."
+        },
+        {
+          "label": "Adaptive Judgment",
+          "description": "You often update your choice when new evidence or changing conditions make a different response useful."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When two options both seem reasonable, I usually…",
+          "options": [
+            "Compare the strongest evidence for each.",
+            "Pause and ask what I may be overlooking.",
+            "Choose a workable option and learn from the result.",
+            "Keep the choice open while I look for new information."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When I do not have enough information, I tend to…",
+          "options": [
+            "Identify what evidence is missing.",
+            "Think about how uncertain I feel and why.",
+            "Make the smallest useful decision I can.",
+            "Wait for information that could meaningfully change the choice."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "Before an important decision, I am most likely to…",
+          "options": [
+            "List key facts and trade-offs.",
+            "Check whether my assumptions are sound.",
+            "Identify the next practical step.",
+            "Consider how the situation could change."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "If new evidence challenges my first choice, I…",
+          "options": [
+            "Recheck the evidence.",
+            "Ask why I was initially confident.",
+            "Change course if the practical result calls for it.",
+            "Update my decision when the new evidence is meaningful."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When a decision has possible downsides, I usually…",
+          "options": [
+            "Compare likely costs and benefits.",
+            "Consider how confident I am about those estimates.",
+            "Look for a manageable way to reduce the downside.",
+            "Consider which risks change if circumstances shift."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When pressure makes a decision urgent, I try to…",
+          "options": [
+            "Identify the most important facts first.",
+            "Notice whether pressure is narrowing my thinking.",
+            "Choose the safest useful next action.",
+            "Decide what can be revisited later."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "After making a decision, I am most likely to…",
+          "options": [
+            "Review the evidence that supported it.",
+            "Reflect on whether my confidence matched the outcome.",
+            "Focus on what happened and what to do next.",
+            "Update my approach using the feedback."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When someone strongly disagrees with my choice, I…",
+          "options": [
+            "Ask which evidence supports their view.",
+            "Check whether I may be missing something.",
+            "Look for a practical way forward.",
+            "Stay open to changing my view if new information matters."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When the outcome is uncertain, I prefer to…",
+          "options": [
+            "Estimate what is known and unknown.",
+            "Think about how much uncertainty I can reasonably accept.",
+            "Take a small step that gives useful feedback.",
+            "Keep monitoring the situation as it changes."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "If I notice I made an error, I…",
+          "options": [
+            "Identify which information or reasoning failed.",
+            "Examine why I was confident.",
+            "Correct the practical problem first.",
+            "Change my approach for the next decision."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong theoretical/review literature; original educational questionnaire.",
+        "limitations": "Good decisions depend on domain knowledge, stakes, time, available evidence and consequences. A self-report profile does not measure decision accuracy.",
+        "recommendations": [
+          "For high-stakes choices, write down the evidence that could genuinely change your decision before choosing.",
+          "Separate confidence from certainty: note what you know, what you infer and what remains unknown.",
+          "After an important decision, review the outcome for learning rather than judging yourself solely by whether it worked."
+        ],
+        "reflections": [
+          "What evidence would actually make me change my mind?",
+          "Do I confuse feeling confident with having strong evidence?"
+        ],
+        "references": [
+          {
+            "title": "Metacognition in human decision-making",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22492749/"
+          },
+          {
+            "title": "Metacognition and confidence review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37722748/"
+          },
+          {
+            "title": "Judgment and decision making review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31337275/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "emotional-intelligence",
+      "title": "How do you work with emotions?",
+      "intro": "Answer 10 everyday situations. Choose the response that is most like you. This test explores four broad dimensions: noticing emotions, understanding them, regulating responses and using emotional information in relationships.",
+      "dimensions": [
+        {
+          "label": "Emotional Awareness",
+          "description": "You tend to notice and identify emotional signals in yourself and situations. Greater awareness can create a useful pause between an emotion and a response."
+        },
+        {
+          "label": "Emotional Understanding",
+          "description": "You tend to look for triggers, meanings and context behind emotions rather than treating the first interpretation as the whole story."
+        },
+        {
+          "label": "Emotional Regulation",
+          "description": "You tend to focus on choosing responses deliberately, especially when emotions are intense. Regulation is not the same as suppressing emotions."
+        },
+        {
+          "label": "Interpersonal Emotional Skill",
+          "description": "You tend to consider how emotions operate between people and use that awareness to support clearer, more constructive interactions."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When I notice a strong emotion in myself, I usually…",
+          "options": [
+            "Recognize and name what I am feeling.",
+            "Try to understand what triggered it.",
+            "Pause before deciding how to respond.",
+            "Notice how it may affect my interaction with others."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When my mood changes unexpectedly, I tend to…",
+          "options": [
+            "Notice the change fairly quickly.",
+            "Look for a possible reason or pattern.",
+            "Give myself time before reacting.",
+            "Consider whether the change is affecting people around me."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If someone becomes unusually quiet during a conversation, I usually…",
+          "options": [
+            "Notice the change in their emotional tone.",
+            "Consider several possible reasons.",
+            "Avoid jumping to a conclusion or reacting impulsively.",
+            "Check in respectfully rather than assuming."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I feel angry, I am most likely to…",
+          "options": [
+            "Recognize the intensity of the anger.",
+            "Think about what the anger is communicating.",
+            "Create some space before responding.",
+            "Consider how my response could affect the relationship."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When a difficult emotion keeps returning, I usually…",
+          "options": [
+            "Can identify when it is happening.",
+            "Look for recurring triggers or meanings.",
+            "Try a healthier way to respond.",
+            "Talk about it or seek support when appropriate."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When receiving criticism, my first useful step is to…",
+          "options": [
+            "Notice my emotional reaction.",
+            "Separate the useful message from my assumptions.",
+            "Pause so the emotion does not control my response.",
+            "Consider the other person's perspective."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone is upset with me, I tend to…",
+          "options": [
+            "Notice the emotional cues in the conversation.",
+            "Try to understand what may be underneath them.",
+            "Manage my defensiveness before replying.",
+            "Listen and respond in a way that keeps the conversation constructive."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I am under pressure, I usually…",
+          "options": [
+            "Notice signs that stress is building.",
+            "Think about what is driving the pressure.",
+            "Use a strategy that helps me regain balance.",
+            "Communicate my needs instead of taking stress out on others."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When two people have different emotional reactions to the same event, I…",
+          "options": [
+            "Notice that their feelings may genuinely differ.",
+            "Try to understand each person's interpretation.",
+            "Avoid treating my reaction as the only possible one.",
+            "Use the difference to improve the conversation."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "Before sending an emotional message, I often…",
+          "options": [
+            "Notice how strongly I am feeling.",
+            "Consider what I actually want the message to communicate.",
+            "Pause and choose my response deliberately.",
+            "Think about how the message may be received."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong research literature but multiple competing EI models exist; this is an original self-reflection tool, not an EI ability test.",
+        "limitations": "Self-report cannot establish ability EI or clinical emotional functioning. Emotional responses are context-dependent.",
+        "recommendations": [
+          "Name the emotion and the situation separately: 'I feel frustrated' is different from 'this person is frustrating.'",
+          "Before reacting, identify what the emotion is signaling and what action would fit the situation.",
+          "When another person is emotional, first clarify what they need—listening, information, space or practical help."
+        ],
+        "reflections": [
+          "Which emotions do I notice quickly, and which do I understand only later?",
+          "What usually happens between feeling an emotion and choosing how to respond?"
+        ],
+        "references": [
+          {
+            "title": "EI measurement review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31191383/"
+          },
+          {
+            "title": "EI meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31829667/"
+          },
+          {
+            "title": "Emotion regulation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24897894/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "motivation-goals",
+      "title": "What tends to keep you moving toward a goal?",
+      "intro": "Explore 10 everyday situations. The questions look at personal meaning, choice, persistence, flexibility and the conditions that support your goal pursuit.",
+      "dimensions": [
+        {
+          "label": "Personal Meaning",
+          "description": "You tend to draw motivation from goals that connect with values or reasons that matter to you personally."
+        },
+        {
+          "label": "Choice & Ownership",
+          "description": "You tend to be energized when you have meaningful choice and a sense that the goal is yours to pursue."
+        },
+        {
+          "label": "Growth & Competence",
+          "description": "You tend to stay engaged when goals provide opportunities to learn, improve and experience growing capability."
+        },
+        {
+          "label": "Support & Structure",
+          "description": "You tend to benefit from supportive people, routines and environments that make consistent action easier."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When I choose an important goal, I am most energized by…",
+          "options": [
+            "Feeling that the goal matters to me personally.",
+            "Having freedom to choose how I pursue it.",
+            "Seeing myself improve and become more capable.",
+            "Having people or routines that support the effort."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When a goal becomes difficult, I usually…",
+          "options": [
+            "Reconnect with why it matters to me.",
+            "Change my approach while keeping ownership of the goal.",
+            "Break the challenge into a skill I can improve.",
+            "Seek useful support or adjust my environment."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "I am more likely to keep working when…",
+          "options": [
+            "The goal fits something I genuinely value.",
+            "I feel the decision is truly mine.",
+            "I can see progress in my ability.",
+            "My surroundings make the desired action easier."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone else sets a goal for me, I tend to…",
+          "options": [
+            "Ask how it connects with what I care about.",
+            "Want some choice in how I accomplish it.",
+            "Focus on learning what would make me capable of it.",
+            "Look for support, resources or clear expectations."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If external rewards disappear, I usually…",
+          "options": [
+            "Continue when the activity still feels meaningful.",
+            "Continue when I still feel ownership of the goal.",
+            "Continue when I enjoy improving at it.",
+            "Look for another structure that helps me stay consistent."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When progress is slower than expected, I…",
+          "options": [
+            "Remind myself why the outcome matters.",
+            "Reconsider the method without abandoning my agency.",
+            "Focus on what the experience is teaching me.",
+            "Change the routine or support around the goal."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "A goal feels personally meaningful when…",
+          "options": [
+            "It reflects something I value or care about.",
+            "It feels chosen rather than imposed.",
+            "It helps me grow in competence or understanding.",
+            "It connects with people, contribution or a supportive context."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I lose momentum, I am most helped by…",
+          "options": [
+            "Reconnecting with the purpose behind the goal.",
+            "Making a fresh choice about the next step.",
+            "Choosing a small challenge that lets me experience progress.",
+            "Changing my environment, routine or accountability."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If a goal stops fitting my life, I prefer to…",
+          "options": [
+            "Check whether the underlying value still matters.",
+            "Give myself permission to choose a different direction.",
+            "Ask what I learned that can transfer to another goal.",
+            "Discuss the change with people affected by it."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I succeed at something difficult, I value…",
+          "options": [
+            "Knowing the achievement mattered to me.",
+            "Knowing I chose and directed the effort.",
+            "Feeling more capable because of what I learned.",
+            "Appreciating the people and conditions that helped."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong motivation literature; original educational questionnaire.",
+        "limitations": "Motivation changes across tasks, environments, resources and relationships. This is not a measure of academic or occupational performance.",
+        "recommendations": [
+          "Connect a difficult goal to a value that matters to you rather than relying only on pressure or rewards.",
+          "Break a vague goal into one observable next action and decide when and where it will happen.",
+          "Track progress in a way that shows learning and competence, not only final outcomes."
+        ],
+        "reflections": [
+          "Which goals feel personally meaningful rather than merely expected?",
+          "What kind of support makes action easier without taking away my sense of ownership?"
+        ],
+        "references": [
+          {
+            "title": "Self-determined motivation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29048175/"
+          },
+          {
+            "title": "Student motivation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33593153/"
+          },
+          {
+            "title": "Basic-need support meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38635183/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "personality-traits",
+      "title": "Which personality tendencies show up in your everyday life?",
+      "intro": "Answer 10 everyday situations. Choose the response that is most like you. This original reflection explores five broad personality dimensions often studied in personality psychology.",
+      "dimensions": [
+        {
+          "label": "Openness to Experience",
+          "description": "You may show greater curiosity and openness toward unfamiliar ideas and experiences."
+        },
+        {
+          "label": "Conscientiousness",
+          "description": "You may show greater organization, responsibility and follow-through."
+        },
+        {
+          "label": "Agreeableness",
+          "description": "You may place greater emphasis on cooperation, consideration and interpersonal impact."
+        },
+        {
+          "label": "Extraversion",
+          "description": "You may be more inclined toward active social engagement and interaction."
+        },
+        {
+          "label": "Emotional Stability",
+          "description": "You may show a greater tendency toward emotional steadiness when facing pressure or uncertainty."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When I meet an unfamiliar idea, I usually…",
+          "options": [
+            "Prefer familiar ideas unless change is necessary.",
+            "Consider it briefly if it seems useful.",
+            "Become curious and explore what it might mean.",
+            "Enjoy exploring it even when it challenges my usual view."
+          ],
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When a routine gives me a chance to try something new, I…",
+          "options": [
+            "Usually keep the routine unchanged.",
+            "Try a small change when there is a clear reason.",
+            "Enjoy experimenting with a different approach.",
+            "Actively look for new experiences or perspectives."
+          ],
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When I have an important task, I usually…",
+          "options": [
+            "Start when the deadline becomes close.",
+            "Make a rough plan and adjust it.",
+            "Set clear steps and monitor progress.",
+            "Create a detailed plan and follow through carefully."
+          ],
+          "scores": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When I make a commitment, I tend to…",
+          "options": [
+            "Need reminders to stay on track.",
+            "Usually complete it with some flexibility.",
+            "Keep track of what I promised.",
+            "Treat follow-through as an important responsibility."
+          ],
+          "scores": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When someone is treated unfairly, I tend to…",
+          "options": [
+            "Focus mainly on my own position.",
+            "Notice the situation but may stay unsure what to do.",
+            "Consider the person's perspective before responding.",
+            "Make a deliberate effort to respond with fairness and consideration."
+          ],
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When a disagreement becomes personal, I usually…",
+          "options": [
+            "Focus on defending my own position.",
+            "Try to understand the other person's side.",
+            "Look for a respectful way to protect both perspectives.",
+            "Actively prioritize cooperation and the relationship while discussing the issue."
+          ],
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "In a social setting with unfamiliar people, I usually…",
+          "options": [
+            "Prefer to stay mostly on my own.",
+            "Join a conversation if someone invites me.",
+            "Often start or join conversations.",
+            "Actively seek interaction and enjoy meeting several people."
+          ],
+          "scores": [
+            3,
+            3,
+            3,
+            3
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "After spending time with a group, I often…",
+          "options": [
+            "Prefer quiet time and little further interaction.",
+            "Feel comfortable with either more interaction or quiet time.",
+            "Usually enjoy continuing social interaction.",
+            "Often feel energized by further conversation or activity."
+          ],
+          "scores": [
+            3,
+            3,
+            3,
+            3
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When several things go wrong at once, I usually…",
+          "options": [
+            "Feel overwhelmed and need substantial time before acting.",
+            "Pause and handle one issue at a time.",
+            "Usually regain focus after a short pause.",
+            "Can often stay composed enough to assess the next step."
+          ],
+          "scores": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "prompt": "When I receive unexpected criticism, I tend to…",
+          "options": [
+            "React strongly before I have time to process it.",
+            "Need some time before deciding how to respond.",
+            "Can usually consider the feedback without losing focus.",
+            "Usually stay steady enough to examine the feedback and decide what is useful."
+          ],
+          "scores": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "guidance": {
+        "evidence": "Very strong construct literature; this short original reflection is not a validated Big Five inventory and has no norms.",
+        "limitations": "Personality traits describe tendencies, not fixed identities. Two items per trait cannot provide the precision of established inventories.",
+        "recommendations": [
+          "Interpret trait tendencies as context-sensitive patterns rather than labels or strengths/weaknesses in themselves.",
+          "Compare your responses across situations; a trait tendency does not mean you behave the same way everywhere.",
+          "Use the result to choose one environment or habit that fits your current preferences rather than trying to change your identity."
+        ],
+        "reflections": [
+          "Where does my usual pattern change because the situation changes?",
+          "Which tendency helps me in one context but creates friction in another?"
+        ],
+        "references": [
+          {
+            "title": "Big Five quantitative synthesis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34687041/"
+          },
+          {
+            "title": "Big Five metasynthesis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28277701/"
+          },
+          {
+            "title": "Big Five and well-being meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31944795/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "relationship-communication",
+      "title": "How do you communicate in close relationships?",
+      "intro": "Answer 10 everyday situations. Choose the response that is most like you. This reflection explores listening, emotional responsiveness, constructive expression and repair when conversations become difficult.",
+      "dimensions": [
+        {
+          "label": "Listening & Understanding",
+          "description": "You tend to prioritize accurate listening, clarification and understanding before moving to your own response."
+        },
+        {
+          "label": "Emotional Responsiveness",
+          "description": "You tend to pay attention to emotional cues, validation and the experience of the other person during conversations."
+        },
+        {
+          "label": "Constructive Expression",
+          "description": "You tend to value direct, respectful expression of needs and concerns without turning disagreement into personal attack."
+        },
+        {
+          "label": "Repair & Collaboration",
+          "description": "You tend to focus on repairing misunderstandings, finding workable next steps and keeping difficult conversations productive."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When someone I care about is telling me something difficult, I usually…",
+          "options": [
+            "Listen without planning my reply while they are speaking.",
+            "Try to understand what they are feeling as well as what they are saying.",
+            "Share my view clearly after giving them space to speak.",
+            "Look for a way to keep the conversation constructive and useful."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I realize I misunderstood my partner or loved one, I tend to…",
+          "options": [
+            "Ask what they meant instead of relying on my assumption.",
+            "Acknowledge how my misunderstanding may have affected them.",
+            "Explain my own perspective without turning it into a defence.",
+            "Clarify the issue and work toward a better understanding."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone shares good news with me, I usually…",
+          "options": [
+            "Give them my attention and let them tell the story.",
+            "Show genuine interest in why the news matters to them.",
+            "Express encouragement in a way that feels natural to me.",
+            "Ask questions or respond in a way that helps the positive moment continue."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "During a disagreement, I am most likely to…",
+          "options": [
+            "Listen for the point beneath the words.",
+            "Notice when emotions are rising and respond with care.",
+            "State my concern directly without attacking the person.",
+            "Focus on what could actually change or be agreed upon."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I feel hurt by something someone close to me did, I usually…",
+          "options": [
+            "Make sure I understand what happened before reacting.",
+            "Try to identify and name what I am feeling.",
+            "Explain the impact on me rather than using personal labels.",
+            "Discuss what could be done differently next time."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When the other person becomes defensive, I tend to…",
+          "options": [
+            "Slow down and make sure I have understood their point.",
+            "Consider what may be making the conversation feel threatening.",
+            "Keep my message specific rather than escalating my language.",
+            "Look for a practical way to lower tension and continue later if needed."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "If an important conversation is going nowhere, I usually…",
+          "options": [
+            "Ask questions to find where our understandings differ.",
+            "Recognize when both people may need a pause.",
+            "Restate my main point more clearly and respectfully.",
+            "Suggest a next step instead of repeating the same argument."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I disagree with someone I love, I can usually…",
+          "options": [
+            "Accurately summarize their position before explaining mine.",
+            "Accept that we may experience the same situation differently.",
+            "Disagree without insulting, mocking or dismissing them.",
+            "Look for common ground or a workable compromise."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "After I say something that hurts someone, I tend to…",
+          "options": [
+            "Listen to their explanation before deciding what happened.",
+            "Take their feelings seriously even if I had a different intention.",
+            "Acknowledge my part without shifting all the blame back.",
+            "Try to repair the interaction and change the behavior where possible."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When a difficult topic needs to be discussed, I prefer to…",
+          "options": [
+            "Give both people enough space to speak and clarify.",
+            "Choose a moment when emotions can be handled respectfully.",
+            "Use direct but non-attacking language.",
+            "End with a clear understanding of what happens next."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong relationship-communication literature; original educational questionnaire.",
+        "limitations": "This tool does not assess relationship satisfaction, abuse, coercion, compatibility or safety.",
+        "recommendations": [
+          "Use specific observations and requests when raising a concern instead of global labels such as 'always' or 'never'.",
+          "Show responsiveness by acknowledging the other person's experience before moving to your own explanation.",
+          "After a misunderstanding, return to the issue and clarify what each person understood rather than trying to win the argument."
+        ],
+        "reflections": [
+          "How do I show another person that I understood them?",
+          "What makes repair easier or harder after a misunderstanding?"
+        ],
+        "references": [
+          {
+            "title": "Relationship education communication meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19364214/"
+          },
+          {
+            "title": "Relationship conflict meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21553964/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "resilience-adaptability",
+      "title": "Resilience & Adaptability",
+      "intro": "Explore how you tend to recover, adjust, use support and stay oriented toward what matters when circumstances change.",
+      "dimensions": [
+        {
+          "label": "Recovery & Regulation",
+          "description": "You tend to make room to recover and regain steadiness after difficult experiences."
+        },
+        {
+          "label": "Flexible Adaptation",
+          "description": "You tend to adjust plans, expectations or strategies when circumstances change."
+        },
+        {
+          "label": "Purpose & Persistence",
+          "description": "You tend to stay connected to meaningful goals while changing how you move toward them."
+        },
+        {
+          "label": "Support & Resource Use",
+          "description": "You tend to recognize when support, relationships or practical resources can strengthen adaptation."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When a plan I cared about suddenly changes, I usually…",
+          "options": [
+            "Give myself time to settle before deciding what to do next.",
+            "Look for another workable route and adjust the plan.",
+            "Reconnect with why the goal matters and continue from a new angle.",
+            "Ask who or what could help me adapt to the change."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "After a difficult week, I am most likely to…",
+          "options": [
+            "Create space to recover before taking on more.",
+            "Change routines that are no longer working.",
+            "Keep one meaningful priority in view even if progress is slower.",
+            "Reach out to people or resources that can make things easier."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When something goes wrong unexpectedly, I tend to…",
+          "options": [
+            "Notice my reaction and give myself a chance to regain balance.",
+            "Experiment with a different approach.",
+            "Focus on the bigger purpose rather than one setback.",
+            "Consider whether I need information, advice or practical support."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "If my usual way of solving a problem stops working, I…",
+          "options": [
+            "Pause rather than pushing myself harder immediately.",
+            "Try a different strategy or revise the plan.",
+            "Ask what outcome still matters most.",
+            "Look for someone or something that can add useful resources."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When facing a long period of uncertainty, I tend to…",
+          "options": [
+            "Protect routines that help me stay regulated.",
+            "Adjust expectations as new information appears.",
+            "Keep meaningful commitments while allowing the path to change.",
+            "Stay connected with supportive people or useful resources."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "After a setback, my most useful first step is often to…",
+          "options": [
+            "Recover enough to think clearly again.",
+            "Identify what can be changed next time.",
+            "Reconnect with what I am trying to build or protect.",
+            "Ask for perspective or practical help when needed."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When circumstances force me to change direction, I…",
+          "options": [
+            "Give myself permission to feel the disruption before moving forward.",
+            "Treat the new situation as a reason to revise my approach.",
+            "Keep the underlying purpose while changing the route.",
+            "Map the people, tools and information available to me."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When I make a mistake, I usually…",
+          "options": [
+            "Avoid turning the mistake into a judgment about my whole self.",
+            "Use what happened to modify my next attempt.",
+            "Remember that one outcome does not define the larger goal.",
+            "Talk it through or seek feedback if that would help."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When stress lasts longer than expected, I tend to…",
+          "options": [
+            "Pay attention to recovery rather than simply enduring it.",
+            "Change strategies if the current approach is not helping.",
+            "Keep perspective about what still matters to me.",
+            "Increase support or use available resources."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When a challenge feels bigger than my current skills, I…",
+          "options": [
+            "Slow down enough to avoid reacting from exhaustion.",
+            "Break the approach into smaller experiments and learn.",
+            "Focus on why developing this skill matters.",
+            "Seek guidance, collaboration or other resources."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong and evolving resilience literature; original educational questionnaire.",
+        "limitations": "Resilience is not a fixed trait or guarantee of recovery. Context, resources and severity of adversity matter.",
+        "recommendations": [
+          "After a setback, protect enough recovery time to think clearly before demanding more from yourself.",
+          "When a strategy stops working, change the strategy while keeping the underlying goal in view.",
+          "Identify practical and social resources early rather than treating help-seeking as failure."
+        ],
+        "reflections": [
+          "What helps me recover enough to think clearly after a setback?",
+          "Which resources do I already have but do not consistently use?"
+        ],
+        "references": [
+          {
+            "title": "Integrative resilience review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26748456/"
+          },
+          {
+            "title": "Dynamic resilience review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30126047/"
+          },
+          {
+            "title": "2024 dynamic adaptational process theory",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39531707/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "self-awareness",
+      "title": "How well do you notice your own patterns?",
+      "intro": "Answer 10 everyday situations. This tool invites reflection on noticing thoughts and feelings, checking assumptions, recognizing patterns and separating observation from interpretation.",
+      "dimensions": [
+        {
+          "label": "Inner Awareness",
+          "description": "You tend to notice your internal experiences. Awareness of thoughts and feelings can create a useful pause for reflection."
+        },
+        {
+          "label": "Metacognitive Reflection",
+          "description": "You tend to examine the beliefs, assumptions and meanings behind your reactions. Metacognition involves awareness of one's own cognitive processes."
+        },
+        {
+          "label": "Pattern Recognition",
+          "description": "You tend to look across situations and time for recurring patterns rather than treating each moment as completely separate."
+        },
+        {
+          "label": "Reality Checking",
+          "description": "You tend to distinguish observations from interpretations and look for evidence before treating an explanation as fact."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When I have a strong reaction to something, I usually…",
+          "options": [
+            "Notice what I am feeling before moving on.",
+            "Ask myself what thought or assumption may be behind it.",
+            "Look for patterns in when this reaction tends to happen.",
+            "Separate what I observed from the story I am telling myself."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When someone gives me feedback, I usually…",
+          "options": [
+            "Notice my first emotional response.",
+            "Consider what belief about myself the feedback touches.",
+            "Ask whether similar feedback has appeared before.",
+            "Check the specific evidence before deciding what it means."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I make a mistake, I tend to…",
+          "options": [
+            "Notice how I feel about the mistake.",
+            "Examine the thoughts I have about what the mistake says about me.",
+            "Look for recurring habits that contributed to it.",
+            "Separate the actual mistake from broader judgments about myself."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I feel certain that I am right, I sometimes…",
+          "options": [
+            "Notice how strongly I am attached to my view.",
+            "Ask what assumptions my conclusion depends on.",
+            "Recall whether I have been wrong in similar situations.",
+            "Look for information that could challenge my interpretation."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When my behavior changes around different people, I…",
+          "options": [
+            "Notice the difference in how I feel.",
+            "Consider what beliefs or expectations may influence the change.",
+            "Look for situations that consistently bring out the pattern.",
+            "Distinguish the behavior I can observe from my explanation for it."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I feel stuck in a decision, I usually…",
+          "options": [
+            "Notice the emotions that are making the decision difficult.",
+            "Ask what fear, value or assumption may be influencing me.",
+            "Look for whether the same decision pattern has happened before.",
+            "List what I know, what I infer and what I still need to learn."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I remember a difficult event, I…",
+          "options": [
+            "Notice the emotion that comes with the memory.",
+            "Consider how my current beliefs shape the way I interpret it.",
+            "Notice whether my reactions to similar situations repeat.",
+            "Distinguish what I clearly remember from what I may be filling in."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I receive praise, I usually…",
+          "options": [
+            "Notice how I feel receiving it.",
+            "Reflect on whether I believe the positive description.",
+            "Consider whether the praise matches patterns I have seen in my behavior.",
+            "Check the specific behavior being praised rather than making a global judgment about myself."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I am stressed, I try to…",
+          "options": [
+            "Notice early changes in my thoughts, feelings or body.",
+            "Ask what meaning I am giving the situation.",
+            "Recognize my usual stress patterns.",
+            "Separate the situation itself from my interpretation of it."
+          ],
+          "scores": null,
+          "values": null
+        },
+        {
+          "prompt": "When I disagree strongly with someone, I…",
+          "options": [
+            "Notice my emotional intensity.",
+            "Ask what personal value or assumption may be involved.",
+            "Consider whether this type of disagreement repeats for me.",
+            "Try to identify what the other person actually said before interpreting it."
+          ],
+          "scores": null,
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong conceptual and metacognitive literature; original educational questionnaire.",
+        "limitations": "Self-report awareness is not the same as objective accuracy. People can be confident about a self-judgment and still be mistaken.",
+        "recommendations": [
+          "When making a self-judgment, separate observation from interpretation: record what happened before deciding what it means.",
+          "Check important beliefs against evidence or feedback rather than relying only on how convincing they feel.",
+          "Notice repeated triggers and responses across several situations before drawing a conclusion about yourself."
+        ],
+        "reflections": [
+          "Which self-beliefs have I actually checked against evidence?",
+          "What patterns do I notice only after someone gives me feedback?"
+        ],
+        "references": [
+          {
+            "title": "Metacognition and confidence review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37722748/"
+          },
+          {
+            "title": "Metacognition in decision-making",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22492749/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "stress-response",
+      "title": "Stress Response Style",
+      "intro": "Explore how you tend to notice stress, interpret pressure, regulate reactions and choose coping responses.",
+      "dimensions": [
+        {
+          "label": "Stress Awareness",
+          "description": "You tend to notice changes in body, mood or attention when pressure rises."
+        },
+        {
+          "label": "Situation Appraisal",
+          "description": "You tend to examine meaning, controllability and available resources."
+        },
+        {
+          "label": "Regulation & Recovery",
+          "description": "You tend to create space to settle reactions and recover."
+        },
+        {
+          "label": "Adaptive Coping",
+          "description": "You tend to adjust coping according to the problem, emotions, support and context."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "When pressure starts building, I usually…",
+          "options": [
+            "Notice changes in my body, mood or concentration.",
+            "Ask what the situation means and how serious it really is.",
+            "Pause and use something that helps me settle.",
+            "Consider what response fits the situation best."
+          ],
+          "scores": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When I feel overwhelmed, I tend to…",
+          "options": [
+            "Separate what I can control from what I cannot.",
+            "Notice signs that I am becoming overloaded.",
+            "Choose between action, support or a break.",
+            "Give myself time to calm down before the next move."
+          ],
+          "scores": [
+            1,
+            0,
+            3,
+            2
+          ],
+          "values": null
+        },
+        {
+          "prompt": "If my thoughts speed up, I usually…",
+          "options": [
+            "Recognize that my stress level has changed.",
+            "Use a calming practice or create some space.",
+            "Ask what is driving the reaction and whether my interpretation is accurate.",
+            "Decide what response is useful right now."
+          ],
+          "scores": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When a stressful problem cannot be solved immediately, I…",
+          "options": [
+            "Look for a workable next step.",
+            "Reassess what the problem actually requires.",
+            "Use recovery time so pressure does not take over everything.",
+            "Notice how the unresolved problem affects my mood and attention."
+          ],
+          "scores": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When I receive stressful news, I first…",
+          "options": [
+            "Check the facts and what the news means for me.",
+            "Notice my immediate emotional and physical reaction.",
+            "Give myself a moment before responding.",
+            "Think about whether I need action, information, support or time."
+          ],
+          "scores": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When I cannot control an important outcome, I…",
+          "options": [
+            "Shift attention to what I can influence.",
+            "Remind myself that interpretation affects experience.",
+            "Notice when uncertainty is increasing my stress.",
+            "Use a coping or recovery activity to stay grounded."
+          ],
+          "scores": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "values": null
+        },
+        {
+          "prompt": "During a busy period, I am most likely to…",
+          "options": [
+            "Notice early signs that stress is accumulating.",
+            "Adjust priorities or ask for practical help.",
+            "Protect some time for recovery.",
+            "Reconsider whether every demand needs the same urgency."
+          ],
+          "scores": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "values": null
+        },
+        {
+          "prompt": "After a stressful event, I tend to…",
+          "options": [
+            "Take time to settle physically and emotionally.",
+            "Reflect on signs of stress I noticed.",
+            "Think about what I can learn or change next time.",
+            "Review what the event meant and whether my assumptions were accurate."
+          ],
+          "scores": [
+            2,
+            0,
+            3,
+            1
+          ],
+          "values": null
+        },
+        {
+          "prompt": "When someone gives me stressful feedback, I…",
+          "options": [
+            "Consider what the feedback means before responding.",
+            "Regulate my reaction so I can listen.",
+            "Look for a useful action or clarification.",
+            "Notice what emotions or body signals it triggered."
+          ],
+          "scores": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "values": null
+        },
+        {
+          "prompt": "If the same stressor keeps returning, I…",
+          "options": [
+            "Look for a practical change to reduce it.",
+            "Examine my interpretation, expectations or boundaries.",
+            "Track early warning signs so I can respond sooner.",
+            "Strengthen recovery and support rather than simply pushing through."
+          ],
+          "scores": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "values": null
+        }
+      ],
+      "guidance": {
+        "evidence": "Strong stress-and-coping literature; original educational questionnaire.",
+        "limitations": "This does not screen for anxiety, depression, PTSD or any other disorder. Stress responses vary with severity, duration, health, environment and available support.",
+        "recommendations": [
+          "When pressure rises, identify what is controllable, what is not, and what the next useful action is.",
+          "Use recovery as part of coping: sleep, pauses, movement, social connection or other healthy routines can create space for regulation.",
+          "Match coping to the problem: change what can be changed and use emotional support when the situation cannot be immediately solved."
+        ],
+        "reflections": [
+          "What signs tell me that pressure is beginning to affect my thinking or behavior?",
+          "Which coping responses help me address the situation rather than only distract from it?"
+        ],
+        "references": [
+          {
+            "title": "Lazarus stress and coping review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/10892209/"
+          },
+          {
+            "title": "Stressful encounter, appraisal and coping",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/3712234/"
+          },
+          {
+            "title": "Emotion regulation meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24897894/"
+          }
+        ]
+      }
+    }
+  ]
+}

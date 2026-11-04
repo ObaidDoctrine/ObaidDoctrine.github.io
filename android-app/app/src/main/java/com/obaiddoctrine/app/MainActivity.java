@@ -4,14 +4,20 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private static final String SITE_HOST = "www.obaiddoctrine.com";
@@ -25,12 +31,50 @@ public class MainActivity extends Activity {
     private static final String LOGOUT_HOST = "logout";
 
     private WebView webView;
+    private Button accountButton;
     private boolean authenticated = false;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setBackgroundColor(Color.rgb(16, 16, 16));
+
+        LinearLayout toolbar = new LinearLayout(this);
+        toolbar.setOrientation(LinearLayout.HORIZONTAL);
+        toolbar.setGravity(Gravity.CENTER_VERTICAL);
+        toolbar.setPadding(dp(16), dp(10), dp(16), dp(10));
+        toolbar.setBackgroundColor(Color.rgb(23, 23, 23));
+
+        TextView brand = new TextView(this);
+        brand.setText("OBAID DOCTRINE");
+        brand.setTextColor(Color.WHITE);
+        brand.setTextSize(15);
+        brand.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        brand.setLetterSpacing(0.06f);
+        toolbar.addView(brand, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
+        accountButton = new Button(this);
+        accountButton.setText("Log In");
+        accountButton.setTextColor(Color.rgb(23, 17, 11));
+        accountButton.setTextSize(13);
+        accountButton.setAllCaps(false);
+        accountButton.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        accountButton.setPadding(dp(16), dp(4), dp(16), dp(4));
+        GradientDrawable buttonBackground = new GradientDrawable();
+        buttonBackground.setColor(Color.rgb(255, 122, 26));
+        buttonBackground.setCornerRadius(dp(12));
+        accountButton.setBackground(buttonBackground);
+        accountButton.setOnClickListener(v -> {
+            String accountUrl = authenticated ? AUTH_URL + "&manage=1" : AUTH_URL;
+            webView.loadUrl(accountUrl);
+        });
+        toolbar.addView(accountButton, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, dp(44)));
 
         webView = new WebView(this);
         webView.setBackgroundColor(Color.rgb(250, 250, 245));
@@ -59,15 +103,40 @@ public class MainActivity extends Activity {
             }
         });
 
-        setContentView(webView, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        ));
+        root.addView(toolbar, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        root.addView(webView, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+        setContentView(root);
 
-        // Never restore a previous WebView navigation stack here.
-        // Every activity start must pass through the authentication gate.
-        webView.clearHistory();
-        webView.loadUrl(AUTH_URL);
+        // The public home page is available without an account.
+        // Protected pages are gated by the Nhost sign-in flow.
+        webView.loadUrl(HOME_URL);
+    }
+
+    private int dp(float value) {
+        return (int) (value * getResources().getDisplayMetrics().density + 0.5f);
+    }
+
+    private void updateAccountButton() {
+        if (accountButton != null) {
+            accountButton.setText(authenticated ? "Account" : "Log In");
+        }
+    }
+
+    private String safeInternalDestination(String value) {
+        if (value == null || !value.startsWith("/") || value.startsWith("//")) {
+            return null;
+        }
+        Uri parsed = Uri.parse(value);
+        if (parsed.getScheme() != null || parsed.getAuthority() != null) {
+            return null;
+        }
+        String path = parsed.getPath();
+        if (path == null || path.startsWith("/auth/")) {
+            return null;
+        }
+        return "https://" + SITE_HOST + value;
     }
 
     private boolean handleNavigation(WebView view, Uri uri) {
@@ -78,12 +147,10 @@ public class MainActivity extends Activity {
         String scheme = uri.getScheme();
         String host = uri.getHost();
 
-        // Authentication callback generated only by our own auth page.
         if (APP_SCHEME.equalsIgnoreCase(scheme)) {
             String currentUrl = view.getUrl();
-            boolean fromAuthPage =
-                    currentUrl != null &&
-                    currentUrl.startsWith("https://" + SITE_HOST + "/auth/");
+            boolean fromAuthPage = currentUrl != null
+                    && currentUrl.startsWith("https://" + SITE_HOST + "/auth/");
 
             if (!fromAuthPage) {
                 return true;
@@ -91,80 +158,59 @@ public class MainActivity extends Activity {
 
             if (AUTH_SUCCESS_HOST.equalsIgnoreCase(host)) {
                 authenticated = true;
+                updateAccountButton();
+                String destination = safeInternalDestination(uri.getQueryParameter("returnTo"));
                 view.clearHistory();
-                view.loadUrl(HOME_URL);
+                view.loadUrl(destination != null ? destination : HOME_URL);
                 return true;
             }
 
             if (LOGOUT_HOST.equalsIgnoreCase(host)) {
                 authenticated = false;
-                lockWebView();
+                updateAccountButton();
+                view.stopLoading();
+                view.clearHistory();
+                view.loadUrl(HOME_URL);
                 return true;
             }
 
             return true;
         }
 
-        // Only our HTTPS website is allowed to remain inside the WebView.
-        if ("https".equalsIgnoreCase(scheme) &&
-                SITE_HOST.equalsIgnoreCase(host)) {
-
-            if (authenticated) {
-                return false;
-            }
-
-            // Before authentication, only authentication pages may load.
+        if ("https".equalsIgnoreCase(scheme) && SITE_HOST.equalsIgnoreCase(host)) {
             String path = uri.getPath() == null ? "/" : uri.getPath();
-            boolean authPage =
-                    path.equals("/auth/") ||
-                    path.startsWith("/auth/signup/") ||
-                    path.startsWith("/auth/verify/");
+            boolean authPage = path.equals("/auth/")
+                    || path.startsWith("/auth/signup/")
+                    || path.startsWith("/auth/verify/");
 
-            if (authPage) {
+            if (authenticated || authPage || path.equals("/")) {
                 return false;
             }
 
-            // Any attempt to open site content before authentication
-            // is redirected back to the authentication gate.
+            String returnTo = uri.getEncodedPath() == null ? "/" : uri.getEncodedPath();
+            if (uri.getEncodedQuery() != null) {
+                returnTo += "?" + uri.getEncodedQuery();
+            }
+            if (uri.getEncodedFragment() != null) {
+                returnTo += "#" + uri.getEncodedFragment();
+            }
+
             view.stopLoading();
-            view.loadUrl(AUTH_URL);
+            view.loadUrl(AUTH_URL + "&returnTo=" + Uri.encode(returnTo));
             return true;
         }
 
-        // Do not let external sites execute inside our trusted WebView.
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
         } catch (Exception ignored) {
-            // No external handler available; keep the app locked down.
+            // No external handler available; keep the trusted WebView unchanged.
         }
-
         return true;
-    }
-
-    private void lockWebView() {
-        if (webView == null) {
-            return;
-        }
-
-        webView.stopLoading();
-        webView.clearHistory();
-        webView.clearCache(true);
-        webView.loadUrl(AUTH_URL);
     }
 
     @Override
     public void onBackPressed() {
-        if (!authenticated) {
-            // The authentication gate is the only allowed unauthenticated
-            // destination. Back cannot reveal protected content.
-            if (webView != null) {
-                webView.clearHistory();
-                webView.loadUrl(AUTH_URL);
-            }
-            return;
-        }
-
         if (webView != null && webView.canGoBack()) {
             webView.goBack();
         } else {

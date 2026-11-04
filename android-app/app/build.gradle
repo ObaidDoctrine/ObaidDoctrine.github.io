@@ -1,5 +1,7 @@
 plugins {
     id "com.android.application"
+    id "org.jetbrains.kotlin.android" version "2.1.20"
+    id "org.jetbrains.kotlin.plugin.compose" version "2.1.20"
 }
 
 android {
@@ -10,8 +12,8 @@ android {
         applicationId "com.obaiddoctrine.app"
         minSdk 23
         targetSdk 36
-        versionCode 6
-        versionName "1.0.6"
+        versionCode 7
+        versionName "1.0.7"
     }
 
     signingConfigs {
@@ -31,50 +33,41 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
         release {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.release
         }
     }
-}
 
+    buildFeatures {
+        compose true
+    }
 
-/*
- * Launcher icon source:
- * Reuse the canonical Obaid Doctrine brand asset from the website repo.
- * The image is copied into generated Android resources at build time so
- * the app and website keep the same branding without duplicating the binary.
- */
-def launcherIconSource = file("$rootDir/../assets/brand-profile.png")
-def generatedLauncherResDir = file("$buildDir/generated/res/launcherIcon")
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 
-android {
-    sourceSets {
-        main.res.srcDir(generatedLauncherResDir)
+    kotlinOptions {
+        jvmTarget = "17"
     }
 }
 
-tasks.register("prepareLauncherIcon") {
-    inputs.file(launcherIconSource)
-    outputs.dir(generatedLauncherResDir)
-
-    doLast {
-        if (!launcherIconSource.exists()) {
-            throw new GradleException("Missing launcher icon source: $launcherIconSource")
-        }
-
-        def outputDir = file("$generatedLauncherResDir/drawable-nodpi")
-        outputDir.mkdirs()
-
-        copy {
-            from launcherIconSource
-            into outputDir
-            rename { "brand_profile_source.png" }
-        }
-    }
-}
-
-tasks.named("preBuild").configure {
-    dependsOn("prepareLauncherIcon")
+dependencies {
+    implementation platform("androidx.compose:compose-bom:2025.02.00")
+    implementation "androidx.activity:activity-compose:1.10.1"
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    implementation "androidx.compose.material3:material3"
+    implementation "androidx.compose.material:material-icons-extended"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1"
+    implementation "org.jsoup:jsoup:1.18.3"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+    testImplementation "junit:junit:4.13.2"
 }
