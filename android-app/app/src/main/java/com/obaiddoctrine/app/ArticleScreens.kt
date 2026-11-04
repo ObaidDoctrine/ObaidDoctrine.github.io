@@ -32,6 +32,7 @@ import com.obaiddoctrine.app.content.ArticleBlockType
 import com.obaiddoctrine.app.content.ArticleContent
 import com.obaiddoctrine.app.content.ArticleContentRepository
 import com.obaiddoctrine.app.content.ArticleSummary
+import com.obaiddoctrine.app.content.ArticleBookmark
 
 @Composable
 internal fun ArticleLibraryScreen(
@@ -128,6 +129,8 @@ internal fun ArticleReaderScreen(
     padding: PaddingValues,
     path: String,
     isUrdu: Boolean,
+    isBookmarked: Boolean,
+    onToggleBookmark: (ArticleBookmark) -> Unit,
     onBack: () -> Unit
 ) {
     val repository = remember { ArticleContentRepository() }
@@ -169,6 +172,15 @@ internal fun ArticleReaderScreen(
         } else {
             item {
                 Text(article?.title.orEmpty(), color = DoctrineCream, fontSize = 27.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 34.sp)
+                Spacer(Modifier.height(10.dp))
+                Text(
+                    if (isBookmarked) (if (isUrdu) "★ محفوظ شدہ — ہٹانے کے لیے دبائیں" else "★ SAVED — TAP TO REMOVE")
+                    else (if (isUrdu) "☆ بک مارک کریں" else "☆ SAVE TO LIBRARY"),
+                    color = DoctrineOrange,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.clickable { article?.let { onToggleBookmark(ArticleBookmark(it.path, it.title)) } }
+                )
                 Spacer(Modifier.height(8.dp))
                 Text("OBAID DOCTRINE  •  " + (if (isUrdu) "تعلیمی مضمون" else "EDUCATIONAL ARTICLE"), color = DoctrineOrange, fontSize = 10.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
             }
@@ -195,6 +207,54 @@ internal fun ArticleReaderScreen(
                     else "This content is educational and is not a substitute for individual diagnosis or treatment.",
                     color = MutedText, fontSize = 12.sp, lineHeight = 19.sp
                 )
+            }
+        }
+    }
+}
+
+
+@Composable
+internal fun SavedArticlesScreen(
+    padding: PaddingValues,
+    bookmarks: List<ArticleBookmark>,
+    isUrdu: Boolean,
+    onOpenArticle: (String) -> Unit,
+    onRemoveBookmark: (String) -> Unit
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().padding(padding),
+        contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 32.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        item {
+            Text(if (isUrdu) "محفوظ شدہ مضامین" else "Your Library", color = DoctrineCream, fontSize = 30.sp, fontWeight = FontWeight.Bold)
+            Spacer(Modifier.height(6.dp))
+            Text(
+                if (isUrdu) "آپ کے محفوظ کیے گئے مضامین اسی ڈیوائس پر دستیاب رہیں گے۔" else "Articles you save are kept on this device for quick access.",
+                color = MutedText, fontSize = 13.sp, lineHeight = 20.sp
+            )
+        }
+        if (bookmarks.isEmpty()) {
+            item {
+                Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF252525)), shape = RoundedCornerShape(18.dp)) {
+                    Text(
+                        if (isUrdu) "ابھی کوئی مضمون محفوظ نہیں۔ مضمون کھول کر 'بک مارک کریں' منتخب کریں۔"
+                        else "No saved articles yet. Open an article and choose “Save to Library”.",
+                        color = MutedText, fontSize = 14.sp, lineHeight = 22.sp, modifier = Modifier.padding(18.dp)
+                    )
+                }
+            }
+        } else {
+            items(bookmarks, key = { it.path }) { bookmark ->
+                Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF252525)), shape = RoundedCornerShape(16.dp)) {
+                    Column(Modifier.padding(16.dp)) {
+                        Text(bookmark.title, color = DoctrineCream, fontSize = 16.sp, fontWeight = FontWeight.Bold, lineHeight = 23.sp)
+                        Spacer(Modifier.height(10.dp))
+                        Text(if (isUrdu) "مضمون پڑھیں  ←" else "READ ARTICLE  →", color = DoctrineOrange, fontSize = 11.sp, fontWeight = FontWeight.Bold, modifier = Modifier.clickable { onOpenArticle(bookmark.path) })
+                        Spacer(Modifier.height(8.dp))
+                        Text(if (isUrdu) "محفوظ فہرست سے ہٹائیں" else "REMOVE FROM LIBRARY", color = MutedText, fontSize = 10.sp, fontWeight = FontWeight.Bold, modifier = Modifier.clickable { onRemoveBookmark(bookmark.path) })
+                    }
+                }
             }
         }
     }
