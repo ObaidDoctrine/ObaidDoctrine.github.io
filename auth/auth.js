@@ -6,9 +6,38 @@ const nhost = createClient({
   region: "eu-central-1"
 });
 
-const APP_MODE = new URLSearchParams(window.location.search).get("app") === "1";
+const params = new URLSearchParams(window.location.search);
+const APP_MODE = params.get("app") === "1";
+const APP_MANAGE_MODE = APP_MODE && params.get("manage") === "1";
 const APP_CALLBACK = "obaiddoctrine://auth-success";
 const LOGOUT_CALLBACK = "obaiddoctrine://logout";
+
+function getSafeReturnTo(value = params.get("returnTo")) {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) return null;
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.origin !== window.location.origin) return null;
+    if (url.pathname.startsWith("/auth/")) return null;
+    return url.pathname + url.search + url.hash;
+  } catch {
+    return null;
+  }
+}
+
+function continueAfterLogin() {
+  if (APP_MODE) {
+    // Keep the native Account screen visible so the user can sign out.
+    if (APP_MANAGE_MODE) return;
+    const destination = getSafeReturnTo();
+    const callback = APP_CALLBACK + (destination
+      ? "?returnTo=" + encodeURIComponent(destination)
+      : "");
+    window.location.replace(callback);
+    return;
+  }
+  const destination = getSafeReturnTo();
+  if (destination) window.location.replace(destination);
+}
 
 const form = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
@@ -19,33 +48,31 @@ const sessionPanel = document.getElementById("session-panel");
 const userEmailEl = document.getElementById("user-email");
 const logoutButton = document.getElementById("logout-button");
 const submitButton = document.getElementById("login-button");
+const signupLink = document.getElementById("signup-link");
 
 function setStatus(message, type = "") {
+  if (!statusEl) return;
   statusEl.textContent = message;
   statusEl.dataset.type = type;
-}
-
-function redirectIntoAndroidApp(callback) {
-  if (APP_MODE) {
-    window.location.replace(callback);
-  }
 }
 
 function renderSession(session) {
   const user = session?.user;
 
   if (user) {
-    formPanel.hidden = true;
-    sessionPanel.hidden = false;
-    userEmailEl.textContent = user.email || "Authenticated user";
+    if (formPanel) formPanel.hidden = true;
+    if (sessionPanel) sessionPanel.hidden = false;
+    if (userEmailEl) userEmailEl.textContent = user.email || "Authenticated user";
+    if (signupLink) signupLink.hidden = true;
     setStatus("Session verified.", "success");
-    redirectIntoAndroidApp(APP_CALLBACK);
+    continueAfterLogin();
     return;
   }
 
-  formPanel.hidden = false;
-  sessionPanel.hidden = true;
-  userEmailEl.textContent = "";
+  if (formPanel) formPanel.hidden = false;
+  if (sessionPanel) sessionPanel.hidden = true;
+  if (userEmailEl) userEmailEl.textContent = "";
+  if (signupLink) signupLink.hidden = false;
   setStatus("Not signed in.");
 }
 
@@ -63,24 +90,24 @@ if (form) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
+    const email = emailInput?.value.trim() || "";
+    const password = passwordInput?.value || "";
 
     if (!email || !password) {
       setStatus("Please enter your email and password.", "error");
       return;
     }
 
-    submitButton.disabled = true;
+    if (submitButton) submitButton.disabled = true;
     setStatus("Signing in…");
 
     try {
       const response = await nhost.auth.signInEmailPassword({ email, password });
       const session = response.body?.session || nhost.getUserSession();
 
-      if (!session) {
+      if (!session?.user) {
         throw new Error(
-          "Nhost did not return an active session. If MFA is enabled, complete the MFA challenge."
+          "No active session was returned. If multi-factor authentication is enabled, complete its verification step."
         );
       }
 
@@ -88,13 +115,12 @@ if (form) {
       form.reset();
     } catch (error) {
       console.error("Nhost sign-in failed:", error);
-      const message =
-        error?.body?.message ||
-        error?.message ||
-        "Sign-in failed. Check your email and password.";
-      setStatus(message, "error");
+      setStatus(
+        error?.body?.message || error?.message || "Sign-in failed. Check your email and password.",
+        "error"
+      );
     } finally {
-      submitButton.disabled = false;
+      if (submitButton) submitButton.disabled = false;
     }
   });
 }
@@ -106,25 +132,20 @@ if (logoutButton) {
 
     try {
       const session = nhost.getUserSession();
-
       if (session?.refreshTokenId) {
         await nhost.auth.signOut({ refreshToken: session.refreshTokenId });
       }
-
       nhost.clearSession();
 
       if (APP_MODE) {
         window.location.replace(LOGOUT_CALLBACK);
         return;
       }
-
       renderSession(null);
     } catch (error) {
       console.error("Nhost sign-out failed:", error);
       setStatus(
-        error?.body?.message ||
-          error?.message ||
-          "Sign-out failed. Please try again.",
+        error?.body?.message || error?.message || "Sign-out failed. Please try again.",
         "error"
       );
     } finally {
@@ -135,17 +156,31 @@ if (logoutButton) {
 
 restoreSession();
 
-export async function signUpWithEmail(email, password) {
+export async function signUpWithEmail(email, password, displayName) {
   const { verifier, challenge } = await generatePKCEPair();
-
   localStorage.setItem("nhost_pkce_verifier", verifier);
 
-  return nhost.auth.signUpEmailPassword({
-    email,
-    password,
-    options: {
-      redirectTo: `${window.location.origin}/auth/verify/${APP_MODE ? "?app=1" : ""}`,
-    },
-    codeChallenge: challenge,
-  });
+  const redirectParams = new URLSearchParams();
+  if (APP_MODE) redirectParams.set("app", "1");
+  const returnTo = getSafeReturnTo();
+  if (returnTo) redirectParams.set("returnTo", returnTo);
+
+  const redirectUrl = new URL("/auth/verify/", window.location.origin);
+  if (redirectParams.toString()) redirectUrl.search = redirectParams.toString();
+
+  try {
+    return await nhost.auth.signUpEmailPassword({
+      email,
+      password,
+      options: {
+        displayName: displayName?.trim().slice(0, 32),
+        locale: "en",
+        redirectTo: redirectUrl.toString()
+      },
+      codeChallenge: challenge
+    });
+  } catch (error) {
+    localStorage.removeItem("nhost_pkce_verifier");
+    throw error;
+  }
 }
