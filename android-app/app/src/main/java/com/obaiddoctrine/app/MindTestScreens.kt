@@ -34,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import com.obaiddoctrine.app.content.MindTestDefinition
 import com.obaiddoctrine.app.content.MindTestRepository
 
@@ -110,6 +111,7 @@ internal fun MindTestRunnerScreen(
     onBack: () -> Unit
 ) {
     val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current
     val repository = remember { MindTestRepository(context) }
     var test by remember(slug, isUrdu) { mutableStateOf<MindTestDefinition?>(null) }
     var loadError by remember(slug, isUrdu) { mutableStateOf<String?>(null) }
@@ -261,6 +263,18 @@ internal fun MindTestRunnerScreen(
                         if (currentTest.guidance.reflections.isNotEmpty()) {
                             Text(if (isUrdu) "غور و فکر کے سوالات" else "REFLECTION QUESTIONS", color = DoctrineOrange, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                             currentTest.guidance.reflections.forEachIndexed { itemIndex, item -> Text("${itemIndex + 1}. $item", color = DoctrineCream, fontSize = 13.sp, lineHeight = 20.sp) }
+                        }
+                        if (currentTest.guidance.references.isNotEmpty()) {
+                            Text(if (isUrdu) "تحقیقی حوالہ جات" else "RESEARCH REFERENCES", color = DoctrineOrange, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                            currentTest.guidance.references.forEach { reference ->
+                                Text(
+                                    reference.title,
+                                    color = Color(0xFFFFB16E),
+                                    fontSize = 12.sp,
+                                    lineHeight = 18.sp,
+                                    modifier = Modifier.clickable { runCatching { uriHandler.openUri(reference.url) } }
+                                )
+                            }
                         }
                     }
                 }
