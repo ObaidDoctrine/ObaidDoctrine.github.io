@@ -123,21 +123,6 @@ jobs:
           path: Obaid_Doctrine__v1.0.7.apk
           if-no-files-found: error
 
-      - name: Publish GitHub Release v1.0.7
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v1.0.7
-          name: Obaid Doctrine Android App v1.0.7
-          body: |
-            Official Obaid Doctrine Android App — Version 1.0.7
-
-            Package: com.obaiddoctrine.app
-            Minimum Android version: Android 6.0 (API 23)
-            Target Android version: Android 16 (API 36)
-          files: Obaid_Doctrine__v1.0.7.apk
-          make_latest: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish single production APK into repository
         run: |
           set -euo pipefail
