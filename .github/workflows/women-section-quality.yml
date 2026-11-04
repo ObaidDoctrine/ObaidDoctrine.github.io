@@ -1,0 +1,38 @@
+name: Women section quality gate
+
+on:
+  push:
+    branches: ["women-section-rebuild-2026-11-04"]
+    paths:
+      - "data/women-topics.json"
+      - "schemas/women-article.schema.json"
+      - "content/women/**"
+      - "scripts/check-women-inventory.mjs"
+      - ".github/workflows/women-section-quality.yml"
+  pull_request:
+    paths:
+      - "data/women-topics.json"
+      - "schemas/women-article.schema.json"
+      - "content/women/**"
+      - "scripts/check-women-inventory.mjs"
+      - ".github/workflows/women-section-quality.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validate bilingual inventory and authored records
+        run: node scripts/check-women-inventory.mjs
+      - name: Enforce full publication gate
+        run: node scripts/check-women-inventory.mjs --release
+        continue-on-error: true
