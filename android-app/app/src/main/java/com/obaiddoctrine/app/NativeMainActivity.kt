@@ -83,19 +83,21 @@ private data class AppSection(
     val title: String,
     val subtitle: String,
     val symbol: String,
-    val tint: Color
+    val tint: Color,
+    val titleUr: String,
+    val subtitleUr: String
 )
 
 private val sections = listOf(
-    AppSection("Psychology", "Understand the mind and how it works", "Ψ", Color(0xFFB79AE8)),
-    AppSection("Human Behaviour", "Explore the patterns behind behaviour", "◉", Color(0xFF73B9C7)),
-    AppSection("Relationships", "Build healthier human connections", "♡", Color(0xFFE58D9A)),
-    AppSection("Marriage & Family", "Knowledge for stronger family life", "⌂", Color(0xFF80B99A)),
-    AppSection("Women", "Research-led knowledge and perspectives", "✳", Color(0xFFD6A45E)),
-    AppSection("Self Improvement", "Develop awareness and character", "↗", Color(0xFF8DA9E8)),
-    AppSection("Mind Tests", "Reflect on your thinking and behaviour", "◇", DoctrineOrange),
-    AppSection("Research Insights", "Explore evidence and new findings", "⌕", Color(0xFF75B8A7)),
-    AppSection("Learning Lab", "Learn through guided knowledge", "▤", Color(0xFFB39AD6))
+    AppSection("Psychology", "Understand the mind and how it works", "Ψ", Color(0xFFB79AE8), "نفسیات", "ذہن اور اس کے کام کرنے کے طریقے کو سمجھیں"),
+    AppSection("Human Behaviour", "Explore the patterns behind behaviour", "◉", Color(0xFF73B9C7), "انسانی رویّے", "انسانی رویّوں کے پیچھے موجود نمونے دریافت کریں"),
+    AppSection("Relationships", "Build healthier human connections", "♡", Color(0xFFE58D9A), "تعلقات", "صحت مند انسانی روابط استوار کریں"),
+    AppSection("Marriage & Family", "Knowledge for stronger family life", "⌂", Color(0xFF80B99A), "شادی اور خاندان", "مضبوط خاندانی زندگی کے لیے علم"),
+    AppSection("Women", "Research-led knowledge and perspectives", "✳", Color(0xFFD6A45E), "خواتین", "تحقیق پر مبنی علم اور نقطۂ نظر"),
+    AppSection("Self Improvement", "Develop awareness and character", "↗", Color(0xFF8DA9E8), "ذاتی بہتری", "شعور اور کردار کو پروان چڑھائیں"),
+    AppSection("Mind Tests", "Reflect on your thinking and behaviour", "◇", DoctrineOrange, "ذہنی ٹیسٹس", "اپنی سوچ اور رویّوں پر غور کریں"),
+    AppSection("Research Insights", "Explore evidence and new findings", "⌕", Color(0xFF75B8A7), "تحقیقی بصیرت", "شواہد اور نئی دریافتیں دریافت کریں"),
+    AppSection("Learning Lab", "Learn through guided knowledge", "▤", Color(0xFFB39AD6), "سیکھنے کی تجربہ گاہ", "رہنمائی کے ساتھ علم حاصل کریں")
 )
 
 @Composable
@@ -314,8 +316,8 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     isUrdu = isUrdu,
                     onOpenTest = { selectedTestSlug = it }
                 )
-                selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding) { selectedSection = -1 }
-                selectedTab == 1 -> ExploreScreen(padding, onSection = { selectedSection = it })
+                selectedSection >= 0 -> SectionDetail(sections[selectedSection], padding, isUrdu) { selectedSection = -1 }
+                selectedTab == 1 -> ExploreScreen(padding, isUrdu, onSection = { selectedSection = it })
                 selectedTab == 2 -> ArticleLibraryScreen(
                     padding = padding,
                     isUrdu = isUrdu,
@@ -395,19 +397,19 @@ private fun HomeScreen(padding: PaddingValues, isUrdu: Boolean, onSection: (Int)
             }
         }
         items(sections.take(4).withIndex().toList()) { (index, section) ->
-            SectionCard(section) { onSection(index) }
+            SectionCard(section, isUrdu) { onSection(index) }
         }
         item {
             Text(if (isUrdu) "مزید دریافت کریں" else "Discover more", color = DoctrineCream, fontSize = 21.sp, fontWeight = FontWeight.Bold)
         }
         items(sections.drop(4).withIndex().toList()) { (offset, section) ->
-            SectionCard(section) { onSection(offset + 4) }
+            SectionCard(section, isUrdu) { onSection(offset + 4) }
         }
     }
 }
 
 @Composable
-private fun ExploreScreen(padding: PaddingValues, onSection: (Int) -> Unit) {
+private fun ExploreScreen(padding: PaddingValues, isUrdu: Boolean, onSection: (Int) -> Unit) {
     LazyColumn(
         Modifier.fillMaxSize().padding(padding),
         contentPadding = PaddingValues(20.dp),
@@ -418,12 +420,12 @@ private fun ExploreScreen(padding: PaddingValues, onSection: (Int) -> Unit) {
             Text("Choose a knowledge space to begin.", color = MutedText)
             Spacer(Modifier.height(10.dp))
         }
-        items(sections.withIndex().toList()) { (index, section) -> SectionCard(section) { onSection(index) } }
+        items(sections.withIndex().toList()) { (index, section) -> SectionCard(section, isUrdu) { onSection(index) } }
     }
 }
 
 @Composable
-private fun SectionCard(section: AppSection, onClick: () -> Unit) {
+private fun SectionCard(section: AppSection, isUrdu: Boolean = false, onClick: () -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         shape = RoundedCornerShape(20.dp),
@@ -434,9 +436,9 @@ private fun SectionCard(section: AppSection, onClick: () -> Unit) {
                 Text(section.symbol, color = section.tint, fontSize = 24.sp, fontWeight = FontWeight.Bold)
             }
             Column(Modifier.weight(1f).padding(start = 14.dp)) {
-                Text(section.title, color = DoctrineCream, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(if (isUrdu) section.titleUr else section.title, color = DoctrineCream, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 Spacer(Modifier.height(4.dp))
-                Text(section.subtitle, color = MutedText, fontSize = 12.sp, lineHeight = 17.sp)
+                Text(if (isUrdu) section.subtitleUr else section.subtitle, color = MutedText, fontSize = 12.sp, lineHeight = 17.sp)
             }
             Text("›", color = DoctrineOrange, fontSize = 28.sp)
         }
@@ -444,21 +446,21 @@ private fun SectionCard(section: AppSection, onClick: () -> Unit) {
 }
 
 @Composable
-private fun SectionDetail(section: AppSection, padding: PaddingValues, onBack: () -> Unit) {
+private fun SectionDetail(section: AppSection, padding: PaddingValues, isUrdu: Boolean, onBack: () -> Unit) {
     Column(Modifier.fillMaxSize().padding(padding).padding(22.dp)) {
-        Text("‹  BACK", color = DoctrineOrange, fontWeight = FontWeight.Bold, modifier = Modifier.clickable(onClick = onBack))
+        Text(if (isUrdu) "واپس  ›" else "‹  BACK", color = DoctrineOrange, fontWeight = FontWeight.Bold, modifier = Modifier.clickable(onClick = onBack))
         Spacer(Modifier.height(32.dp))
         Box(Modifier.size(64.dp).background(section.tint.copy(alpha = 0.16f), CircleShape), contentAlignment = Alignment.Center) {
             Text(section.symbol, color = section.tint, fontSize = 32.sp)
         }
         Spacer(Modifier.height(20.dp))
-        Text(section.title, color = DoctrineCream, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+        Text(if (isUrdu) section.titleUr else section.title, color = DoctrineCream, fontSize = 28.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
-        Text(section.subtitle, color = MutedText, fontSize = 15.sp)
+        Text(if (isUrdu) section.subtitleUr else section.subtitle, color = MutedText, fontSize = 15.sp)
         Spacer(Modifier.height(24.dp))
         Surface(color = Color(0xFF252525), shape = RoundedCornerShape(18.dp)) {
             Text(
-                "This native section is being connected to the verified English and Urdu website content. Articles, tests and account-protected resources will be added without changing their original educational meaning.",
+                if (isUrdu) "یہ حصہ تصدیق شدہ انگریزی اور اردو ویب مواد سے منسلک کیا جا رہا ہے۔ مضامین، ٹیسٹس اور اکاؤنٹ سے محفوظ وسائل اپنے اصل تعلیمی مفہوم کے ساتھ شامل کیے جائیں گے۔" else "This native section is being connected to the verified English and Urdu website content. Articles, tests and account-protected resources will be added without changing their original educational meaning.",
                 Modifier.padding(18.dp),
                 color = DoctrineCream,
                 lineHeight = 23.sp
