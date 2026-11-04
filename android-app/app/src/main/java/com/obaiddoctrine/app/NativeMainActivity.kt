@@ -85,12 +85,12 @@ private val sections = listOf(
 )
 
 @Composable
-private fun DoctrineApp() {
+private fun DoctrineApp(initialAuthCode: String? = null) {
     var selectedTab by remember { mutableIntStateOf(0) }
     var selectedSection by remember { mutableIntStateOf(-1) }
     var session by remember { mutableStateOf<NhostAuthRepository.Session?>(null) }
     var authLoading by remember { mutableStateOf(true) }
-    var authError by remember { mutableStateOf<String?>(null) }
+    var authMessage by remember { mutableStateOf<String?>(null) }\n    var authMessageIsError by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val authRepository = remember { NhostAuthRepository(context) }
     val scope = rememberCoroutineScope()
@@ -132,9 +132,9 @@ private fun DoctrineApp() {
                 authLoading -> SimpleStateScreen("Secure account check", "Restoring your OBAID DOCTRINE account session…", padding)
                 !isAuthenticated -> AuthScreen(
                     padding = padding,
-                    errorMessage = authError,
+                    errorMessage = authMessage,
                     onSignIn = { email, password ->
-                        authError = null
+                        authMessage = null
                         scope.launch {
                             authLoading = true
                             try {
@@ -163,7 +163,7 @@ private fun DoctrineApp() {
                                 session = null
                                 selectedSection = -1
                             } catch (error: Exception) {
-                                authError = error.message ?: "Unable to sign out. Please try again."
+                                authMessage = error.message ?: "Unable to sign out. Please try again."
                             } finally {
                                 authLoading = false
                             }
