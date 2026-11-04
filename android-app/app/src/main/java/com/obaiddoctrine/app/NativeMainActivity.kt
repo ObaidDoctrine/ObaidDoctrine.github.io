@@ -338,6 +338,18 @@ private fun DoctrineApp(initialAuthCode: String? = null, initialAuthFlow: String
                     isUrdu = isUrdu,
                     email = session?.user?.email.orEmpty(),
                     errorMessage = authMessage,
+                    onOpenAccountDeletion = {
+                        val deletionIntent = android.content.Intent(
+                            android.content.Intent.ACTION_VIEW,
+                            android.net.Uri.parse("https://www.obaiddoctrine.com/delete-account/")
+                        )
+                        try {
+                            context.startActivity(deletionIntent)
+                        } catch (_: android.content.ActivityNotFoundException) {
+                            authMessage = if (isUrdu) "ویب براؤزر دستیاب نہیں۔ براہِ کرم ویب سائٹ کھولیں۔" else "No browser is available. Please open the website manually."
+                            authMessageIsError = true
+                        }
+                    },
                     onSignOut = {
                         authMessage = null
                         scope.launch {
