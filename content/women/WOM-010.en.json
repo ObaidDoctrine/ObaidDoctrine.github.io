@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-010",
+  "language": "en",
+  "pairedTopicId": "WOM-010",
+  "title": "Evidence preservation",
+  "subtitle": "A practical, evidence-informed guide to evidence preservation.",
+  "slug": "evidence-preservation",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand evidence preservation, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "qualified_review_required",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "Why context matters",
+      "level": 2,
+      "body": [
+        "Digital evidence can help explain what happened, when it happened, which account was involved and whether behaviour continued. A screenshot without an account name, date or surrounding conversation may be difficult to interpret. Preserve enough context to show the sequence without collecting unrelated private information.\\n\\nUseful records may include message links, profile URLs, usernames, email headers, transaction references, platform report numbers, dates and times. What is useful depends on the incident and the organisation receiving the report."
+      ]
+    },
+    {
+      "heading": "Create a clear incident log",
+      "level": 2,
+      "body": [
+        "Write a chronological log. For each event, note the date, approximate time and time zone, platform, account identifier, what occurred, witnesses and actions taken. Keep the description factual and separate what you observed from what you suspect.\\n\\nWhere safe, save screenshots or screen recordings that show the sender, URL, date and relevant context. Keep original files where possible. If you annotate a copy for clarity, preserve the unedited original separately."
+      ]
+    },
+    {
+      "heading": "Store records securely",
+      "level": 2,
+      "body": [
+        "Keep copies in a protected location the other person cannot access. Use a secure account with a unique password and multi-factor authentication, or ask a trusted support worker about safe storage. Consider whether shared photo libraries, family accounts or automatic backups could expose the records.\\n\\nDo not post evidence publicly or send it widely. Sharing may expose personal details, alert the other person, affect a process or spread harmful content. Share only with a platform, trusted support service, lawyer or appropriate authority when needed."
+      ]
+    },
+    {
+      "heading": "Important safety limits",
+      "level": 2,
+      "body": [
+        "Do not put yourself in danger to obtain evidence, provoke further contact or access another person’s account. Do not secretly install monitoring software or try to hack a device; these actions can create safety and legal risks.\\n\\nNever download, copy, forward or store sexual images or videos of anyone under 18. If such material is involved, do not circulate it; seek specialist or official guidance on safe reporting. Avoid uploading intimate adult imagery to third-party evidence tools unless a trusted authority has advised you."
+      ]
+    },
+    {
+      "heading": "Prepare a report",
+      "level": 2,
+      "body": [
+        "Organise records by date and label files clearly. Keep a separate note of where each item came from and any platform case numbers. Follow the receiving authority’s instructions about file types and secure transfer; never send passwords or authentication codes with evidence.\\n\\nIn Pakistan, reporting channels and evidence requirements may change. Check current instructions from NCCIA or a qualified local lawyer. This guide does not guarantee that a particular item will be accepted as legal evidence."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "eSafety Commissioner",
+      "title": "How to collect evidence",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/report/how-to-collect-evidence",
+      "accessedDate": "2026-11-04",
+      "supports": "Evidence preservation and context."
+    },
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Unwanted or unsafe contact",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/staying-safe/unwanted-contact",
+      "accessedDate": "2026-11-04",
+      "supports": "Evidence and child-safety warnings."
+    },
+    {
+      "organization": "National Cyber Crime Investigation Agency (Pakistan)",
+      "title": "Cyber Harassment",
+      "year": null,
+      "publisher": "National Cyber Crime Investigation Agency (Pakistan)",
+      "url": "https://www.nccia.gov.pk/harrasment.php",
+      "accessedDate": "2026-11-04",
+      "supports": "Pakistan cybercrime reporting information."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
