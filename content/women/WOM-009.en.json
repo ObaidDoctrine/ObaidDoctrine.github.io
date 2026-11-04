@@ -1,0 +1,99 @@
+{
+  "topicId": "WOM-009",
+  "language": "en",
+  "pairedTopicId": "WOM-009",
+  "title": "Privacy settings",
+  "subtitle": "A practical, evidence-informed guide to privacy settings.",
+  "slug": "privacy-settings",
+  "categoryId": "WOM-CAT-01",
+  "description": "Understand privacy settings, recognise relevant risks, take practical protective steps and find trustworthy support using evidence-informed guidance.",
+  "authorLabel": "OBAID DOCTRINE Editorial Team",
+  "publicationDate": "2026-11-04",
+  "lastReviewedDate": null,
+  "reviewStatus": "editorial_review",
+  "reviewer": null,
+  "readingMinutes": 7,
+  "content": [
+    {
+      "heading": "What privacy settings control",
+      "level": 2,
+      "body": [
+        "Privacy settings manage who can see posts, profile details, contact information, activity, friends lists and sometimes location. They may also control who can message, tag, mention or find you through a phone number or email address.\\n\\nSettings differ across apps and change over time. A private account does not make every interaction private: followers can take screenshots, contacts can share information and platforms process data under their own policies. Treat settings as risk-reduction tools, not complete protection."
+      ]
+    },
+    {
+      "heading": "Review key settings",
+      "level": 2,
+      "body": [
+        "Start with profile visibility, posts, stories, followers lists, tagging approvals, direct messages, search discoverability, location sharing and activity indicators. Review who can see older posts and whether public comments reveal routines, workplace, school or family details.\\n\\nCheck app permissions on your phone, including camera, microphone, contacts, photos and location. Allow access only when needed. Turn off continuous location access when it is not required, while considering safety implications for shared transport or emergency apps."
+      ]
+    },
+    {
+      "heading": "Reduce unwanted discovery",
+      "level": 2,
+      "body": [
+        "Avoid publishing real-time travel plans, home addresses, identity documents, children’s school details, financial information or predictable daily routines. Consider delaying location-tagged posts until after leaving a place. Review old public posts because separate details can combine to reveal more than intended.\\n\\nRemove unknown followers and review connected third-party apps. Be cautious with quizzes, filters and giveaways that request unnecessary personal details."
+      ]
+    },
+    {
+      "heading": "Shared devices and relationships",
+      "level": 2,
+      "body": [
+        "A partner, family member or employer may have access through shared devices, family accounts, cloud libraries, location services or recovery contacts. Review who can access each service and whether sharing is voluntary and understood. Changing one app’s settings may not end all access.\\n\\nIf someone may be monitoring you or could react aggressively to a settings change, do not make sudden changes without a safety plan. Use a safer device and seek specialist support."
+      ]
+    },
+    {
+      "heading": "Make privacy a habit",
+      "level": 2,
+      "body": [
+        "Review settings after major app updates, a lost phone, a relationship change, a new job or suspected account compromise. Use official help pages for current menu names because interfaces change. If available, check how your profile appears to someone who is not connected to you.\\n\\nChoose settings that fit your circumstances. A public professional profile may be useful for some people, while a restricted personal profile may be safer for others. The goal is informed choice, not one universal rule."
+      ],
+      "callout": "takeaway"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does one suspicious event prove abuse?",
+      "answer": "Not necessarily. Consider context and repeated patterns, preserve facts safely and avoid conclusions that cannot be verified."
+    },
+    {
+      "question": "Where should I seek help?",
+      "answer": "Use the platform’s official support process and seek a trusted local specialist or authority if there are threats, financial loss or immediate safety concerns."
+    }
+  ],
+  "references": [
+    {
+      "organization": "UK Government",
+      "title": "Users’ account details and activity visible to others: improve the safety of your online platform",
+      "year": null,
+      "publisher": "UK Government",
+      "url": "https://www.gov.uk/guidance/users-account-details-and-activity-visible-to-others-improve-the-safety-of-your-online-platform",
+      "accessedDate": "2026-11-04",
+      "supports": "Visibility risks and safety settings."
+    },
+    {
+      "organization": "eSafety Commissioner",
+      "title": "Unwanted or unsafe contact",
+      "year": null,
+      "publisher": "eSafety Commissioner",
+      "url": "https://www.esafety.gov.au/key-topics/staying-safe/unwanted-contact",
+      "accessedDate": "2026-11-04",
+      "supports": "Privacy controls and unwanted contact."
+    },
+    {
+      "organization": "National Cyber Crime Investigation Agency (Pakistan)",
+      "title": "Cyber Harassment",
+      "year": null,
+      "publisher": "National Cyber Crime Investigation Agency (Pakistan)",
+      "url": "https://www.nccia.gov.pk/harrasment.php",
+      "accessedDate": "2026-11-04",
+      "supports": "Pakistan cyber-safety guidance."
+    }
+  ],
+  "relatedTopicIds": [
+    "WOM-001",
+    "WOM-002",
+    "WOM-003"
+  ],
+  "safetyNotice": "General educational information only; not legal advice or emergency support. If you face immediate danger, contact local emergency services. Preserve evidence only when safe."
+}
