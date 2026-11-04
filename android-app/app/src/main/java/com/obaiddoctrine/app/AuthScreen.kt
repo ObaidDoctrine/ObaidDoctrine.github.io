@@ -33,7 +33,8 @@ internal fun AuthScreen(
     statusMessage: String?,
     statusIsError: Boolean,
     onSignIn: (String, String) -> Unit,
-    onSignUp: (String, String, String) -> Unit
+    onSignUp: (String, String, String) -> Unit,
+    onPasswordReset: (String) -> Unit
 ) {
     var isSignUp by remember { mutableStateOf(false) }
     var displayName by remember { mutableStateOf("") }
@@ -92,6 +93,14 @@ internal fun AuthScreen(
             Text(if (isSignUp) "CREATE ACCOUNT" else "SIGN IN", fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
         }
         Spacer(Modifier.height(16.dp))
+        if (!isSignUp) {
+            Text(
+                "Forgot password? Send reset link",
+                color = Color(0xFFFF9B45), fontSize = 13.sp, fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable { if (email.isNotBlank()) onPasswordReset(email.trim()) }
+            )
+            Spacer(Modifier.height(12.dp))
+        }
         Text(
             if (isSignUp) "Already have an account? Sign in"
             else "New to OBAID DOCTRINE? Create an account",
