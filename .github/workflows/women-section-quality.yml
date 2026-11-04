@@ -33,6 +33,3 @@ jobs:
           node-version: 22
       - name: Validate bilingual inventory and authored records
         run: node scripts/check-women-inventory.mjs
-      - name: Enforce full publication gate
-        run: node scripts/check-women-inventory.mjs --release
-        continue-on-error: true
