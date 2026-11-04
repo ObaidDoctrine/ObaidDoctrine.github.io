@@ -14,12 +14,20 @@ data class MindTestQuestion(
     val values: List<Int>?
 )
 
+data class MindTestGuidance(
+    val evidence: String,
+    val limitations: String,
+    val recommendations: List<String>,
+    val reflections: List<String>
+)
+
 data class MindTestDefinition(
     val slug: String,
     val title: String,
     val intro: String,
     val dimensions: List<MindTestDimension>,
-    val questions: List<MindTestQuestion>
+    val questions: List<MindTestQuestion>,
+    val guidance: MindTestGuidance
 )
 
 data class MindTestDimensionResult(
@@ -44,37 +52,8 @@ class MindTestRepository(context: Context) {
     fun loadTest(slug: String, isUrdu: Boolean): MindTestDefinition? =
         loadCatalog(isUrdu).firstOrNull { it.slug == slug }
 
-    fun score(test: MindTestDefinition, answers: List<Int>): List<MindTestDimensionResult> {
-        val dimensionCount = test.dimensions.size
-        val scores = IntArray(dimensionCount)
-        val maxima = IntArray(dimensionCount)
-
-        test.questions.forEach { question ->
-            val questionMaxima = IntArray(dimensionCount)
-            question.options.indices.forEach { optionIndex ->
-                val dimension = question.scores?.getOrNull(optionIndex) ?: optionIndex
-                val value = question.values?.getOrNull(optionIndex) ?: 1
-                if (dimension in 0 until dimensionCount) {
-                    questionMaxima[dimension] = maxOf(questionMaxima[dimension], value)
-                }
-            }
-            questionMaxima.indices.forEach { maxima[it] += questionMaxima[it] }
-        }
-
-        answers.forEachIndexed { questionIndex, answerIndex ->
-            val question = test.questions.getOrNull(questionIndex) ?: return@forEachIndexed
-            if (answerIndex !in question.options.indices) return@forEachIndexed
-            val dimension = question.scores?.getOrNull(answerIndex) ?: answerIndex
-            val value = question.values?.getOrNull(answerIndex) ?: 1
-            if (dimension in 0 until dimensionCount) scores[dimension] += value
-        }
-
-        return test.dimensions.mapIndexed { index, dimension ->
-            val maximum = maxima[index]
-            val percentage = if (maximum > 0) ((scores[index] * 100.0) / maximum).roundToInt().coerceIn(0, 100) else 0
-            MindTestDimensionResult(dimension.label, dimension.description, scores[index], maximum, percentage)
-        }
-    }
+    fun score(test: MindTestDefinition, answers: List<Int>): List<MindTestDimensionResult> =
+        MindTestScorer.score(test, answers)
 
     private fun parseDefinition(json: JSONObject): MindTestDefinition {
         val dimensionArray = json.getJSONArray("dimensions")
@@ -92,12 +71,20 @@ class MindTestRepository(context: Context) {
                 values = item.optJSONArray("values")?.toIntList()
             )
         }
+        val guidanceJson = json.optJSONObject("guidance") ?: JSONObject()
+        val guidance = MindTestGuidance(
+            evidence = guidanceJson.optString("evidence"),
+            limitations = guidanceJson.optString("limitations"),
+            recommendations = guidanceJson.optJSONArray("recommendations").toStringListOrEmpty(),
+            reflections = guidanceJson.optJSONArray("reflections").toStringListOrEmpty()
+        )
         return MindTestDefinition(
             slug = json.getString("slug"),
             title = json.getString("title"),
             intro = json.optString("intro"),
             dimensions = dimensions,
-            questions = questions
+            questions = questions,
+            guidance = guidance
         )
     }
 
@@ -106,4 +93,7 @@ class MindTestRepository(context: Context) {
 
     private fun JSONArray.toIntList(): List<Int> =
         (0 until length()).map { getInt(it) }
+
+    private fun JSONArray?.toStringListOrEmpty(): List<String> =
+        this?.let { array -> (0 until array.length()).map { index -> array.getString(index) } } ?: emptyList()
 }
