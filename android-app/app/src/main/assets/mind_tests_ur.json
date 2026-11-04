@@ -136,7 +136,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong construct literature; original questionnaire, not psychometrically validated.",
+        "limitations": "Self-report responses can be affected by context and social desirability. Communication behavior varies by relationship, power, culture and situation.",
+        "recommendations": [
+          "اہم گفتگو میں وضاحت کریں کہ آپ اصل میں کون سی بات سمجھانا یا مانگنا چاہتے ہیں۔",
+          "جواب دینے سے پہلے دوسرے شخص کی بنیادی بات اپنے الفاظ میں دہرانے کی مشق کریں۔",
+          "شخصیت پر حکم لگانے کے بجائے صورتِ حال بیان کریں اور واضح درخواست کریں۔"
+        ],
+        "reflections": [
+          "جلدی یا غلط سمجھے جانے کی صورت میں میرے اندازِ گفتگو میں کیا تبدیلی آتی ہے؟",
+          "میرے لیے سننا، اپنی بات کہنا یا واضح درخواست کرنا—ان میں کون سا حصہ مشکل ہے؟"
+        ]
+      }
     },
     {
       "slug": "conflict-style",
@@ -271,7 +284,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Moderate-to-strong relationship/conflict literature; original educational questionnaire.",
+        "limitations": "Conflict behavior is highly context-dependent. This tool does not assess abuse, coercive control, safety or relationship quality.",
+        "recommendations": [
+          "مسئلے کو شخص سے الگ رکھیں: زیرِ بحث رویے یا فیصلے کو مخصوص انداز میں بیان کریں۔",
+          "اپنی پوزیشن کا دفاع کرنے سے پہلے دوسرے شخص کے نقطۂ نظر کا کم از کم ایک حصہ سمجھنے کی کوشش کریں۔",
+          "اگر جذبات بہت شدید ہوں تو گفتگو ختم کرنے کے بجائے دوبارہ بات کرنے کا واضح وقت طے کریں۔"
+        ],
+        "reflections": [
+          "اختلاف میں میری پہلی ترجیح کیا ہوتی ہے: بات جاری رکھنا، رکنا، دور ہونا یا مسئلہ حل کرنا؟",
+          "مشکل گفتگو میں واپس آ کر تعمیری انداز سے بات کرنے میں کیا چیز میری مدد کرتی ہے؟"
+        ]
+      }
     },
     {
       "slug": "decision-making-style",
@@ -456,7 +482,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong theoretical/review literature; original educational questionnaire.",
+        "limitations": "Good decisions depend on domain knowledge, stakes, time, available evidence and consequences. A self-report profile does not measure decision accuracy.",
+        "recommendations": [
+          "اہم فیصلوں میں پہلے لکھیں کہ کون سا ثبوت واقعی آپ کا فیصلہ بدل سکتا ہے۔",
+          "اعتماد اور یقین کو الگ رکھیں: کیا معلوم ہے، کیا اندازہ ہے اور کیا ابھی نامعلوم ہے۔",
+          "اہم فیصلے کے بعد نتیجے کا جائزہ سیکھنے کے لیے لیں، صرف کامیابی یا ناکامی سے خود کو نہ پرکھیں۔"
+        ],
+        "reflections": [
+          "کون سا ثبوت واقعی مجھے اپنی رائے بدلنے پر مجبور کرے گا؟",
+          "کیا میں کبھی مضبوط ثبوت اور صرف اعتماد کے احساس کو ایک سمجھ لیتا ہوں؟"
+        ]
+      }
     },
     {
       "slug": "emotional-intelligence",
@@ -591,7 +630,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong research literature but multiple competing EI models exist; this is an original self-reflection tool, not an EI ability test.",
+        "limitations": "Self-report cannot establish ability EI or clinical emotional functioning. Emotional responses are context-dependent.",
+        "recommendations": [
+          "جذبات اور صورتِ حال کو الگ نام دیں: 'میں مایوس ہوں' اور 'یہ شخص مجھے مایوس کر رہا ہے' ایک بات نہیں۔",
+          "ردِعمل سے پہلے سوچیں کہ یہ جذبہ کس چیز کی طرف اشارہ کر رہا ہے اور کون سا عمل صورتِ حال کے مطابق ہوگا۔",
+          "جب دوسرا شخص جذباتی ہو تو پہلے سمجھیں کہ اسے سننے، معلومات، جگہ یا عملی مدد میں سے کس چیز کی ضرورت ہے۔"
+        ],
+        "reflections": [
+          "کون سے جذبات مجھے فوراً محسوس ہوتے ہیں اور کن کی سمجھ مجھے بعد میں آتی ہے؟",
+          "جذبہ محسوس ہونے اور ردِعمل چننے کے درمیان عموماً کیا ہوتا ہے؟"
+        ]
+      }
     },
     {
       "slug": "motivation-goals",
@@ -726,7 +778,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong motivation literature; original educational questionnaire.",
+        "limitations": "Motivation changes across tasks, environments, resources and relationships. This is not a measure of academic or occupational performance.",
+        "recommendations": [
+          "مشکل مقصد کو اپنی کسی حقیقی قدر یا اہمیت سے جوڑیں، صرف دباؤ یا انعام پر انحصار نہ کریں۔",
+          "مبہم مقصد کو ایک واضح اگلے عمل میں تبدیل کریں اور طے کریں کہ وہ کب اور کہاں ہوگا۔",
+          "پیش رفت کو اس طرح نوٹ کریں کہ سیکھنے اور قابلیت کا بھی اندازہ ہو، صرف آخری نتیجے کا نہیں۔"
+        ],
+        "reflections": [
+          "کون سے مقاصد میرے لیے ذاتی طور پر معنی رکھتے ہیں، اور کون سے صرف دوسروں کی توقع ہیں؟",
+          "کون سی مدد عمل کو آسان بناتی ہے لیکن میرے اختیار کا احساس بھی برقرار رکھتی ہے؟"
+        ]
+      }
     },
     {
       "slug": "personality-traits",
@@ -965,7 +1030,20 @@
             4
           ]
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Very strong construct literature; this short original reflection is not a validated Big Five inventory and has no norms.",
+        "limitations": "Personality traits describe tendencies, not fixed identities. Two items per trait cannot provide the precision of established inventories.",
+        "recommendations": [
+          "شخصیتی رجحانات کو مستقل لیبل یا اچھائی/برائی کے طور پر نہیں بلکہ حالات سے متاثر ہونے والے عمومی نمونوں کے طور پر دیکھیں۔",
+          "مختلف حالات میں اپنے جوابات کا موازنہ کریں؛ کوئی رجحان ہر جگہ ایک جیسا رویہ نہیں بناتا۔",
+          "نتیجے کو اپنی شناخت بدلنے کے بجائے ایسے ماحول یا عادت کے انتخاب میں استعمال کریں جو موجودہ ترجیحات سے میل کھاتی ہو۔"
+        ],
+        "reflections": [
+          "کون سے حالات میرے معمول کے شخصیتی انداز کو بدل دیتے ہیں؟",
+          "کون سا رجحان ایک جگہ میری مدد کرتا ہے لیکن دوسری جگہ مشکل پیدا کر سکتا ہے؟"
+        ]
+      }
     },
     {
       "slug": "relationship-communication",
@@ -1100,7 +1178,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong relationship-communication literature; original educational questionnaire.",
+        "limitations": "This tool does not assess relationship satisfaction, abuse, coercion, compatibility or safety.",
+        "recommendations": [
+          "تشویش بیان کرتے وقت 'ہمیشہ' یا 'کبھی نہیں' جیسے عمومی لیبل کے بجائے مخصوص مشاہدہ اور واضح درخواست کریں۔",
+          "اپنی وضاحت دینے سے پہلے دوسرے شخص کے تجربے کو تسلیم کریں تاکہ اسے محسوس ہو کہ آپ نے بات سمجھی ہے۔",
+          "غلط فہمی کے بعد بحث جیتنے کے بجائے دوبارہ بات کریں اور واضح کریں کہ دونوں نے کیا سمجھا۔"
+        ],
+        "reflections": [
+          "میں دوسرے شخص کو کیسے دکھاتا ہوں کہ میں نے اس کی بات سمجھی؟",
+          "غلط فہمی کے بعد تعلق اور گفتگو کی مرمت میں کیا چیز آسانی یا مشکل پیدا کرتی ہے؟"
+        ]
+      }
     },
     {
       "slug": "resilience-adaptability",
@@ -1285,7 +1376,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong and evolving resilience literature; original educational questionnaire.",
+        "limitations": "Resilience is not a fixed trait or guarantee of recovery. Context, resources and severity of adversity matter.",
+        "recommendations": [
+          "ناکامی یا مشکل کے بعد اتنا وقت ضرور دیں کہ آپ دوبارہ واضح سوچ سکیں، پھر خود سے مزید مطالبہ کریں۔",
+          "جب کوئی طریقہ کام نہ کرے تو بنیادی مقصد برقرار رکھتے ہوئے طریقہ تبدیل کریں۔",
+          "عملی اور سماجی مدد کے ذرائع کو جلد پہچانیں؛ مدد لینا ناکامی کی علامت نہیں۔"
+        ],
+        "reflections": [
+          "مشکل کے بعد دوبارہ واضح سوچنے کے لیے مجھے کیا چیز مدد دیتی ہے؟",
+          "میرے پاس کون سے وسائل موجود ہیں جنہیں میں باقاعدگی سے استعمال نہیں کرتا؟"
+        ]
+      }
     },
     {
       "slug": "self-awareness",
@@ -1420,7 +1524,20 @@
           "scores": null,
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong conceptual and metacognitive literature; original educational questionnaire.",
+        "limitations": "Self-report awareness is not the same as objective accuracy. People can be confident about a self-judgment and still be mistaken.",
+        "recommendations": [
+          "اپنے بارے میں فیصلہ کرتے وقت مشاہدے اور تشریح کو الگ رکھیں: پہلے لکھیں کیا ہوا، پھر اس کا مطلب سوچیں۔",
+          "اہم ذاتی یقین کو صرف احساسِ یقین پر نہیں بلکہ ثبوت یا مناسب feedback سے بھی جانچیں۔",
+          "اپنے بارے میں نتیجہ نکالنے سے پہلے کئی مختلف حالات میں بار بار آنے والے محرکات اور ردِعمل دیکھیں۔"
+        ],
+        "reflections": [
+          "اپنے بارے میں کن یقینوں کو میں نے واقعی ثبوت سے جانچا ہے؟",
+          "کون سے نمونے مجھے دوسروں کی رائے ملنے کے بعد زیادہ واضح نظر آتے ہیں؟"
+        ]
+      }
     },
     {
       "slug": "stress-response",
@@ -1605,7 +1722,20 @@
           ],
           "values": null
         }
-      ]
+      ],
+      "guidance": {
+        "evidence": "Strong stress-and-coping literature; original educational questionnaire.",
+        "limitations": "This does not screen for anxiety, depression, PTSD or any other disorder. Stress responses vary with severity, duration, health, environment and available support.",
+        "recommendations": [
+          "دباؤ بڑھنے پر دیکھیں کہ کیا چیز آپ کے اختیار میں ہے، کیا نہیں، اور اگلا مفید قدم کیا ہو سکتا ہے۔",
+          "بحالی کو coping کا حصہ سمجھیں: نیند، وقفہ، جسمانی سرگرمی، سماجی رابطہ یا صحت مند معمولات regulation کے لیے جگہ بنا سکتے ہیں۔",
+          "مسئلے کے مطابق coping منتخب کریں: جو بدلا جا سکتا ہے اسے بدلیں اور جسے فوراً حل نہیں کیا جا سکتا اس میں جذباتی مدد استعمال کریں۔"
+        ],
+        "reflections": [
+          "کون سی علامات بتاتی ہیں کہ دباؤ میری سوچ یا رویے کو متاثر کرنا شروع کر رہا ہے؟",
+          "کون سے coping طریقے مسئلے سے نمٹنے میں مدد دیتے ہیں، صرف توجہ ہٹانے میں نہیں؟"
+        ]
+      }
     }
   ]
 }
