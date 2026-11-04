@@ -3,6 +3,7 @@ package com.obaiddoctrine.app.content
 import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
+import kotlin.math.roundToInt
 
 data class MindTestDimension(val label: String, val description: String)
 
@@ -70,7 +71,7 @@ class MindTestRepository(context: Context) {
 
         return test.dimensions.mapIndexed { index, dimension ->
             val maximum = maxima[index]
-            val percentage = if (maximum > 0) ((scores[index] * 100.0) / maximum).toInt().coerceIn(0, 100) else 0
+            val percentage = if (maximum > 0) ((scores[index] * 100.0) / maximum).roundToInt().coerceIn(0, 100) else 0
             MindTestDimensionResult(dimension.label, dimension.description, scores[index], maximum, percentage)
         }
     }
