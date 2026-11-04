@@ -33,9 +33,28 @@ class NhostAuthRepository(context: Context) {
     suspend fun signIn(email: String, password: String): Session = withContext(Dispatchers.IO) {
         require(email.isNotBlank() && password.isNotBlank()) { "Enter your email and password." }
         val response = post("/signin/email-password", JSONObject().put("email", email.trim()).put("password", password))
+        val mfa = response.optJSONObject("mfa")
+        if (mfa != null) {
+            val ticket = mfa.optString("ticket")
+            if (ticket.isBlank()) throw AuthException("Nhost returned an incomplete MFA challenge.")
+            tokenStore.saveMfaTicket(ticket)
+            throw MfaRequiredException()
+        }
         val sessionJson = response.optJSONObject("session")
-            ?: throw AuthException("This account requires an additional MFA verification step, which is not yet available in the app.")
+            ?: throw AuthException("Nhost did not return a sign-in session.")
         val session = parseSession(sessionJson)
+        tokenStore.save(session)
+        session
+    }
+
+    suspend fun verifyMfaTotp(otp: String): Session = withContext(Dispatchers.IO) {
+        require(otp.matches(Regex("\\d{6,8}"))) { "Enter the current 6–8 digit authenticator code." }
+        val ticket = tokenStore.readMfaTicket() ?: throw AuthException("The MFA challenge expired. Please sign in again.")
+        val response = post("/signin/mfa/totp", JSONObject().put("ticket", ticket).put("otp", otp))
+        val sessionJson = response.optJSONObject("session")
+            ?: throw AuthException("MFA verification did not return a session.")
+        val session = parseSession(sessionJson)
+        tokenStore.clearMfaTicket()
         tokenStore.save(session)
         session
     }
@@ -207,6 +226,8 @@ class NhostAuthRepository(context: Context) {
     }
 }
 
+class MfaRequiredException : Exception("Two-factor authentication is required.")
+
 class AuthException(
     message: String,
     val statusCode: Int? = null,
@@ -243,6 +264,12 @@ private class SecureSessionStore(context: Context) {
             clear()
             null
         }
+    }
+
+    fun saveMfaTicket(ticket: String) = saveEncrypted("mfa", ticket)
+    fun readMfaTicket(): String? = readEncrypted("mfa")
+    fun clearMfaTicket() {
+        prefs.edit().remove("mfa_iv").remove("mfa_data").commit()
     }
 
     fun savePkceVerifier(verifier: String) = saveEncrypted("pkce", verifier)
