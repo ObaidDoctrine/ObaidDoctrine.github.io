@@ -96,6 +96,18 @@ for (const route of routes) {
           cls: clsEntries.reduce((sum, entry) => sum + entry.value, 0),
           topLayoutShifts: top,
           images,
+          resources: performance.getEntriesByType("resource")
+            .map((entry) => ({
+              name: entry.name,
+              initiatorType: entry.initiatorType,
+              durationMs: Math.round(entry.duration),
+              transferSize: entry.transferSize,
+              decodedBodySize: entry.decodedBodySize,
+              redirectTimeMs: Math.round(Math.max(0, entry.redirectEnd - entry.redirectStart)),
+              responseTimeMs: Math.round(Math.max(0, entry.responseEnd - entry.responseStart)),
+            }))
+            .sort((a, b) => b.durationMs - a.durationMs)
+            .slice(0, 25),
         };
       });
       const result = {
