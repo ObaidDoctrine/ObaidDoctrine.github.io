@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 const routes = [
   { name: "home-en-desktop", path: "/", width: 1365, height: 900 },
@@ -68,6 +68,9 @@ for (const route of routes) {
 
     try {
       const response = await page.goto(route.path, { waitUntil: "load" });
+      const expectedHost = new URL(process.env.PLAYWRIGHT_TEST_BASE_URL || "http://127.0.0.1:4173").host;
+      await expect.poll(() => new URL(page.url()).host).toBe(expectedHost);
+      await expect(page).toHaveTitle(/OBAID DOCTRINE|عبید ڈاکٹرائن/);
       await page.waitForTimeout(4000);
       const report = await page.evaluate(() => {
         const entries = window.__odLayoutShiftEntries || [];
