@@ -51,6 +51,11 @@ jobs:
           PLAYWRIGHT_TEST_BASE_URL: http://127.0.0.1:4173
         run: npx playwright test
 
+      - name: Measure layout shifts on the deployed Vercel Preview
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: https://obaid-doctrine-github-io-git-fix-english-d-750b7f-obaiddoctrine.vercel.app
+        run: npx playwright test tests/layout-shift-diagnostics.spec.mjs --reporter=list
+
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v5
