@@ -51,6 +51,11 @@ jobs:
           PLAYWRIGHT_TEST_BASE_URL: http://127.0.0.1:4173
         run: npx playwright test
 
+      - name: Diagnose layout shifts on the live production site
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: https://www.obaiddoctrine.com
+        run: npx playwright test tests/layout-shift-diagnostics.spec.mjs
+
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v5
