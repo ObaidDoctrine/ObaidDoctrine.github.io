@@ -129,3 +129,15 @@ Deployment: Not performed
 - Changed homepage dark feature/research/footer surface backgrounds from near-black to Deep Brown `#49382D`, keeping readable light text; the design retains warm cream and orange as its primary surfaces.
 - Corrected one duplicated closing `</picture>` tag in the Urdu homepage hero image markup.
 - Validation performed: exact source replacement counts checked; verified the corrected hero image has one opening and one closing picture tag; re-scanned the edited CSS for legacy blue/pink/teal/purple accent declarations and lime-green shadow values. Browser visual validation is still pending.
+
+
+## Bilingual article keyboard accessibility and E2E test alignment — 2026-11-15
+
+- Audited the 80 article detail pages (40 English and 40 Urdu) and found the pages did not provide a consistent skip-to-main-content link or a stable keyboard-focus target.
+- Added a language-appropriate skip link to all 80 article pages: English pages use “Skip to main content”; Urdu pages use “مرکزی مواد پر جائیں”.
+- Added `id="main-content"` and `tabindex="-1"` to each article page's main landmark so the skip link has a real, keyboard-focusable destination.
+- Reused the existing shared `.od-skip-link` styles already added for the bilingual homepages; no new visual system or route changes were introduced.
+- Reviewed the previously completed Playwright run: 52 tests passed and 3 failed. The failures were stale assertions expecting the retired `#F47721` brand orange instead of the approved `#E8752A`, plus a locator selecting a hidden duplicate Mind Tests link.
+- Updated the E2E assertions to the approved brand orange and changed the Mind Tests locator to select a visible link. The test suite has not yet been confirmed green on the latest commit.
+- Source-level change was committed only to the development branch. Production `main` and the separate Assessment Hub were not changed; no deployment was performed.
+- Browser-level validation remains pending until the latest PR workflow completes. The earlier E2E run did exercise the checked-out branch in Chromium, but its three failures were assertion/locator mismatches described above.
