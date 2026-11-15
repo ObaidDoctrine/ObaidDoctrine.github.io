@@ -32,6 +32,9 @@ Deployment: Not performed
 - Confirmed 18 key English/Urdu routes exist in the development branch, including the newly added brand and roadmap pages.
 - Re-fetched all four updated directory/research pages and confirmed CollectionPage JSON-LD is present.
 - Confirmed the main-site Assessment stylesheet no longer contains the previously identified green palette values.
+- Completed a representative 12-page bilingual article-template audit: all sampled pages had canonical URLs, three hreflang alternates, parseable Article and BreadcrumbList JSON-LD, and author metadata.
+- Recorded a publication-date consistency gap: sampled Urdu Article schemas include `datePublished`, while sampled English Article schemas include `dateModified` only. No publication dates were invented.
+- Added `docs/article-audit-2026-11-15.md` documenting scope, evidence and remaining audit limitations.
 - Confirmed no root `package.json` or expected GitHub Actions workflow file was present at the checked paths; build and browser QA therefore remain unverified.
 - Confirmed no production branch change and no deployment was made.
 
@@ -46,6 +49,9 @@ Deployment: Not performed
 ## Next work
 
 - Complete repository-wide route and asset inventory.
+- Resolve all local links across all 80 article pages and verify every destination exists.
+- Confirm original publication dates before adding `datePublished` to English Article schemas.
+- Review citation quality and image relevance/availability page by page.
 - Review research pages and all page-level color overrides.
 - Verify preview deployment and run browser-level desktop/mobile checks when a preview URL is available.
 - Run available checks/builds once the actual workflow and tooling are identified.
