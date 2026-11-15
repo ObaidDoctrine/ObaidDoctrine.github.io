@@ -62,3 +62,12 @@ This resolves the directory-card count discrepancy. It does not constitute the f
 - Total local HTML references checked: 1,596. Missing local file/route targets found: 0.
 - This result is limited to literal HTML `href` and `src` attributes. It does not verify remote URL status, CSS `url()` references, JavaScript-generated URLs, image rendering, browser network requests, or whether external sources are authoritative.
 - No article body or route was changed as part of this audit.
+
+
+## CSS background and asset-path audit — 2026-11-15
+
+- Enumerated and inspected all 5 repository CSS files: `styles.css`, `assessment/assessment.css`, `five-design-system.css`, `master-homepage.css`, and `portfolio/styles.css`.
+- Found one CSS `url()` asset reference: `/assets/od-app-logo.svg` in `styles.css`; confirmed the target file exists in the same Git tree (SVG, 1,102 bytes).
+- No missing local CSS asset paths found.
+- Inspected all 80 English and Urdu article HTML pages for CSS `url()` references inside inline style attributes and embedded `<style>` blocks. No inline CSS URL references were found.
+- This is a repository-path existence check, not a browser rendering, image decoding, or remote asset availability test. No code changes were needed for this audit.
