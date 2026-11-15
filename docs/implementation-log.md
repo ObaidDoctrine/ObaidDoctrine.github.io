@@ -30,6 +30,7 @@ Deployment: Not performed
 - Confirmed English/Urdu alternate hreflang links on the new brand and roadmap pages.
 - Confirmed the sitemap includes all four new URLs, with 172 total URLs and no duplicate `<loc>` entries.
 - Confirmed 18 key English/Urdu routes exist in the development branch, including the newly added brand and roadmap pages.
+- Re-fetched all four updated directory/research pages and confirmed CollectionPage JSON-LD is present.
 - Confirmed the main-site Assessment stylesheet no longer contains the previously identified green palette values.
 - Confirmed no root `package.json` or expected GitHub Actions workflow file was present at the checked paths; build and browser QA therefore remain unverified.
 - Confirmed no production branch change and no deployment was made.
