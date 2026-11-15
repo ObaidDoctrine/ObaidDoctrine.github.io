@@ -649,3 +649,12 @@ html[lang="en"] body:has(.article-list) .category,
 html[lang="ur"] body:has(.article-list) .category {color:#A64D2A;}
 html[lang="en"] body:has(.article-list) .article-list,
 html[lang="ur"] body:has(.article-list) .article-list {background:#FFF7ED;}
+
+
+/* Accessibility: visible-on-focus skip navigation for the bilingual homepages. */
+.od-skip-link{position:absolute;inset-block-start:8px;inset-inline-start:8px;z-index:10000;transform:translateY(-160%);padding:12px 16px;border:2px solid #49382D;border-radius:10px;background:#FFF7ED;color:#49382D;font-weight:800;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.16)}
+.od-skip-link:focus{transform:translateY(0);outline:3px solid #E8752A;outline-offset:3px}
+#main-content:focus{outline:none}
+
+/* Honour reduced-motion preferences: stop the continuously moving ticker. */
+@media(prefers-reduced-motion:reduce){.od-mind-ticker .od-ticker-track{animation:none!important;transform:none!important;will-change:auto!important}.od-mind-ticker .od-ticker-window{overflow:hidden}}
