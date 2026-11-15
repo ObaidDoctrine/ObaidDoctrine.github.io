@@ -33,7 +33,7 @@ Parent: OBAID DOCTRINE
 - OBAID DOCTRINE RESEARCH — planned
 - OBAID DOCTRINE MEDIA — planned
 
-Do not create or reference the retired NOVA identity.
+Use only the approved brand names listed in this document.
 
 ## Governance
 Do not change the core palette without explicit owner approval. New components must consume shared CSS variables where practical. Record exceptions and accessibility checks in the implementation notes.
