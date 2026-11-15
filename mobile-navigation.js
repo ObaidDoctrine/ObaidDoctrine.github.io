@@ -61,7 +61,6 @@
     button.className = "od-mobile-nav-toggle";
     button.setAttribute("aria-label", "Open navigation menu");
     button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-controls", "od-side-menu-panel");
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
     nav.classList.add("od-legacy-mobile-nav");
@@ -125,6 +124,7 @@
     button.className = "od-side-menu-toggle";
     button.setAttribute("aria-label", label.menu);
     button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", "od-side-menu-panel");
     button.innerHTML = '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
 
     // Reuse the language switch already present in the site header.
