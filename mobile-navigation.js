@@ -61,6 +61,7 @@
     button.className = "od-mobile-nav-toggle";
     button.setAttribute("aria-label", "Open navigation menu");
     button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", "od-side-menu-panel");
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
     nav.classList.add("od-legacy-mobile-nav");
@@ -143,6 +144,10 @@
 
     const panel = document.createElement("aside");
     panel.className = "od-side-menu";
+    panel.id = "od-side-menu-panel";
+    panel.setAttribute("role", "dialog");
+    panel.setAttribute("aria-modal", "true");
+    panel.setAttribute("aria-labelledby", "od-side-menu-heading");
     panel.setAttribute("aria-label", "OBAID DOCTRINE navigation");
     panel.setAttribute("dir", isUrdu ? "rtl" : "ltr");
     panel.hidden = true;
@@ -154,7 +159,7 @@
       ["about", prefix + "/about/"], ["contact", prefix + "/contact/"],
       ["privacy", prefix + "/privacy-policy/"], ["terms", prefix + "/terms-and-conditions/"]
     ];
-    panel.innerHTML = '<div class="od-side-menu-heading"><strong>OBAID DOCTRINE</strong><button type="button" class="od-side-menu-close" aria-label="' + label.close + '">×</button></div>' +
+    panel.innerHTML = '<div class="od-side-menu-heading" id="od-side-menu-heading"><strong>OBAID DOCTRINE</strong><button type="button" class="od-side-menu-close" aria-label="' + label.close + '">×</button></div>' +
       '<nav>' + links.map(item => '<a href="' + item[1] + '">' + label[item[0]] + '</a>').join("") + '</nav>' +
       '<div class="od-side-menu-languages"><span>' + label.language + '</span><a href="' + englishPath + '">English</a><a href="' + urduPath + '">اردو</a></div>';
 
@@ -207,18 +212,48 @@
     document.body.appendChild(panel);
 
     const setOpen = open => {
+      const wasOpen = !panel.hidden;
       panel.hidden = !open;
       overlay.hidden = !open;
       button.setAttribute("aria-expanded", open ? "true" : "false");
       button.setAttribute("aria-label", open ? label.close : label.menu);
       button.innerHTML = open ? '<span aria-hidden="true">×</span><small>' + (isUrdu ? "بند" : "Close") + '</small>' : '<span aria-hidden="true">☰</span><small>' + (isUrdu ? "مینو" : "Menu") + '</small>';
       document.body.style.overflow = open ? "hidden" : "";
+      if (open) {
+        requestAnimationFrame(() => panel.querySelector(".od-side-menu-close")?.focus());
+      } else if (wasOpen) {
+        button.focus();
+      }
     };
     button.addEventListener("click", () => setOpen(panel.hidden));
     panel.querySelector(".od-side-menu-close").addEventListener("click", () => setOpen(false));
     overlay.addEventListener("click", () => setOpen(false));
     panel.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
-    document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+    document.addEventListener("keydown", event => {
+      if (panel.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = [...panel.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+        .filter(el => !el.hasAttribute("hidden") && el.getAttribute("aria-hidden") !== "true");
+      if (!focusable.length) {
+        event.preventDefault();
+        panel.querySelector(".od-side-menu-close")?.focus();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   function init() {
