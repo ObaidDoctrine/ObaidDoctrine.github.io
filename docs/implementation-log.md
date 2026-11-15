@@ -108,3 +108,15 @@ Deployment: Not performed
 - Confirmed both image assets referenced by the changes exist in the branch tree: `assets/brand-cover.png` and `assets/articles/self-regulation-in-psychology.svg`.
 - Found 10 literal `<img>` elements across the 80 pages; all 10 have non-empty `alt` attributes. No missing or empty alt attributes were found.
 - Source-level metadata and path checks only; actual social-platform previews, remote HTTP status, image decoding, and browser rendering have not been tested.
+
+
+## Homepage accessibility and mobile-navigation source audit — 2026-11-15
+
+- Checked the English and Urdu homepage markup, shared styles, and mobile-navigation script.
+- Both homepages already declare a viewport and a main landmark; added a keyboard-visible skip link to each and a stable, focusable `#main-content` target.
+- Added skip-link styling with a visible focus state using the approved warm orange/cream palette.
+- Fixed the reduced-motion ticker rule: the earlier reduced-motion CSS still allowed the continuous ticker animation to loop; the new override disables its animation and transform when `prefers-reduced-motion: reduce` is active.
+- Improved the dynamically injected mobile side menu with dialog semantics, an explicit `aria-controls` relationship, focus placement on open, keyboard Tab focus containment, Escape-to-close, and focus return to the menu toggle.
+- Re-fetched all four changed files and verified each expected source-level change.
+- Scope/limitations: no real browser, device emulator, Lighthouse, screen-reader, or network-performance run was available in this pass. These changes are source-verified, not a substitute for rendered cross-device testing.
+- Additional visual finding retained for a separate design pass: legacy English-homepage CSS overrides still contain blue/navy styling alongside the approved orange/cream brand tokens. No broad palette rewrite was made during this accessibility-focused change to avoid unintended visual regressions.
