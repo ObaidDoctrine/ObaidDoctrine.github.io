@@ -12,6 +12,9 @@ Deployment: Not performed
 - Added bilingual brand directory pages: `/brands/` and `/ur/brands/`.
 - Added bilingual roadmap pages: `/future/` and `/ur/future/`.
 - Linked the new destinations from both homepage footers.
+- Added a bilingual brand-network section to both homepages, highlighting the central platform, WOMAN DOCTRINE, FACTS and the existing separate Assessment destination; future divisions are clearly labelled planned.
+- Simplified desktop navigation to six primary destinations and expanded mobile menus with Research, Mind Tests, Learning Lab, Assessment, Our Brands and Future Projects.
+- Normalized English and Urdu homepage theme colors to the official orange.
 - Added the four new URLs to `sitemap.xml`.
 - Updated Women pages to use the approved WOMAN DOCTRINE name while preserving existing `/women/` and `/ur/women/` routes and topic content.
 - Updated the English and Urdu Women pages, Mind Tests pages, and main-site Assessment landing page stylesheet to the permanent orange/cream palette.
@@ -25,7 +28,10 @@ Deployment: Not performed
 - Confirmed both Women routes retain their original paths and use the WOMAN DOCTRINE identity.
 - Confirmed all four new pages include canonical URLs.
 - Confirmed English/Urdu alternate hreflang links on the new brand and roadmap pages.
-- Confirmed the sitemap includes all four new URLs.
+- Confirmed the sitemap includes all four new URLs, with 172 total URLs and no duplicate `<loc>` entries.
+- Confirmed 18 key English/Urdu routes exist in the development branch, including the newly added brand and roadmap pages.
+- Confirmed the main-site Assessment stylesheet no longer contains the previously identified green palette values.
+- Confirmed no root `package.json` or expected GitHub Actions workflow file was present at the checked paths; build and browser QA therefore remain unverified.
 - Confirmed no production branch change and no deployment was made.
 
 ## Not yet verified
@@ -38,8 +44,8 @@ Deployment: Not performed
 
 ## Next work
 
-- Complete repository route and asset inventory.
-- Review homepage navigation and footer architecture.
+- Complete repository-wide route and asset inventory.
 - Review research pages and all page-level color overrides.
+- Verify preview deployment and run browser-level desktop/mobile checks when a preview URL is available.
 - Run available checks/builds once the actual workflow and tooling are identified.
 - Prepare a review-ready PR only after preview and route checks.
