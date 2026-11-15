@@ -82,3 +82,15 @@ This resolves the directory-card count discrepancy. It does not constitute the f
 - All 80 pages contain two JSON-LD blocks; both parse as valid JSON.
 - The two detected schema types on every page are `Article` and `BreadcrumbList`.
 - This is a source-code/repository validation. It does not establish Google rich-result eligibility, live production response headers, rendered metadata after JavaScript, or Search Console indexing.
+
+
+## SEO titles, descriptions, social metadata, and image-alt audit — 2026-11-15
+
+- Inspected all 80 article HTML pages (40 English and 40 Urdu).
+- All 80 pages have a `<title>`, meta description, Open Graph title, and Open Graph description.
+- Found 7 pages missing `og:image`; added the existing site-wide `/assets/brand-cover.png` social image to those pages.
+- Found one Urdu page missing Twitter Card metadata (`ur/articles/self-regulation-in-psychology/`); added `twitter:card`, title, description, image, and URL metadata.
+- Re-fetched and verified all 8 changed pages: Open Graph image, Twitter Card, and Twitter image tags are present.
+- Confirmed both image assets referenced by the changes exist in the branch tree: `assets/brand-cover.png` and `assets/articles/self-regulation-in-psychology.svg`.
+- Found 10 literal `<img>` elements across the 80 pages; all 10 have non-empty `alt` attributes. No missing or empty alt attributes were found.
+- Source-level metadata and path checks only; actual social-platform previews, remote HTTP status, image decoding, and browser rendering have not been tested.
