@@ -56,3 +56,13 @@ Deployment: Not performed
 - Verify preview deployment and run browser-level desktop/mobile checks when a preview URL is available.
 - Run available checks/builds once the actual workflow and tooling are identified.
 - Prepare a review-ready PR only after preview and route checks.
+
+
+## Article directory reconciliation — 2026-11-15
+
+- Compared all 40 English and 40 Urdu article topic folders against the visible directory cards.
+- Found three omitted directory entries: English `why-do-we-overthink`; Urdu `why-do-we-overthink` and `self-regulation-in-psychology`.
+- Added the missing English and Urdu cards using each article's own title and description context; no article body or route was changed.
+- Synchronized both Article CollectionPage ItemList schemas with the visible cards: 40 links, 40 schema items, 40 unique URLs in each language.
+- Rechecked Research Insights CollectionPage schemas: each language page lists the same three unique article destinations as its visible content cards (each destination appears twice in markup due to separate card link elements).
+- Full local-link destination resolution across all 80 article pages remains outstanding.
