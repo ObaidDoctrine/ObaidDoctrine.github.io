@@ -637,3 +637,15 @@ body:has(#test) .page-hero h1{margin-top:-3px !important;}
 
 /* E2E mobile header spacing: measured icon offset was 10.27px (limit 10px); reduce mobile icon top margin by 2px. */
 @media(max-width:700px){body:has(#test) .page-hero .sa-icon{margin:-6px 6px 0 0 !important;}}
+
+/* OBAID DOCTRINE — article directory palette alignment */
+html[lang="en"] body:has(.article-list) .article-card,
+html[lang="ur"] body:has(.article-list) .article-card,
+html[lang="ur"] body:has(.article-list) .article-list a {border-color:#E8D8C5;background:#FFFFFF;color:#49382D;}
+html[lang="en"] body:has(.article-list) .article-card:hover,
+html[lang="ur"] body:has(.article-list) .article-card:hover,
+html[lang="ur"] body:has(.article-list) .article-list a:hover {border-color:#E8752A;}
+html[lang="en"] body:has(.article-list) .category,
+html[lang="ur"] body:has(.article-list) .category {color:#A64D2A;}
+html[lang="en"] body:has(.article-list) .article-list,
+html[lang="ur"] body:has(.article-list) .article-list {background:#FFF7ED;}
