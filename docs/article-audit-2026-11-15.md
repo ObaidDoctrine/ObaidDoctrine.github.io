@@ -1,0 +1,41 @@
+# Article page technical audit — 2026-11-15
+
+Branch: `feat/brand-system-future-roadmap`
+Scope: representative template and content-page review; this is not yet a full 80-page link crawl.
+
+## Repository inventory
+
+- 40 English article topic folders.
+- 40 Urdu article topic folders.
+- 38 matching folder slugs; two translation pairs use different language-specific slugs:
+  - `family-communication-patterns` ↔ `family-communication`
+  - `how-habits-form` ↔ `habits-form-and-change`
+- Both differently-slugged pairs were inspected. Each page has its own self-canonical URL and reciprocal English/Urdu hreflang alternates. No URL migration is recommended.
+
+## Representative page checks
+
+Reviewed eight English and four Urdu article pages, including introductory psychology, emotional intelligence, procrastination, communication, habits, family communication, professional-support guidance and research-literacy topics.
+
+- All 12 reviewed pages had a canonical link.
+- All 12 reviewed pages had three hreflang alternates (English, Urdu and x-default).
+- All 12 had valid JSON-LD scripts when parsed: Article and BreadcrumbList.
+- All 12 included an author field in Article structured data.
+- The sampled Urdu Article schemas included datePublished and dateModified.
+- The sampled English Article schemas included dateModified but did not include datePublished.
+- Sampled image tags had alt attributes wherever an image tag was present. Several article pages had no inline image tag; this check does not inspect CSS backgrounds or social preview images.
+- Internal navigation and related-article links were present in the sampled pages.
+
+## Findings and limitations
+
+1. **Publication-date consistency:** In the sampled pages, Urdu Article schemas provide `datePublished`, while English Article schemas only provide `dateModified`. Do not manufacture publication dates. Confirm original publication dates from trustworthy CMS/repository history or an editorial source before adding `datePublished` to English pages.
+2. **Full internal-link validation remains open:** This pass reviewed representative pages and extracted local link patterns, but did not resolve every local link across all 80 pages against the repository. No claim of a complete broken-link audit is made.
+3. **Source quality is not yet assessed:** The presence of source/reference text or links is not proof that every citation is authoritative, correctly attributed or current. A separate evidence review is required.
+4. **Images:** Alt attributes were present on the sampled inline images. Image availability, image relevance, SVG accessibility and CSS background imagery still need a separate asset check.
+5. **Build and browser QA:** No verified build/test command or preview browser session is available yet. These checks remain open.
+
+## Actions taken
+
+- No article body, URL, canonical or hreflang value was changed during this audit.
+- No publication dates were invented.
+- The approved palette update for article directory cards was completed separately in shared CSS.
+- Production `main` and the separate Assessment Hub remain untouched.
