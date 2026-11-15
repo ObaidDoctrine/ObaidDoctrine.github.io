@@ -66,3 +66,13 @@ Deployment: Not performed
 - Synchronized both Article CollectionPage ItemList schemas with the visible cards: 40 links, 40 schema items, 40 unique URLs in each language.
 - Rechecked Research Insights CollectionPage schemas: each language page lists the same three unique article destinations as its visible content cards (each destination appears twice in markup due to separate card link elements).
 - Full local-link destination resolution across all 80 article pages remains outstanding.
+
+
+## Full local HTML link and asset-path audit — 2026-11-15
+
+- Enumerated the current development-branch Git tree and confirmed exactly 80 article HTML pages: 40 English and 40 Urdu.
+- Fetched and inspected all 80 article HTML files. Checked every local `href` and `src` attribute, including root-relative and page-relative paths.
+- Resolved local paths against the same branch's complete Git tree, including directory routes that map to `index.html` and query/hash suffixes.
+- Total local HTML references checked: 1,596. Missing local file/route targets found: 0.
+- This result is limited to literal HTML `href` and `src` attributes. It does not verify remote URL status, CSS `url()` references, JavaScript-generated URLs, image rendering, browser network requests, or whether external sources are authoritative.
+- No article body or route was changed as part of this audit.
