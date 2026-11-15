@@ -120,3 +120,12 @@ Deployment: Not performed
 - Re-fetched all four changed files and verified each expected source-level change.
 - Scope/limitations: no real browser, device emulator, Lighthouse, screen-reader, or network-performance run was available in this pass. These changes are source-verified, not a substitute for rendered cross-device testing.
 - Additional visual finding retained for a separate design pass: legacy English-homepage CSS overrides still contain blue/navy styling alongside the approved orange/cream brand tokens. No broad palette rewrite was made during this accessibility-focused change to avoid unintended visual regressions.
+
+
+## Homepage brand consistency and markup correction — 2026-11-15
+
+- Audited the shared homepage design overrides and found legacy multi-colour category/path accents (blue, pink, teal, gold and purple) conflicting with the approved single orange identity. Normalized those accent tokens and component accents to Signature Orange `#E8752A`.
+- Replaced the remaining lime-green shadow accents with orange-tinted equivalents.
+- Changed homepage dark feature/research/footer surface backgrounds from near-black to Deep Brown `#49382D`, keeping readable light text; the design retains warm cream and orange as its primary surfaces.
+- Corrected one duplicated closing `</picture>` tag in the Urdu homepage hero image markup.
+- Validation performed: exact source replacement counts checked; verified the corrected hero image has one opening and one closing picture tag; re-scanned the edited CSS for legacy blue/pink/teal/purple accent declarations and lime-green shadow values. Browser visual validation is still pending.
