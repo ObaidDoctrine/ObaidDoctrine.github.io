@@ -85,3 +85,14 @@ Deployment: Not performed
 - No missing local CSS asset paths found.
 - Inspected all 80 English and Urdu article HTML pages for CSS `url()` references inside inline style attributes and embedded `<style>` blocks. No inline CSS URL references were found.
 - This is a repository-path existence check, not a browser rendering, image decoding, or remote asset availability test. No code changes were needed for this audit.
+
+
+## Article SEO metadata and structured-data audit — 2026-11-15
+
+- Inspected the HTML head and JSON-LD blocks of all 80 article pages (40 English and 40 Urdu) in the development branch.
+- All 80 pages have exactly one canonical link.
+- All 80 pages include `hreflang` entries for `en`, `ur`, and `x-default`.
+- Checked all 240 alternate-language target URLs against the repository tree: zero missing local page targets.
+- All 80 pages contain two JSON-LD blocks; both parse as valid JSON.
+- The two detected schema types on every page are `Article` and `BreadcrumbList`.
+- This is a source-code/repository validation. It does not establish Google rich-result eligibility, live production response headers, rendered metadata after JavaScript, or Search Console indexing.
