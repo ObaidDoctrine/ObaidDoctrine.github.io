@@ -1,0 +1,45 @@
+# OBAID DOCTRINE implementation log
+
+Last updated: 2026-11-15
+Branch: `feat/brand-system-future-roadmap`
+Production branch: `main` (not modified)
+Deployment: Not performed
+
+## Completed in this development branch
+
+- Added a documented permanent brand palette: Signature Orange `#E8752A`, Warm Cream `#FFF7ED`, Deep Brown `#49382D`, Pale Orange `#FCE8D8`, Warm Beige `#E8D8C5`.
+- Updated shared `styles.css` brand tokens and existing orange/cream color references.
+- Added bilingual brand directory pages: `/brands/` and `/ur/brands/`.
+- Added bilingual roadmap pages: `/future/` and `/ur/future/`.
+- Linked the new destinations from both homepage footers.
+- Added the four new URLs to `sitemap.xml`.
+- Updated Women pages to use the approved WOMAN DOCTRINE name while preserving existing `/women/` and `/ur/women/` routes and topic content.
+- Updated the English and Urdu Women pages, Mind Tests pages, and main-site Assessment landing page stylesheet to the permanent orange/cream palette.
+- Updated the browser theme color on both main-site Assessment landing pages.
+- Kept the separate `assess.obaiddoctrine.com` platform untouched.
+
+## Checks performed
+
+- Re-fetched changed files from the development branch after edits.
+- Confirmed the old primary green palette tokens are absent from Women, Mind Tests and main-site Assessment landing pages.
+- Confirmed both Women routes retain their original paths and use the WOMAN DOCTRINE identity.
+- Confirmed all four new pages include canonical URLs.
+- Confirmed English/Urdu alternate hreflang links on the new brand and roadmap pages.
+- Confirmed the sitemap includes all four new URLs.
+- Confirmed no production branch change and no deployment was made.
+
+## Not yet verified
+
+- Full build/test pipeline: repository root has no `package.json`; full workflow inventory remains outstanding.
+- Browser-level visual QA on mobile and desktop.
+- Accessibility and performance audits.
+- Complete site-wide legacy palette audit beyond the pages updated above.
+- Current Google Search Console coverage and performance.
+
+## Next work
+
+- Complete repository route and asset inventory.
+- Review homepage navigation and footer architecture.
+- Review research pages and all page-level color overrides.
+- Run available checks/builds once the actual workflow and tooling are identified.
+- Prepare a review-ready PR only after preview and route checks.
