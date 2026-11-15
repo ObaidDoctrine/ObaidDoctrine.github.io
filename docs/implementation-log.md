@@ -141,3 +141,10 @@ Deployment: Not performed
 - Updated the E2E assertions to the approved brand orange and changed the Mind Tests locator to select a visible link. The test suite has not yet been confirmed green on the latest commit.
 - Source-level change was committed only to the development branch. Production `main` and the separate Assessment Hub were not changed; no deployment was performed.
 - Browser-level validation remains pending until the latest PR workflow completes. The earlier E2E run did exercise the checked-out branch in Chromium, but its three failures were assertion/locator mismatches described above.
+
+
+### Final source verification — 2026-11-15
+- Re-fetched all 80 article detail files after the implementation (40 English and 40 Urdu).
+- Verified 80/80 have exactly the intended language-specific skip-link text, a matching `#main-content` target, and `tabindex="-1"` on the main landmark.
+- No article route, canonical URL, hreflang target, article text, or schema block was changed by this accessibility update.
+- The latest branch run reports SEO bilingual metadata validation, internal-link validation, and citation-placeholder regression checks as successful. The Playwright E2E job is still running at the time of this log update.
