@@ -39,3 +39,16 @@ Reviewed eight English and four Urdu article pages, including introductory psych
 - No publication dates were invented.
 - The approved palette update for article directory cards was completed separately in shared CSS.
 - Production `main` and the separate Assessment Hub remain untouched.
+
+
+## Article directory reconciliation — completed on development branch
+
+A repository directory comparison identified missing links despite the 40 English and 40 Urdu article folders:
+
+- English directory omitted `why-do-we-overthink` (39 visible cards before correction).
+- Urdu directory omitted `why-do-we-overthink` and `self-regulation-in-psychology` (38 visible cards before correction).
+- Added the three missing directory cards using the article pages' own titles and descriptions. Existing article routes and article body content were not changed.
+- Verified after the edits: English directory has 40 cards and 40 unique CollectionPage ItemList URLs; Urdu directory has 40 cards and 40 unique CollectionPage ItemList URLs. The declared `numberOfItems` values are 40 in both languages.
+- Rechecked both Research Insights pages: their CollectionPage ItemLists each contain the same three unique article URLs represented by the content cards. Each destination appears twice in the HTML because title and card surfaces are separate anchors.
+
+This resolves the directory-card count discrepancy. It does not constitute the full local-link crawl across all 80 article pages.
