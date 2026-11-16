@@ -148,3 +148,9 @@ Deployment: Not performed
 - Verified 80/80 have exactly the intended language-specific skip-link text, a matching `#main-content` target, and `tabindex="-1"` on the main landmark.
 - No article route, canonical URL, hreflang target, article text, or schema block was changed by this accessibility update.
 - The latest branch run reports SEO bilingual metadata validation, internal-link validation, and citation-placeholder regression checks as successful. The Playwright E2E job is still running at the time of this log update.
+
+
+## Production release trigger — 2026-11-16
+- PR #98 brand-system and bilingual roadmap changes were merged into `main` as commit `dc720bae15d6b317f71630fd317400946c4daf78`.
+- Manifest theme color aligned to approved signature orange `#E8752A`.
+- Release trigger commit records this deployment checkpoint; production status must be verified from the Cloudflare Pages workflow and live routes.
