@@ -9,7 +9,7 @@
   "category_count": 20,
   "topic_count": 200,
   "planned_article_version_count": 400,
-  "note": "These are draft working titles generated to establish the bilingual inventory and URL plan. They are NOT approved article titles or published articles. Each title must be reviewed for usefulness, specificity, duplication, and evidence requirements before writing or publishing.",
+  "note": "Editorially refined working-topic inventory with distinct category-specific titles in English and Urdu. Titles and URL slugs are planning metadata, not published articles. Each article still requires source verification, expert/editorial review, original writing, and safety review where relevant before publication.",
   "categories": [
     {
       "slug": "time-management",
@@ -136,11 +136,11 @@
     {
       "id": "time-management-01",
       "category": "time-management",
-      "slug": "time-management-guide-01",
-      "title_en": "A Beginner's Practical Guide to Time Management",
-      "title_ur": "وقت کا انتظام کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/time-management/time-management-guide-01/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-01/",
+      "slug": "plan-your-day-in-15-minutes",
+      "title_en": "Plan Your Day in 15 Minutes",
+      "title_ur": "صرف 15 منٹ میں اپنے دن کی منصوبہ بندی کریں",
+      "url": "/life-hacks/time-management/plan-your-day-in-15-minutes/",
+      "url_ur": "/ur/life-hacks/time-management/plan-your-day-in-15-minutes/",
       "languages": [
         "en",
         "ur"
@@ -151,11 +151,11 @@
     {
       "id": "time-management-02",
       "category": "time-management",
-      "slug": "time-management-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Time Management",
-      "title_ur": "وقت کا انتظام میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/time-management/time-management-guide-02/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-02/",
+      "slug": "eisenhower-matrix-urgent-important",
+      "title_en": "The Eisenhower Matrix: Urgent vs Important",
+      "title_ur": "آئزن ہاور میٹرکس: ضروری اور اہم کاموں میں فرق",
+      "url": "/life-hacks/time-management/eisenhower-matrix-urgent-important/",
+      "url_ur": "/ur/life-hacks/time-management/eisenhower-matrix-urgent-important/",
       "languages": [
         "en",
         "ur"
@@ -166,11 +166,11 @@
     {
       "id": "time-management-03",
       "category": "time-management",
-      "slug": "time-management-guide-03",
-      "title_en": "Simple Daily Ways to Improve Time Management",
-      "title_ur": "وقت کا انتظام کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/time-management/time-management-guide-03/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-03/",
+      "slug": "stop-procrastinating-important-tasks",
+      "title_en": "How to Stop Procrastinating on Important Tasks",
+      "title_ur": "اہم کام ٹالنے کی عادت کیسے ختم کریں",
+      "url": "/life-hacks/time-management/stop-procrastinating-important-tasks/",
+      "url_ur": "/ur/life-hacks/time-management/stop-procrastinating-important-tasks/",
       "languages": [
         "en",
         "ur"
@@ -181,11 +181,11 @@
     {
       "id": "time-management-04",
       "category": "time-management",
-      "slug": "time-management-guide-04",
-      "title_en": "How to Build a Better Routine for Time Management",
-      "title_ur": "وقت کا انتظام کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/time-management/time-management-guide-04/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-04/",
+      "slug": "time-blocking-daily-schedule",
+      "title_en": "Time Blocking for a Realistic Daily Schedule",
+      "title_ur": "حقیقت پسندانہ روزانہ شیڈول کے لیے ٹائم بلاکنگ",
+      "url": "/life-hacks/time-management/time-blocking-daily-schedule/",
+      "url_ur": "/ur/life-hacks/time-management/time-blocking-daily-schedule/",
       "languages": [
         "en",
         "ur"
@@ -196,11 +196,11 @@
     {
       "id": "time-management-05",
       "category": "time-management",
-      "slug": "time-management-guide-05",
-      "title_en": "A Step-by-Step Plan for Time Management",
-      "title_ur": "وقت کا انتظام کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/time-management/time-management-guide-05/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-05/",
+      "slug": "prioritize-urgent-tasks",
+      "title_en": "How to Prioritize When Everything Feels Urgent",
+      "title_ur": "جب ہر کام ضروری لگے تو ترجیحات کیسے طے کریں",
+      "url": "/life-hacks/time-management/prioritize-urgent-tasks/",
+      "url_ur": "/ur/life-hacks/time-management/prioritize-urgent-tasks/",
       "languages": [
         "en",
         "ur"
@@ -211,11 +211,11 @@
     {
       "id": "time-management-06",
       "category": "time-management",
-      "slug": "time-management-guide-06",
-      "title_en": "How to Solve Everyday Problems with Time Management",
-      "title_ur": "وقت کا انتظام سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/time-management/time-management-guide-06/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-06/",
+      "slug": "reduce-decision-fatigue",
+      "title_en": "Beat Decision Fatigue with Simple Daily Rules",
+      "title_ur": "روزمرہ کے آسان اصولوں سے فیصلہ سازی کی تھکن کم کریں",
+      "url": "/life-hacks/time-management/reduce-decision-fatigue/",
+      "url_ur": "/ur/life-hacks/time-management/reduce-decision-fatigue/",
       "languages": [
         "en",
         "ur"
@@ -226,11 +226,11 @@
     {
       "id": "time-management-07",
       "category": "time-management",
-      "slug": "time-management-guide-07",
-      "title_en": "Useful Tools and Techniques for Time Management",
-      "title_ur": "وقت کا انتظام کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/time-management/time-management-guide-07/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-07/",
+      "slug": "two-minute-rule",
+      "title_en": "Use the Two-Minute Rule Without Overloading Your Day",
+      "title_ur": "دو منٹ کا اصول اپنائیں، مگر خود کو کاموں سے نہ بھریں",
+      "url": "/life-hacks/time-management/two-minute-rule/",
+      "url_ur": "/ur/life-hacks/time-management/two-minute-rule/",
       "languages": [
         "en",
         "ur"
@@ -241,11 +241,11 @@
     {
       "id": "time-management-08",
       "category": "time-management",
-      "slug": "time-management-guide-08",
-      "title_en": "How to Stay Consistent with Time Management",
-      "title_ur": "وقت کا انتظام میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/time-management/time-management-guide-08/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-08/",
+      "slug": "weekly-time-review",
+      "title_en": "Build a Weekly Review That Actually Saves Time",
+      "title_ur": "ایسا ہفتہ وار جائزہ بنائیں جو واقعی وقت بچائے",
+      "url": "/life-hacks/time-management/weekly-time-review/",
+      "url_ur": "/ur/life-hacks/time-management/weekly-time-review/",
       "languages": [
         "en",
         "ur"
@@ -256,11 +256,11 @@
     {
       "id": "time-management-09",
       "category": "time-management",
-      "slug": "time-management-guide-09",
-      "title_en": "A Weekly Checklist for Better Time Management",
-      "title_ur": "وقت کا انتظام کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/time-management/time-management-guide-09/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-09/",
+      "slug": "protect-focus-time",
+      "title_en": "Protect Focus Time from Meetings and Interruptions",
+      "title_ur": "میٹنگز اور خلل سے اپنے یکسوئی کے وقت کی حفاظت کریں",
+      "url": "/life-hacks/time-management/protect-focus-time/",
+      "url_ur": "/ur/life-hacks/time-management/protect-focus-time/",
       "languages": [
         "en",
         "ur"
@@ -271,11 +271,11 @@
     {
       "id": "time-management-10",
       "category": "time-management",
-      "slug": "time-management-guide-10",
-      "title_en": "How to Measure Progress in Time Management",
-      "title_ur": "وقت کا انتظام میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/time-management/time-management-guide-10/",
-      "url_ur": "/ur/life-hacks/time-management/time-management-guide-10/",
+      "slug": "estimate-task-time",
+      "title_en": "Estimate Tasks More Accurately and Avoid Overbooking",
+      "title_ur": "کاموں کا وقت درست اندازہ لگائیں اور ضرورت سے زیادہ شیڈول نہ بنائیں",
+      "url": "/life-hacks/time-management/estimate-task-time/",
+      "url_ur": "/ur/life-hacks/time-management/estimate-task-time/",
       "languages": [
         "en",
         "ur"
@@ -286,11 +286,11 @@
     {
       "id": "productivity-01",
       "category": "productivity",
-      "slug": "productivity-guide-01",
-      "title_en": "A Beginner's Practical Guide to Productivity",
-      "title_ur": "کام کی صلاحیت کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/productivity/productivity-guide-01/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-01/",
+      "slug": "daily-most-important-task",
+      "title_en": "Choose One Daily MIT: Your Most Important Task",
+      "title_ur": "روزانہ ایک اہم ترین کام منتخب کریں",
+      "url": "/life-hacks/productivity/daily-most-important-task/",
+      "url_ur": "/ur/life-hacks/productivity/daily-most-important-task/",
       "languages": [
         "en",
         "ur"
@@ -301,11 +301,11 @@
     {
       "id": "productivity-02",
       "category": "productivity",
-      "slug": "productivity-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Productivity",
-      "title_ur": "کام کی صلاحیت میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/productivity/productivity-guide-02/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-02/",
+      "slug": "batch-similar-tasks",
+      "title_en": "Batch Similar Tasks to Reduce Context Switching",
+      "title_ur": "ملتے جلتے کام اکٹھے کرکے بار بار ذہن بدلنے سے بچیں",
+      "url": "/life-hacks/productivity/batch-similar-tasks/",
+      "url_ur": "/ur/life-hacks/productivity/batch-similar-tasks/",
       "languages": [
         "en",
         "ur"
@@ -316,11 +316,11 @@
     {
       "id": "productivity-03",
       "category": "productivity",
-      "slug": "productivity-guide-03",
-      "title_en": "Simple Daily Ways to Improve Productivity",
-      "title_ur": "کام کی صلاحیت کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/productivity/productivity-guide-03/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-03/",
+      "slug": "distraction-free-work-session",
+      "title_en": "Create a Distraction-Free Work Session",
+      "title_ur": "بغیر خلل کے کام کرنے کا سیشن بنائیں",
+      "url": "/life-hacks/productivity/distraction-free-work-session/",
+      "url_ur": "/ur/life-hacks/productivity/distraction-free-work-session/",
       "languages": [
         "en",
         "ur"
@@ -331,11 +331,11 @@
     {
       "id": "productivity-04",
       "category": "productivity",
-      "slug": "productivity-guide-04",
-      "title_en": "How to Build a Better Routine for Productivity",
-      "title_ur": "کام کی صلاحیت کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/productivity/productivity-guide-04/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-04/",
+      "slug": "pomodoro-method-flexible-breaks",
+      "title_en": "Use the Pomodoro Method with Flexible Breaks",
+      "title_ur": "لچکدار وقفوں کے ساتھ پومودورو طریقہ اپنائیں",
+      "url": "/life-hacks/productivity/pomodoro-method-flexible-breaks/",
+      "url_ur": "/ur/life-hacks/productivity/pomodoro-method-flexible-breaks/",
       "languages": [
         "en",
         "ur"
@@ -346,11 +346,11 @@
     {
       "id": "productivity-05",
       "category": "productivity",
-      "slug": "productivity-guide-05",
-      "title_en": "A Step-by-Step Plan for Productivity",
-      "title_ur": "کام کی صلاحیت کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/productivity/productivity-guide-05/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-05/",
+      "slug": "end-of-day-shutdown-routine",
+      "title_en": "Design a Simple End-of-Day Shutdown Routine",
+      "title_ur": "دن کے اختتام پر کام سمیٹنے کا آسان معمول بنائیں",
+      "url": "/life-hacks/productivity/end-of-day-shutdown-routine/",
+      "url_ur": "/ur/life-hacks/productivity/end-of-day-shutdown-routine/",
       "languages": [
         "en",
         "ur"
@@ -361,11 +361,11 @@
     {
       "id": "productivity-06",
       "category": "productivity",
-      "slug": "productivity-guide-06",
-      "title_en": "How to Solve Everyday Problems with Productivity",
-      "title_ur": "کام کی صلاحیت سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/productivity/productivity-guide-06/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-06/",
+      "slug": "break-projects-into-actions",
+      "title_en": "Turn Large Projects into Small Next Actions",
+      "title_ur": "بڑے منصوبوں کو چھوٹے اگلے اقدامات میں تقسیم کریں",
+      "url": "/life-hacks/productivity/break-projects-into-actions/",
+      "url_ur": "/ur/life-hacks/productivity/break-projects-into-actions/",
       "languages": [
         "en",
         "ur"
@@ -376,11 +376,11 @@
     {
       "id": "productivity-07",
       "category": "productivity",
-      "slug": "productivity-guide-07",
-      "title_en": "Useful Tools and Techniques for Productivity",
-      "title_ur": "کام کی صلاحیت کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/productivity/productivity-guide-07/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-07/",
+      "slug": "reduce-desktop-digital-clutter",
+      "title_en": "Reduce Digital Clutter on Your Desktop",
+      "title_ur": "اپنے کمپیوٹر ڈیسک ٹاپ کی ڈیجیٹل بے ترتیبی کم کریں",
+      "url": "/life-hacks/productivity/reduce-desktop-digital-clutter/",
+      "url_ur": "/ur/life-hacks/productivity/reduce-desktop-digital-clutter/",
       "languages": [
         "en",
         "ur"
@@ -391,11 +391,11 @@
     {
       "id": "productivity-08",
       "category": "productivity",
-      "slug": "productivity-guide-08",
-      "title_en": "How to Stay Consistent with Productivity",
-      "title_ur": "کام کی صلاحیت میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/productivity/productivity-guide-08/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-08/",
+      "slug": "checklists-for-repeated-tasks",
+      "title_en": "Make Checklists for Repeated Tasks",
+      "title_ur": "بار بار ہونے والے کاموں کے لیے چیک لسٹ بنائیں",
+      "url": "/life-hacks/productivity/checklists-for-repeated-tasks/",
+      "url_ur": "/ur/life-hacks/productivity/checklists-for-repeated-tasks/",
       "languages": [
         "en",
         "ur"
@@ -406,11 +406,11 @@
     {
       "id": "productivity-09",
       "category": "productivity",
-      "slug": "productivity-guide-09",
-      "title_en": "A Weekly Checklist for Better Productivity",
-      "title_ur": "کام کی صلاحیت کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/productivity/productivity-guide-09/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-09/",
+      "slug": "recover-focus-after-interruption",
+      "title_en": "Recover Your Focus After an Interruption",
+      "title_ur": "کام میں خلل کے بعد دوبارہ توجہ کیسے قائم کریں",
+      "url": "/life-hacks/productivity/recover-focus-after-interruption/",
+      "url_ur": "/ur/life-hacks/productivity/recover-focus-after-interruption/",
       "languages": [
         "en",
         "ur"
@@ -421,11 +421,11 @@
     {
       "id": "productivity-10",
       "category": "productivity",
-      "slug": "productivity-guide-10",
-      "title_en": "How to Measure Progress in Productivity",
-      "title_ur": "کام کی صلاحیت میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/productivity/productivity-guide-10/",
-      "url_ur": "/ur/life-hacks/productivity/productivity-guide-10/",
+      "slug": "track-output-not-busy-hours",
+      "title_en": "Track Output Instead of Just Busy Hours",
+      "title_ur": "صرف مصروف گھنٹے نہیں، مکمل کیے گئے کام ناپیں",
+      "url": "/life-hacks/productivity/track-output-not-busy-hours/",
+      "url_ur": "/ur/life-hacks/productivity/track-output-not-busy-hours/",
       "languages": [
         "en",
         "ur"
@@ -436,11 +436,11 @@
     {
       "id": "mental-wellness-01",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-01",
-      "title_en": "A Beginner's Practical Guide to Mental Wellness",
-      "title_ur": "ذہنی سکون کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-01/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-01/",
+      "slug": "five-minute-grounding-exercise",
+      "title_en": "A 5-Minute Grounding Exercise for Stressful Moments",
+      "title_ur": "پریشانی کے لمحوں میں پانچ منٹ کی گراؤنڈنگ مشق",
+      "url": "/life-hacks/mental-wellness/five-minute-grounding-exercise/",
+      "url_ur": "/ur/life-hacks/mental-wellness/five-minute-grounding-exercise/",
       "languages": [
         "en",
         "ur"
@@ -451,11 +451,11 @@
     {
       "id": "mental-wellness-02",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Mental Wellness",
-      "title_ur": "ذہنی سکون میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-02/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-02/",
+      "slug": "personal-stress-trigger-map",
+      "title_en": "Create a Personal Stress Trigger Map",
+      "title_ur": "اپنے ذہنی دباؤ کے محرکات کا نقشہ بنائیں",
+      "url": "/life-hacks/mental-wellness/personal-stress-trigger-map/",
+      "url_ur": "/ur/life-hacks/mental-wellness/personal-stress-trigger-map/",
       "languages": [
         "en",
         "ur"
@@ -466,11 +466,11 @@
     {
       "id": "mental-wellness-03",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-03",
-      "title_en": "Simple Daily Ways to Improve Mental Wellness",
-      "title_ur": "ذہنی سکون کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-03/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-03/",
+      "slug": "set-boundaries-without-guilt",
+      "title_en": "How to Set Boundaries Without Feeling Guilty",
+      "title_ur": "احساسِ جرم کے بغیر حدود کیسے قائم کریں",
+      "url": "/life-hacks/mental-wellness/set-boundaries-without-guilt/",
+      "url_ur": "/ur/life-hacks/mental-wellness/set-boundaries-without-guilt/",
       "languages": [
         "en",
         "ur"
@@ -481,11 +481,11 @@
     {
       "id": "mental-wellness-04",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-04",
-      "title_en": "How to Build a Better Routine for Mental Wellness",
-      "title_ur": "ذہنی سکون کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-04/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-04/",
+      "slug": "scheduled-worry-time",
+      "title_en": "A Practical Worry-Time Technique",
+      "title_ur": "فکرمندی کے لیے مخصوص وقت مقرر کرنے کی عملی تکنیک",
+      "url": "/life-hacks/mental-wellness/scheduled-worry-time/",
+      "url_ur": "/ur/life-hacks/mental-wellness/scheduled-worry-time/",
       "languages": [
         "en",
         "ur"
@@ -496,11 +496,11 @@
     {
       "id": "mental-wellness-05",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-05",
-      "title_en": "A Step-by-Step Plan for Mental Wellness",
-      "title_ur": "ذہنی سکون کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-05/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-05/",
+      "slug": "calming-after-difficult-day",
+      "title_en": "Build a Calming Routine After a Difficult Day",
+      "title_ur": "مشکل دن کے بعد سکون حاصل کرنے کا معمول بنائیں",
+      "url": "/life-hacks/mental-wellness/calming-after-difficult-day/",
+      "url_ur": "/ur/life-hacks/mental-wellness/calming-after-difficult-day/",
       "languages": [
         "en",
         "ur"
@@ -511,11 +511,11 @@
     {
       "id": "mental-wellness-06",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-06",
-      "title_en": "How to Solve Everyday Problems with Mental Wellness",
-      "title_ur": "ذہنی سکون سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-06/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-06/",
+      "slug": "mental-break-from-notifications",
+      "title_en": "How to Take a Mental Break from Constant Notifications",
+      "title_ur": "مسلسل نوٹیفکیشنز سے ذہنی وقفہ کیسے لیں",
+      "url": "/life-hacks/mental-wellness/mental-break-from-notifications/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-break-from-notifications/",
       "languages": [
         "en",
         "ur"
@@ -526,11 +526,11 @@
     {
       "id": "mental-wellness-07",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-07",
-      "title_en": "Useful Tools and Techniques for Mental Wellness",
-      "title_ur": "ذہنی سکون کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-07/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-07/",
+      "slug": "self-compassion-after-mistake",
+      "title_en": "Use Self-Compassion After Making a Mistake",
+      "title_ur": "غلطی کے بعد خود سے نرمی اور ہمدردی کیسے کریں",
+      "url": "/life-hacks/mental-wellness/self-compassion-after-mistake/",
+      "url_ur": "/ur/life-hacks/mental-wellness/self-compassion-after-mistake/",
       "languages": [
         "en",
         "ur"
@@ -541,11 +541,11 @@
     {
       "id": "mental-wellness-08",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-08",
-      "title_en": "How to Stay Consistent with Mental Wellness",
-      "title_ur": "ذہنی سکون میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-08/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-08/",
+      "slug": "early-signs-of-burnout",
+      "title_en": "Recognize Early Signs of Burnout in Daily Life",
+      "title_ur": "روزمرہ زندگی میں ذہنی تھکن کی ابتدائی علامات پہچانیں",
+      "url": "/life-hacks/mental-wellness/early-signs-of-burnout/",
+      "url_ur": "/ur/life-hacks/mental-wellness/early-signs-of-burnout/",
       "languages": [
         "en",
         "ur"
@@ -556,11 +556,11 @@
     {
       "id": "mental-wellness-09",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-09",
-      "title_en": "A Weekly Checklist for Better Mental Wellness",
-      "title_ur": "ذہنی سکون کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-09/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-09/",
+      "slug": "daily-mood-check-in",
+      "title_en": "A Simple Mood Check-In That Builds Self-Awareness",
+      "title_ur": "خود آگاہی بڑھانے کے لیے مزاج کا مختصر جائزہ",
+      "url": "/life-hacks/mental-wellness/daily-mood-check-in/",
+      "url_ur": "/ur/life-hacks/mental-wellness/daily-mood-check-in/",
       "languages": [
         "en",
         "ur"
@@ -571,11 +571,11 @@
     {
       "id": "mental-wellness-10",
       "category": "mental-wellness",
-      "slug": "mental-wellness-guide-10",
-      "title_en": "How to Measure Progress in Mental Wellness",
-      "title_ur": "ذہنی سکون میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/mental-wellness/mental-wellness-guide-10/",
-      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-10/",
+      "slug": "when-to-seek-mental-health-support",
+      "title_en": "When Self-Help Is Not Enough: Finding Support",
+      "title_ur": "جب خود مدد کافی نہ ہو تو مدد کیسے حاصل کریں",
+      "url": "/life-hacks/mental-wellness/when-to-seek-mental-health-support/",
+      "url_ur": "/ur/life-hacks/mental-wellness/when-to-seek-mental-health-support/",
       "languages": [
         "en",
         "ur"
@@ -586,11 +586,11 @@
     {
       "id": "psychology-hacks-01",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-01",
-      "title_en": "A Beginner's Practical Guide to Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-01/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-01/",
+      "slug": "spotlight-effect",
+      "title_en": "The Spotlight Effect: Why People Notice You Less Than You Think",
+      "title_ur": "اسپاٹ لائٹ ایفیکٹ: لوگ آپ کو اتنا نہیں دیکھتے جتنا آپ سمجھتے ہیں",
+      "url": "/life-hacks/psychology-hacks/spotlight-effect/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/spotlight-effect/",
       "languages": [
         "en",
         "ur"
@@ -601,11 +601,11 @@
     {
       "id": "psychology-hacks-02",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-02/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-02/",
+      "slug": "implementation-intentions",
+      "title_en": "Use Implementation Intentions to Make Habits Easier",
+      "title_ur": "عادت اپنانے کے لیے اگر-تو منصوبہ بندی استعمال کریں",
+      "url": "/life-hacks/psychology-hacks/implementation-intentions/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/implementation-intentions/",
       "languages": [
         "en",
         "ur"
@@ -616,11 +616,11 @@
     {
       "id": "psychology-hacks-03",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-03",
-      "title_en": "Simple Daily Ways to Improve Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-03/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-03/",
+      "slug": "zeigarnik-effect-unfinished-tasks",
+      "title_en": "The Zeigarnik Effect and Unfinished Tasks",
+      "title_ur": "زیگارِنک ایفیکٹ اور ادھورے کاموں کا ذہنی دباؤ",
+      "url": "/life-hacks/psychology-hacks/zeigarnik-effect-unfinished-tasks/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/zeigarnik-effect-unfinished-tasks/",
       "languages": [
         "en",
         "ur"
@@ -631,11 +631,11 @@
     {
       "id": "psychology-hacks-04",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-04",
-      "title_en": "How to Build a Better Routine for Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-04/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-04/",
+      "slug": "reframe-negative-self-talk",
+      "title_en": "Reframe Negative Self-Talk with Evidence",
+      "title_ur": "منفی خود کلامی کو حقائق کی مدد سے نیا رخ دیں",
+      "url": "/life-hacks/psychology-hacks/reframe-negative-self-talk/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/reframe-negative-self-talk/",
       "languages": [
         "en",
         "ur"
@@ -646,11 +646,11 @@
     {
       "id": "psychology-hacks-05",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-05",
-      "title_en": "A Step-by-Step Plan for Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-05/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-05/",
+      "slug": "priming-everyday-choices",
+      "title_en": "How Priming Influences Everyday Choices",
+      "title_ur": "پرائمنگ روزمرہ فیصلوں پر کیسے اثر انداز ہوتی ہے",
+      "url": "/life-hacks/psychology-hacks/priming-everyday-choices/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/priming-everyday-choices/",
       "languages": [
         "en",
         "ur"
@@ -661,11 +661,11 @@
     {
       "id": "psychology-hacks-06",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-06",
-      "title_en": "How to Solve Everyday Problems with Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-06/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-06/",
+      "slug": "peak-end-rule",
+      "title_en": "Use the Peak-End Rule to Reflect on Experiences",
+      "title_ur": "پیک اینڈ رول سے تجربات کا بہتر جائزہ لیں",
+      "url": "/life-hacks/psychology-hacks/peak-end-rule/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/peak-end-rule/",
       "languages": [
         "en",
         "ur"
@@ -676,11 +676,11 @@
     {
       "id": "psychology-hacks-07",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-07",
-      "title_en": "Useful Tools and Techniques for Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-07/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-07/",
+      "slug": "sunk-cost-fallacy",
+      "title_en": "The Sunk Cost Fallacy: Know When to Let Go",
+      "title_ur": "سنک کاسٹ فالسی: کب کسی کام کو چھوڑ دینا چاہیے",
+      "url": "/life-hacks/psychology-hacks/sunk-cost-fallacy/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/sunk-cost-fallacy/",
       "languages": [
         "en",
         "ur"
@@ -691,11 +691,11 @@
     {
       "id": "psychology-hacks-08",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-08",
-      "title_en": "How to Stay Consistent with Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-08/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-08/",
+      "slug": "reduce-choice-overload",
+      "title_en": "Reduce Choice Overload with a Shortlist",
+      "title_ur": "مختصر فہرست بنا کر بہت زیادہ انتخاب کی الجھن کم کریں",
+      "url": "/life-hacks/psychology-hacks/reduce-choice-overload/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/reduce-choice-overload/",
       "languages": [
         "en",
         "ur"
@@ -706,11 +706,11 @@
     {
       "id": "psychology-hacks-09",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-09",
-      "title_en": "A Weekly Checklist for Better Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-09/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-09/",
+      "slug": "cognitive-reappraisal",
+      "title_en": "Practice Cognitive Reappraisal in Difficult Situations",
+      "title_ur": "مشکل حالات میں سوچ کا زاویہ بدلنے کی مشق کریں",
+      "url": "/life-hacks/psychology-hacks/cognitive-reappraisal/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/cognitive-reappraisal/",
       "languages": [
         "en",
         "ur"
@@ -721,11 +721,11 @@
     {
       "id": "psychology-hacks-10",
       "category": "psychology-hacks",
-      "slug": "psychology-hacks-guide-10",
-      "title_en": "How to Measure Progress in Psychology Hacks",
-      "title_ur": "نفسیاتی ہیکس میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-10/",
-      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-10/",
+      "slug": "small-rewards-reinforce-behaviour",
+      "title_en": "Why Small Rewards Can Reinforce a New Behaviour",
+      "title_ur": "چھوٹے انعامات نئی عادت کو مضبوط کیسے بنا سکتے ہیں",
+      "url": "/life-hacks/psychology-hacks/small-rewards-reinforce-behaviour/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/small-rewards-reinforce-behaviour/",
       "languages": [
         "en",
         "ur"
@@ -736,11 +736,11 @@
     {
       "id": "communication-01",
       "category": "communication",
-      "slug": "communication-guide-01",
-      "title_en": "A Beginner's Practical Guide to Communication",
-      "title_ur": "گفتگو اور رابطے کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/communication/communication-guide-01/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-01/",
+      "slug": "active-listening-method",
+      "title_en": "Listen to Understand: A Simple Active Listening Method",
+      "title_ur": "سمجھنے کے لیے سنیں: فعال سماعت کا آسان طریقہ",
+      "url": "/life-hacks/communication/active-listening-method/",
+      "url_ur": "/ur/life-hacks/communication/active-listening-method/",
       "languages": [
         "en",
         "ur"
@@ -751,11 +751,11 @@
     {
       "id": "communication-02",
       "category": "communication",
-      "slug": "communication-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Communication",
-      "title_ur": "گفتگو اور رابطے میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/communication/communication-guide-02/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-02/",
+      "slug": "open-ended-questions",
+      "title_en": "Ask Better Open-Ended Questions",
+      "title_ur": "بہتر کھلے سوالات کیسے پوچھیں",
+      "url": "/life-hacks/communication/open-ended-questions/",
+      "url_ur": "/ur/life-hacks/communication/open-ended-questions/",
       "languages": [
         "en",
         "ur"
@@ -766,11 +766,11 @@
     {
       "id": "communication-03",
       "category": "communication",
-      "slug": "communication-guide-03",
-      "title_en": "Simple Daily Ways to Improve Communication",
-      "title_ur": "گفتگو اور رابطے کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/communication/communication-guide-03/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-03/",
+      "slug": "respectful-disagreement",
+      "title_en": "Disagree Respectfully Without Starting an Argument",
+      "title_ur": "بحث چھیڑے بغیر اختلافِ رائے کیسے کریں",
+      "url": "/life-hacks/communication/respectful-disagreement/",
+      "url_ur": "/ur/life-hacks/communication/respectful-disagreement/",
       "languages": [
         "en",
         "ur"
@@ -781,11 +781,11 @@
     {
       "id": "communication-04",
       "category": "communication",
-      "slug": "communication-guide-04",
-      "title_en": "How to Build a Better Routine for Communication",
-      "title_ur": "گفتگو اور رابطے کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/communication/communication-guide-04/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-04/",
+      "slug": "sbi-feedback-model",
+      "title_en": "Use the SBI Model to Give Clear Feedback",
+      "title_ur": "واضح رائے دینے کے لیے ایس بی آئی ماڈل اپنائیں",
+      "url": "/life-hacks/communication/sbi-feedback-model/",
+      "url_ur": "/ur/life-hacks/communication/sbi-feedback-model/",
       "languages": [
         "en",
         "ur"
@@ -796,11 +796,11 @@
     {
       "id": "communication-05",
       "category": "communication",
-      "slug": "communication-guide-05",
-      "title_en": "A Step-by-Step Plan for Communication",
-      "title_ur": "گفتگو اور رابطے کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/communication/communication-guide-05/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-05/",
+      "slug": "explain-complex-ideas",
+      "title_en": "Explain Complex Ideas in Plain Language",
+      "title_ur": "مشکل خیالات کو آسان زبان میں سمجھائیں",
+      "url": "/life-hacks/communication/explain-complex-ideas/",
+      "url_ur": "/ur/life-hacks/communication/explain-complex-ideas/",
       "languages": [
         "en",
         "ur"
@@ -811,11 +811,11 @@
     {
       "id": "communication-06",
       "category": "communication",
-      "slug": "communication-guide-06",
-      "title_en": "How to Solve Everyday Problems with Communication",
-      "title_ur": "گفتگو اور رابطے سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/communication/communication-guide-06/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-06/",
+      "slug": "pause-before-emotional-reply",
+      "title_en": "Pause Before Replying to an Emotional Message",
+      "title_ur": "جذباتی پیغام کا جواب دینے سے پہلے توقف کریں",
+      "url": "/life-hacks/communication/pause-before-emotional-reply/",
+      "url_ur": "/ur/life-hacks/communication/pause-before-emotional-reply/",
       "languages": [
         "en",
         "ur"
@@ -826,11 +826,11 @@
     {
       "id": "communication-07",
       "category": "communication",
-      "slug": "communication-guide-07",
-      "title_en": "Useful Tools and Techniques for Communication",
-      "title_ur": "گفتگو اور رابطے کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/communication/communication-guide-07/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-07/",
+      "slug": "say-no-politely",
+      "title_en": "How to Say No Clearly and Politely",
+      "title_ur": "واضح اور مؤدبانہ انداز میں انکار کیسے کریں",
+      "url": "/life-hacks/communication/say-no-politely/",
+      "url_ur": "/ur/life-hacks/communication/say-no-politely/",
       "languages": [
         "en",
         "ur"
@@ -841,11 +841,11 @@
     {
       "id": "communication-08",
       "category": "communication",
-      "slug": "communication-guide-08",
-      "title_en": "How to Stay Consistent with Communication",
-      "title_ur": "گفتگو اور رابطے میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/communication/communication-guide-08/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-08/",
+      "slug": "avoid-text-message-misunderstandings",
+      "title_en": "Avoid Misunderstandings in Text Messages",
+      "title_ur": "ٹیکسٹ پیغامات میں غلط فہمیوں سے کیسے بچیں",
+      "url": "/life-hacks/communication/avoid-text-message-misunderstandings/",
+      "url_ur": "/ur/life-hacks/communication/avoid-text-message-misunderstandings/",
       "languages": [
         "en",
         "ur"
@@ -856,11 +856,11 @@
     {
       "id": "communication-09",
       "category": "communication",
-      "slug": "communication-guide-09",
-      "title_en": "A Weekly Checklist for Better Communication",
-      "title_ur": "گفتگو اور رابطے کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/communication/communication-guide-09/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-09/",
+      "slug": "reflective-listening-conflict",
+      "title_en": "Use Reflective Listening During Conflict",
+      "title_ur": "اختلاف کے دوران بات دہرا کر سمجھنے کی تصدیق کریں",
+      "url": "/life-hacks/communication/reflective-listening-conflict/",
+      "url_ur": "/ur/life-hacks/communication/reflective-listening-conflict/",
       "languages": [
         "en",
         "ur"
@@ -871,11 +871,11 @@
     {
       "id": "communication-10",
       "category": "communication",
-      "slug": "communication-guide-10",
-      "title_en": "How to Measure Progress in Communication",
-      "title_ur": "گفتگو اور رابطے میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/communication/communication-guide-10/",
-      "url_ur": "/ur/life-hacks/communication/communication-guide-10/",
+      "slug": "structure-effective-conversation",
+      "title_en": "Structure a Short and Effective Conversation",
+      "title_ur": "مختصر اور مؤثر گفتگو کو ترتیب کیسے دیں",
+      "url": "/life-hacks/communication/structure-effective-conversation/",
+      "url_ur": "/ur/life-hacks/communication/structure-effective-conversation/",
       "languages": [
         "en",
         "ur"
@@ -886,11 +886,11 @@
     {
       "id": "social-skills-01",
       "category": "social-skills",
-      "slug": "social-skills-guide-01",
-      "title_en": "A Beginner's Practical Guide to Social Skills",
-      "title_ur": "سماجی مہارتیں کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/social-skills/social-skills-guide-01/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-01/",
+      "slug": "remember-names-association",
+      "title_en": "Remember Names with a Simple Association Technique",
+      "title_ur": "سادہ ذہنی تعلق کے ذریعے لوگوں کے نام یاد رکھیں",
+      "url": "/life-hacks/social-skills/remember-names-association/",
+      "url_ur": "/ur/life-hacks/social-skills/remember-names-association/",
       "languages": [
         "en",
         "ur"
@@ -901,11 +901,11 @@
     {
       "id": "social-skills-02",
       "category": "social-skills",
-      "slug": "social-skills-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Social Skills",
-      "title_ur": "سماجی مہارتیں میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/social-skills/social-skills-guide-02/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-02/",
+      "slug": "join-group-conversation",
+      "title_en": "Join a Group Conversation Without Interrupting",
+      "title_ur": "کسی گروپ کی گفتگو میں مداخلت کیے بغیر شامل ہوں",
+      "url": "/life-hacks/social-skills/join-group-conversation/",
+      "url_ur": "/ur/life-hacks/social-skills/join-group-conversation/",
       "languages": [
         "en",
         "ur"
@@ -916,11 +916,11 @@
     {
       "id": "social-skills-03",
       "category": "social-skills",
-      "slug": "social-skills-guide-03",
-      "title_en": "Simple Daily Ways to Improve Social Skills",
-      "title_ur": "سماجی مہارتیں کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/social-skills/social-skills-guide-03/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-03/",
+      "slug": "read-social-cues-carefully",
+      "title_en": "Read Social Cues Without Jumping to Conclusions",
+      "title_ur": "جلد نتیجہ نکالے بغیر سماجی اشاروں کو سمجھیں",
+      "url": "/life-hacks/social-skills/read-social-cues-carefully/",
+      "url_ur": "/ur/life-hacks/social-skills/read-social-cues-carefully/",
       "languages": [
         "en",
         "ur"
@@ -931,11 +931,11 @@
     {
       "id": "social-skills-04",
       "category": "social-skills",
-      "slug": "social-skills-guide-04",
-      "title_en": "How to Build a Better Routine for Social Skills",
-      "title_ur": "سماجی مہارتیں کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/social-skills/social-skills-guide-04/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-04/",
+      "slug": "natural-small-talk",
+      "title_en": "Make Small Talk Feel More Natural",
+      "title_ur": "سرسری گفتگو کو زیادہ فطری کیسے بنائیں",
+      "url": "/life-hacks/social-skills/natural-small-talk/",
+      "url_ur": "/ur/life-hacks/social-skills/natural-small-talk/",
       "languages": [
         "en",
         "ur"
@@ -946,11 +946,11 @@
     {
       "id": "social-skills-05",
       "category": "social-skills",
-      "slug": "social-skills-guide-05",
-      "title_en": "A Step-by-Step Plan for Social Skills",
-      "title_ur": "سماجی مہارتیں کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/social-skills/social-skills-guide-05/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-05/",
+      "slug": "thoughtful-follow-up-questions",
+      "title_en": "Show Interest with Thoughtful Follow-Up Questions",
+      "title_ur": "بامعنی ضمنی سوالات سے دلچسپی ظاہر کریں",
+      "url": "/life-hacks/social-skills/thoughtful-follow-up-questions/",
+      "url_ur": "/ur/life-hacks/social-skills/thoughtful-follow-up-questions/",
       "languages": [
         "en",
         "ur"
@@ -961,11 +961,11 @@
     {
       "id": "social-skills-06",
       "category": "social-skills",
-      "slug": "social-skills-guide-06",
-      "title_en": "How to Solve Everyday Problems with Social Skills",
-      "title_ur": "سماجی مہارتیں سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/social-skills/social-skills-guide-06/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-06/",
+      "slug": "handle-awkward-silences",
+      "title_en": "Handle Awkward Silences with Ease",
+      "title_ur": "خاموشی کے غیر آرام دہ لمحوں کو آسانی سے سنبھالیں",
+      "url": "/life-hacks/social-skills/handle-awkward-silences/",
+      "url_ur": "/ur/life-hacks/social-skills/handle-awkward-silences/",
       "languages": [
         "en",
         "ur"
@@ -976,11 +976,11 @@
     {
       "id": "social-skills-07",
       "category": "social-skills",
-      "slug": "social-skills-guide-07",
-      "title_en": "Useful Tools and Techniques for Social Skills",
-      "title_ur": "سماجی مہارتیں کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/social-skills/social-skills-guide-07/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-07/",
+      "slug": "build-trust-everyday-actions",
+      "title_en": "Build Trust Through Consistent Everyday Actions",
+      "title_ur": "روزمرہ مستقل رویے سے اعتماد قائم کریں",
+      "url": "/life-hacks/social-skills/build-trust-everyday-actions/",
+      "url_ur": "/ur/life-hacks/social-skills/build-trust-everyday-actions/",
       "languages": [
         "en",
         "ur"
@@ -991,11 +991,11 @@
     {
       "id": "social-skills-08",
       "category": "social-skills",
-      "slug": "social-skills-guide-08",
-      "title_en": "How to Stay Consistent with Social Skills",
-      "title_ur": "سماجی مہارتیں میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/social-skills/social-skills-guide-08/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-08/",
+      "slug": "respect-personal-space",
+      "title_en": "Respect Personal Space in Different Settings",
+      "title_ur": "مختلف ماحول میں ذاتی فاصلے کا احترام کریں",
+      "url": "/life-hacks/social-skills/respect-personal-space/",
+      "url_ur": "/ur/life-hacks/social-skills/respect-personal-space/",
       "languages": [
         "en",
         "ur"
@@ -1006,11 +1006,11 @@
     {
       "id": "social-skills-09",
       "category": "social-skills",
-      "slug": "social-skills-guide-09",
-      "title_en": "A Weekly Checklist for Better Social Skills",
-      "title_ur": "سماجی مہارتیں کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/social-skills/social-skills-guide-09/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-09/",
+      "slug": "exit-conversation-politely",
+      "title_en": "Exit a Conversation Politely",
+      "title_ur": "گفتگو سے شائستگی کے ساتھ کیسے رخصت ہوں",
+      "url": "/life-hacks/social-skills/exit-conversation-politely/",
+      "url_ur": "/ur/life-hacks/social-skills/exit-conversation-politely/",
       "languages": [
         "en",
         "ur"
@@ -1021,11 +1021,11 @@
     {
       "id": "social-skills-10",
       "category": "social-skills",
-      "slug": "social-skills-guide-10",
-      "title_en": "How to Measure Progress in Social Skills",
-      "title_ur": "سماجی مہارتیں میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/social-skills/social-skills-guide-10/",
-      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-10/",
+      "slug": "network-without-self-promotion",
+      "title_en": "Network Without Sounding Self-Promotional",
+      "title_ur": "اپنی تشہیر کیے بغیر مؤثر تعلقات بنائیں",
+      "url": "/life-hacks/social-skills/network-without-self-promotion/",
+      "url_ur": "/ur/life-hacks/social-skills/network-without-self-promotion/",
       "languages": [
         "en",
         "ur"
@@ -1036,11 +1036,11 @@
     {
       "id": "confidence-01",
       "category": "confidence",
-      "slug": "confidence-guide-01",
-      "title_en": "A Beginner's Practical Guide to Confidence",
-      "title_ur": "خود اعتمادی کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/confidence/confidence-guide-01/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-01/",
+      "slug": "prepare-public-speaking-nerves",
+      "title_en": "Prepare for Nerves Before Speaking in Public",
+      "title_ur": "عوامی گفتگو سے پہلے گھبراہٹ کے لیے تیاری کریں",
+      "url": "/life-hacks/confidence/prepare-public-speaking-nerves/",
+      "url_ur": "/ur/life-hacks/confidence/prepare-public-speaking-nerves/",
       "languages": [
         "en",
         "ur"
@@ -1051,11 +1051,11 @@
     {
       "id": "confidence-02",
       "category": "confidence",
-      "slug": "confidence-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Confidence",
-      "title_ur": "خود اعتمادی میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/confidence/confidence-guide-02/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-02/",
+      "slug": "small-daily-confidence-challenges",
+      "title_en": "Build Confidence Through Small Daily Challenges",
+      "title_ur": "روزانہ کے چھوٹے چیلنجز سے خود اعتمادی بڑھائیں",
+      "url": "/life-hacks/confidence/small-daily-confidence-challenges/",
+      "url_ur": "/ur/life-hacks/confidence/small-daily-confidence-challenges/",
       "languages": [
         "en",
         "ur"
@@ -1066,11 +1066,11 @@
     {
       "id": "confidence-03",
       "category": "confidence",
-      "slug": "confidence-guide-03",
-      "title_en": "Simple Daily Ways to Improve Confidence",
-      "title_ur": "خود اعتمادی کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/confidence/confidence-guide-03/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-03/",
+      "slug": "stop-comparing-progress",
+      "title_en": "Stop Comparing Your Progress with Others",
+      "title_ur": "اپنی پیش رفت کا دوسروں سے موازنہ کرنا چھوڑیں",
+      "url": "/life-hacks/confidence/stop-comparing-progress/",
+      "url_ur": "/ur/life-hacks/confidence/stop-comparing-progress/",
       "languages": [
         "en",
         "ur"
@@ -1081,11 +1081,11 @@
     {
       "id": "confidence-04",
       "category": "confidence",
-      "slug": "confidence-guide-04",
-      "title_en": "How to Build a Better Routine for Confidence",
-      "title_ur": "خود اعتمادی کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/confidence/confidence-guide-04/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-04/",
+      "slug": "challenge-self-doubt-with-evidence",
+      "title_en": "Use Evidence to Challenge Self-Doubt",
+      "title_ur": "خود پر شک کو حقائق کی مدد سے چیلنج کریں",
+      "url": "/life-hacks/confidence/challenge-self-doubt-with-evidence/",
+      "url_ur": "/ur/life-hacks/confidence/challenge-self-doubt-with-evidence/",
       "languages": [
         "en",
         "ur"
@@ -1096,11 +1096,11 @@
     {
       "id": "confidence-05",
       "category": "confidence",
-      "slug": "confidence-guide-05",
-      "title_en": "A Step-by-Step Plan for Confidence",
-      "title_ur": "خود اعتمادی کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/confidence/confidence-guide-05/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-05/",
+      "slug": "posture-comfort-presence",
+      "title_en": "Improve Your Posture for Comfort and Presence",
+      "title_ur": "آرام اور پراعتماد موجودگی کے لیے نشست و برخاست بہتر بنائیں",
+      "url": "/life-hacks/confidence/posture-comfort-presence/",
+      "url_ur": "/ur/life-hacks/confidence/posture-comfort-presence/",
       "languages": [
         "en",
         "ur"
@@ -1111,11 +1111,11 @@
     {
       "id": "confidence-06",
       "category": "confidence",
-      "slug": "confidence-guide-06",
-      "title_en": "How to Solve Everyday Problems with Confidence",
-      "title_ur": "خود اعتمادی سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/confidence/confidence-guide-06/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-06/",
+      "slug": "speak-up-in-meetings",
+      "title_en": "Speak Up in Meetings with a Prepared Point",
+      "title_ur": "تیار شدہ نکتے کے ساتھ میٹنگ میں اپنی بات رکھیں",
+      "url": "/life-hacks/confidence/speak-up-in-meetings/",
+      "url_ur": "/ur/life-hacks/confidence/speak-up-in-meetings/",
       "languages": [
         "en",
         "ur"
@@ -1126,11 +1126,11 @@
     {
       "id": "confidence-07",
       "category": "confidence",
-      "slug": "confidence-guide-07",
-      "title_en": "Useful Tools and Techniques for Confidence",
-      "title_ur": "خود اعتمادی کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/confidence/confidence-guide-07/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-07/",
+      "slug": "recover-after-embarrassing-moment",
+      "title_en": "Recover Gracefully After an Embarrassing Moment",
+      "title_ur": "شرمندگی کے لمحے کے بعد خود کو سنبھالیں",
+      "url": "/life-hacks/confidence/recover-after-embarrassing-moment/",
+      "url_ur": "/ur/life-hacks/confidence/recover-after-embarrassing-moment/",
       "languages": [
         "en",
         "ur"
@@ -1141,11 +1141,11 @@
     {
       "id": "confidence-08",
       "category": "confidence",
-      "slug": "confidence-guide-08",
-      "title_en": "How to Stay Consistent with Confidence",
-      "title_ur": "خود اعتمادی میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/confidence/confidence-guide-08/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-08/",
+      "slug": "realistic-goals-self-belief",
+      "title_en": "Set Realistic Goals That Strengthen Self-Belief",
+      "title_ur": "حقیقت پسندانہ اہداف سے خود اعتمادی مضبوط کریں",
+      "url": "/life-hacks/confidence/realistic-goals-self-belief/",
+      "url_ur": "/ur/life-hacks/confidence/realistic-goals-self-belief/",
       "languages": [
         "en",
         "ur"
@@ -1156,11 +1156,11 @@
     {
       "id": "confidence-09",
       "category": "confidence",
-      "slug": "confidence-guide-09",
-      "title_en": "A Weekly Checklist for Better Confidence",
-      "title_ur": "خود اعتمادی کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/confidence/confidence-guide-09/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-09/",
+      "slug": "accept-compliments",
+      "title_en": "Accept Compliments Without Dismissing Them",
+      "title_ur": "تعریف کو رد کیے بغیر خوش دلی سے قبول کریں",
+      "url": "/life-hacks/confidence/accept-compliments/",
+      "url_ur": "/ur/life-hacks/confidence/accept-compliments/",
       "languages": [
         "en",
         "ur"
@@ -1171,11 +1171,11 @@
     {
       "id": "confidence-10",
       "category": "confidence",
-      "slug": "confidence-guide-10",
-      "title_en": "How to Measure Progress in Confidence",
-      "title_ur": "خود اعتمادی میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/confidence/confidence-guide-10/",
-      "url_ur": "/ur/life-hacks/confidence/confidence-guide-10/",
+      "slug": "self-worth-not-performance",
+      "title_en": "Separate Your Worth from Performance",
+      "title_ur": "اپنی قدر کو کارکردگی سے الگ رکھنا سیکھیں",
+      "url": "/life-hacks/confidence/self-worth-not-performance/",
+      "url_ur": "/ur/life-hacks/confidence/self-worth-not-performance/",
       "languages": [
         "en",
         "ur"
@@ -1186,11 +1186,11 @@
     {
       "id": "personality-development-01",
       "category": "personality-development",
-      "slug": "personality-development-guide-01",
-      "title_en": "A Beginner's Practical Guide to Personality Development",
-      "title_ur": "شخصیت سازی کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/personality-development/personality-development-guide-01/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-01/",
+      "slug": "identify-core-values",
+      "title_en": "Identify Your Core Values Before Setting Goals",
+      "title_ur": "اہداف بنانے سے پہلے اپنی بنیادی اقدار پہچانیں",
+      "url": "/life-hacks/personality-development/identify-core-values/",
+      "url_ur": "/ur/life-hacks/personality-development/identify-core-values/",
       "languages": [
         "en",
         "ur"
@@ -1201,11 +1201,11 @@
     {
       "id": "personality-development-02",
       "category": "personality-development",
-      "slug": "personality-development-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Personality Development",
-      "title_ur": "شخصیت سازی میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/personality-development/personality-development-guide-02/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-02/",
+      "slug": "journaling-behaviour-patterns",
+      "title_en": "Use Journaling to Notice Behaviour Patterns",
+      "title_ur": "رویوں کے انداز سمجھنے کے لیے جرنل لکھیں",
+      "url": "/life-hacks/personality-development/journaling-behaviour-patterns/",
+      "url_ur": "/ur/life-hacks/personality-development/journaling-behaviour-patterns/",
       "languages": [
         "en",
         "ur"
@@ -1216,11 +1216,11 @@
     {
       "id": "personality-development-03",
       "category": "personality-development",
-      "slug": "personality-development-guide-03",
-      "title_en": "Simple Daily Ways to Improve Personality Development",
-      "title_ur": "شخصیت سازی کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/personality-development/personality-development-guide-03/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-03/",
+      "slug": "accept-constructive-criticism",
+      "title_en": "Become More Open to Constructive Criticism",
+      "title_ur": "تعمیری تنقید قبول کرنے کی صلاحیت بڑھائیں",
+      "url": "/life-hacks/personality-development/accept-constructive-criticism/",
+      "url_ur": "/ur/life-hacks/personality-development/accept-constructive-criticism/",
       "languages": [
         "en",
         "ur"
@@ -1231,11 +1231,11 @@
     {
       "id": "personality-development-04",
       "category": "personality-development",
-      "slug": "personality-development-guide-04",
-      "title_en": "How to Build a Better Routine for Personality Development",
-      "title_ur": "شخصیت سازی کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/personality-development/personality-development-guide-04/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-04/",
+      "slug": "develop-everyday-patience",
+      "title_en": "Develop Patience in Everyday Situations",
+      "title_ur": "روزمرہ حالات میں صبر پیدا کریں",
+      "url": "/life-hacks/personality-development/develop-everyday-patience/",
+      "url_ur": "/ur/life-hacks/personality-development/develop-everyday-patience/",
       "languages": [
         "en",
         "ur"
@@ -1246,11 +1246,11 @@
     {
       "id": "personality-development-05",
       "category": "personality-development",
-      "slug": "personality-development-guide-05",
-      "title_en": "A Step-by-Step Plan for Personality Development",
-      "title_ur": "شخصیت سازی کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/personality-development/personality-development-guide-05/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-05/",
+      "slug": "accountability-without-self-blame",
+      "title_en": "Practice Accountability Without Self-Blame",
+      "title_ur": "خود کو قصوروار ٹھہرائے بغیر ذمہ داری قبول کریں",
+      "url": "/life-hacks/personality-development/accountability-without-self-blame/",
+      "url_ur": "/ur/life-hacks/personality-development/accountability-without-self-blame/",
       "languages": [
         "en",
         "ur"
@@ -1261,11 +1261,11 @@
     {
       "id": "personality-development-06",
       "category": "personality-development",
-      "slug": "personality-development-guide-06",
-      "title_en": "How to Solve Everyday Problems with Personality Development",
-      "title_ur": "شخصیت سازی سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/personality-development/personality-development-guide-06/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-06/",
+      "slug": "personal-learning-habit",
+      "title_en": "Build a Personal Learning Habit",
+      "title_ur": "ذاتی سیکھنے کی مستقل عادت بنائیں",
+      "url": "/life-hacks/personality-development/personal-learning-habit/",
+      "url_ur": "/ur/life-hacks/personality-development/personal-learning-habit/",
       "languages": [
         "en",
         "ur"
@@ -1276,11 +1276,11 @@
     {
       "id": "personality-development-07",
       "category": "personality-development",
-      "slug": "personality-development-guide-07",
-      "title_en": "Useful Tools and Techniques for Personality Development",
-      "title_ur": "شخصیت سازی کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/personality-development/personality-development-guide-07/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-07/",
+      "slug": "recognize-personal-strengths",
+      "title_en": "Recognize Your Strengths with Real Examples",
+      "title_ur": "حقیقی مثالوں سے اپنی صلاحیتیں پہچانیں",
+      "url": "/life-hacks/personality-development/recognize-personal-strengths/",
+      "url_ur": "/ur/life-hacks/personality-development/recognize-personal-strengths/",
       "languages": [
         "en",
         "ur"
@@ -1291,11 +1291,11 @@
     {
       "id": "personality-development-08",
       "category": "personality-development",
-      "slug": "personality-development-guide-08",
-      "title_en": "How to Stay Consistent with Personality Development",
-      "title_ur": "شخصیت سازی میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/personality-development/personality-development-guide-08/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-08/",
+      "slug": "respond-not-react",
+      "title_en": "Respond Thoughtfully Instead of Reacting Quickly",
+      "title_ur": "فوری ردعمل کے بجائے سوچ سمجھ کر جواب دیں",
+      "url": "/life-hacks/personality-development/respond-not-react/",
+      "url_ur": "/ur/life-hacks/personality-development/respond-not-react/",
       "languages": [
         "en",
         "ur"
@@ -1306,11 +1306,11 @@
     {
       "id": "personality-development-09",
       "category": "personality-development",
-      "slug": "personality-development-guide-09",
-      "title_en": "A Weekly Checklist for Better Personality Development",
-      "title_ur": "شخصیت سازی کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/personality-development/personality-development-guide-09/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-09/",
+      "slug": "personal-code-of-conduct",
+      "title_en": "Create a Personal Code of Conduct",
+      "title_ur": "اپنے لیے اصولِ کردار مرتب کریں",
+      "url": "/life-hacks/personality-development/personal-code-of-conduct/",
+      "url_ur": "/ur/life-hacks/personality-development/personal-code-of-conduct/",
       "languages": [
         "en",
         "ur"
@@ -1321,11 +1321,11 @@
     {
       "id": "personality-development-10",
       "category": "personality-development",
-      "slug": "personality-development-guide-10",
-      "title_en": "How to Measure Progress in Personality Development",
-      "title_ur": "شخصیت سازی میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/personality-development/personality-development-guide-10/",
-      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-10/",
+      "slug": "reflection-into-action",
+      "title_en": "Turn Personal Reflection into One Practical Change",
+      "title_ur": "ذاتی غوروفکر کو ایک عملی تبدیلی میں بدلیں",
+      "url": "/life-hacks/personality-development/reflection-into-action/",
+      "url_ur": "/ur/life-hacks/personality-development/reflection-into-action/",
       "languages": [
         "en",
         "ur"
@@ -1336,11 +1336,11 @@
     {
       "id": "study-memory-01",
       "category": "study-memory",
-      "slug": "study-memory-guide-01",
-      "title_en": "A Beginner's Practical Guide to Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/study-memory/study-memory-guide-01/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-01/",
+      "slug": "active-recall-study",
+      "title_en": "Use Active Recall Instead of Re-Reading Notes",
+      "title_ur": "نوٹس بار بار پڑھنے کے بجائے ایکٹو ریکال اپنائیں",
+      "url": "/life-hacks/study-memory/active-recall-study/",
+      "url_ur": "/ur/life-hacks/study-memory/active-recall-study/",
       "languages": [
         "en",
         "ur"
@@ -1351,11 +1351,11 @@
     {
       "id": "study-memory-02",
       "category": "study-memory",
-      "slug": "study-memory-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Study & Memory",
-      "title_ur": "تعلیم اور یادداشت میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/study-memory/study-memory-guide-02/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-02/",
+      "slug": "spaced-repetition-calendar",
+      "title_en": "Space Your Revision with a Simple Study Calendar",
+      "title_ur": "سادہ مطالعاتی کیلنڈر سے وقفوں کے ساتھ دہرائی کریں",
+      "url": "/life-hacks/study-memory/spaced-repetition-calendar/",
+      "url_ur": "/ur/life-hacks/study-memory/spaced-repetition-calendar/",
       "languages": [
         "en",
         "ur"
@@ -1366,11 +1366,11 @@
     {
       "id": "study-memory-03",
       "category": "study-memory",
-      "slug": "study-memory-guide-03",
-      "title_en": "Simple Daily Ways to Improve Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/study-memory/study-memory-guide-03/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-03/",
+      "slug": "feynman-technique",
+      "title_en": "Use the Feynman Technique to Understand a Topic",
+      "title_ur": "کسی موضوع کو سمجھنے کے لیے فائن مین تکنیک اپنائیں",
+      "url": "/life-hacks/study-memory/feynman-technique/",
+      "url_ur": "/ur/life-hacks/study-memory/feynman-technique/",
       "languages": [
         "en",
         "ur"
@@ -1381,11 +1381,11 @@
     {
       "id": "study-memory-04",
       "category": "study-memory",
-      "slug": "study-memory-guide-04",
-      "title_en": "How to Build a Better Routine for Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/study-memory/study-memory-guide-04/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-04/",
+      "slug": "cornell-note-taking",
+      "title_en": "Create Better Notes with the Cornell Method",
+      "title_ur": "کارنیل طریقے سے بہتر نوٹس تیار کریں",
+      "url": "/life-hacks/study-memory/cornell-note-taking/",
+      "url_ur": "/ur/life-hacks/study-memory/cornell-note-taking/",
       "languages": [
         "en",
         "ur"
@@ -1396,11 +1396,11 @@
     {
       "id": "study-memory-05",
       "category": "study-memory",
-      "slug": "study-memory-guide-05",
-      "title_en": "A Step-by-Step Plan for Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/study-memory/study-memory-guide-05/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-05/",
+      "slug": "chunking-memory-technique",
+      "title_en": "Memorize Lists Using Chunking",
+      "title_ur": "چنکنگ کے ذریعے فہرستیں یاد رکھیں",
+      "url": "/life-hacks/study-memory/chunking-memory-technique/",
+      "url_ur": "/ur/life-hacks/study-memory/chunking-memory-technique/",
       "languages": [
         "en",
         "ur"
@@ -1411,11 +1411,11 @@
     {
       "id": "study-memory-06",
       "category": "study-memory",
-      "slug": "study-memory-guide-06",
-      "title_en": "How to Solve Everyday Problems with Study & Memory",
-      "title_ur": "تعلیم اور یادداشت سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/study-memory/study-memory-guide-06/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-06/",
+      "slug": "exam-practice-questions",
+      "title_en": "Prepare for Exams with Practice Questions",
+      "title_ur": "مشق کے سوالات سے امتحانات کی تیاری کریں",
+      "url": "/life-hacks/study-memory/exam-practice-questions/",
+      "url_ur": "/ur/life-hacks/study-memory/exam-practice-questions/",
       "languages": [
         "en",
         "ur"
@@ -1426,11 +1426,11 @@
     {
       "id": "study-memory-07",
       "category": "study-memory",
-      "slug": "study-memory-guide-07",
-      "title_en": "Useful Tools and Techniques for Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/study-memory/study-memory-guide-07/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-07/",
+      "slug": "study-focus-setup",
+      "title_en": "Reduce Study Distractions with a Focus Setup",
+      "title_ur": "مطالعے کے لیے یکسو ماحول بنا کر خلل کم کریں",
+      "url": "/life-hacks/study-memory/study-focus-setup/",
+      "url_ur": "/ur/life-hacks/study-memory/study-focus-setup/",
       "languages": [
         "en",
         "ur"
@@ -1441,11 +1441,11 @@
     {
       "id": "study-memory-08",
       "category": "study-memory",
-      "slug": "study-memory-guide-08",
-      "title_en": "How to Stay Consistent with Study & Memory",
-      "title_ur": "تعلیم اور یادداشت میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/study-memory/study-memory-guide-08/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-08/",
+      "slug": "realistic-study-timetable",
+      "title_en": "Make a Realistic Study Timetable",
+      "title_ur": "حقیقت پسندانہ مطالعاتی ٹائم ٹیبل بنائیں",
+      "url": "/life-hacks/study-memory/realistic-study-timetable/",
+      "url_ur": "/ur/life-hacks/study-memory/realistic-study-timetable/",
       "languages": [
         "en",
         "ur"
@@ -1456,11 +1456,11 @@
     {
       "id": "study-memory-09",
       "category": "study-memory",
-      "slug": "study-memory-guide-09",
-      "title_en": "A Weekly Checklist for Better Study & Memory",
-      "title_ur": "تعلیم اور یادداشت کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/study-memory/study-memory-guide-09/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-09/",
+      "slug": "one-minute-reading-summary",
+      "title_en": "Remember What You Read with a One-Minute Summary",
+      "title_ur": "ایک منٹ کے خلاصے سے پڑھی ہوئی بات یاد رکھیں",
+      "url": "/life-hacks/study-memory/one-minute-reading-summary/",
+      "url_ur": "/ur/life-hacks/study-memory/one-minute-reading-summary/",
       "languages": [
         "en",
         "ur"
@@ -1471,11 +1471,11 @@
     {
       "id": "study-memory-10",
       "category": "study-memory",
-      "slug": "study-memory-guide-10",
-      "title_en": "How to Measure Progress in Study & Memory",
-      "title_ur": "تعلیم اور یادداشت میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/study-memory/study-memory-guide-10/",
-      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-10/",
+      "slug": "study-difficult-subjects",
+      "title_en": "Study Difficult Subjects in Short, Planned Sessions",
+      "title_ur": "مشکل مضامین مختصر اور منصوبہ بند نشستوں میں پڑھیں",
+      "url": "/life-hacks/study-memory/study-difficult-subjects/",
+      "url_ur": "/ur/life-hacks/study-memory/study-difficult-subjects/",
       "languages": [
         "en",
         "ur"
@@ -1486,11 +1486,11 @@
     {
       "id": "career-workplace-01",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-01",
-      "title_en": "A Beginner's Practical Guide to Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-01/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-01/",
+      "slug": "results-focused-cv",
+      "title_en": "Write a CV That Highlights Measurable Results",
+      "title_ur": "ایسا سی وی بنائیں جو قابلِ پیمائش کامیابیاں دکھائے",
+      "url": "/life-hacks/career-workplace/results-focused-cv/",
+      "url_ur": "/ur/life-hacks/career-workplace/results-focused-cv/",
       "languages": [
         "en",
         "ur"
@@ -1501,11 +1501,11 @@
     {
       "id": "career-workplace-02",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Career & Workplace",
-      "title_ur": "کیریئر اور دفتر میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-02/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-02/",
+      "slug": "job-interview-examples",
+      "title_en": "Prepare Strong Examples for Job Interviews",
+      "title_ur": "ملازمت کے انٹرویو کے لیے مضبوط مثالیں تیار کریں",
+      "url": "/life-hacks/career-workplace/job-interview-examples/",
+      "url_ur": "/ur/life-hacks/career-workplace/job-interview-examples/",
       "languages": [
         "en",
         "ur"
@@ -1516,11 +1516,11 @@
     {
       "id": "career-workplace-03",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-03",
-      "title_en": "Simple Daily Ways to Improve Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-03/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-03/",
+      "slug": "star-interview-method",
+      "title_en": "Use the STAR Method to Answer Interview Questions",
+      "title_ur": "انٹرویو کے سوالات کے جواب کے لیے اسٹار طریقہ اپنائیں",
+      "url": "/life-hacks/career-workplace/star-interview-method/",
+      "url_ur": "/ur/life-hacks/career-workplace/star-interview-method/",
       "languages": [
         "en",
         "ur"
@@ -1531,11 +1531,11 @@
     {
       "id": "career-workplace-04",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-04",
-      "title_en": "How to Build a Better Routine for Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-04/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-04/",
+      "slug": "professional-work-emails",
+      "title_en": "Write Clear and Professional Work Emails",
+      "title_ur": "واضح اور پیشہ ورانہ دفتری ای میلز لکھیں",
+      "url": "/life-hacks/career-workplace/professional-work-emails/",
+      "url_ur": "/ur/life-hacks/career-workplace/professional-work-emails/",
       "languages": [
         "en",
         "ur"
@@ -1546,11 +1546,11 @@
     {
       "id": "career-workplace-05",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-05",
-      "title_en": "A Step-by-Step Plan for Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-05/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-05/",
+      "slug": "clarify-manager-expectations",
+      "title_en": "Manage Up: Clarify Expectations with Your Manager",
+      "title_ur": "اپنے مینیجر کے ساتھ توقعات واضح کریں",
+      "url": "/life-hacks/career-workplace/clarify-manager-expectations/",
+      "url_ur": "/ur/life-hacks/career-workplace/clarify-manager-expectations/",
       "languages": [
         "en",
         "ur"
@@ -1561,11 +1561,11 @@
     {
       "id": "career-workplace-06",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-06",
-      "title_en": "How to Solve Everyday Problems with Career & Workplace",
-      "title_ur": "کیریئر اور دفتر سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-06/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-06/",
+      "slug": "document-work-achievements",
+      "title_en": "Document Your Achievements Throughout the Year",
+      "title_ur": "پورے سال اپنی کامیابیوں کا ریکارڈ رکھیں",
+      "url": "/life-hacks/career-workplace/document-work-achievements/",
+      "url_ur": "/ur/life-hacks/career-workplace/document-work-achievements/",
       "languages": [
         "en",
         "ur"
@@ -1576,11 +1576,11 @@
     {
       "id": "career-workplace-07",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-07",
-      "title_en": "Useful Tools and Techniques for Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-07/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-07/",
+      "slug": "workplace-feedback",
+      "title_en": "Handle Workplace Feedback Constructively",
+      "title_ur": "دفتر میں ملنے والی رائے کو تعمیری انداز میں لیں",
+      "url": "/life-hacks/career-workplace/workplace-feedback/",
+      "url_ur": "/ur/life-hacks/career-workplace/workplace-feedback/",
       "languages": [
         "en",
         "ur"
@@ -1591,11 +1591,11 @@
     {
       "id": "career-workplace-08",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-08",
-      "title_en": "How to Stay Consistent with Career & Workplace",
-      "title_ur": "کیریئر اور دفتر میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-08/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-08/",
+      "slug": "productive-one-to-one-meeting",
+      "title_en": "Plan a Productive One-to-One Meeting",
+      "title_ur": "مؤثر ون ٹو ون میٹنگ کی منصوبہ بندی کریں",
+      "url": "/life-hacks/career-workplace/productive-one-to-one-meeting/",
+      "url_ur": "/ur/life-hacks/career-workplace/productive-one-to-one-meeting/",
       "languages": [
         "en",
         "ur"
@@ -1606,11 +1606,11 @@
     {
       "id": "career-workplace-09",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-09",
-      "title_en": "A Weekly Checklist for Better Career & Workplace",
-      "title_ur": "کیریئر اور دفتر کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-09/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-09/",
+      "slug": "work-life-boundaries",
+      "title_en": "Set Boundaries to Protect Work-Life Balance",
+      "title_ur": "کام اور ذاتی زندگی میں توازن کے لیے حدود قائم کریں",
+      "url": "/life-hacks/career-workplace/work-life-boundaries/",
+      "url_ur": "/ur/life-hacks/career-workplace/work-life-boundaries/",
       "languages": [
         "en",
         "ur"
@@ -1621,11 +1621,11 @@
     {
       "id": "career-workplace-10",
       "category": "career-workplace",
-      "slug": "career-workplace-guide-10",
-      "title_en": "How to Measure Progress in Career & Workplace",
-      "title_ur": "کیریئر اور دفتر میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/career-workplace/career-workplace-guide-10/",
-      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-10/",
+      "slug": "build-professional-network",
+      "title_en": "Build a Professional Network Before You Need It",
+      "title_ur": "ضرورت پڑنے سے پہلے پیشہ ورانہ روابط بنائیں",
+      "url": "/life-hacks/career-workplace/build-professional-network/",
+      "url_ur": "/ur/life-hacks/career-workplace/build-professional-network/",
       "languages": [
         "en",
         "ur"
@@ -1636,11 +1636,11 @@
     {
       "id": "money-budgeting-01",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-01",
-      "title_en": "A Beginner's Practical Guide to Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-01/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-01/",
+      "slug": "track-expenses-seven-days",
+      "title_en": "Track Every Expense for Seven Days",
+      "title_ur": "سات دن تک ہر خرچ کا ریکارڈ رکھیں",
+      "url": "/life-hacks/money-budgeting/track-expenses-seven-days/",
+      "url_ur": "/ur/life-hacks/money-budgeting/track-expenses-seven-days/",
       "languages": [
         "en",
         "ur"
@@ -1651,11 +1651,11 @@
     {
       "id": "money-budgeting-02",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Money & Budgeting",
-      "title_ur": "پیسوں کی بچت میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-02/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-02/",
+      "slug": "simple-monthly-budget",
+      "title_en": "Build a Simple Monthly Budget from Your Income",
+      "title_ur": "اپنی آمدنی کے مطابق سادہ ماہانہ بجٹ بنائیں",
+      "url": "/life-hacks/money-budgeting/simple-monthly-budget/",
+      "url_ur": "/ur/life-hacks/money-budgeting/simple-monthly-budget/",
       "languages": [
         "en",
         "ur"
@@ -1666,11 +1666,11 @@
     {
       "id": "money-budgeting-03",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-03",
-      "title_en": "Simple Daily Ways to Improve Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-03/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-03/",
+      "slug": "needs-wants-savings",
+      "title_en": "Separate Needs, Wants and Savings",
+      "title_ur": "ضروریات، خواہشات اور بچت میں فرق کریں",
+      "url": "/life-hacks/money-budgeting/needs-wants-savings/",
+      "url_ur": "/ur/life-hacks/money-budgeting/needs-wants-savings/",
       "languages": [
         "en",
         "ur"
@@ -1681,11 +1681,11 @@
     {
       "id": "money-budgeting-04",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-04",
-      "title_en": "How to Build a Better Routine for Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-04/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-04/",
+      "slug": "build-emergency-fund",
+      "title_en": "Create an Emergency Fund Step by Step",
+      "title_ur": "مرحلہ وار ہنگامی بچت فنڈ بنائیں",
+      "url": "/life-hacks/money-budgeting/build-emergency-fund/",
+      "url_ur": "/ur/life-hacks/money-budgeting/build-emergency-fund/",
       "languages": [
         "en",
         "ur"
@@ -1696,11 +1696,11 @@
     {
       "id": "money-budgeting-05",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-05",
-      "title_en": "A Step-by-Step Plan for Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-05/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-05/",
+      "slug": "24-hour-purchase-pause",
+      "title_en": "Use a 24-Hour Pause Before Impulse Purchases",
+      "title_ur": "غیر ضروری خریداری سے پہلے 24 گھنٹے رکیں",
+      "url": "/life-hacks/money-budgeting/24-hour-purchase-pause/",
+      "url_ur": "/ur/life-hacks/money-budgeting/24-hour-purchase-pause/",
       "languages": [
         "en",
         "ur"
@@ -1711,11 +1711,11 @@
     {
       "id": "money-budgeting-06",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-06",
-      "title_en": "How to Solve Everyday Problems with Money & Budgeting",
-      "title_ur": "پیسوں کی بچت سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-06/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-06/",
+      "slug": "compare-unit-prices",
+      "title_en": "Compare Unit Prices to Find Better Value",
+      "title_ur": "بہتر قیمت جانچنے کے لیے فی یونٹ نرخ کا موازنہ کریں",
+      "url": "/life-hacks/money-budgeting/compare-unit-prices/",
+      "url_ur": "/ur/life-hacks/money-budgeting/compare-unit-prices/",
       "languages": [
         "en",
         "ur"
@@ -1726,11 +1726,11 @@
     {
       "id": "money-budgeting-07",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-07",
-      "title_en": "Useful Tools and Techniques for Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-07/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-07/",
+      "slug": "plan-grocery-spending",
+      "title_en": "Plan Grocery Spending Before Going to the Store",
+      "title_ur": "دکان جانے سے پہلے راشن کا بجٹ بنائیں",
+      "url": "/life-hacks/money-budgeting/plan-grocery-spending/",
+      "url_ur": "/ur/life-hacks/money-budgeting/plan-grocery-spending/",
       "languages": [
         "en",
         "ur"
@@ -1741,11 +1741,11 @@
     {
       "id": "money-budgeting-08",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-08",
-      "title_en": "How to Stay Consistent with Money & Budgeting",
-      "title_ur": "پیسوں کی بچت میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-08/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-08/",
+      "slug": "automatic-savings-safely",
+      "title_en": "Set Up Automatic Savings Safely",
+      "title_ur": "محفوظ طریقے سے خودکار بچت کا نظام بنائیں",
+      "url": "/life-hacks/money-budgeting/automatic-savings-safely/",
+      "url_ur": "/ur/life-hacks/money-budgeting/automatic-savings-safely/",
       "languages": [
         "en",
         "ur"
@@ -1756,11 +1756,11 @@
     {
       "id": "money-budgeting-09",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-09",
-      "title_en": "A Weekly Checklist for Better Money & Budgeting",
-      "title_ur": "پیسوں کی بچت کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-09/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-09/",
+      "slug": "review-recurring-payments",
+      "title_en": "Review Subscriptions and Recurring Payments",
+      "title_ur": "سبسکرپشنز اور بار بار ہونے والی ادائیگیوں کا جائزہ لیں",
+      "url": "/life-hacks/money-budgeting/review-recurring-payments/",
+      "url_ur": "/ur/life-hacks/money-budgeting/review-recurring-payments/",
       "languages": [
         "en",
         "ur"
@@ -1771,11 +1771,11 @@
     {
       "id": "money-budgeting-10",
       "category": "money-budgeting",
-      "slug": "money-budgeting-guide-10",
-      "title_en": "How to Measure Progress in Money & Budgeting",
-      "title_ur": "پیسوں کی بچت میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/money-budgeting/money-budgeting-guide-10/",
-      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-10/",
+      "slug": "avoid-online-shopping-scams",
+      "title_en": "Avoid Common Online Shopping Scams",
+      "title_ur": "آن لائن خریداری کے عام فراڈ سے بچیں",
+      "url": "/life-hacks/money-budgeting/avoid-online-shopping-scams/",
+      "url_ur": "/ur/life-hacks/money-budgeting/avoid-online-shopping-scams/",
       "languages": [
         "en",
         "ur"
@@ -1786,11 +1786,11 @@
     {
       "id": "technology-smartphone-01",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-01",
-      "title_en": "A Beginner's Practical Guide to Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-01/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-01/",
+      "slug": "smartphone-focus-modes",
+      "title_en": "Reduce Smartphone Distractions with Focus Modes",
+      "title_ur": "فوکس موڈز سے موبائل کی غیر ضروری توجہ کم کریں",
+      "url": "/life-hacks/technology-smartphone/smartphone-focus-modes/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/smartphone-focus-modes/",
       "languages": [
         "en",
         "ur"
@@ -1801,11 +1801,11 @@
     {
       "id": "technology-smartphone-02",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-02/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-02/",
+      "slug": "organize-smartphone-apps",
+      "title_en": "Organize Apps to Make Your Phone Easier to Use",
+      "title_ur": "موبائل استعمال آسان بنانے کے لیے ایپس ترتیب دیں",
+      "url": "/life-hacks/technology-smartphone/organize-smartphone-apps/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/organize-smartphone-apps/",
       "languages": [
         "en",
         "ur"
@@ -1816,11 +1816,11 @@
     {
       "id": "technology-smartphone-03",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-03",
-      "title_en": "Simple Daily Ways to Improve Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-03/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-03/",
+      "slug": "extend-phone-battery-life",
+      "title_en": "Extend Battery Life with Practical Settings",
+      "title_ur": "عملی سیٹنگز سے موبائل کی بیٹری زیادہ دیر چلائیں",
+      "url": "/life-hacks/technology-smartphone/extend-phone-battery-life/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/extend-phone-battery-life/",
       "languages": [
         "en",
         "ur"
@@ -1831,11 +1831,11 @@
     {
       "id": "technology-smartphone-04",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-04",
-      "title_en": "How to Build a Better Routine for Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-04/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-04/",
+      "slug": "free-phone-storage-safely",
+      "title_en": "Free Up Phone Storage Without Losing Important Files",
+      "title_ur": "اہم فائلیں ضائع کیے بغیر موبائل اسٹوریج خالی کریں",
+      "url": "/life-hacks/technology-smartphone/free-phone-storage-safely/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/free-phone-storage-safely/",
       "languages": [
         "en",
         "ur"
@@ -1846,11 +1846,11 @@
     {
       "id": "technology-smartphone-05",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-05",
-      "title_en": "A Step-by-Step Plan for Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-05/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-05/",
+      "slug": "secure-phone-screen-lock",
+      "title_en": "Secure Your Phone with a Strong Screen Lock",
+      "title_ur": "مضبوط اسکرین لاک سے اپنے موبائل کو محفوظ بنائیں",
+      "url": "/life-hacks/technology-smartphone/secure-phone-screen-lock/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/secure-phone-screen-lock/",
       "languages": [
         "en",
         "ur"
@@ -1861,11 +1861,11 @@
     {
       "id": "technology-smartphone-06",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-06",
-      "title_en": "How to Solve Everyday Problems with Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-06/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-06/",
+      "slug": "check-app-permissions",
+      "title_en": "Check App Permissions Before Installing",
+      "title_ur": "ایپ انسٹال کرنے سے پہلے اس کی اجازتیں دیکھیں",
+      "url": "/life-hacks/technology-smartphone/check-app-permissions/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/check-app-permissions/",
       "languages": [
         "en",
         "ur"
@@ -1876,11 +1876,11 @@
     {
       "id": "technology-smartphone-07",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-07",
-      "title_en": "Useful Tools and Techniques for Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-07/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-07/",
+      "slug": "backup-photos-contacts",
+      "title_en": "Back Up Photos and Contacts Automatically",
+      "title_ur": "تصاویر اور رابطوں کا خودکار بیک اپ بنائیں",
+      "url": "/life-hacks/technology-smartphone/backup-photos-contacts/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/backup-photos-contacts/",
       "languages": [
         "en",
         "ur"
@@ -1891,11 +1891,11 @@
     {
       "id": "technology-smartphone-08",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-08",
-      "title_en": "How to Stay Consistent with Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-08/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-08/",
+      "slug": "spot-fake-apps",
+      "title_en": "Spot Fake Apps and Suspicious Update Prompts",
+      "title_ur": "جعلی ایپس اور مشکوک اپ ڈیٹ پیغامات پہچانیں",
+      "url": "/life-hacks/technology-smartphone/spot-fake-apps/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/spot-fake-apps/",
       "languages": [
         "en",
         "ur"
@@ -1906,11 +1906,11 @@
     {
       "id": "technology-smartphone-09",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-09",
-      "title_en": "A Weekly Checklist for Better Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-09/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-09/",
+      "slug": "manage-useful-notifications",
+      "title_en": "Make Notifications Useful Instead of Constant",
+      "title_ur": "نوٹیفکیشنز کو مسلسل خلل کے بجائے مفید بنائیں",
+      "url": "/life-hacks/technology-smartphone/manage-useful-notifications/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/manage-useful-notifications/",
       "languages": [
         "en",
         "ur"
@@ -1921,11 +1921,11 @@
     {
       "id": "technology-smartphone-10",
       "category": "technology-smartphone",
-      "slug": "technology-smartphone-guide-10",
-      "title_en": "How to Measure Progress in Technology & Smartphone",
-      "title_ur": "ٹیکنالوجی اور موبائل میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-10/",
-      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-10/",
+      "slug": "clean-phone-without-booster-apps",
+      "title_en": "Clean Your Phone Safely Without Booster Apps",
+      "title_ur": "بوسٹر ایپس کے بغیر موبائل محفوظ طریقے سے صاف کریں",
+      "url": "/life-hacks/technology-smartphone/clean-phone-without-booster-apps/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/clean-phone-without-booster-apps/",
       "languages": [
         "en",
         "ur"
@@ -1936,11 +1936,11 @@
     {
       "id": "digital-skills-01",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-01",
-      "title_en": "A Beginner's Practical Guide to Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-01/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-01/",
+      "slug": "strong-unique-passwords",
+      "title_en": "Create Strong, Unique Passwords and Store Them Safely",
+      "title_ur": "مضبوط اور منفرد پاس ورڈ بنائیں اور محفوظ رکھیں",
+      "url": "/life-hacks/digital-skills/strong-unique-passwords/",
+      "url_ur": "/ur/life-hacks/digital-skills/strong-unique-passwords/",
       "languages": [
         "en",
         "ur"
@@ -1951,11 +1951,11 @@
     {
       "id": "digital-skills-02",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-02/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-02/",
+      "slug": "recognize-phishing",
+      "title_en": "Recognize Phishing Emails and Messages",
+      "title_ur": "فشنگ ای میلز اور پیغامات کی پہچان کریں",
+      "url": "/life-hacks/digital-skills/recognize-phishing/",
+      "url_ur": "/ur/life-hacks/digital-skills/recognize-phishing/",
       "languages": [
         "en",
         "ur"
@@ -1966,11 +1966,11 @@
     {
       "id": "digital-skills-03",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-03",
-      "title_en": "Simple Daily Ways to Improve Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-03/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-03/",
+      "slug": "verify-information-before-sharing",
+      "title_en": "Verify Online Information Before Sharing It",
+      "title_ur": "آن لائن معلومات شیئر کرنے سے پہلے تصدیق کریں",
+      "url": "/life-hacks/digital-skills/verify-information-before-sharing/",
+      "url_ur": "/ur/life-hacks/digital-skills/verify-information-before-sharing/",
       "languages": [
         "en",
         "ur"
@@ -1981,11 +1981,11 @@
     {
       "id": "digital-skills-04",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-04",
-      "title_en": "How to Build a Better Routine for Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-04/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-04/",
+      "slug": "organize-digital-files",
+      "title_en": "Organize Digital Files with a Clear Folder System",
+      "title_ur": "واضح فولڈر نظام سے ڈیجیٹل فائلیں ترتیب دیں",
+      "url": "/life-hacks/digital-skills/organize-digital-files/",
+      "url_ur": "/ur/life-hacks/digital-skills/organize-digital-files/",
       "languages": [
         "en",
         "ur"
@@ -1996,11 +1996,11 @@
     {
       "id": "digital-skills-05",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-05",
-      "title_en": "A Step-by-Step Plan for Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-05/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-05/",
+      "slug": "two-factor-authentication",
+      "title_en": "Use Two-Factor Authentication on Key Accounts",
+      "title_ur": "اہم اکاؤنٹس پر ٹو فیکٹر تصدیق فعال کریں",
+      "url": "/life-hacks/digital-skills/two-factor-authentication/",
+      "url_ur": "/ur/life-hacks/digital-skills/two-factor-authentication/",
       "languages": [
         "en",
         "ur"
@@ -2011,11 +2011,11 @@
     {
       "id": "digital-skills-06",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-06",
-      "title_en": "How to Solve Everyday Problems with Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-06/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-06/",
+      "slug": "effective-web-search",
+      "title_en": "Search the Web More Effectively with Specific Queries",
+      "title_ur": "مخصوص سوالات کے ذریعے ویب پر بہتر تلاش کریں",
+      "url": "/life-hacks/digital-skills/effective-web-search/",
+      "url_ur": "/ur/life-hacks/digital-skills/effective-web-search/",
       "languages": [
         "en",
         "ur"
@@ -2026,11 +2026,11 @@
     {
       "id": "digital-skills-07",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-07",
-      "title_en": "Useful Tools and Techniques for Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-07/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-07/",
+      "slug": "social-media-privacy",
+      "title_en": "Protect Your Privacy on Social Media",
+      "title_ur": "سوشل میڈیا پر اپنی پرائیویسی محفوظ رکھیں",
+      "url": "/life-hacks/digital-skills/social-media-privacy/",
+      "url_ur": "/ur/life-hacks/digital-skills/social-media-privacy/",
       "languages": [
         "en",
         "ur"
@@ -2041,11 +2041,11 @@
     {
       "id": "digital-skills-08",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-08",
-      "title_en": "How to Stay Consistent with Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-08/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-08/",
+      "slug": "share-documents-access-settings",
+      "title_en": "Share Documents with the Correct Access Settings",
+      "title_ur": "درست اجازتوں کے ساتھ دستاویزات شیئر کریں",
+      "url": "/life-hacks/digital-skills/share-documents-access-settings/",
+      "url_ur": "/ur/life-hacks/digital-skills/share-documents-access-settings/",
       "languages": [
         "en",
         "ur"
@@ -2056,11 +2056,11 @@
     {
       "id": "digital-skills-09",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-09",
-      "title_en": "A Weekly Checklist for Better Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-09/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-09/",
+      "slug": "spot-misleading-headlines-images",
+      "title_en": "Recognize Misleading Headlines and Edited Images",
+      "title_ur": "گمراہ کن سرخیوں اور تبدیل شدہ تصاویر کو پہچانیں",
+      "url": "/life-hacks/digital-skills/spot-misleading-headlines-images/",
+      "url_ur": "/ur/life-hacks/digital-skills/spot-misleading-headlines-images/",
       "languages": [
         "en",
         "ur"
@@ -2071,11 +2071,11 @@
     {
       "id": "digital-skills-10",
       "category": "digital-skills",
-      "slug": "digital-skills-guide-10",
-      "title_en": "How to Measure Progress in Internet & Digital Skills",
-      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/digital-skills/digital-skills-guide-10/",
-      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-10/",
+      "slug": "backup-digital-records",
+      "title_en": "Keep Important Digital Records Backed Up",
+      "title_ur": "اہم ڈیجیٹل ریکارڈ کا بیک اپ محفوظ رکھیں",
+      "url": "/life-hacks/digital-skills/backup-digital-records/",
+      "url_ur": "/ur/life-hacks/digital-skills/backup-digital-records/",
       "languages": [
         "en",
         "ur"
@@ -2086,11 +2086,11 @@
     {
       "id": "sleep-morning-routine-01",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-01",
-      "title_en": "A Beginner's Practical Guide to Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-01/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-01/",
+      "slug": "consistent-wake-up-time",
+      "title_en": "Keep a Consistent Wake-Up Time Across the Week",
+      "title_ur": "پورے ہفتے جاگنے کا وقت ایک جیسا رکھیں",
+      "url": "/life-hacks/sleep-morning-routine/consistent-wake-up-time/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/consistent-wake-up-time/",
       "languages": [
         "en",
         "ur"
@@ -2101,11 +2101,11 @@
     {
       "id": "sleep-morning-routine-02",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-02/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-02/",
+      "slug": "bedtime-wind-down-routine",
+      "title_en": "Build a Wind-Down Routine Before Bed",
+      "title_ur": "سونے سے پہلے سکون حاصل کرنے کا معمول بنائیں",
+      "url": "/life-hacks/sleep-morning-routine/bedtime-wind-down-routine/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/bedtime-wind-down-routine/",
       "languages": [
         "en",
         "ur"
@@ -2116,11 +2116,11 @@
     {
       "id": "sleep-morning-routine-03",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-03",
-      "title_en": "Simple Daily Ways to Improve Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-03/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-03/",
+      "slug": "morning-light-body-clock",
+      "title_en": "Get Morning Light to Support Your Body Clock",
+      "title_ur": "جسمانی گھڑی کی مدد کے لیے صبح کی روشنی لیں",
+      "url": "/life-hacks/sleep-morning-routine/morning-light-body-clock/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/morning-light-body-clock/",
       "languages": [
         "en",
         "ur"
@@ -2131,11 +2131,11 @@
     {
       "id": "sleep-morning-routine-04",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-04",
-      "title_en": "How to Build a Better Routine for Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-04/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-04/",
+      "slug": "limit-late-caffeine",
+      "title_en": "Limit Late Caffeine to Protect Your Sleep",
+      "title_ur": "نیند بہتر رکھنے کے لیے دیر سے کیفین لینے سے بچیں",
+      "url": "/life-hacks/sleep-morning-routine/limit-late-caffeine/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/limit-late-caffeine/",
       "languages": [
         "en",
         "ur"
@@ -2146,11 +2146,11 @@
     {
       "id": "sleep-morning-routine-05",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-05",
-      "title_en": "A Step-by-Step Plan for Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-05/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-05/",
+      "slug": "sleep-friendly-bedroom",
+      "title_en": "Make Your Bedroom More Sleep-Friendly",
+      "title_ur": "اپنے بیڈروم کو بہتر نیند کے لیے موزوں بنائیں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-friendly-bedroom/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-friendly-bedroom/",
       "languages": [
         "en",
         "ur"
@@ -2161,11 +2161,11 @@
     {
       "id": "sleep-morning-routine-06",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-06",
-      "title_en": "How to Solve Everyday Problems with Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-06/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-06/",
+      "slug": "stop-repeated-snoozing",
+      "title_en": "Stop Repeated Snoozing with a Better Alarm Plan",
+      "title_ur": "الارم بار بار بند کرنے کی عادت بہتر منصوبے سے ختم کریں",
+      "url": "/life-hacks/sleep-morning-routine/stop-repeated-snoozing/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/stop-repeated-snoozing/",
       "languages": [
         "en",
         "ur"
@@ -2176,11 +2176,11 @@
     {
       "id": "sleep-morning-routine-07",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-07",
-      "title_en": "Useful Tools and Techniques for Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-07/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-07/",
+      "slug": "prepare-tomorrow-night-before",
+      "title_en": "Prepare Tomorrow's Essentials the Night Before",
+      "title_ur": "اگلے دن کی ضروری چیزیں رات کو تیار رکھیں",
+      "url": "/life-hacks/sleep-morning-routine/prepare-tomorrow-night-before/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/prepare-tomorrow-night-before/",
       "languages": [
         "en",
         "ur"
@@ -2191,11 +2191,11 @@
     {
       "id": "sleep-morning-routine-08",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-08",
-      "title_en": "How to Stay Consistent with Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-08/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-08/",
+      "slug": "calm-screen-light-evening",
+      "title_en": "Create a Calm, Screen-Light Evening Routine",
+      "title_ur": "اسکرین کے کم استعمال کے ساتھ پرسکون شام کا معمول بنائیں",
+      "url": "/life-hacks/sleep-morning-routine/calm-screen-light-evening/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/calm-screen-light-evening/",
       "languages": [
         "en",
         "ur"
@@ -2206,11 +2206,11 @@
     {
       "id": "sleep-morning-routine-09",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-09",
-      "title_en": "A Weekly Checklist for Better Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-09/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-09/",
+      "slug": "sleep-debt-catch-up-sleep",
+      "title_en": "Understand Sleep Debt and Why Catch-Up Sleep Has Limits",
+      "title_ur": "نیند کی کمی اور بعد میں پوری کرنے کی حدود سمجھیں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-debt-catch-up-sleep/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-debt-catch-up-sleep/",
       "languages": [
         "en",
         "ur"
@@ -2221,11 +2221,11 @@
     {
       "id": "sleep-morning-routine-10",
       "category": "sleep-morning-routine",
-      "slug": "sleep-morning-routine-guide-10",
-      "title_en": "How to Measure Progress in Sleep & Morning Routine",
-      "title_ur": "نیند اور صبح کی روٹین میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-10/",
-      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-10/",
+      "slug": "track-sleep-habits",
+      "title_en": "Track Sleep Habits Without Obsessing Over Scores",
+      "title_ur": "اسکورز کے جنون کے بغیر نیند کی عادات نوٹ کریں",
+      "url": "/life-hacks/sleep-morning-routine/track-sleep-habits/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/track-sleep-habits/",
       "languages": [
         "en",
         "ur"
@@ -2236,11 +2236,11 @@
     {
       "id": "health-fitness-01",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-01",
-      "title_en": "A Beginner's Practical Guide to Health & Fitness",
-      "title_ur": "صحت اور فٹنس کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-01/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-01/",
+      "slug": "add-walking-sedentary-day",
+      "title_en": "Add More Walking to a Mostly Sitting Day",
+      "title_ur": "زیادہ بیٹھنے والے دن میں چہل قدمی بڑھائیں",
+      "url": "/life-hacks/health-fitness/add-walking-sedentary-day/",
+      "url_ur": "/ur/life-hacks/health-fitness/add-walking-sedentary-day/",
       "languages": [
         "en",
         "ur"
@@ -2251,11 +2251,11 @@
     {
       "id": "health-fitness-02",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Health & Fitness",
-      "title_ur": "صحت اور فٹنس میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-02/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-02/",
+      "slug": "beginner-strength-movement-patterns",
+      "title_en": "Start Strength Training with Basic Movement Patterns",
+      "title_ur": "بنیادی حرکات سے طاقت کی ورزش شروع کریں",
+      "url": "/life-hacks/health-fitness/beginner-strength-movement-patterns/",
+      "url_ur": "/ur/life-hacks/health-fitness/beginner-strength-movement-patterns/",
       "languages": [
         "en",
         "ur"
@@ -2266,11 +2266,11 @@
     {
       "id": "health-fitness-03",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-03",
-      "title_en": "Simple Daily Ways to Improve Health & Fitness",
-      "title_ur": "صحت اور فٹنس کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-03/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-03/",
+      "slug": "proper-exercise-warm-up",
+      "title_en": "Warm Up Properly Before Exercise",
+      "title_ur": "ورزش سے پہلے درست وارم اپ کریں",
+      "url": "/life-hacks/health-fitness/proper-exercise-warm-up/",
+      "url_ur": "/ur/life-hacks/health-fitness/proper-exercise-warm-up/",
       "languages": [
         "en",
         "ur"
@@ -2281,11 +2281,11 @@
     {
       "id": "health-fitness-04",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-04",
-      "title_en": "How to Build a Better Routine for Health & Fitness",
-      "title_ur": "صحت اور فٹنس کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-04/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-04/",
+      "slug": "weekly-movement-plan",
+      "title_en": "Build a Sustainable Weekly Movement Plan",
+      "title_ur": "قابلِ عمل ہفتہ وار جسمانی سرگرمی کا منصوبہ بنائیں",
+      "url": "/life-hacks/health-fitness/weekly-movement-plan/",
+      "url_ur": "/ur/life-hacks/health-fitness/weekly-movement-plan/",
       "languages": [
         "en",
         "ur"
@@ -2296,11 +2296,11 @@
     {
       "id": "health-fitness-05",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-05",
-      "title_en": "A Step-by-Step Plan for Health & Fitness",
-      "title_ur": "صحت اور فٹنس کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-05/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-05/",
+      "slug": "desk-posture-movement-breaks",
+      "title_en": "Improve Desk Posture with Regular Movement Breaks",
+      "title_ur": "باقاعدہ وقفوں سے ڈیسک پر بیٹھنے کا انداز بہتر کریں",
+      "url": "/life-hacks/health-fitness/desk-posture-movement-breaks/",
+      "url_ur": "/ur/life-hacks/health-fitness/desk-posture-movement-breaks/",
       "languages": [
         "en",
         "ur"
@@ -2311,11 +2311,11 @@
     {
       "id": "health-fitness-06",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-06",
-      "title_en": "How to Solve Everyday Problems with Health & Fitness",
-      "title_ur": "صحت اور فٹنس سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-06/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-06/",
+      "slug": "stay-hydrated-daily",
+      "title_en": "Stay Hydrated During Everyday Activities",
+      "title_ur": "روزمرہ سرگرمیوں کے دوران مناسب پانی پئیں",
+      "url": "/life-hacks/health-fitness/stay-hydrated-daily/",
+      "url_ur": "/ur/life-hacks/health-fitness/stay-hydrated-daily/",
       "languages": [
         "en",
         "ur"
@@ -2326,11 +2326,11 @@
     {
       "id": "health-fitness-07",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-07",
-      "title_en": "Useful Tools and Techniques for Health & Fitness",
-      "title_ur": "صحت اور فٹنس کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-07/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-07/",
+      "slug": "exercise-recovery-rest-days",
+      "title_en": "Use Rest Days to Support Exercise Recovery",
+      "title_ur": "ورزش کے بعد بحالی کے لیے آرام کے دن رکھیں",
+      "url": "/life-hacks/health-fitness/exercise-recovery-rest-days/",
+      "url_ur": "/ur/life-hacks/health-fitness/exercise-recovery-rest-days/",
       "languages": [
         "en",
         "ur"
@@ -2341,11 +2341,11 @@
     {
       "id": "health-fitness-08",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-08",
-      "title_en": "How to Stay Consistent with Health & Fitness",
-      "title_ur": "صحت اور فٹنس میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-08/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-08/",
+      "slug": "comfortable-walking-shoes",
+      "title_en": "Choose Comfortable Shoes for Daily Walking",
+      "title_ur": "روزانہ چہل قدمی کے لیے آرام دہ جوتے منتخب کریں",
+      "url": "/life-hacks/health-fitness/comfortable-walking-shoes/",
+      "url_ur": "/ur/life-hacks/health-fitness/comfortable-walking-shoes/",
       "languages": [
         "en",
         "ur"
@@ -2356,11 +2356,11 @@
     {
       "id": "health-fitness-09",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-09",
-      "title_en": "A Weekly Checklist for Better Health & Fitness",
-      "title_ur": "صحت اور فٹنس کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-09/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-09/",
+      "slug": "measurable-sustainable-fitness-goals",
+      "title_en": "Set Fitness Goals You Can Measure and Maintain",
+      "title_ur": "ایسے فٹنس اہداف بنائیں جنہیں ناپا اور برقرار رکھا جا سکے",
+      "url": "/life-hacks/health-fitness/measurable-sustainable-fitness-goals/",
+      "url_ur": "/ur/life-hacks/health-fitness/measurable-sustainable-fitness-goals/",
       "languages": [
         "en",
         "ur"
@@ -2371,11 +2371,11 @@
     {
       "id": "health-fitness-10",
       "category": "health-fitness",
-      "slug": "health-fitness-guide-10",
-      "title_en": "How to Measure Progress in Health & Fitness",
-      "title_ur": "صحت اور فٹنس میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/health-fitness/health-fitness-guide-10/",
-      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-10/",
+      "slug": "exercise-pain-when-to-stop",
+      "title_en": "Know When Exercise Pain Means You Should Stop",
+      "title_ur": "جانیں کہ ورزش کے دوران درد کب رکنے کا اشارہ ہے",
+      "url": "/life-hacks/health-fitness/exercise-pain-when-to-stop/",
+      "url_ur": "/ur/life-hacks/health-fitness/exercise-pain-when-to-stop/",
       "languages": [
         "en",
         "ur"
@@ -2386,11 +2386,11 @@
     {
       "id": "nutrition-food-01",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-01",
-      "title_en": "A Beginner's Practical Guide to Nutrition & Food",
-      "title_ur": "غذا اور خوراک کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-01/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-01/",
+      "slug": "balanced-plate-everyday-foods",
+      "title_en": "Build a Balanced Plate with Everyday Foods",
+      "title_ur": "روزمرہ کھانوں سے متوازن پلیٹ تیار کریں",
+      "url": "/life-hacks/nutrition-food/balanced-plate-everyday-foods/",
+      "url_ur": "/ur/life-hacks/nutrition-food/balanced-plate-everyday-foods/",
       "languages": [
         "en",
         "ur"
@@ -2401,11 +2401,11 @@
     {
       "id": "nutrition-food-02",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Nutrition & Food",
-      "title_ur": "غذا اور خوراک میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-02/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-02/",
+      "slug": "read-food-labels",
+      "title_en": "Read Food Labels for Serving Size and Added Sugar",
+      "title_ur": "فوڈ لیبل پر مقدار اور اضافی چینی پڑھیں",
+      "url": "/life-hacks/nutrition-food/read-food-labels/",
+      "url_ur": "/ur/life-hacks/nutrition-food/read-food-labels/",
       "languages": [
         "en",
         "ur"
@@ -2416,11 +2416,11 @@
     {
       "id": "nutrition-food-03",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-03",
-      "title_en": "Simple Daily Ways to Improve Nutrition & Food",
-      "title_ur": "غذا اور خوراک کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-03/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-03/",
+      "slug": "plan-simple-weekly-meals",
+      "title_en": "Plan Simple Meals Before the Week Begins",
+      "title_ur": "ہفتہ شروع ہونے سے پہلے آسان کھانوں کی منصوبہ بندی کریں",
+      "url": "/life-hacks/nutrition-food/plan-simple-weekly-meals/",
+      "url_ur": "/ur/life-hacks/nutrition-food/plan-simple-weekly-meals/",
       "languages": [
         "en",
         "ur"
@@ -2431,11 +2431,11 @@
     {
       "id": "nutrition-food-04",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-04",
-      "title_en": "How to Build a Better Routine for Nutrition & Food",
-      "title_ur": "غذا اور خوراک کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-04/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-04/",
+      "slug": "store-leftovers-safely",
+      "title_en": "Store Leftovers Safely and Reduce Food Waste",
+      "title_ur": "بچے ہوئے کھانے محفوظ رکھیں اور ضیاع کم کریں",
+      "url": "/life-hacks/nutrition-food/store-leftovers-safely/",
+      "url_ur": "/ur/life-hacks/nutrition-food/store-leftovers-safely/",
       "languages": [
         "en",
         "ur"
@@ -2446,11 +2446,11 @@
     {
       "id": "nutrition-food-05",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-05",
-      "title_en": "A Step-by-Step Plan for Nutrition & Food",
-      "title_ur": "غذا اور خوراک کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-05/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-05/",
+      "slug": "choose-water-more-often",
+      "title_en": "Make Water Your Default Drink More Often",
+      "title_ur": "زیادہ تر اوقات پانی کو اپنا بنیادی مشروب بنائیں",
+      "url": "/life-hacks/nutrition-food/choose-water-more-often/",
+      "url_ur": "/ur/life-hacks/nutrition-food/choose-water-more-often/",
       "languages": [
         "en",
         "ur"
@@ -2461,11 +2461,11 @@
     {
       "id": "nutrition-food-06",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-06",
-      "title_en": "How to Solve Everyday Problems with Nutrition & Food",
-      "title_ur": "غذا اور خوراک سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-06/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-06/",
+      "slug": "understand-portion-sizes",
+      "title_en": "Understand Portion Sizes Without Strict Dieting",
+      "title_ur": "سخت ڈائٹنگ کے بغیر کھانے کی مقدار سمجھیں",
+      "url": "/life-hacks/nutrition-food/understand-portion-sizes/",
+      "url_ur": "/ur/life-hacks/nutrition-food/understand-portion-sizes/",
       "languages": [
         "en",
         "ur"
@@ -2476,11 +2476,11 @@
     {
       "id": "nutrition-food-07",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-07",
-      "title_en": "Useful Tools and Techniques for Nutrition & Food",
-      "title_ur": "غذا اور خوراک کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-07/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-07/",
+      "slug": "prepare-healthy-snacks",
+      "title_en": "Prepare Healthy Snacks for Busy Days",
+      "title_ur": "مصروف دنوں کے لیے بہتر اسنیکس تیار رکھیں",
+      "url": "/life-hacks/nutrition-food/prepare-healthy-snacks/",
+      "url_ur": "/ur/life-hacks/nutrition-food/prepare-healthy-snacks/",
       "languages": [
         "en",
         "ur"
@@ -2491,11 +2491,11 @@
     {
       "id": "nutrition-food-08",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-08",
-      "title_en": "How to Stay Consistent with Nutrition & Food",
-      "title_ur": "غذا اور خوراک میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-08/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-08/",
+      "slug": "compare-packaged-foods",
+      "title_en": "Compare Packaged Foods Beyond the Front Label",
+      "title_ur": "پیک شدہ خوراک کا صرف سامنے کا لیبل نہیں، مکمل معلومات دیکھیں",
+      "url": "/life-hacks/nutrition-food/compare-packaged-foods/",
+      "url_ur": "/ur/life-hacks/nutrition-food/compare-packaged-foods/",
       "languages": [
         "en",
         "ur"
@@ -2506,11 +2506,11 @@
     {
       "id": "nutrition-food-09",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-09",
-      "title_en": "A Weekly Checklist for Better Nutrition & Food",
-      "title_ur": "غذا اور خوراک کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-09/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-09/",
+      "slug": "grocery-list-food-shopping",
+      "title_en": "Use a Grocery List to Reduce Impulse Food Buys",
+      "title_ur": "غیر ضروری خوراک خریدنے سے بچنے کے لیے خریداری کی فہرست بنائیں",
+      "url": "/life-hacks/nutrition-food/grocery-list-food-shopping/",
+      "url_ur": "/ur/life-hacks/nutrition-food/grocery-list-food-shopping/",
       "languages": [
         "en",
         "ur"
@@ -2521,11 +2521,11 @@
     {
       "id": "nutrition-food-10",
       "category": "nutrition-food",
-      "slug": "nutrition-food-guide-10",
-      "title_en": "How to Measure Progress in Nutrition & Food",
-      "title_ur": "غذا اور خوراک میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/nutrition-food/nutrition-food-guide-10/",
-      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-10/",
+      "slug": "mindful-eating-one-meal",
+      "title_en": "Practice Mindful Eating at One Meal a Day",
+      "title_ur": "روزانہ ایک کھانا پوری توجہ سے کھانے کی مشق کریں",
+      "url": "/life-hacks/nutrition-food/mindful-eating-one-meal/",
+      "url_ur": "/ur/life-hacks/nutrition-food/mindful-eating-one-meal/",
       "languages": [
         "en",
         "ur"
@@ -2536,11 +2536,11 @@
     {
       "id": "home-kitchen-01",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-01",
-      "title_en": "A Beginner's Practical Guide to Home & Kitchen",
-      "title_ur": "گھر اور کچن کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-01/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-01/",
+      "slug": "ten-minute-home-reset",
+      "title_en": "Create a 10-Minute Daily Home Reset",
+      "title_ur": "گھر کو سمیٹنے کے لیے روزانہ دس منٹ مختص کریں",
+      "url": "/life-hacks/home-kitchen/ten-minute-home-reset/",
+      "url_ur": "/ur/life-hacks/home-kitchen/ten-minute-home-reset/",
       "languages": [
         "en",
         "ur"
@@ -2551,11 +2551,11 @@
     {
       "id": "home-kitchen-02",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Home & Kitchen",
-      "title_ur": "گھر اور کچن میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-02/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-02/",
+      "slug": "organize-small-kitchen-zones",
+      "title_en": "Organize a Small Kitchen with Zones",
+      "title_ur": "چھوٹے کچن کو مختلف حصوں میں ترتیب دیں",
+      "url": "/life-hacks/home-kitchen/organize-small-kitchen-zones/",
+      "url_ur": "/ur/life-hacks/home-kitchen/organize-small-kitchen-zones/",
       "languages": [
         "en",
         "ur"
@@ -2566,11 +2566,11 @@
     {
       "id": "home-kitchen-03",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-03",
-      "title_en": "Simple Daily Ways to Improve Home & Kitchen",
-      "title_ur": "گھر اور کچن کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-03/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-03/",
+      "slug": "remove-kitchen-grease-safely",
+      "title_en": "Remove Grease from Kitchen Surfaces Safely",
+      "title_ur": "کچن کی سطحوں سے چکنائی محفوظ طریقے سے صاف کریں",
+      "url": "/life-hacks/home-kitchen/remove-kitchen-grease-safely/",
+      "url_ur": "/ur/life-hacks/home-kitchen/remove-kitchen-grease-safely/",
       "languages": [
         "en",
         "ur"
@@ -2581,11 +2581,11 @@
     {
       "id": "home-kitchen-04",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-04",
-      "title_en": "How to Build a Better Routine for Home & Kitchen",
-      "title_ur": "گھر اور کچن کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-04/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-04/",
+      "slug": "store-food-keep-fresh",
+      "title_en": "Store Food to Keep It Fresh for Longer",
+      "title_ur": "خوراک کو زیادہ دیر تازہ رکھنے کے لیے درست ذخیرہ کریں",
+      "url": "/life-hacks/home-kitchen/store-food-keep-fresh/",
+      "url_ur": "/ur/life-hacks/home-kitchen/store-food-keep-fresh/",
       "languages": [
         "en",
         "ur"
@@ -2596,11 +2596,11 @@
     {
       "id": "home-kitchen-05",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-05",
-      "title_en": "A Step-by-Step Plan for Home & Kitchen",
-      "title_ur": "گھر اور کچن کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-05/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-05/",
+      "slug": "weekly-cleaning-schedule",
+      "title_en": "Make a Simple Weekly Cleaning Schedule",
+      "title_ur": "صفائی کا آسان ہفتہ وار شیڈول بنائیں",
+      "url": "/life-hacks/home-kitchen/weekly-cleaning-schedule/",
+      "url_ur": "/ur/life-hacks/home-kitchen/weekly-cleaning-schedule/",
       "languages": [
         "en",
         "ur"
@@ -2611,11 +2611,11 @@
     {
       "id": "home-kitchen-06",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-06",
-      "title_en": "How to Solve Everyday Problems with Home & Kitchen",
-      "title_ur": "گھر اور کچن سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-06/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-06/",
+      "slug": "declutter-one-drawer",
+      "title_en": "Declutter One Drawer at a Time",
+      "title_ur": "ایک وقت میں صرف ایک دراز کی بے ترتیبی ختم کریں",
+      "url": "/life-hacks/home-kitchen/declutter-one-drawer/",
+      "url_ur": "/ur/life-hacks/home-kitchen/declutter-one-drawer/",
       "languages": [
         "en",
         "ur"
@@ -2626,11 +2626,11 @@
     {
       "id": "home-kitchen-07",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-07",
-      "title_en": "Useful Tools and Techniques for Home & Kitchen",
-      "title_ur": "گھر اور کچن کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-07/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-07/",
+      "slug": "reduce-electricity-waste",
+      "title_en": "Reduce Electricity Waste with Everyday Habits",
+      "title_ur": "روزمرہ عادات سے بجلی کا ضیاع کم کریں",
+      "url": "/life-hacks/home-kitchen/reduce-electricity-waste/",
+      "url_ur": "/ur/life-hacks/home-kitchen/reduce-electricity-waste/",
       "languages": [
         "en",
         "ur"
@@ -2641,11 +2641,11 @@
     {
       "id": "home-kitchen-08",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-08",
-      "title_en": "How to Stay Consistent with Home & Kitchen",
-      "title_ur": "گھر اور کچن میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-08/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-08/",
+      "slug": "organize-frequently-used-items",
+      "title_en": "Keep Frequently Used Items Within Easy Reach",
+      "title_ur": "روزانہ استعمال کی چیزیں آسان رسائی میں رکھیں",
+      "url": "/life-hacks/home-kitchen/organize-frequently-used-items/",
+      "url_ur": "/ur/life-hacks/home-kitchen/organize-frequently-used-items/",
       "languages": [
         "en",
         "ur"
@@ -2656,11 +2656,11 @@
     {
       "id": "home-kitchen-09",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-09",
-      "title_en": "A Weekly Checklist for Better Home & Kitchen",
-      "title_ur": "گھر اور کچن کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-09/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-09/",
+      "slug": "minor-kitchen-cuts-burns-first-aid",
+      "title_en": "Handle Common Kitchen Cuts and Burns Safely",
+      "title_ur": "کچن میں معمولی کٹ اور جلنے کی صورت میں محفوظ ابتدائی مدد کریں",
+      "url": "/life-hacks/home-kitchen/minor-kitchen-cuts-burns-first-aid/",
+      "url_ur": "/ur/life-hacks/home-kitchen/minor-kitchen-cuts-burns-first-aid/",
       "languages": [
         "en",
         "ur"
@@ -2671,11 +2671,11 @@
     {
       "id": "home-kitchen-10",
       "category": "home-kitchen",
-      "slug": "home-kitchen-guide-10",
-      "title_en": "How to Measure Progress in Home & Kitchen",
-      "title_ur": "گھر اور کچن میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/home-kitchen/home-kitchen-guide-10/",
-      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-10/",
+      "slug": "basic-home-emergency-kit",
+      "title_en": "Prepare a Basic Home Emergency Kit",
+      "title_ur": "گھر کے لیے بنیادی ہنگامی سامان تیار کریں",
+      "url": "/life-hacks/home-kitchen/basic-home-emergency-kit/",
+      "url_ur": "/ur/life-hacks/home-kitchen/basic-home-emergency-kit/",
       "languages": [
         "en",
         "ur"
@@ -2686,11 +2686,11 @@
     {
       "id": "relationships-01",
       "category": "relationships",
-      "slug": "relationships-guide-01",
-      "title_en": "A Beginner's Practical Guide to Relationships",
-      "title_ur": "تعلقات کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/relationships/relationships-guide-01/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-01/",
+      "slug": "express-genuine-appreciation",
+      "title_en": "Express Appreciation in Specific, Genuine Words",
+      "title_ur": "تعریف اور شکرگزاری واضح اور سچے الفاظ میں ظاہر کریں",
+      "url": "/life-hacks/relationships/express-genuine-appreciation/",
+      "url_ur": "/ur/life-hacks/relationships/express-genuine-appreciation/",
       "languages": [
         "en",
         "ur"
@@ -2701,11 +2701,11 @@
     {
       "id": "relationships-02",
       "category": "relationships",
-      "slug": "relationships-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Relationships",
-      "title_ur": "تعلقات میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/relationships/relationships-guide-02/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-02/",
+      "slug": "discuss-issues-without-blame",
+      "title_en": "Discuss a Difficult Issue Without Blame",
+      "title_ur": "الزام تراشی کے بغیر مشکل مسئلے پر بات کریں",
+      "url": "/life-hacks/relationships/discuss-issues-without-blame/",
+      "url_ur": "/ur/life-hacks/relationships/discuss-issues-without-blame/",
       "languages": [
         "en",
         "ur"
@@ -2716,11 +2716,11 @@
     {
       "id": "relationships-03",
       "category": "relationships",
-      "slug": "relationships-guide-03",
-      "title_en": "Simple Daily Ways to Improve Relationships",
-      "title_ur": "تعلقات کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/relationships/relationships-guide-03/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-03/",
+      "slug": "family-healthy-boundaries",
+      "title_en": "Set Healthy Boundaries with Family Members",
+      "title_ur": "گھر والوں کے ساتھ صحت مند حدود قائم کریں",
+      "url": "/life-hacks/relationships/family-healthy-boundaries/",
+      "url_ur": "/ur/life-hacks/relationships/family-healthy-boundaries/",
       "languages": [
         "en",
         "ur"
@@ -2731,11 +2731,11 @@
     {
       "id": "relationships-04",
       "category": "relationships",
-      "slug": "relationships-guide-04",
-      "title_en": "How to Build a Better Routine for Relationships",
-      "title_ur": "تعلقات کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/relationships/relationships-guide-04/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-04/",
+      "slug": "repair-misunderstanding",
+      "title_en": "Repair a Misunderstanding with a Calm Conversation",
+      "title_ur": "پرسکون گفتگو سے غلط فہمی دور کریں",
+      "url": "/life-hacks/relationships/repair-misunderstanding/",
+      "url_ur": "/ur/life-hacks/relationships/repair-misunderstanding/",
       "languages": [
         "en",
         "ur"
@@ -2746,11 +2746,11 @@
     {
       "id": "relationships-05",
       "category": "relationships",
-      "slug": "relationships-guide-05",
-      "title_en": "A Step-by-Step Plan for Relationships",
-      "title_ur": "تعلقات کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/relationships/relationships-guide-05/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-05/",
+      "slug": "time-for-meaningful-conversations",
+      "title_en": "Make Time for Meaningful Conversations",
+      "title_ur": "بامعنی گفتگو کے لیے وقت نکالیں",
+      "url": "/life-hacks/relationships/time-for-meaningful-conversations/",
+      "url_ur": "/ur/life-hacks/relationships/time-for-meaningful-conversations/",
       "languages": [
         "en",
         "ur"
@@ -2761,11 +2761,11 @@
     {
       "id": "relationships-06",
       "category": "relationships",
-      "slug": "relationships-guide-06",
-      "title_en": "How to Solve Everyday Problems with Relationships",
-      "title_ur": "تعلقات سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/relationships/relationships-guide-06/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-06/",
+      "slug": "recognize-controlling-behaviour",
+      "title_en": "Recognize Controlling Behaviour and Seek Support",
+      "title_ur": "کنٹرول کرنے والے رویے پہچانیں اور مدد حاصل کریں",
+      "url": "/life-hacks/relationships/recognize-controlling-behaviour/",
+      "url_ur": "/ur/life-hacks/relationships/recognize-controlling-behaviour/",
       "languages": [
         "en",
         "ur"
@@ -2776,11 +2776,11 @@
     {
       "id": "relationships-07",
       "category": "relationships",
-      "slug": "relationships-guide-07",
-      "title_en": "Useful Tools and Techniques for Relationships",
-      "title_ur": "تعلقات کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/relationships/relationships-guide-07/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-07/",
+      "slug": "share-home-responsibilities",
+      "title_en": "Share Responsibilities Fairly at Home",
+      "title_ur": "گھر کی ذمہ داریاں منصفانہ انداز میں تقسیم کریں",
+      "url": "/life-hacks/relationships/share-home-responsibilities/",
+      "url_ur": "/ur/life-hacks/relationships/share-home-responsibilities/",
       "languages": [
         "en",
         "ur"
@@ -2791,11 +2791,11 @@
     {
       "id": "relationships-08",
       "category": "relationships",
-      "slug": "relationships-guide-08",
-      "title_en": "How to Stay Consistent with Relationships",
-      "title_ur": "تعلقات میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/relationships/relationships-guide-08/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-08/",
+      "slug": "respect-differences",
+      "title_en": "Respect Differences Without Trying to Win Every Debate",
+      "title_ur": "ہر بحث جیتنے کی کوشش کیے بغیر اختلافات کا احترام کریں",
+      "url": "/life-hacks/relationships/respect-differences/",
+      "url_ur": "/ur/life-hacks/relationships/respect-differences/",
       "languages": [
         "en",
         "ur"
@@ -2806,11 +2806,11 @@
     {
       "id": "relationships-09",
       "category": "relationships",
-      "slug": "relationships-guide-09",
-      "title_en": "A Weekly Checklist for Better Relationships",
-      "title_ur": "تعلقات کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/relationships/relationships-guide-09/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-09/",
+      "slug": "rebuild-trust-consistent-actions",
+      "title_en": "Rebuild Trust Through Consistent Actions",
+      "title_ur": "مسلسل درست عمل سے اعتماد دوبارہ قائم کریں",
+      "url": "/life-hacks/relationships/rebuild-trust-consistent-actions/",
+      "url_ur": "/ur/life-hacks/relationships/rebuild-trust-consistent-actions/",
       "languages": [
         "en",
         "ur"
@@ -2821,11 +2821,11 @@
     {
       "id": "relationships-10",
       "category": "relationships",
-      "slug": "relationships-guide-10",
-      "title_en": "How to Measure Progress in Relationships",
-      "title_ur": "تعلقات میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/relationships/relationships-guide-10/",
-      "url_ur": "/ur/life-hacks/relationships/relationships-guide-10/",
+      "slug": "relationship-conflict-outside-help",
+      "title_en": "Know When a Relationship Conflict Needs Outside Help",
+      "title_ur": "جانیں کہ تعلقات کے تنازعے میں بیرونی مدد کب ضروری ہے",
+      "url": "/life-hacks/relationships/relationship-conflict-outside-help/",
+      "url_ur": "/ur/life-hacks/relationships/relationship-conflict-outside-help/",
       "languages": [
         "en",
         "ur"
@@ -2836,11 +2836,11 @@
     {
       "id": "habits-self-discipline-01",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-01",
-      "title_en": "A Beginner's Practical Guide to Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-01/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-01/",
+      "slug": "start-tiny-repeatable-habit",
+      "title_en": "Start a Habit So Small You Can Repeat It",
+      "title_ur": "ایسی چھوٹی عادت شروع کریں جسے روز دہرایا جا سکے",
+      "url": "/life-hacks/habits-self-discipline/start-tiny-repeatable-habit/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/start-tiny-repeatable-habit/",
       "languages": [
         "en",
         "ur"
@@ -2851,11 +2851,11 @@
     {
       "id": "habits-self-discipline-02",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-02/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-02/",
+      "slug": "habit-stacking",
+      "title_en": "Use Habit Stacking to Link a New Routine",
+      "title_ur": "ہیبٹ اسٹیکنگ سے نئی عادت کو پرانی عادت کے ساتھ جوڑیں",
+      "url": "/life-hacks/habits-self-discipline/habit-stacking/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habit-stacking/",
       "languages": [
         "en",
         "ur"
@@ -2866,11 +2866,11 @@
     {
       "id": "habits-self-discipline-03",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-03",
-      "title_en": "Simple Daily Ways to Improve Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-03/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-03/",
+      "slug": "design-environment-good-habits",
+      "title_en": "Design Your Environment to Make Good Habits Easier",
+      "title_ur": "اچھی عادات آسان بنانے کے لیے ماحول ترتیب دیں",
+      "url": "/life-hacks/habits-self-discipline/design-environment-good-habits/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/design-environment-good-habits/",
       "languages": [
         "en",
         "ur"
@@ -2881,11 +2881,11 @@
     {
       "id": "habits-self-discipline-04",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-04",
-      "title_en": "How to Build a Better Routine for Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-04/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-04/",
+      "slug": "recover-after-missed-day",
+      "title_en": "Recover Quickly After Missing a Day",
+      "title_ur": "ایک دن ناغہ ہونے کے بعد دوبارہ جلد آغاز کریں",
+      "url": "/life-hacks/habits-self-discipline/recover-after-missed-day/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/recover-after-missed-day/",
       "languages": [
         "en",
         "ur"
@@ -2896,11 +2896,11 @@
     {
       "id": "habits-self-discipline-05",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-05",
-      "title_en": "A Step-by-Step Plan for Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-05/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-05/",
+      "slug": "replace-bad-habit",
+      "title_en": "Replace a Bad Habit Instead of Relying on Willpower",
+      "title_ur": "صرف قوتِ ارادی پر انحصار کرنے کے بجائے بری عادت کا متبادل اپنائیں",
+      "url": "/life-hacks/habits-self-discipline/replace-bad-habit/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/replace-bad-habit/",
       "languages": [
         "en",
         "ur"
@@ -2911,11 +2911,11 @@
     {
       "id": "habits-self-discipline-06",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-06",
-      "title_en": "How to Solve Everyday Problems with Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-06/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-06/",
+      "slug": "habit-tracker-balanced-use",
+      "title_en": "Use a Habit Tracker Without Becoming Obsessed",
+      "title_ur": "عادتوں کا ریکارڈ رکھیں مگر اس کے جنون میں نہ پڑیں",
+      "url": "/life-hacks/habits-self-discipline/habit-tracker-balanced-use/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habit-tracker-balanced-use/",
       "languages": [
         "en",
         "ur"
@@ -2926,11 +2926,11 @@
     {
       "id": "habits-self-discipline-07",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-07",
-      "title_en": "Useful Tools and Techniques for Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-07/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-07/",
+      "slug": "make-temptations-less-accessible",
+      "title_en": "Make Temptations Harder to Reach",
+      "title_ur": "غیر مفید چیزوں تک رسائی مشکل بنائیں",
+      "url": "/life-hacks/habits-self-discipline/make-temptations-less-accessible/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/make-temptations-less-accessible/",
       "languages": [
         "en",
         "ur"
@@ -2941,11 +2941,11 @@
     {
       "id": "habits-self-discipline-08",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-08",
-      "title_en": "How to Stay Consistent with Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-08/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-08/",
+      "slug": "if-then-plans-difficult-moments",
+      "title_en": "Create If-Then Plans for Difficult Moments",
+      "title_ur": "مشکل لمحات کے لیے اگر-تو منصوبے بنائیں",
+      "url": "/life-hacks/habits-self-discipline/if-then-plans-difficult-moments/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/if-then-plans-difficult-moments/",
       "languages": [
         "en",
         "ur"
@@ -2956,11 +2956,11 @@
     {
       "id": "habits-self-discipline-09",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-09",
-      "title_en": "A Weekly Checklist for Better Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-09/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-09/",
+      "slug": "discipline-consistent-daily-cues",
+      "title_en": "Build Discipline with Consistent Sleep and Work Cues",
+      "title_ur": "نیند اور کام کے مستقل اوقات سے نظم و ضبط بڑھائیں",
+      "url": "/life-hacks/habits-self-discipline/discipline-consistent-daily-cues/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/discipline-consistent-daily-cues/",
       "languages": [
         "en",
         "ur"
@@ -2971,11 +2971,11 @@
     {
       "id": "habits-self-discipline-10",
       "category": "habits-self-discipline",
-      "slug": "habits-self-discipline-guide-10",
-      "title_en": "How to Measure Progress in Habits & Self-Discipline",
-      "title_ur": "عادات اور خود نظم میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-10/",
-      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-10/",
+      "slug": "monthly-habit-review",
+      "title_en": "Review Your Habits at the End of Each Month",
+      "title_ur": "ہر ماہ کے اختتام پر اپنی عادات کا جائزہ لیں",
+      "url": "/life-hacks/habits-self-discipline/monthly-habit-review/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/monthly-habit-review/",
       "languages": [
         "en",
         "ur"
@@ -2986,11 +2986,11 @@
     {
       "id": "travel-everyday-survival-01",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-01",
-      "title_en": "A Beginner's Practical Guide to Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کے لیے ابتدائی عملی رہنمائی",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-01/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-01/",
+      "slug": "carry-on-packing-checklist",
+      "title_en": "Pack a Carry-On Bag with a Simple Checklist",
+      "title_ur": "سادہ چیک لسٹ سے ہینڈ کیری بیگ تیار کریں",
+      "url": "/life-hacks/travel-everyday-survival/carry-on-packing-checklist/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/carry-on-packing-checklist/",
       "languages": [
         "en",
         "ur"
@@ -3001,11 +3001,11 @@
     {
       "id": "travel-everyday-survival-02",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-02",
-      "title_en": "10 Common Mistakes to Avoid in Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل میں سے بچنے کی 10 عام غلطیاں",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-02/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-02/",
+      "slug": "secure-travel-documents",
+      "title_en": "Keep Important Travel Documents Secure and Accessible",
+      "title_ur": "سفر کی اہم دستاویزات محفوظ اور قابلِ رسائی رکھیں",
+      "url": "/life-hacks/travel-everyday-survival/secure-travel-documents/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/secure-travel-documents/",
       "languages": [
         "en",
         "ur"
@@ -3016,11 +3016,11 @@
     {
       "id": "travel-everyday-survival-03",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-03",
-      "title_en": "Simple Daily Ways to Improve Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کو بہتر بنانے کے روزمرہ آسان طریقے",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-03/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-03/",
+      "slug": "plan-travel-delay-buffer",
+      "title_en": "Plan a Journey with Extra Time for Delays",
+      "title_ur": "تاخیر کے امکان کو مدنظر رکھ کر سفر کی منصوبہ بندی کریں",
+      "url": "/life-hacks/travel-everyday-survival/plan-travel-delay-buffer/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/plan-travel-delay-buffer/",
       "languages": [
         "en",
         "ur"
@@ -3031,11 +3031,11 @@
     {
       "id": "travel-everyday-survival-04",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-04",
-      "title_en": "How to Build a Better Routine for Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کے لیے بہتر معمول کیسے بنائیں",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-04/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-04/",
+      "slug": "avoid-tourist-scams",
+      "title_en": "Avoid Common Tourist Scams in Unfamiliar Places",
+      "title_ur": "اجنبی مقامات پر سیاحوں کے ساتھ ہونے والے عام فراڈ سے بچیں",
+      "url": "/life-hacks/travel-everyday-survival/avoid-tourist-scams/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/avoid-tourist-scams/",
       "languages": [
         "en",
         "ur"
@@ -3046,11 +3046,11 @@
     {
       "id": "travel-everyday-survival-05",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-05",
-      "title_en": "A Step-by-Step Plan for Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کے لیے مرحلہ وار منصوبہ",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-05/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-05/",
+      "slug": "share-travel-itinerary",
+      "title_en": "Share Your Travel Itinerary with a Trusted Person",
+      "title_ur": "اپنے سفر کا منصوبہ کسی قابلِ اعتماد شخص سے شیئر کریں",
+      "url": "/life-hacks/travel-everyday-survival/share-travel-itinerary/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/share-travel-itinerary/",
       "languages": [
         "en",
         "ur"
@@ -3061,11 +3061,11 @@
     {
       "id": "travel-everyday-survival-06",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-06",
-      "title_en": "How to Solve Everyday Problems with Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل سے روزمرہ مسائل کیسے حل کریں",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-06/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-06/",
+      "slug": "prepare-power-internet-outage",
+      "title_en": "Prepare for a Power or Internet Outage",
+      "title_ur": "بجلی یا انٹرنیٹ بند ہونے کی صورت میں تیاری کریں",
+      "url": "/life-hacks/travel-everyday-survival/prepare-power-internet-outage/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/prepare-power-internet-outage/",
       "languages": [
         "en",
         "ur"
@@ -3076,11 +3076,11 @@
     {
       "id": "travel-everyday-survival-07",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-07",
-      "title_en": "Useful Tools and Techniques for Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کے مفید طریقے اور ٹولز",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-07/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-07/",
+      "slug": "offline-emergency-contacts",
+      "title_en": "Keep Emergency Contacts Available Offline",
+      "title_ur": "ہنگامی رابطہ نمبرز آف لائن بھی محفوظ رکھیں",
+      "url": "/life-hacks/travel-everyday-survival/offline-emergency-contacts/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/offline-emergency-contacts/",
       "languages": [
         "en",
         "ur"
@@ -3091,11 +3091,11 @@
     {
       "id": "travel-everyday-survival-08",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-08",
-      "title_en": "How to Stay Consistent with Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل میں مستقل مزاجی کیسے برقرار رکھیں",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-08/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-08/",
+      "slug": "maps-low-phone-battery",
+      "title_en": "Use Maps Safely When Your Phone Battery Is Low",
+      "title_ur": "موبائل کی بیٹری کم ہو تو نقشے محفوظ طریقے سے استعمال کریں",
+      "url": "/life-hacks/travel-everyday-survival/maps-low-phone-battery/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/maps-low-phone-battery/",
       "languages": [
         "en",
         "ur"
@@ -3106,11 +3106,11 @@
     {
       "id": "travel-everyday-survival-09",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-09",
-      "title_en": "A Weekly Checklist for Better Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل کو بہتر بنانے کی ہفتہ وار فہرست",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-09/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-09/",
+      "slug": "travel-first-aid-safety-checklist",
+      "title_en": "Make a Basic First-Aid and Travel Safety Checklist",
+      "title_ur": "ابتدائی طبی امداد اور سفری حفاظت کی بنیادی چیک لسٹ بنائیں",
+      "url": "/life-hacks/travel-everyday-survival/travel-first-aid-safety-checklist/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-first-aid-safety-checklist/",
       "languages": [
         "en",
         "ur"
@@ -3121,11 +3121,11 @@
     {
       "id": "travel-everyday-survival-10",
       "category": "travel-everyday-survival",
-      "slug": "travel-everyday-survival-guide-10",
-      "title_en": "How to Measure Progress in Travel & Everyday Survival",
-      "title_ur": "سفر اور روزمرہ مسائل میں اپنی پیش رفت کیسے جانچیں",
-      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-10/",
-      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-10/",
+      "slug": "handle-lost-belongings",
+      "title_en": "Handle Lost Belongings Calmly and Systematically",
+      "title_ur": "سامان گم ہونے پر سکون اور ترتیب سے اقدامات کریں",
+      "url": "/life-hacks/travel-everyday-survival/handle-lost-belongings/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/handle-lost-belongings/",
       "languages": [
         "en",
         "ur"
