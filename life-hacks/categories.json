@@ -1,0 +1,219 @@
+{
+  "project": "OBAID DOCTRINE Life Hacks A-Z",
+  "version": 1,
+  "status": "category-manifest",
+  "languages": [
+    "en",
+    "ur"
+  ],
+  "category_count": 20,
+  "topic_count": 200,
+  "article_version_count": 400,
+  "routing": {
+    "english_root": "/life-hacks/",
+    "urdu_root": "/ur/life-hacks/",
+    "urdu_direction": "rtl"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "slug": "time-management",
+      "name": "Time Management",
+      "name_ur": "وقت کا انتظام",
+      "url": "/life-hacks/time-management/",
+      "url_ur": "/ur/life-hacks/time-management/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 2,
+      "slug": "productivity",
+      "name": "Productivity",
+      "name_ur": "کام کی صلاحیت",
+      "url": "/life-hacks/productivity/",
+      "url_ur": "/ur/life-hacks/productivity/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 3,
+      "slug": "mental-wellness",
+      "name": "Mental Wellness",
+      "name_ur": "ذہنی سکون",
+      "url": "/life-hacks/mental-wellness/",
+      "url_ur": "/ur/life-hacks/mental-wellness/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 4,
+      "slug": "psychology-hacks",
+      "name": "Psychology Hacks",
+      "name_ur": "نفسیاتی ہیکس",
+      "url": "/life-hacks/psychology-hacks/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 5,
+      "slug": "communication",
+      "name": "Communication",
+      "name_ur": "گفتگو اور رابطے",
+      "url": "/life-hacks/communication/",
+      "url_ur": "/ur/life-hacks/communication/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 6,
+      "slug": "social-skills",
+      "name": "Social Skills",
+      "name_ur": "سماجی مہارتیں",
+      "url": "/life-hacks/social-skills/",
+      "url_ur": "/ur/life-hacks/social-skills/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 7,
+      "slug": "confidence",
+      "name": "Confidence",
+      "name_ur": "خود اعتمادی",
+      "url": "/life-hacks/confidence/",
+      "url_ur": "/ur/life-hacks/confidence/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 8,
+      "slug": "personality-development",
+      "name": "Personality Development",
+      "name_ur": "شخصیت سازی",
+      "url": "/life-hacks/personality-development/",
+      "url_ur": "/ur/life-hacks/personality-development/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 9,
+      "slug": "study-memory",
+      "name": "Study & Memory",
+      "name_ur": "تعلیم اور یادداشت",
+      "url": "/life-hacks/study-memory/",
+      "url_ur": "/ur/life-hacks/study-memory/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 10,
+      "slug": "career-workplace",
+      "name": "Career & Workplace",
+      "name_ur": "کیریئر اور دفتر",
+      "url": "/life-hacks/career-workplace/",
+      "url_ur": "/ur/life-hacks/career-workplace/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 11,
+      "slug": "money-budgeting",
+      "name": "Money & Budgeting",
+      "name_ur": "پیسوں کی بچت",
+      "url": "/life-hacks/money-budgeting/",
+      "url_ur": "/ur/life-hacks/money-budgeting/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 12,
+      "slug": "technology-smartphone",
+      "name": "Technology & Smartphone",
+      "name_ur": "ٹیکنالوجی اور موبائل",
+      "url": "/life-hacks/technology-smartphone/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 13,
+      "slug": "digital-skills",
+      "name": "Internet & Digital Skills",
+      "name_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں",
+      "url": "/life-hacks/digital-skills/",
+      "url_ur": "/ur/life-hacks/digital-skills/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 14,
+      "slug": "sleep-morning-routine",
+      "name": "Sleep & Morning Routine",
+      "name_ur": "نیند اور صبح کی روٹین",
+      "url": "/life-hacks/sleep-morning-routine/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 15,
+      "slug": "health-fitness",
+      "name": "Health & Fitness",
+      "name_ur": "صحت اور فٹنس",
+      "url": "/life-hacks/health-fitness/",
+      "url_ur": "/ur/life-hacks/health-fitness/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 16,
+      "slug": "nutrition-food",
+      "name": "Nutrition & Food",
+      "name_ur": "غذا اور خوراک",
+      "url": "/life-hacks/nutrition-food/",
+      "url_ur": "/ur/life-hacks/nutrition-food/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 17,
+      "slug": "home-kitchen",
+      "name": "Home & Kitchen",
+      "name_ur": "گھر اور کچن",
+      "url": "/life-hacks/home-kitchen/",
+      "url_ur": "/ur/life-hacks/home-kitchen/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 18,
+      "slug": "relationships",
+      "name": "Relationships",
+      "name_ur": "تعلقات",
+      "url": "/life-hacks/relationships/",
+      "url_ur": "/ur/life-hacks/relationships/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 19,
+      "slug": "habits-self-discipline",
+      "name": "Habits & Self-Discipline",
+      "name_ur": "عادات اور خود نظم",
+      "url": "/life-hacks/habits-self-discipline/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/",
+      "topic_count": 10,
+      "article_count": 20
+    },
+    {
+      "id": 20,
+      "slug": "travel-everyday-survival",
+      "name": "Travel & Everyday Survival",
+      "name_ur": "سفر اور روزمرہ مسائل",
+      "url": "/life-hacks/travel-everyday-survival/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/",
+      "topic_count": 10,
+      "article_count": 20
+    }
+  ]
+}
