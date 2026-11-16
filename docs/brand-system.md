@@ -13,6 +13,8 @@ Tagline: BETTER MIND • BETTER CHARACTER • BETTER LIFE
 - Warm Beige: #E8D8C5 — borders and dividers.
 - Pale Orange: #FCE8D8 — subtle surfaces and hover backgrounds.
 
+Women-focused educational content is an editorial topic area within OBAID DOCTRINE, not a separate brand.
+
 ## Usage
 - Keep content surfaces predominantly cream or white; do not make every page fully orange.
 - Use orange for recognizable brand accents, not long blocks of body text.
@@ -25,7 +27,6 @@ Tagline: BETTER MIND • BETTER CHARACTER • BETTER LIFE
 ## Brand architecture
 Parent: OBAID DOCTRINE
 - OBAID DOCTRINE PSYCHOLOGY — content division, not a separate independent parent brand.
-- WOMAN DOCTRINE by OBAID DOCTRINE
 - OBAID DOCTRINE FACTS
 - OBAID DOCTRINE ASSESSMENT — separate assessment platform; main site may link to it, but its infrastructure is out of scope.
 - OBAID DOCTRINE ACADEMY — planned
