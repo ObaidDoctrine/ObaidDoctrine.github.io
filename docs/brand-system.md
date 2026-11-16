@@ -32,7 +32,7 @@ Parent: OBAID DOCTRINE
 - OBAID DOCTRINE RESEARCH — planned
 - OBAID DOCTRINE MEDIA — planned
 
-Women-focused educational content is an editorial topic area within OBAID DOCTRINE, not a separate brand. Use only the approved brand names listed in this document.
+Use only the approved brand names listed in this document.
 
 ## Governance
 Do not change the core palette without explicit owner approval. New components must consume shared CSS variables where practical. Record exceptions and accessibility checks in the implementation notes.
