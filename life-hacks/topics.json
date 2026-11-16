@@ -1,0 +1,3137 @@
+{
+  "project": "OBAID DOCTRINE Life Hacks A-Z",
+  "version": 1,
+  "status": "draft-topic-inventory",
+  "languages": [
+    "en",
+    "ur"
+  ],
+  "category_count": 20,
+  "topic_count": 200,
+  "planned_article_version_count": 400,
+  "note": "These are draft working titles generated to establish the bilingual inventory and URL plan. They are NOT approved article titles or published articles. Each title must be reviewed for usefulness, specificity, duplication, and evidence requirements before writing or publishing.",
+  "categories": [
+    {
+      "slug": "time-management",
+      "name_en": "Time Management",
+      "name_ur": "وقت کا انتظام",
+      "topic_count": 10
+    },
+    {
+      "slug": "productivity",
+      "name_en": "Productivity",
+      "name_ur": "کام کی صلاحیت",
+      "topic_count": 10
+    },
+    {
+      "slug": "mental-wellness",
+      "name_en": "Mental Wellness",
+      "name_ur": "ذہنی سکون",
+      "topic_count": 10
+    },
+    {
+      "slug": "psychology-hacks",
+      "name_en": "Psychology Hacks",
+      "name_ur": "نفسیاتی ہیکس",
+      "topic_count": 10
+    },
+    {
+      "slug": "communication",
+      "name_en": "Communication",
+      "name_ur": "گفتگو اور رابطے",
+      "topic_count": 10
+    },
+    {
+      "slug": "social-skills",
+      "name_en": "Social Skills",
+      "name_ur": "سماجی مہارتیں",
+      "topic_count": 10
+    },
+    {
+      "slug": "confidence",
+      "name_en": "Confidence",
+      "name_ur": "خود اعتمادی",
+      "topic_count": 10
+    },
+    {
+      "slug": "personality-development",
+      "name_en": "Personality Development",
+      "name_ur": "شخصیت سازی",
+      "topic_count": 10
+    },
+    {
+      "slug": "study-memory",
+      "name_en": "Study & Memory",
+      "name_ur": "تعلیم اور یادداشت",
+      "topic_count": 10
+    },
+    {
+      "slug": "career-workplace",
+      "name_en": "Career & Workplace",
+      "name_ur": "کیریئر اور دفتر",
+      "topic_count": 10
+    },
+    {
+      "slug": "money-budgeting",
+      "name_en": "Money & Budgeting",
+      "name_ur": "پیسوں کی بچت",
+      "topic_count": 10
+    },
+    {
+      "slug": "technology-smartphone",
+      "name_en": "Technology & Smartphone",
+      "name_ur": "ٹیکنالوجی اور موبائل",
+      "topic_count": 10
+    },
+    {
+      "slug": "digital-skills",
+      "name_en": "Internet & Digital Skills",
+      "name_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں",
+      "topic_count": 10
+    },
+    {
+      "slug": "sleep-morning-routine",
+      "name_en": "Sleep & Morning Routine",
+      "name_ur": "نیند اور صبح کی روٹین",
+      "topic_count": 10
+    },
+    {
+      "slug": "health-fitness",
+      "name_en": "Health & Fitness",
+      "name_ur": "صحت اور فٹنس",
+      "topic_count": 10
+    },
+    {
+      "slug": "nutrition-food",
+      "name_en": "Nutrition & Food",
+      "name_ur": "غذا اور خوراک",
+      "topic_count": 10
+    },
+    {
+      "slug": "home-kitchen",
+      "name_en": "Home & Kitchen",
+      "name_ur": "گھر اور کچن",
+      "topic_count": 10
+    },
+    {
+      "slug": "relationships",
+      "name_en": "Relationships",
+      "name_ur": "تعلقات",
+      "topic_count": 10
+    },
+    {
+      "slug": "habits-self-discipline",
+      "name_en": "Habits & Self-Discipline",
+      "name_ur": "عادات اور خود نظم",
+      "topic_count": 10
+    },
+    {
+      "slug": "travel-everyday-survival",
+      "name_en": "Travel & Everyday Survival",
+      "name_ur": "سفر اور روزمرہ مسائل",
+      "topic_count": 10
+    }
+  ],
+  "topics": [
+    {
+      "id": "time-management-01",
+      "category": "time-management",
+      "slug": "time-management-guide-01",
+      "title_en": "A Beginner's Practical Guide to Time Management",
+      "title_ur": "وقت کا انتظام کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/time-management/time-management-guide-01/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-02",
+      "category": "time-management",
+      "slug": "time-management-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Time Management",
+      "title_ur": "وقت کا انتظام میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/time-management/time-management-guide-02/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-03",
+      "category": "time-management",
+      "slug": "time-management-guide-03",
+      "title_en": "Simple Daily Ways to Improve Time Management",
+      "title_ur": "وقت کا انتظام کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/time-management/time-management-guide-03/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-04",
+      "category": "time-management",
+      "slug": "time-management-guide-04",
+      "title_en": "How to Build a Better Routine for Time Management",
+      "title_ur": "وقت کا انتظام کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/time-management/time-management-guide-04/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-05",
+      "category": "time-management",
+      "slug": "time-management-guide-05",
+      "title_en": "A Step-by-Step Plan for Time Management",
+      "title_ur": "وقت کا انتظام کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/time-management/time-management-guide-05/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-06",
+      "category": "time-management",
+      "slug": "time-management-guide-06",
+      "title_en": "How to Solve Everyday Problems with Time Management",
+      "title_ur": "وقت کا انتظام سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/time-management/time-management-guide-06/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-07",
+      "category": "time-management",
+      "slug": "time-management-guide-07",
+      "title_en": "Useful Tools and Techniques for Time Management",
+      "title_ur": "وقت کا انتظام کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/time-management/time-management-guide-07/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-08",
+      "category": "time-management",
+      "slug": "time-management-guide-08",
+      "title_en": "How to Stay Consistent with Time Management",
+      "title_ur": "وقت کا انتظام میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/time-management/time-management-guide-08/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-09",
+      "category": "time-management",
+      "slug": "time-management-guide-09",
+      "title_en": "A Weekly Checklist for Better Time Management",
+      "title_ur": "وقت کا انتظام کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/time-management/time-management-guide-09/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "time-management-10",
+      "category": "time-management",
+      "slug": "time-management-guide-10",
+      "title_en": "How to Measure Progress in Time Management",
+      "title_ur": "وقت کا انتظام میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/time-management/time-management-guide-10/",
+      "url_ur": "/ur/life-hacks/time-management/time-management-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-01",
+      "category": "productivity",
+      "slug": "productivity-guide-01",
+      "title_en": "A Beginner's Practical Guide to Productivity",
+      "title_ur": "کام کی صلاحیت کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/productivity/productivity-guide-01/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-02",
+      "category": "productivity",
+      "slug": "productivity-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Productivity",
+      "title_ur": "کام کی صلاحیت میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/productivity/productivity-guide-02/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-03",
+      "category": "productivity",
+      "slug": "productivity-guide-03",
+      "title_en": "Simple Daily Ways to Improve Productivity",
+      "title_ur": "کام کی صلاحیت کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/productivity/productivity-guide-03/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-04",
+      "category": "productivity",
+      "slug": "productivity-guide-04",
+      "title_en": "How to Build a Better Routine for Productivity",
+      "title_ur": "کام کی صلاحیت کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/productivity/productivity-guide-04/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-05",
+      "category": "productivity",
+      "slug": "productivity-guide-05",
+      "title_en": "A Step-by-Step Plan for Productivity",
+      "title_ur": "کام کی صلاحیت کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/productivity/productivity-guide-05/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-06",
+      "category": "productivity",
+      "slug": "productivity-guide-06",
+      "title_en": "How to Solve Everyday Problems with Productivity",
+      "title_ur": "کام کی صلاحیت سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/productivity/productivity-guide-06/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-07",
+      "category": "productivity",
+      "slug": "productivity-guide-07",
+      "title_en": "Useful Tools and Techniques for Productivity",
+      "title_ur": "کام کی صلاحیت کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/productivity/productivity-guide-07/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-08",
+      "category": "productivity",
+      "slug": "productivity-guide-08",
+      "title_en": "How to Stay Consistent with Productivity",
+      "title_ur": "کام کی صلاحیت میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/productivity/productivity-guide-08/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-09",
+      "category": "productivity",
+      "slug": "productivity-guide-09",
+      "title_en": "A Weekly Checklist for Better Productivity",
+      "title_ur": "کام کی صلاحیت کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/productivity/productivity-guide-09/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "productivity-10",
+      "category": "productivity",
+      "slug": "productivity-guide-10",
+      "title_en": "How to Measure Progress in Productivity",
+      "title_ur": "کام کی صلاحیت میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/productivity/productivity-guide-10/",
+      "url_ur": "/ur/life-hacks/productivity/productivity-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-01",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-01",
+      "title_en": "A Beginner's Practical Guide to Mental Wellness",
+      "title_ur": "ذہنی سکون کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-01/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-02",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Mental Wellness",
+      "title_ur": "ذہنی سکون میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-02/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-03",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-03",
+      "title_en": "Simple Daily Ways to Improve Mental Wellness",
+      "title_ur": "ذہنی سکون کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-03/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-04",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-04",
+      "title_en": "How to Build a Better Routine for Mental Wellness",
+      "title_ur": "ذہنی سکون کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-04/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-05",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-05",
+      "title_en": "A Step-by-Step Plan for Mental Wellness",
+      "title_ur": "ذہنی سکون کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-05/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-06",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-06",
+      "title_en": "How to Solve Everyday Problems with Mental Wellness",
+      "title_ur": "ذہنی سکون سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-06/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-07",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-07",
+      "title_en": "Useful Tools and Techniques for Mental Wellness",
+      "title_ur": "ذہنی سکون کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-07/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-08",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-08",
+      "title_en": "How to Stay Consistent with Mental Wellness",
+      "title_ur": "ذہنی سکون میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-08/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-09",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-09",
+      "title_en": "A Weekly Checklist for Better Mental Wellness",
+      "title_ur": "ذہنی سکون کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-09/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "mental-wellness-10",
+      "category": "mental-wellness",
+      "slug": "mental-wellness-guide-10",
+      "title_en": "How to Measure Progress in Mental Wellness",
+      "title_ur": "ذہنی سکون میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/mental-wellness/mental-wellness-guide-10/",
+      "url_ur": "/ur/life-hacks/mental-wellness/mental-wellness-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-01",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-01",
+      "title_en": "A Beginner's Practical Guide to Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-01/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-02",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-02/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-03",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-03",
+      "title_en": "Simple Daily Ways to Improve Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-03/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-04",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-04",
+      "title_en": "How to Build a Better Routine for Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-04/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-05",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-05",
+      "title_en": "A Step-by-Step Plan for Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-05/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-06",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-06",
+      "title_en": "How to Solve Everyday Problems with Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-06/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-07",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-07",
+      "title_en": "Useful Tools and Techniques for Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-07/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-08",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-08",
+      "title_en": "How to Stay Consistent with Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-08/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-09",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-09",
+      "title_en": "A Weekly Checklist for Better Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-09/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "psychology-hacks-10",
+      "category": "psychology-hacks",
+      "slug": "psychology-hacks-guide-10",
+      "title_en": "How to Measure Progress in Psychology Hacks",
+      "title_ur": "نفسیاتی ہیکس میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/psychology-hacks/psychology-hacks-guide-10/",
+      "url_ur": "/ur/life-hacks/psychology-hacks/psychology-hacks-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-01",
+      "category": "communication",
+      "slug": "communication-guide-01",
+      "title_en": "A Beginner's Practical Guide to Communication",
+      "title_ur": "گفتگو اور رابطے کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/communication/communication-guide-01/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-02",
+      "category": "communication",
+      "slug": "communication-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Communication",
+      "title_ur": "گفتگو اور رابطے میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/communication/communication-guide-02/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-03",
+      "category": "communication",
+      "slug": "communication-guide-03",
+      "title_en": "Simple Daily Ways to Improve Communication",
+      "title_ur": "گفتگو اور رابطے کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/communication/communication-guide-03/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-04",
+      "category": "communication",
+      "slug": "communication-guide-04",
+      "title_en": "How to Build a Better Routine for Communication",
+      "title_ur": "گفتگو اور رابطے کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/communication/communication-guide-04/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-05",
+      "category": "communication",
+      "slug": "communication-guide-05",
+      "title_en": "A Step-by-Step Plan for Communication",
+      "title_ur": "گفتگو اور رابطے کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/communication/communication-guide-05/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-06",
+      "category": "communication",
+      "slug": "communication-guide-06",
+      "title_en": "How to Solve Everyday Problems with Communication",
+      "title_ur": "گفتگو اور رابطے سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/communication/communication-guide-06/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-07",
+      "category": "communication",
+      "slug": "communication-guide-07",
+      "title_en": "Useful Tools and Techniques for Communication",
+      "title_ur": "گفتگو اور رابطے کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/communication/communication-guide-07/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-08",
+      "category": "communication",
+      "slug": "communication-guide-08",
+      "title_en": "How to Stay Consistent with Communication",
+      "title_ur": "گفتگو اور رابطے میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/communication/communication-guide-08/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-09",
+      "category": "communication",
+      "slug": "communication-guide-09",
+      "title_en": "A Weekly Checklist for Better Communication",
+      "title_ur": "گفتگو اور رابطے کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/communication/communication-guide-09/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "communication-10",
+      "category": "communication",
+      "slug": "communication-guide-10",
+      "title_en": "How to Measure Progress in Communication",
+      "title_ur": "گفتگو اور رابطے میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/communication/communication-guide-10/",
+      "url_ur": "/ur/life-hacks/communication/communication-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-01",
+      "category": "social-skills",
+      "slug": "social-skills-guide-01",
+      "title_en": "A Beginner's Practical Guide to Social Skills",
+      "title_ur": "سماجی مہارتیں کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/social-skills/social-skills-guide-01/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-02",
+      "category": "social-skills",
+      "slug": "social-skills-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Social Skills",
+      "title_ur": "سماجی مہارتیں میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/social-skills/social-skills-guide-02/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-03",
+      "category": "social-skills",
+      "slug": "social-skills-guide-03",
+      "title_en": "Simple Daily Ways to Improve Social Skills",
+      "title_ur": "سماجی مہارتیں کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/social-skills/social-skills-guide-03/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-04",
+      "category": "social-skills",
+      "slug": "social-skills-guide-04",
+      "title_en": "How to Build a Better Routine for Social Skills",
+      "title_ur": "سماجی مہارتیں کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/social-skills/social-skills-guide-04/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-05",
+      "category": "social-skills",
+      "slug": "social-skills-guide-05",
+      "title_en": "A Step-by-Step Plan for Social Skills",
+      "title_ur": "سماجی مہارتیں کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/social-skills/social-skills-guide-05/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-06",
+      "category": "social-skills",
+      "slug": "social-skills-guide-06",
+      "title_en": "How to Solve Everyday Problems with Social Skills",
+      "title_ur": "سماجی مہارتیں سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/social-skills/social-skills-guide-06/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-07",
+      "category": "social-skills",
+      "slug": "social-skills-guide-07",
+      "title_en": "Useful Tools and Techniques for Social Skills",
+      "title_ur": "سماجی مہارتیں کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/social-skills/social-skills-guide-07/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-08",
+      "category": "social-skills",
+      "slug": "social-skills-guide-08",
+      "title_en": "How to Stay Consistent with Social Skills",
+      "title_ur": "سماجی مہارتیں میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/social-skills/social-skills-guide-08/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-09",
+      "category": "social-skills",
+      "slug": "social-skills-guide-09",
+      "title_en": "A Weekly Checklist for Better Social Skills",
+      "title_ur": "سماجی مہارتیں کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/social-skills/social-skills-guide-09/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "social-skills-10",
+      "category": "social-skills",
+      "slug": "social-skills-guide-10",
+      "title_en": "How to Measure Progress in Social Skills",
+      "title_ur": "سماجی مہارتیں میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/social-skills/social-skills-guide-10/",
+      "url_ur": "/ur/life-hacks/social-skills/social-skills-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-01",
+      "category": "confidence",
+      "slug": "confidence-guide-01",
+      "title_en": "A Beginner's Practical Guide to Confidence",
+      "title_ur": "خود اعتمادی کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/confidence/confidence-guide-01/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-02",
+      "category": "confidence",
+      "slug": "confidence-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Confidence",
+      "title_ur": "خود اعتمادی میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/confidence/confidence-guide-02/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-03",
+      "category": "confidence",
+      "slug": "confidence-guide-03",
+      "title_en": "Simple Daily Ways to Improve Confidence",
+      "title_ur": "خود اعتمادی کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/confidence/confidence-guide-03/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-04",
+      "category": "confidence",
+      "slug": "confidence-guide-04",
+      "title_en": "How to Build a Better Routine for Confidence",
+      "title_ur": "خود اعتمادی کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/confidence/confidence-guide-04/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-05",
+      "category": "confidence",
+      "slug": "confidence-guide-05",
+      "title_en": "A Step-by-Step Plan for Confidence",
+      "title_ur": "خود اعتمادی کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/confidence/confidence-guide-05/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-06",
+      "category": "confidence",
+      "slug": "confidence-guide-06",
+      "title_en": "How to Solve Everyday Problems with Confidence",
+      "title_ur": "خود اعتمادی سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/confidence/confidence-guide-06/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-07",
+      "category": "confidence",
+      "slug": "confidence-guide-07",
+      "title_en": "Useful Tools and Techniques for Confidence",
+      "title_ur": "خود اعتمادی کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/confidence/confidence-guide-07/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-08",
+      "category": "confidence",
+      "slug": "confidence-guide-08",
+      "title_en": "How to Stay Consistent with Confidence",
+      "title_ur": "خود اعتمادی میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/confidence/confidence-guide-08/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-09",
+      "category": "confidence",
+      "slug": "confidence-guide-09",
+      "title_en": "A Weekly Checklist for Better Confidence",
+      "title_ur": "خود اعتمادی کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/confidence/confidence-guide-09/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "confidence-10",
+      "category": "confidence",
+      "slug": "confidence-guide-10",
+      "title_en": "How to Measure Progress in Confidence",
+      "title_ur": "خود اعتمادی میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/confidence/confidence-guide-10/",
+      "url_ur": "/ur/life-hacks/confidence/confidence-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-01",
+      "category": "personality-development",
+      "slug": "personality-development-guide-01",
+      "title_en": "A Beginner's Practical Guide to Personality Development",
+      "title_ur": "شخصیت سازی کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/personality-development/personality-development-guide-01/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-02",
+      "category": "personality-development",
+      "slug": "personality-development-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Personality Development",
+      "title_ur": "شخصیت سازی میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/personality-development/personality-development-guide-02/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-03",
+      "category": "personality-development",
+      "slug": "personality-development-guide-03",
+      "title_en": "Simple Daily Ways to Improve Personality Development",
+      "title_ur": "شخصیت سازی کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/personality-development/personality-development-guide-03/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-04",
+      "category": "personality-development",
+      "slug": "personality-development-guide-04",
+      "title_en": "How to Build a Better Routine for Personality Development",
+      "title_ur": "شخصیت سازی کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/personality-development/personality-development-guide-04/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-05",
+      "category": "personality-development",
+      "slug": "personality-development-guide-05",
+      "title_en": "A Step-by-Step Plan for Personality Development",
+      "title_ur": "شخصیت سازی کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/personality-development/personality-development-guide-05/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-06",
+      "category": "personality-development",
+      "slug": "personality-development-guide-06",
+      "title_en": "How to Solve Everyday Problems with Personality Development",
+      "title_ur": "شخصیت سازی سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/personality-development/personality-development-guide-06/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-07",
+      "category": "personality-development",
+      "slug": "personality-development-guide-07",
+      "title_en": "Useful Tools and Techniques for Personality Development",
+      "title_ur": "شخصیت سازی کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/personality-development/personality-development-guide-07/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-08",
+      "category": "personality-development",
+      "slug": "personality-development-guide-08",
+      "title_en": "How to Stay Consistent with Personality Development",
+      "title_ur": "شخصیت سازی میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/personality-development/personality-development-guide-08/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-09",
+      "category": "personality-development",
+      "slug": "personality-development-guide-09",
+      "title_en": "A Weekly Checklist for Better Personality Development",
+      "title_ur": "شخصیت سازی کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/personality-development/personality-development-guide-09/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "personality-development-10",
+      "category": "personality-development",
+      "slug": "personality-development-guide-10",
+      "title_en": "How to Measure Progress in Personality Development",
+      "title_ur": "شخصیت سازی میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/personality-development/personality-development-guide-10/",
+      "url_ur": "/ur/life-hacks/personality-development/personality-development-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-01",
+      "category": "study-memory",
+      "slug": "study-memory-guide-01",
+      "title_en": "A Beginner's Practical Guide to Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/study-memory/study-memory-guide-01/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-02",
+      "category": "study-memory",
+      "slug": "study-memory-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Study & Memory",
+      "title_ur": "تعلیم اور یادداشت میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/study-memory/study-memory-guide-02/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-03",
+      "category": "study-memory",
+      "slug": "study-memory-guide-03",
+      "title_en": "Simple Daily Ways to Improve Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/study-memory/study-memory-guide-03/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-04",
+      "category": "study-memory",
+      "slug": "study-memory-guide-04",
+      "title_en": "How to Build a Better Routine for Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/study-memory/study-memory-guide-04/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-05",
+      "category": "study-memory",
+      "slug": "study-memory-guide-05",
+      "title_en": "A Step-by-Step Plan for Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/study-memory/study-memory-guide-05/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-06",
+      "category": "study-memory",
+      "slug": "study-memory-guide-06",
+      "title_en": "How to Solve Everyday Problems with Study & Memory",
+      "title_ur": "تعلیم اور یادداشت سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/study-memory/study-memory-guide-06/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-07",
+      "category": "study-memory",
+      "slug": "study-memory-guide-07",
+      "title_en": "Useful Tools and Techniques for Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/study-memory/study-memory-guide-07/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-08",
+      "category": "study-memory",
+      "slug": "study-memory-guide-08",
+      "title_en": "How to Stay Consistent with Study & Memory",
+      "title_ur": "تعلیم اور یادداشت میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/study-memory/study-memory-guide-08/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-09",
+      "category": "study-memory",
+      "slug": "study-memory-guide-09",
+      "title_en": "A Weekly Checklist for Better Study & Memory",
+      "title_ur": "تعلیم اور یادداشت کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/study-memory/study-memory-guide-09/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "study-memory-10",
+      "category": "study-memory",
+      "slug": "study-memory-guide-10",
+      "title_en": "How to Measure Progress in Study & Memory",
+      "title_ur": "تعلیم اور یادداشت میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/study-memory/study-memory-guide-10/",
+      "url_ur": "/ur/life-hacks/study-memory/study-memory-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-01",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-01",
+      "title_en": "A Beginner's Practical Guide to Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-01/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-02",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Career & Workplace",
+      "title_ur": "کیریئر اور دفتر میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-02/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-03",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-03",
+      "title_en": "Simple Daily Ways to Improve Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-03/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-04",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-04",
+      "title_en": "How to Build a Better Routine for Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-04/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-05",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-05",
+      "title_en": "A Step-by-Step Plan for Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-05/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-06",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-06",
+      "title_en": "How to Solve Everyday Problems with Career & Workplace",
+      "title_ur": "کیریئر اور دفتر سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-06/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-07",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-07",
+      "title_en": "Useful Tools and Techniques for Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-07/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-08",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-08",
+      "title_en": "How to Stay Consistent with Career & Workplace",
+      "title_ur": "کیریئر اور دفتر میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-08/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-09",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-09",
+      "title_en": "A Weekly Checklist for Better Career & Workplace",
+      "title_ur": "کیریئر اور دفتر کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-09/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "career-workplace-10",
+      "category": "career-workplace",
+      "slug": "career-workplace-guide-10",
+      "title_en": "How to Measure Progress in Career & Workplace",
+      "title_ur": "کیریئر اور دفتر میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/career-workplace/career-workplace-guide-10/",
+      "url_ur": "/ur/life-hacks/career-workplace/career-workplace-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-01",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-01",
+      "title_en": "A Beginner's Practical Guide to Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-01/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-02",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Money & Budgeting",
+      "title_ur": "پیسوں کی بچت میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-02/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-03",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-03",
+      "title_en": "Simple Daily Ways to Improve Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-03/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-04",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-04",
+      "title_en": "How to Build a Better Routine for Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-04/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-05",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-05",
+      "title_en": "A Step-by-Step Plan for Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-05/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-06",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-06",
+      "title_en": "How to Solve Everyday Problems with Money & Budgeting",
+      "title_ur": "پیسوں کی بچت سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-06/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-07",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-07",
+      "title_en": "Useful Tools and Techniques for Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-07/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-08",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-08",
+      "title_en": "How to Stay Consistent with Money & Budgeting",
+      "title_ur": "پیسوں کی بچت میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-08/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-09",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-09",
+      "title_en": "A Weekly Checklist for Better Money & Budgeting",
+      "title_ur": "پیسوں کی بچت کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-09/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "money-budgeting-10",
+      "category": "money-budgeting",
+      "slug": "money-budgeting-guide-10",
+      "title_en": "How to Measure Progress in Money & Budgeting",
+      "title_ur": "پیسوں کی بچت میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/money-budgeting/money-budgeting-guide-10/",
+      "url_ur": "/ur/life-hacks/money-budgeting/money-budgeting-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-01",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-01",
+      "title_en": "A Beginner's Practical Guide to Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-01/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-02",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-02/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-03",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-03",
+      "title_en": "Simple Daily Ways to Improve Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-03/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-04",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-04",
+      "title_en": "How to Build a Better Routine for Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-04/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-05",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-05",
+      "title_en": "A Step-by-Step Plan for Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-05/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-06",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-06",
+      "title_en": "How to Solve Everyday Problems with Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-06/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-07",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-07",
+      "title_en": "Useful Tools and Techniques for Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-07/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-08",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-08",
+      "title_en": "How to Stay Consistent with Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-08/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-09",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-09",
+      "title_en": "A Weekly Checklist for Better Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-09/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "technology-smartphone-10",
+      "category": "technology-smartphone",
+      "slug": "technology-smartphone-guide-10",
+      "title_en": "How to Measure Progress in Technology & Smartphone",
+      "title_ur": "ٹیکنالوجی اور موبائل میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/technology-smartphone/technology-smartphone-guide-10/",
+      "url_ur": "/ur/life-hacks/technology-smartphone/technology-smartphone-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-01",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-01",
+      "title_en": "A Beginner's Practical Guide to Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-01/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-02",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-02/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-03",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-03",
+      "title_en": "Simple Daily Ways to Improve Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-03/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-04",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-04",
+      "title_en": "How to Build a Better Routine for Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-04/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-05",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-05",
+      "title_en": "A Step-by-Step Plan for Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-05/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-06",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-06",
+      "title_en": "How to Solve Everyday Problems with Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-06/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-07",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-07",
+      "title_en": "Useful Tools and Techniques for Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-07/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-08",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-08",
+      "title_en": "How to Stay Consistent with Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-08/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-09",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-09",
+      "title_en": "A Weekly Checklist for Better Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-09/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "digital-skills-10",
+      "category": "digital-skills",
+      "slug": "digital-skills-guide-10",
+      "title_en": "How to Measure Progress in Internet & Digital Skills",
+      "title_ur": "انٹرنیٹ اور ڈیجیٹل مہارتیں میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/digital-skills/digital-skills-guide-10/",
+      "url_ur": "/ur/life-hacks/digital-skills/digital-skills-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-01",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-01",
+      "title_en": "A Beginner's Practical Guide to Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-01/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-02",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-02/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-03",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-03",
+      "title_en": "Simple Daily Ways to Improve Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-03/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-04",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-04",
+      "title_en": "How to Build a Better Routine for Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-04/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-05",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-05",
+      "title_en": "A Step-by-Step Plan for Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-05/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-06",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-06",
+      "title_en": "How to Solve Everyday Problems with Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-06/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-07",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-07",
+      "title_en": "Useful Tools and Techniques for Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-07/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-08",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-08",
+      "title_en": "How to Stay Consistent with Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-08/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-09",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-09",
+      "title_en": "A Weekly Checklist for Better Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-09/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "sleep-morning-routine-10",
+      "category": "sleep-morning-routine",
+      "slug": "sleep-morning-routine-guide-10",
+      "title_en": "How to Measure Progress in Sleep & Morning Routine",
+      "title_ur": "نیند اور صبح کی روٹین میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-10/",
+      "url_ur": "/ur/life-hacks/sleep-morning-routine/sleep-morning-routine-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-01",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-01",
+      "title_en": "A Beginner's Practical Guide to Health & Fitness",
+      "title_ur": "صحت اور فٹنس کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-01/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-02",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Health & Fitness",
+      "title_ur": "صحت اور فٹنس میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-02/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-03",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-03",
+      "title_en": "Simple Daily Ways to Improve Health & Fitness",
+      "title_ur": "صحت اور فٹنس کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-03/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-04",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-04",
+      "title_en": "How to Build a Better Routine for Health & Fitness",
+      "title_ur": "صحت اور فٹنس کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-04/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-05",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-05",
+      "title_en": "A Step-by-Step Plan for Health & Fitness",
+      "title_ur": "صحت اور فٹنس کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-05/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-06",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-06",
+      "title_en": "How to Solve Everyday Problems with Health & Fitness",
+      "title_ur": "صحت اور فٹنس سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-06/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-07",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-07",
+      "title_en": "Useful Tools and Techniques for Health & Fitness",
+      "title_ur": "صحت اور فٹنس کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-07/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-08",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-08",
+      "title_en": "How to Stay Consistent with Health & Fitness",
+      "title_ur": "صحت اور فٹنس میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-08/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-09",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-09",
+      "title_en": "A Weekly Checklist for Better Health & Fitness",
+      "title_ur": "صحت اور فٹنس کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-09/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "health-fitness-10",
+      "category": "health-fitness",
+      "slug": "health-fitness-guide-10",
+      "title_en": "How to Measure Progress in Health & Fitness",
+      "title_ur": "صحت اور فٹنس میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/health-fitness/health-fitness-guide-10/",
+      "url_ur": "/ur/life-hacks/health-fitness/health-fitness-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-01",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-01",
+      "title_en": "A Beginner's Practical Guide to Nutrition & Food",
+      "title_ur": "غذا اور خوراک کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-01/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-02",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Nutrition & Food",
+      "title_ur": "غذا اور خوراک میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-02/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-03",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-03",
+      "title_en": "Simple Daily Ways to Improve Nutrition & Food",
+      "title_ur": "غذا اور خوراک کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-03/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-04",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-04",
+      "title_en": "How to Build a Better Routine for Nutrition & Food",
+      "title_ur": "غذا اور خوراک کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-04/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-05",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-05",
+      "title_en": "A Step-by-Step Plan for Nutrition & Food",
+      "title_ur": "غذا اور خوراک کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-05/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-06",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-06",
+      "title_en": "How to Solve Everyday Problems with Nutrition & Food",
+      "title_ur": "غذا اور خوراک سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-06/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-07",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-07",
+      "title_en": "Useful Tools and Techniques for Nutrition & Food",
+      "title_ur": "غذا اور خوراک کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-07/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-08",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-08",
+      "title_en": "How to Stay Consistent with Nutrition & Food",
+      "title_ur": "غذا اور خوراک میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-08/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-09",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-09",
+      "title_en": "A Weekly Checklist for Better Nutrition & Food",
+      "title_ur": "غذا اور خوراک کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-09/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "nutrition-food-10",
+      "category": "nutrition-food",
+      "slug": "nutrition-food-guide-10",
+      "title_en": "How to Measure Progress in Nutrition & Food",
+      "title_ur": "غذا اور خوراک میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/nutrition-food/nutrition-food-guide-10/",
+      "url_ur": "/ur/life-hacks/nutrition-food/nutrition-food-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-01",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-01",
+      "title_en": "A Beginner's Practical Guide to Home & Kitchen",
+      "title_ur": "گھر اور کچن کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-01/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-02",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Home & Kitchen",
+      "title_ur": "گھر اور کچن میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-02/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-03",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-03",
+      "title_en": "Simple Daily Ways to Improve Home & Kitchen",
+      "title_ur": "گھر اور کچن کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-03/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-04",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-04",
+      "title_en": "How to Build a Better Routine for Home & Kitchen",
+      "title_ur": "گھر اور کچن کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-04/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-05",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-05",
+      "title_en": "A Step-by-Step Plan for Home & Kitchen",
+      "title_ur": "گھر اور کچن کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-05/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-06",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-06",
+      "title_en": "How to Solve Everyday Problems with Home & Kitchen",
+      "title_ur": "گھر اور کچن سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-06/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-07",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-07",
+      "title_en": "Useful Tools and Techniques for Home & Kitchen",
+      "title_ur": "گھر اور کچن کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-07/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-08",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-08",
+      "title_en": "How to Stay Consistent with Home & Kitchen",
+      "title_ur": "گھر اور کچن میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-08/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-09",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-09",
+      "title_en": "A Weekly Checklist for Better Home & Kitchen",
+      "title_ur": "گھر اور کچن کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-09/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "home-kitchen-10",
+      "category": "home-kitchen",
+      "slug": "home-kitchen-guide-10",
+      "title_en": "How to Measure Progress in Home & Kitchen",
+      "title_ur": "گھر اور کچن میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/home-kitchen/home-kitchen-guide-10/",
+      "url_ur": "/ur/life-hacks/home-kitchen/home-kitchen-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-01",
+      "category": "relationships",
+      "slug": "relationships-guide-01",
+      "title_en": "A Beginner's Practical Guide to Relationships",
+      "title_ur": "تعلقات کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/relationships/relationships-guide-01/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-02",
+      "category": "relationships",
+      "slug": "relationships-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Relationships",
+      "title_ur": "تعلقات میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/relationships/relationships-guide-02/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-03",
+      "category": "relationships",
+      "slug": "relationships-guide-03",
+      "title_en": "Simple Daily Ways to Improve Relationships",
+      "title_ur": "تعلقات کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/relationships/relationships-guide-03/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-04",
+      "category": "relationships",
+      "slug": "relationships-guide-04",
+      "title_en": "How to Build a Better Routine for Relationships",
+      "title_ur": "تعلقات کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/relationships/relationships-guide-04/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-05",
+      "category": "relationships",
+      "slug": "relationships-guide-05",
+      "title_en": "A Step-by-Step Plan for Relationships",
+      "title_ur": "تعلقات کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/relationships/relationships-guide-05/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-06",
+      "category": "relationships",
+      "slug": "relationships-guide-06",
+      "title_en": "How to Solve Everyday Problems with Relationships",
+      "title_ur": "تعلقات سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/relationships/relationships-guide-06/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-07",
+      "category": "relationships",
+      "slug": "relationships-guide-07",
+      "title_en": "Useful Tools and Techniques for Relationships",
+      "title_ur": "تعلقات کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/relationships/relationships-guide-07/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-08",
+      "category": "relationships",
+      "slug": "relationships-guide-08",
+      "title_en": "How to Stay Consistent with Relationships",
+      "title_ur": "تعلقات میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/relationships/relationships-guide-08/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-09",
+      "category": "relationships",
+      "slug": "relationships-guide-09",
+      "title_en": "A Weekly Checklist for Better Relationships",
+      "title_ur": "تعلقات کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/relationships/relationships-guide-09/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "relationships-10",
+      "category": "relationships",
+      "slug": "relationships-guide-10",
+      "title_en": "How to Measure Progress in Relationships",
+      "title_ur": "تعلقات میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/relationships/relationships-guide-10/",
+      "url_ur": "/ur/life-hacks/relationships/relationships-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-01",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-01",
+      "title_en": "A Beginner's Practical Guide to Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-01/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-02",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-02/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-03",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-03",
+      "title_en": "Simple Daily Ways to Improve Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-03/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-04",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-04",
+      "title_en": "How to Build a Better Routine for Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-04/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-05",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-05",
+      "title_en": "A Step-by-Step Plan for Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-05/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-06",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-06",
+      "title_en": "How to Solve Everyday Problems with Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-06/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-07",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-07",
+      "title_en": "Useful Tools and Techniques for Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-07/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-08",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-08",
+      "title_en": "How to Stay Consistent with Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-08/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-09",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-09",
+      "title_en": "A Weekly Checklist for Better Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-09/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "habits-self-discipline-10",
+      "category": "habits-self-discipline",
+      "slug": "habits-self-discipline-guide-10",
+      "title_en": "How to Measure Progress in Habits & Self-Discipline",
+      "title_ur": "عادات اور خود نظم میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/habits-self-discipline/habits-self-discipline-guide-10/",
+      "url_ur": "/ur/life-hacks/habits-self-discipline/habits-self-discipline-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-01",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-01",
+      "title_en": "A Beginner's Practical Guide to Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کے لیے ابتدائی عملی رہنمائی",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-01/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-01/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-02",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-02",
+      "title_en": "10 Common Mistakes to Avoid in Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل میں سے بچنے کی 10 عام غلطیاں",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-02/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-02/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-03",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-03",
+      "title_en": "Simple Daily Ways to Improve Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کو بہتر بنانے کے روزمرہ آسان طریقے",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-03/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-03/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-04",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-04",
+      "title_en": "How to Build a Better Routine for Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کے لیے بہتر معمول کیسے بنائیں",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-04/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-04/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-05",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-05",
+      "title_en": "A Step-by-Step Plan for Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کے لیے مرحلہ وار منصوبہ",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-05/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-05/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-06",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-06",
+      "title_en": "How to Solve Everyday Problems with Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل سے روزمرہ مسائل کیسے حل کریں",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-06/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-06/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-07",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-07",
+      "title_en": "Useful Tools and Techniques for Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کے مفید طریقے اور ٹولز",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-07/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-07/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-08",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-08",
+      "title_en": "How to Stay Consistent with Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل میں مستقل مزاجی کیسے برقرار رکھیں",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-08/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-08/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-09",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-09",
+      "title_en": "A Weekly Checklist for Better Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل کو بہتر بنانے کی ہفتہ وار فہرست",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-09/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-09/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    },
+    {
+      "id": "travel-everyday-survival-10",
+      "category": "travel-everyday-survival",
+      "slug": "travel-everyday-survival-guide-10",
+      "title_en": "How to Measure Progress in Travel & Everyday Survival",
+      "title_ur": "سفر اور روزمرہ مسائل میں اپنی پیش رفت کیسے جانچیں",
+      "url": "/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-10/",
+      "url_ur": "/ur/life-hacks/travel-everyday-survival/travel-everyday-survival-guide-10/",
+      "languages": [
+        "en",
+        "ur"
+      ],
+      "status": "draft-topic",
+      "editorial_review_required": true
+    }
+  ]
+}
