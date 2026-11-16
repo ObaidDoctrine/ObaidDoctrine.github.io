@@ -13,8 +13,6 @@ Tagline: BETTER MIND • BETTER CHARACTER • BETTER LIFE
 - Warm Beige: #E8D8C5 — borders and dividers.
 - Pale Orange: #FCE8D8 — subtle surfaces and hover backgrounds.
 
-Women-focused educational content is an editorial topic area within OBAID DOCTRINE, not a separate brand.
-
 ## Usage
 - Keep content surfaces predominantly cream or white; do not make every page fully orange.
 - Use orange for recognizable brand accents, not long blocks of body text.
