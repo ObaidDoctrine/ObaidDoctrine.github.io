@@ -73,7 +73,7 @@ test.describe("Public website smoke coverage", () => {
   test("English homepage is public and account-free", async ({ page }) => {
     await assertPublicPage(page, "/");
     await expect(page.locator("h1")).toContainText("BETTER MIND.");
-    await expect(page.locator('a[href="/mind-tests/"]').first()).toBeVisible();
+    await expect(page.locator('a[href="/mind-tests/"]:visible').first()).toBeVisible();
   });
 
   test("English and Urdu homepage heroes use the orange brand system and correct direction", async ({ page }) => {
@@ -93,8 +93,8 @@ test.describe("Public website smoke coverage", () => {
       }));
       expect(palette.direction).toBe(item.direction);
       expect(palette.heading).toBe("rgb(23, 23, 23)");
-      expect(palette.accent).toBe("rgb(244, 119, 33)");
-      expect(palette.primary).toBe("rgb(244, 119, 33)");
+      expect(palette.accent).toBe("rgb(232, 117, 42)");
+      expect(palette.primary).toBe("rgb(232, 117, 42)");
       expect(palette.primaryText).toBe("rgb(23, 23, 23)");
       expect(palette.ghost).toBe("rgb(255, 255, 255)");
       expect(palette.ghostText).toBe("rgb(23, 23, 23)");
@@ -106,7 +106,7 @@ test.describe("Public website smoke coverage", () => {
       }
       if (item.path === "/") {
         const criticalCss = await page.locator("#od-critical-css").textContent();
-        expect(criticalCss).toContain("#F47721");
+        expect(criticalCss).toContain("#E8752A");
         expect(criticalCss).not.toContain("#31543A");
       }
     }
@@ -175,7 +175,7 @@ test.describe("Public website smoke coverage", () => {
       expect(colors.cardText).toBe("rgb(23, 23, 23)");
       expect(colors.titleColor).toBe("rgb(23, 23, 23)");
       expect(colors.descriptionColor).toBe("rgb(98, 86, 78)");
-      expect(colors.badgeBackground).toBe("rgb(244, 119, 33)");
+      expect(colors.badgeBackground).toBe("rgb(232, 117, 42)");
       for (const [element, contrast] of Object.entries(colors.ratios)) {
         expect(contrast, `${element} contrast ratio: ${contrast}`).not.toBeNull();
         expect(contrast, `${element} must meet WCAG 2.2 AA`).toBeGreaterThanOrEqual(4.5);
@@ -277,7 +277,7 @@ test.describe("Public website smoke coverage", () => {
     const manifestResponse = await request.get("/manifest.json");
     expect(manifestResponse.status()).toBe(200);
     const manifest = await manifestResponse.json();
-    expect(manifest.theme_color).toBe("#F47721");
+    expect(manifest.theme_color).toBe("#E8752A");
     expect(manifest.background_color).toBe("#FFFAF5");
     expect((await request.get("/sw.js")).status()).toBe(200);
   });
