@@ -25,7 +25,6 @@ Tagline: BETTER MIND • BETTER CHARACTER • BETTER LIFE
 ## Brand architecture
 Parent: OBAID DOCTRINE
 - OBAID DOCTRINE PSYCHOLOGY — content division, not a separate independent parent brand.
-- WOMAN DOCTRINE by OBAID DOCTRINE
 - OBAID DOCTRINE FACTS
 - OBAID DOCTRINE ASSESSMENT — separate assessment platform; main site may link to it, but its infrastructure is out of scope.
 - OBAID DOCTRINE ACADEMY — planned
