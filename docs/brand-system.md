@@ -25,7 +25,6 @@ Tagline: BETTER MIND • BETTER CHARACTER • BETTER LIFE
 ## Brand architecture
 Parent: OBAID DOCTRINE
 - OBAID DOCTRINE PSYCHOLOGY — content division, not a separate independent parent brand.
-- WOMAN DOCTRINE by OBAID DOCTRINE
 - OBAID DOCTRINE FACTS
 - OBAID DOCTRINE ASSESSMENT — separate assessment platform; main site may link to it, but its infrastructure is out of scope.
 - OBAID DOCTRINE ACADEMY — planned
@@ -33,7 +32,7 @@ Parent: OBAID DOCTRINE
 - OBAID DOCTRINE RESEARCH — planned
 - OBAID DOCTRINE MEDIA — planned
 
-Use only the approved brand names listed in this document.
+Women-focused educational content is an editorial topic area within OBAID DOCTRINE, not a separate brand. Use only the approved brand names listed in this document.
 
 ## Governance
 Do not change the core palette without explicit owner approval. New components must consume shared CSS variables where practical. Record exceptions and accessibility checks in the implementation notes.
